@@ -34,6 +34,9 @@ const Navbar = () => {
           <li>
             <Link to="/contact" className="hover:text-circus-gold transition-colors">Contact</Link>
           </li>
+          <li>
+            <Link to="/admin" className="hover:text-circus-gold transition-colors">Admin</Link>
+          </li>
         </ul>
       </div>
     </nav>
