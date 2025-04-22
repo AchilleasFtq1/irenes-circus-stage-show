@@ -63,11 +63,11 @@ export default {
 					ring: 'hsl(var(--sidebar-ring))'
 				},
 				circus: {
-					red: '#D81E5B',
-					gold: '#F0A202',
-					blue: '#1C77C3',
-					cream: '#F9F4D2',
-					dark: '#2B303A'
+					red: '#D81E5B',     // Vibrant pink-red from logo
+					gold: '#F0A202',    // Warm golden yellow from logo
+					blue: '#1C77C3',    // Deep blue from logo
+					cream: '#F9F4D2',   // Soft cream background
+					dark: '#2B303A'     // Deep charcoal for contrast
 				}
 			},
 			borderRadius: {

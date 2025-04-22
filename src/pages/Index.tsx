@@ -1,4 +1,3 @@
-
 import { Link } from "react-router-dom";
 import { ArrowRight, Play, Calendar, Instagram, Facebook, Youtube } from "lucide-react";
 import Navbar from "@/components/Navbar";
@@ -30,7 +29,7 @@ const Index = () => {
             <h1 className="font-circus text-4xl md:text-6xl font-black mb-4 text-circus-gold">
               Irene's Circus
             </h1>
-            <p className="font-alt text-xl md:text-2xl mb-8 leading-relaxed">
+            <p className="font-alt text-xl md:text-2xl mb-8 leading-relaxed text-circus-cream">
               A theatrical musical experience that combines powerful vocals, dramatic instrumentation, and circus-inspired performance art.
             </p>
             <div className="flex flex-wrap gap-4">
@@ -91,7 +90,11 @@ const Index = () => {
           
           <div className="space-y-4">
             {upcomingEvents.map(event => (
-              <EventCard key={event.id} event={event} />
+              <EventCard 
+                key={event.id} 
+                event={event} 
+                className="text-circus-dark hover:border-circus-gold" 
+              />
             ))}
           </div>
           

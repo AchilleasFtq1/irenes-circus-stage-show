@@ -11,7 +11,7 @@ interface Event {
   isSoldOut?: boolean;
 }
 
-const EventCard = ({ event }: { event: Event }) => {
+const EventCard = ({ event, className = "" }: { event: Event, className?: string }) => {
   const dateObj = new Date(event.date);
   const formattedDate = dateObj.toLocaleDateString('en-US', {
     weekday: 'short',
@@ -21,7 +21,7 @@ const EventCard = ({ event }: { event: Event }) => {
   });
 
   return (
-    <div className="border border-circus-cream/20 rounded-lg overflow-hidden hover:border-circus-gold transition-all duration-300 group">
+    <div className={`border border-circus-cream/20 rounded-lg overflow-hidden hover:border-circus-gold transition-all duration-300 group ${className}`}>
       <div className="flex flex-col md:flex-row">
         <div className="bg-circus-dark p-4 md:w-36 flex flex-row md:flex-col items-center justify-center gap-2">
           <Calendar className="text-circus-gold" />
@@ -30,10 +30,10 @@ const EventCard = ({ event }: { event: Event }) => {
           </span>
         </div>
         
-        <div className="flex-1 p-4 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+        <div className="flex-1 p-4 flex flex-col md:flex-row justify-between items-start md:items-center gap-4 text-circus-dark">
           <div>
-            <h3 className="font-circus text-xl font-bold">{event.venue}</h3>
-            <p className="font-alt text-sm text-circus-cream/80">
+            <h3 className="font-circus text-xl font-bold text-circus-dark">{event.venue}</h3>
+            <p className="font-alt text-sm text-circus-dark/80">
               {event.city}, {event.country}
             </p>
           </div>
