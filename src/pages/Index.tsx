@@ -1,4 +1,3 @@
-
 import { Link } from "react-router-dom";
 import { ArrowRight, Play, Calendar, Instagram, Facebook, Youtube } from "lucide-react";
 import Navbar from "@/components/Navbar";
@@ -64,7 +63,7 @@ const Index = () => {
       </section>
       
       {/* Latest Release Section */}
-      <section className="py-16" style={{ background: "#1C77C3" }}>
+      <section className="py-16" style={{ background: "#FEF7CD" }}>
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row justify-between items-center mb-8">
             <h2 className="font-circus text-3xl font-bold mb-2 md:mb-0" style={{ color: "#F0A202", textShadow: "0 2px 8px #2B303A77" }}>
@@ -72,8 +71,8 @@ const Index = () => {
             </h2>
             <Link 
               to="/music" 
-              className="font-alt flex items-center gap-1 hover:text-circus-gold transition-colors text-circus-cream"
-              style={{ color: "#fff" }}
+              className="font-alt flex items-center gap-1 hover:text-circus-gold transition-colors text-circus-dark"
+              style={{ color: "#2B303A" }}
             >
               View All Music <ArrowRight size={16} />
             </Link>
@@ -97,7 +96,7 @@ const Index = () => {
       </section>
       
       {/* Upcoming Shows Section */}
-      <section className="py-16" style={{ background: "#F0A202" }}>
+      <section className="py-16" style={{ background: "#FEF7CD" }}>
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row justify-between items-center mb-8">
             <h2 className="font-circus text-3xl font-bold mb-2 md:mb-0" style={{ color: "#2B303A", textShadow: "0 2px 6px #F9F4D2CC" }}>
@@ -106,7 +105,7 @@ const Index = () => {
             <Link 
               to="/tour" 
               className="font-alt flex items-center gap-1 hover:text-circus-red transition-colors"
-              style={{ color: "#1C77C3" }}
+              style={{ color: "#2B303A" }}
             >
               View All Dates <ArrowRight size={16} />
             </Link>
@@ -125,7 +124,7 @@ const Index = () => {
           <div className="mt-8 text-center">
             <Link 
               to="/tour" 
-              className="bg-circus-blue text-white px-6 py-3 rounded-lg font-bold inline-flex items-center gap-2 hover:bg-circus-red hover:text-circus-cream transition-colors"
+              className="bg-circus-gold text-circus-dark px-6 py-3 rounded-lg font-bold inline-flex items-center gap-2 hover:bg-circus-red hover:text-circus-cream transition-colors"
             >
               See All Tour Dates <ArrowRight size={16} />
             </Link>
