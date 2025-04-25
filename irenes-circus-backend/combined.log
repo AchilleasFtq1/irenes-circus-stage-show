@@ -1,0 +1,1136 @@
+{"level":"info","message":"MongoDB connected successfully","service":"irenes-circus-api","timestamp":"2025-04-25T20:34:15.846Z"}
+{"level":"info","message":"Server running on port 5000","service":"irenes-circus-api","timestamp":"2025-04-25T20:34:15.860Z"}
+{"level":"info","message":"GET /api/gallery","service":"irenes-circus-api","timestamp":"2025-04-25T20:34:34.986Z"}
+{"level":"info","message":"All gallery images retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T20:34:34.996Z"}
+{"level":"info","message":"GET /api/gallery","service":"irenes-circus-api","timestamp":"2025-04-25T20:34:34.998Z"}
+{"level":"info","message":"All gallery images retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T20:34:35.002Z"}
+{"level":"info","message":"MongoDB connected successfully","service":"irenes-circus-api","timestamp":"2025-04-25T20:35:59.106Z"}
+{"level":"info","message":"Server running on port 5000","service":"irenes-circus-api","timestamp":"2025-04-25T20:35:59.121Z"}
+{"level":"info","message":"GET /api/events","service":"irenes-circus-api","timestamp":"2025-04-25T20:36:02.038Z"}
+{"level":"info","message":"All events retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T20:36:02.050Z"}
+{"level":"info","message":"GET /api/events","service":"irenes-circus-api","timestamp":"2025-04-25T20:36:02.052Z"}
+{"level":"info","message":"All events retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T20:36:02.055Z"}
+{"level":"info","message":"MongoDB connected successfully","service":"irenes-circus-api","timestamp":"2025-04-25T20:40:27.726Z"}
+{"level":"info","message":"Server running on port 5000","service":"irenes-circus-api","timestamp":"2025-04-25T20:40:27.738Z"}
+{"level":"info","message":"MongoDB connected successfully","service":"irenes-circus-api","timestamp":"2025-04-25T21:09:07.034Z"}
+{"level":"info","message":"Server running on port 5000","service":"irenes-circus-api","timestamp":"2025-04-25T21:09:07.046Z"}
+{"level":"info","message":"GET /api/spotify/token","service":"irenes-circus-api","timestamp":"2025-04-25T21:09:07.093Z"}
+{"level":"error","message":"Missing Spotify API credentials","service":"irenes-circus-api","timestamp":"2025-04-25T21:09:07.094Z"}
+{"level":"info","message":"GET /api/spotify/token","service":"irenes-circus-api","timestamp":"2025-04-25T21:09:07.106Z"}
+{"level":"error","message":"Missing Spotify API credentials","service":"irenes-circus-api","timestamp":"2025-04-25T21:09:07.106Z"}
+{"level":"info","message":"MongoDB connected successfully","service":"irenes-circus-api","timestamp":"2025-04-25T21:14:08.872Z"}
+{"level":"info","message":"Server running on port 5000","service":"irenes-circus-api","timestamp":"2025-04-25T21:14:08.883Z"}
+{"level":"info","message":"GET /api/spotify/token","service":"irenes-circus-api","timestamp":"2025-04-25T21:14:08.992Z"}
+{"level":"info","message":"New Spotify access token acquired","service":"irenes-circus-api","timestamp":"2025-04-25T21:14:09.213Z"}
+{"level":"info","message":"GET /api/spotify/token","service":"irenes-circus-api","timestamp":"2025-04-25T21:14:09.217Z"}
+{"level":"info","message":"GET /api/spotify/token","service":"irenes-circus-api","timestamp":"2025-04-25T21:14:14.723Z"}
+{"level":"info","message":"GET /api/spotify/token","service":"irenes-circus-api","timestamp":"2025-04-25T21:14:14.725Z"}
+{"level":"info","message":"GET /api/events","service":"irenes-circus-api","timestamp":"2025-04-25T21:14:37.546Z"}
+{"level":"info","message":"All events retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T21:14:37.558Z"}
+{"level":"info","message":"GET /api/events","service":"irenes-circus-api","timestamp":"2025-04-25T21:14:37.559Z"}
+{"level":"info","message":"All events retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T21:14:37.562Z"}
+{"level":"info","message":"GET /api/gallery","service":"irenes-circus-api","timestamp":"2025-04-25T21:14:38.646Z"}
+{"level":"info","message":"All gallery images retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T21:14:38.648Z"}
+{"level":"info","message":"GET /api/gallery","service":"irenes-circus-api","timestamp":"2025-04-25T21:14:38.650Z"}
+{"level":"info","message":"All gallery images retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T21:14:38.653Z"}
+{"level":"info","message":"GET /api/band-members","service":"irenes-circus-api","timestamp":"2025-04-25T21:14:39.632Z"}
+{"level":"info","message":"All band members retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T21:14:39.634Z"}
+{"level":"info","message":"GET /api/band-members","service":"irenes-circus-api","timestamp":"2025-04-25T21:14:39.637Z"}
+{"level":"info","message":"All band members retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T21:14:39.639Z"}
+{"level":"info","message":"GET /api/band-members","service":"irenes-circus-api","timestamp":"2025-04-25T21:14:41.275Z"}
+{"level":"info","message":"All band members retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T21:14:41.277Z"}
+{"level":"info","message":"GET /api/band-members","service":"irenes-circus-api","timestamp":"2025-04-25T21:14:41.278Z"}
+{"level":"info","message":"All band members retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T21:14:41.280Z"}
+{"level":"info","message":"GET /api/spotify/token","service":"irenes-circus-api","timestamp":"2025-04-25T21:14:44.473Z"}
+{"level":"info","message":"GET /api/spotify/token","service":"irenes-circus-api","timestamp":"2025-04-25T21:14:44.475Z"}
+{"level":"info","message":"GET /api/band-members","service":"irenes-circus-api","timestamp":"2025-04-25T21:15:25.841Z"}
+{"level":"info","message":"All band members retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T21:15:25.844Z"}
+{"level":"info","message":"GET /api/band-members","service":"irenes-circus-api","timestamp":"2025-04-25T21:15:25.845Z"}
+{"level":"info","message":"All band members retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T21:15:25.848Z"}
+{"level":"info","message":"GET /api/gallery","service":"irenes-circus-api","timestamp":"2025-04-25T21:15:28.301Z"}
+{"level":"info","message":"All gallery images retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T21:15:28.303Z"}
+{"level":"info","message":"GET /api/gallery","service":"irenes-circus-api","timestamp":"2025-04-25T21:15:28.304Z"}
+{"level":"info","message":"All gallery images retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T21:15:28.306Z"}
+{"level":"info","message":"GET /api/spotify/token","service":"irenes-circus-api","timestamp":"2025-04-25T21:15:29.771Z"}
+{"level":"info","message":"GET /api/spotify/token","service":"irenes-circus-api","timestamp":"2025-04-25T21:15:29.773Z"}
+{"level":"info","message":"GET /api/spotify/token","service":"irenes-circus-api","timestamp":"2025-04-25T21:18:08.872Z"}
+{"level":"info","message":"GET /api/spotify/token","service":"irenes-circus-api","timestamp":"2025-04-25T21:18:08.875Z"}
+{"level":"info","message":"GET /api/spotify/token","service":"irenes-circus-api","timestamp":"2025-04-25T21:18:42.501Z"}
+{"level":"info","message":"GET /api/spotify/token","service":"irenes-circus-api","timestamp":"2025-04-25T21:18:42.509Z"}
+{"level":"info","message":"GET /api/spotify/token","service":"irenes-circus-api","timestamp":"2025-04-25T21:19:08.545Z"}
+{"level":"info","message":"GET /api/spotify/token","service":"irenes-circus-api","timestamp":"2025-04-25T21:19:08.547Z"}
+{"level":"info","message":"GET /api/spotify/token","service":"irenes-circus-api","timestamp":"2025-04-25T21:21:40.857Z"}
+{"level":"info","message":"GET /api/spotify/token","service":"irenes-circus-api","timestamp":"2025-04-25T21:22:24.857Z"}
+{"level":"info","message":"GET /api/spotify/token","service":"irenes-circus-api","timestamp":"2025-04-25T21:22:24.858Z"}
+{"level":"info","message":"GET /api/spotify/token","service":"irenes-circus-api","timestamp":"2025-04-25T21:22:51.734Z"}
+{"level":"info","message":"GET /api/spotify/token","service":"irenes-circus-api","timestamp":"2025-04-25T21:22:51.736Z"}
+{"level":"info","message":"GET /api/spotify/token","service":"irenes-circus-api","timestamp":"2025-04-25T21:22:54.282Z"}
+{"level":"info","message":"GET /api/spotify/token","service":"irenes-circus-api","timestamp":"2025-04-25T21:22:54.288Z"}
+{"level":"info","message":"GET /api/spotify/token","service":"irenes-circus-api","timestamp":"2025-04-25T21:25:26.880Z"}
+{"level":"info","message":"GET /api/spotify/token","service":"irenes-circus-api","timestamp":"2025-04-25T21:25:26.881Z"}
+{"level":"info","message":"GET /api/gallery","service":"irenes-circus-api","timestamp":"2025-04-25T21:26:21.513Z"}
+{"level":"info","message":"All gallery images retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T21:26:21.516Z"}
+{"level":"info","message":"GET /api/gallery","service":"irenes-circus-api","timestamp":"2025-04-25T21:26:21.517Z"}
+{"level":"info","message":"All gallery images retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T21:26:21.519Z"}
+{"level":"info","message":"GET /api/spotify/token","service":"irenes-circus-api","timestamp":"2025-04-25T21:26:24.017Z"}
+{"level":"info","message":"GET /api/spotify/token","service":"irenes-circus-api","timestamp":"2025-04-25T21:26:24.020Z"}
+{"level":"info","message":"GET /api/spotify/token","service":"irenes-circus-api","timestamp":"2025-04-25T21:26:25.213Z"}
+{"level":"info","message":"GET /api/spotify/token","service":"irenes-circus-api","timestamp":"2025-04-25T21:26:25.215Z"}
+{"level":"info","message":"GET /api/band-members","service":"irenes-circus-api","timestamp":"2025-04-25T21:26:34.820Z"}
+{"level":"info","message":"All band members retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T21:26:34.822Z"}
+{"level":"info","message":"GET /api/band-members","service":"irenes-circus-api","timestamp":"2025-04-25T21:26:34.823Z"}
+{"level":"info","message":"All band members retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T21:26:34.825Z"}
+{"level":"info","message":"GET /api/spotify/token","service":"irenes-circus-api","timestamp":"2025-04-25T21:26:36.832Z"}
+{"level":"info","message":"GET /api/spotify/token","service":"irenes-circus-api","timestamp":"2025-04-25T21:26:36.833Z"}
+{"level":"info","message":"GET /api/spotify/token","service":"irenes-circus-api","timestamp":"2025-04-25T21:27:00.340Z"}
+{"level":"info","message":"GET /api/spotify/token","service":"irenes-circus-api","timestamp":"2025-04-25T21:27:00.342Z"}
+{"level":"info","message":"GET /api/spotify/token","service":"irenes-circus-api","timestamp":"2025-04-25T21:28:08.181Z"}
+{"level":"info","message":"GET /api/spotify/token","service":"irenes-circus-api","timestamp":"2025-04-25T21:28:08.183Z"}
+{"level":"info","message":"GET /api/spotify/token","service":"irenes-circus-api","timestamp":"2025-04-25T21:28:14.649Z"}
+{"level":"info","message":"GET /api/spotify/token","service":"irenes-circus-api","timestamp":"2025-04-25T21:28:30.855Z"}
+{"level":"info","message":"GET /api/spotify/token","service":"irenes-circus-api","timestamp":"2025-04-25T21:28:35.528Z"}
+{"level":"info","message":"GET /api/spotify/token","service":"irenes-circus-api","timestamp":"2025-04-25T21:28:35.532Z"}
+{"level":"info","message":"GET /api/spotify/token","service":"irenes-circus-api","timestamp":"2025-04-25T21:30:06.567Z"}
+{"level":"info","message":"GET /api/spotify/token","service":"irenes-circus-api","timestamp":"2025-04-25T21:30:06.568Z"}
+{"level":"info","message":"Connected to MongoDB for seeding","service":"irenes-circus-api","timestamp":"2025-04-25T21:33:35.044Z"}
+{"level":"info","message":"Cleared existing collections","service":"irenes-circus-api","timestamp":"2025-04-25T21:33:35.113Z"}
+{"level":"info","message":"Created default admin user","service":"irenes-circus-api","timestamp":"2025-04-25T21:33:35.149Z"}
+{"level":"info","message":"MongoDB connected successfully","service":"irenes-circus-api","timestamp":"2025-04-25T21:33:52.130Z"}
+{"level":"info","message":"Server running on port 5000","service":"irenes-circus-api","timestamp":"2025-04-25T21:33:52.143Z"}
+{"level":"info","message":"GET /api/gallery","service":"irenes-circus-api","timestamp":"2025-04-25T21:33:52.268Z"}
+{"level":"info","message":"All gallery images retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T21:33:52.281Z"}
+{"level":"info","message":"GET /api/gallery","service":"irenes-circus-api","timestamp":"2025-04-25T21:33:52.285Z"}
+{"level":"info","message":"All gallery images retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T21:33:52.290Z"}
+{"level":"info","message":"GET /api/spotify/token","service":"irenes-circus-api","timestamp":"2025-04-25T21:33:56.658Z"}
+{"level":"info","message":"New Spotify access token acquired","service":"irenes-circus-api","timestamp":"2025-04-25T21:33:56.889Z"}
+{"level":"info","message":"GET /api/spotify/token","service":"irenes-circus-api","timestamp":"2025-04-25T21:33:56.890Z"}
+{"level":"info","message":"GET /api/events","service":"irenes-circus-api","timestamp":"2025-04-25T21:34:00.274Z"}
+{"level":"info","message":"All events retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T21:34:00.279Z"}
+{"level":"info","message":"GET /api/events","service":"irenes-circus-api","timestamp":"2025-04-25T21:34:00.280Z"}
+{"level":"info","message":"All events retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T21:34:00.284Z"}
+{"level":"info","message":"GET /api/spotify/token","service":"irenes-circus-api","timestamp":"2025-04-25T21:34:32.353Z"}
+{"level":"info","message":"GET /api/spotify/token","service":"irenes-circus-api","timestamp":"2025-04-25T21:34:32.359Z"}
+{"level":"info","message":"GET /api/events","service":"irenes-circus-api","timestamp":"2025-04-25T21:34:35.240Z"}
+{"level":"info","message":"All events retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T21:34:35.246Z"}
+{"level":"info","message":"GET /api/events","service":"irenes-circus-api","timestamp":"2025-04-25T21:34:35.247Z"}
+{"level":"info","message":"All events retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T21:34:35.251Z"}
+{"level":"info","message":"GET /api/gallery","service":"irenes-circus-api","timestamp":"2025-04-25T21:34:35.989Z"}
+{"level":"info","message":"All gallery images retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T21:34:35.993Z"}
+{"level":"info","message":"GET /api/gallery","service":"irenes-circus-api","timestamp":"2025-04-25T21:34:35.994Z"}
+{"level":"info","message":"All gallery images retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T21:34:35.997Z"}
+{"level":"info","message":"GET /api/band-members","service":"irenes-circus-api","timestamp":"2025-04-25T21:34:37.282Z"}
+{"level":"info","message":"All band members retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T21:34:37.287Z"}
+{"level":"info","message":"GET /api/band-members","service":"irenes-circus-api","timestamp":"2025-04-25T21:34:37.289Z"}
+{"level":"info","message":"All band members retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T21:34:37.292Z"}
+{"level":"info","message":"POST /api/auth/login","service":"irenes-circus-api","timestamp":"2025-04-25T21:34:57.852Z"}
+{"level":"info","message":"User logged in: admin (admin@irenescircus.com)","service":"irenes-circus-api","timestamp":"2025-04-25T21:34:57.859Z"}
+{"level":"info","message":"GET /api/auth/me","service":"irenes-circus-api","timestamp":"2025-04-25T21:34:57.875Z"}
+{"level":"info","message":"Retrieved current user: admin","service":"irenes-circus-api","timestamp":"2025-04-25T21:34:57.879Z"}
+{"level":"info","message":"GET /api/auth/me","service":"irenes-circus-api","timestamp":"2025-04-25T21:34:57.880Z"}
+{"level":"info","message":"Retrieved current user: admin","service":"irenes-circus-api","timestamp":"2025-04-25T21:34:57.883Z"}
+{"level":"info","message":"GET /api/tracks","service":"irenes-circus-api","timestamp":"2025-04-25T21:34:57.904Z"}
+{"level":"info","message":"GET /api/band-members","service":"irenes-circus-api","timestamp":"2025-04-25T21:34:57.906Z"}
+{"level":"info","message":"GET /api/events","service":"irenes-circus-api","timestamp":"2025-04-25T21:34:57.909Z"}
+{"level":"info","message":"GET /api/gallery","service":"irenes-circus-api","timestamp":"2025-04-25T21:34:57.913Z"}
+{"level":"info","message":"GET /api/contact","service":"irenes-circus-api","timestamp":"2025-04-25T21:34:57.915Z"}
+{"level":"info","message":"All tracks retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T21:34:57.917Z"}
+{"level":"info","message":"All band members retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T21:34:57.919Z"}
+{"level":"info","message":"All events retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T21:34:57.960Z"}
+{"level":"info","message":"All gallery images retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T21:34:57.962Z"}
+{"level":"info","message":"GET /api/tracks","service":"irenes-circus-api","timestamp":"2025-04-25T21:34:57.963Z"}
+{"level":"info","message":"GET /api/band-members","service":"irenes-circus-api","timestamp":"2025-04-25T21:34:57.965Z"}
+{"level":"info","message":"GET /api/events","service":"irenes-circus-api","timestamp":"2025-04-25T21:34:57.966Z"}
+{"level":"info","message":"GET /api/gallery","service":"irenes-circus-api","timestamp":"2025-04-25T21:34:57.967Z"}
+{"level":"info","message":"All tracks retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T21:34:57.969Z"}
+{"level":"info","message":"All band members retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T21:34:57.972Z"}
+{"level":"info","message":"All events retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T21:34:57.974Z"}
+{"level":"info","message":"All gallery images retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T21:34:57.976Z"}
+{"level":"info","message":"All contact messages retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T21:34:57.995Z"}
+{"level":"info","message":"GET /api/contact","service":"irenes-circus-api","timestamp":"2025-04-25T21:34:57.996Z"}
+{"level":"info","message":"All contact messages retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T21:34:57.999Z"}
+{"level":"info","message":"GET /api/events","service":"irenes-circus-api","timestamp":"2025-04-25T21:35:04.592Z"}
+{"level":"info","message":"GET /api/auth/me","service":"irenes-circus-api","timestamp":"2025-04-25T21:35:04.593Z"}
+{"level":"info","message":"All events retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T21:35:04.596Z"}
+{"level":"info","message":"Retrieved current user: admin","service":"irenes-circus-api","timestamp":"2025-04-25T21:35:04.597Z"}
+{"level":"info","message":"GET /api/events","service":"irenes-circus-api","timestamp":"2025-04-25T21:35:04.598Z"}
+{"level":"info","message":"All events retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T21:35:04.601Z"}
+{"level":"info","message":"GET /api/auth/me","service":"irenes-circus-api","timestamp":"2025-04-25T21:35:07.111Z"}
+{"level":"info","message":"Retrieved current user: admin","service":"irenes-circus-api","timestamp":"2025-04-25T21:35:07.114Z"}
+{"level":"info","message":"GET /api/auth/me","service":"irenes-circus-api","timestamp":"2025-04-25T21:35:07.116Z"}
+{"level":"info","message":"Retrieved current user: admin","service":"irenes-circus-api","timestamp":"2025-04-25T21:35:07.119Z"}
+{"level":"info","message":"GET /api/events","service":"irenes-circus-api","timestamp":"2025-04-25T21:35:07.125Z"}
+{"level":"info","message":"All events retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T21:35:07.128Z"}
+{"level":"info","message":"GET /api/events","service":"irenes-circus-api","timestamp":"2025-04-25T21:35:07.129Z"}
+{"level":"info","message":"All events retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T21:35:07.133Z"}
+{"level":"info","message":"GET /api/auth/me","service":"irenes-circus-api","timestamp":"2025-04-25T21:35:09.407Z"}
+{"level":"info","message":"Retrieved current user: admin","service":"irenes-circus-api","timestamp":"2025-04-25T21:35:09.409Z"}
+{"level":"info","message":"GET /api/auth/me","service":"irenes-circus-api","timestamp":"2025-04-25T21:35:09.410Z"}
+{"level":"info","message":"Retrieved current user: admin","service":"irenes-circus-api","timestamp":"2025-04-25T21:35:09.412Z"}
+{"level":"info","message":"GET /api/events","service":"irenes-circus-api","timestamp":"2025-04-25T21:35:09.415Z"}
+{"level":"info","message":"All events retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T21:35:09.418Z"}
+{"level":"info","message":"GET /api/events","service":"irenes-circus-api","timestamp":"2025-04-25T21:35:09.421Z"}
+{"level":"info","message":"All events retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T21:35:09.425Z"}
+{"level":"info","message":"GET /api/contact","service":"irenes-circus-api","timestamp":"2025-04-25T21:35:10.238Z"}
+{"level":"info","message":"GET /api/auth/me","service":"irenes-circus-api","timestamp":"2025-04-25T21:35:10.240Z"}
+{"level":"info","message":"All contact messages retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T21:35:10.241Z"}
+{"level":"info","message":"Retrieved current user: admin","service":"irenes-circus-api","timestamp":"2025-04-25T21:35:10.243Z"}
+{"level":"info","message":"GET /api/contact","service":"irenes-circus-api","timestamp":"2025-04-25T21:35:10.244Z"}
+{"level":"info","message":"All contact messages retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T21:35:10.246Z"}
+{"level":"info","message":"GET /api/spotify/token","service":"irenes-circus-api","timestamp":"2025-04-25T21:35:28.337Z"}
+{"level":"info","message":"GET /api/spotify/token","service":"irenes-circus-api","timestamp":"2025-04-25T21:35:28.338Z"}
+{"level":"info","message":"GET /api/band-members","service":"irenes-circus-api","timestamp":"2025-04-25T21:36:53.822Z"}
+{"level":"info","message":"All band members retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T21:36:53.825Z"}
+{"level":"info","message":"GET /api/band-members","service":"irenes-circus-api","timestamp":"2025-04-25T21:36:53.827Z"}
+{"level":"info","message":"All band members retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T21:36:53.829Z"}
+{"level":"info","message":"GET /api/gallery","service":"irenes-circus-api","timestamp":"2025-04-25T21:36:56.500Z"}
+{"level":"info","message":"All gallery images retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T21:36:56.502Z"}
+{"level":"info","message":"GET /api/gallery","service":"irenes-circus-api","timestamp":"2025-04-25T21:36:56.504Z"}
+{"level":"info","message":"All gallery images retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T21:36:56.507Z"}
+{"level":"info","message":"GET /api/api/events","service":"irenes-circus-api","timestamp":"2025-04-25T21:36:57.849Z"}
+{"level":"warn","message":"Route not found: GET /api/api/events","service":"irenes-circus-api","timestamp":"2025-04-25T21:36:57.849Z"}
+{"level":"info","message":"GET /api/api/events","service":"irenes-circus-api","timestamp":"2025-04-25T21:36:57.850Z"}
+{"level":"warn","message":"Route not found: GET /api/api/events","service":"irenes-circus-api","timestamp":"2025-04-25T21:36:57.850Z"}
+{"level":"info","message":"GET /api/events","service":"irenes-circus-api","timestamp":"2025-04-25T21:37:37.866Z"}
+{"level":"info","message":"All events retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T21:37:37.869Z"}
+{"level":"info","message":"GET /api/events","service":"irenes-circus-api","timestamp":"2025-04-25T21:37:41.003Z"}
+{"level":"info","message":"All events retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T21:37:41.005Z"}
+{"level":"info","message":"GET /api/events","service":"irenes-circus-api","timestamp":"2025-04-25T21:37:41.007Z"}
+{"level":"info","message":"All events retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T21:37:41.009Z"}
+{"level":"info","message":"GET /api/spotify/token","service":"irenes-circus-api","timestamp":"2025-04-25T21:37:42.687Z"}
+{"level":"info","message":"GET /api/spotify/token","service":"irenes-circus-api","timestamp":"2025-04-25T21:37:42.688Z"}
+{"level":"info","message":"GET /api/events","service":"irenes-circus-api","timestamp":"2025-04-25T21:37:43.661Z"}
+{"level":"info","message":"All events retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T21:37:43.664Z"}
+{"level":"info","message":"GET /api/events","service":"irenes-circus-api","timestamp":"2025-04-25T21:37:43.668Z"}
+{"level":"info","message":"All events retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T21:37:43.671Z"}
+{"level":"info","message":"MongoDB connected successfully","service":"irenes-circus-api","timestamp":"2025-04-25T21:40:24.939Z"}
+{"level":"info","message":"Server running on port 5000","service":"irenes-circus-api","timestamp":"2025-04-25T21:40:24.954Z"}
+{"level":"info","message":"GET /api/spotify/token","service":"irenes-circus-api","timestamp":"2025-04-25T21:40:28.198Z"}
+{"level":"info","message":"New Spotify access token acquired","service":"irenes-circus-api","timestamp":"2025-04-25T21:40:28.404Z"}
+{"level":"info","message":"GET /api/spotify/token","service":"irenes-circus-api","timestamp":"2025-04-25T21:40:28.407Z"}
+{"level":"info","message":"GET /api/events","service":"irenes-circus-api","timestamp":"2025-04-25T21:40:46.549Z"}
+{"level":"info","message":"All events retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T21:40:46.568Z"}
+{"level":"info","message":"GET /api/events","service":"irenes-circus-api","timestamp":"2025-04-25T21:40:46.571Z"}
+{"level":"info","message":"All events retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T21:40:46.574Z"}
+{"level":"info","message":"GET /api/spotify/token","service":"irenes-circus-api","timestamp":"2025-04-25T21:41:14.739Z"}
+{"level":"info","message":"GET /api/spotify/token","service":"irenes-circus-api","timestamp":"2025-04-25T21:41:14.741Z"}
+{"level":"info","message":"GET /api/gallery","service":"irenes-circus-api","timestamp":"2025-04-25T21:42:54.131Z"}
+{"level":"info","message":"All gallery images retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T21:42:54.137Z"}
+{"level":"info","message":"GET /api/gallery","service":"irenes-circus-api","timestamp":"2025-04-25T21:42:54.140Z"}
+{"level":"info","message":"All gallery images retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T21:42:54.144Z"}
+{"level":"info","message":"GET /api/band-members","service":"irenes-circus-api","timestamp":"2025-04-25T21:43:19.509Z"}
+{"level":"info","message":"All band members retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T21:43:19.513Z"}
+{"level":"info","message":"GET /api/band-members","service":"irenes-circus-api","timestamp":"2025-04-25T21:43:19.514Z"}
+{"level":"info","message":"All band members retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T21:43:19.517Z"}
+{"level":"info","message":"POST /api/auth/login","service":"irenes-circus-api","timestamp":"2025-04-25T21:44:00.648Z"}
+{"level":"info","message":"User logged in: admin (admin@irenescircus.com)","service":"irenes-circus-api","timestamp":"2025-04-25T21:44:00.653Z"}
+{"level":"info","message":"GET /api/auth/me","service":"irenes-circus-api","timestamp":"2025-04-25T21:44:00.666Z"}
+{"level":"info","message":"Retrieved current user: admin","service":"irenes-circus-api","timestamp":"2025-04-25T21:44:00.671Z"}
+{"level":"info","message":"GET /api/auth/me","service":"irenes-circus-api","timestamp":"2025-04-25T21:44:00.677Z"}
+{"level":"info","message":"Retrieved current user: admin","service":"irenes-circus-api","timestamp":"2025-04-25T21:44:00.682Z"}
+{"level":"info","message":"GET /api/tracks","service":"irenes-circus-api","timestamp":"2025-04-25T21:44:00.717Z"}
+{"level":"info","message":"GET /api/band-members","service":"irenes-circus-api","timestamp":"2025-04-25T21:44:00.721Z"}
+{"level":"info","message":"All tracks retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T21:44:00.724Z"}
+{"level":"info","message":"GET /api/events","service":"irenes-circus-api","timestamp":"2025-04-25T21:44:00.726Z"}
+{"level":"info","message":"GET /api/gallery","service":"irenes-circus-api","timestamp":"2025-04-25T21:44:00.728Z"}
+{"level":"info","message":"All band members retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T21:44:00.731Z"}
+{"level":"info","message":"All events retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T21:44:00.733Z"}
+{"level":"info","message":"GET /api/contact","service":"irenes-circus-api","timestamp":"2025-04-25T21:44:00.735Z"}
+{"level":"info","message":"GET /api/tracks","service":"irenes-circus-api","timestamp":"2025-04-25T21:44:00.738Z"}
+{"level":"info","message":"All gallery images retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T21:44:00.742Z"}
+{"level":"info","message":"GET /api/band-members","service":"irenes-circus-api","timestamp":"2025-04-25T21:44:00.744Z"}
+{"level":"info","message":"All contact messages retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T21:44:00.745Z"}
+{"level":"info","message":"GET /api/events","service":"irenes-circus-api","timestamp":"2025-04-25T21:44:00.746Z"}
+{"level":"info","message":"All tracks retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T21:44:00.750Z"}
+{"level":"info","message":"GET /api/gallery","service":"irenes-circus-api","timestamp":"2025-04-25T21:44:00.751Z"}
+{"level":"info","message":"All band members retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T21:44:00.754Z"}
+{"level":"info","message":"GET /api/contact","service":"irenes-circus-api","timestamp":"2025-04-25T21:44:00.756Z"}
+{"level":"info","message":"All events retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T21:44:00.761Z"}
+{"level":"info","message":"All gallery images retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T21:44:00.763Z"}
+{"level":"info","message":"All contact messages retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T21:44:00.764Z"}
+{"level":"info","message":"GET /api/events","service":"irenes-circus-api","timestamp":"2025-04-25T21:44:10.294Z"}
+{"level":"info","message":"GET /api/auth/me","service":"irenes-circus-api","timestamp":"2025-04-25T21:44:10.296Z"}
+{"level":"info","message":"All events retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T21:44:10.298Z"}
+{"level":"info","message":"Retrieved current user: admin","service":"irenes-circus-api","timestamp":"2025-04-25T21:44:10.300Z"}
+{"level":"info","message":"GET /api/events","service":"irenes-circus-api","timestamp":"2025-04-25T21:44:10.301Z"}
+{"level":"info","message":"All events retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T21:44:10.304Z"}
+{"level":"info","message":"GET /api/auth/me","service":"irenes-circus-api","timestamp":"2025-04-25T21:44:15.036Z"}
+{"level":"info","message":"Retrieved current user: admin","service":"irenes-circus-api","timestamp":"2025-04-25T21:44:15.038Z"}
+{"level":"info","message":"GET /api/auth/me","service":"irenes-circus-api","timestamp":"2025-04-25T21:44:15.040Z"}
+{"level":"info","message":"Retrieved current user: admin","service":"irenes-circus-api","timestamp":"2025-04-25T21:44:15.042Z"}
+{"level":"info","message":"GET /api/events","service":"irenes-circus-api","timestamp":"2025-04-25T21:44:15.048Z"}
+{"level":"info","message":"All events retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T21:44:15.052Z"}
+{"level":"info","message":"GET /api/events","service":"irenes-circus-api","timestamp":"2025-04-25T21:44:15.054Z"}
+{"level":"info","message":"All events retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T21:44:15.057Z"}
+{"level":"info","message":"GET /api/auth/me","service":"irenes-circus-api","timestamp":"2025-04-25T21:44:17.762Z"}
+{"level":"info","message":"Retrieved current user: admin","service":"irenes-circus-api","timestamp":"2025-04-25T21:44:17.764Z"}
+{"level":"info","message":"GET /api/auth/me","service":"irenes-circus-api","timestamp":"2025-04-25T21:44:17.765Z"}
+{"level":"info","message":"Retrieved current user: admin","service":"irenes-circus-api","timestamp":"2025-04-25T21:44:17.768Z"}
+{"level":"info","message":"GET /api/events","service":"irenes-circus-api","timestamp":"2025-04-25T21:44:17.777Z"}
+{"level":"info","message":"All events retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T21:44:17.779Z"}
+{"level":"info","message":"GET /api/events","service":"irenes-circus-api","timestamp":"2025-04-25T21:44:17.780Z"}
+{"level":"info","message":"All events retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T21:44:17.783Z"}
+{"level":"info","message":"GET /api/auth/me","service":"irenes-circus-api","timestamp":"2025-04-25T21:44:19.125Z"}
+{"level":"info","message":"GET /api/contact","service":"irenes-circus-api","timestamp":"2025-04-25T21:44:19.126Z"}
+{"level":"info","message":"Retrieved current user: admin","service":"irenes-circus-api","timestamp":"2025-04-25T21:44:19.128Z"}
+{"level":"info","message":"All contact messages retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T21:44:19.130Z"}
+{"level":"info","message":"GET /api/contact","service":"irenes-circus-api","timestamp":"2025-04-25T21:44:19.131Z"}
+{"level":"info","message":"All contact messages retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T21:44:19.133Z"}
+{"level":"info","message":"GET /api/auth/me","service":"irenes-circus-api","timestamp":"2025-04-25T21:44:22.076Z"}
+{"level":"info","message":"Retrieved current user: admin","service":"irenes-circus-api","timestamp":"2025-04-25T21:44:22.078Z"}
+{"level":"info","message":"GET /api/auth/me","service":"irenes-circus-api","timestamp":"2025-04-25T21:44:22.079Z"}
+{"level":"info","message":"Retrieved current user: admin","service":"irenes-circus-api","timestamp":"2025-04-25T21:44:22.082Z"}
+{"level":"info","message":"GET /api/contact","service":"irenes-circus-api","timestamp":"2025-04-25T21:44:22.085Z"}
+{"level":"info","message":"All contact messages retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T21:44:22.088Z"}
+{"level":"info","message":"GET /api/contact","service":"irenes-circus-api","timestamp":"2025-04-25T21:44:22.090Z"}
+{"level":"info","message":"All contact messages retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T21:44:22.093Z"}
+{"level":"info","message":"GET /api/spotify/token","service":"irenes-circus-api","timestamp":"2025-04-25T21:44:28.215Z"}
+{"level":"info","message":"GET /api/spotify/token","service":"irenes-circus-api","timestamp":"2025-04-25T21:44:28.216Z"}
+{"level":"info","message":"GET /api/spotify/token","service":"irenes-circus-api","timestamp":"2025-04-25T21:45:19.030Z"}
+{"level":"info","message":"GET /api/spotify/token","service":"irenes-circus-api","timestamp":"2025-04-25T21:45:19.031Z"}
+{"level":"info","message":"GET /api/spotify/token","service":"irenes-circus-api","timestamp":"2025-04-25T21:46:16.141Z"}
+{"level":"info","message":"GET /api/spotify/token","service":"irenes-circus-api","timestamp":"2025-04-25T21:46:16.142Z"}
+{"level":"info","message":"GET /api/gallery","service":"irenes-circus-api","timestamp":"2025-04-25T21:47:02.801Z"}
+{"level":"info","message":"All gallery images retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T21:47:02.804Z"}
+{"level":"info","message":"GET /api/gallery","service":"irenes-circus-api","timestamp":"2025-04-25T21:47:02.806Z"}
+{"level":"info","message":"All gallery images retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T21:47:02.809Z"}
+{"level":"info","message":"GET /api/spotify/token","service":"irenes-circus-api","timestamp":"2025-04-25T21:47:22.405Z"}
+{"level":"info","message":"GET /api/spotify/token","service":"irenes-circus-api","timestamp":"2025-04-25T21:47:22.406Z"}
+{"level":"info","message":"GET /api/spotify/token","service":"irenes-circus-api","timestamp":"2025-04-25T21:47:44.390Z"}
+{"level":"info","message":"GET /api/spotify/token","service":"irenes-circus-api","timestamp":"2025-04-25T21:47:44.392Z"}
+{"level":"info","message":"GET /api/spotify/token","service":"irenes-circus-api","timestamp":"2025-04-25T21:48:49.131Z"}
+{"level":"info","message":"GET /api/spotify/token","service":"irenes-circus-api","timestamp":"2025-04-25T21:48:49.132Z"}
+{"level":"info","message":"GET /api/spotify/token","service":"irenes-circus-api","timestamp":"2025-04-25T21:49:05.621Z"}
+{"level":"info","message":"GET /api/spotify/token","service":"irenes-circus-api","timestamp":"2025-04-25T21:49:05.623Z"}
+{"level":"info","message":"GET /api/events","service":"irenes-circus-api","timestamp":"2025-04-25T21:49:32.884Z"}
+{"level":"info","message":"All events retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T21:49:32.887Z"}
+{"level":"info","message":"GET /api/events","service":"irenes-circus-api","timestamp":"2025-04-25T21:49:32.890Z"}
+{"level":"info","message":"All events retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T21:49:32.893Z"}
+{"level":"info","message":"GET /api/spotify/token","service":"irenes-circus-api","timestamp":"2025-04-25T21:49:47.406Z"}
+{"level":"info","message":"GET /api/spotify/token","service":"irenes-circus-api","timestamp":"2025-04-25T21:49:47.407Z"}
+{"level":"info","message":"GET /api/spotify/token","service":"irenes-circus-api","timestamp":"2025-04-25T21:49:51.468Z"}
+{"level":"info","message":"GET /api/spotify/token","service":"irenes-circus-api","timestamp":"2025-04-25T21:49:51.470Z"}
+{"level":"info","message":"GET /api/spotify/token","service":"irenes-circus-api","timestamp":"2025-04-25T21:49:59.483Z"}
+{"level":"info","message":"GET /api/spotify/token","service":"irenes-circus-api","timestamp":"2025-04-25T21:49:59.485Z"}
+{"level":"info","message":"GET /api/spotify/token","service":"irenes-circus-api","timestamp":"2025-04-25T21:50:09.398Z"}
+{"level":"info","message":"GET /api/spotify/token","service":"irenes-circus-api","timestamp":"2025-04-25T21:50:09.401Z"}
+{"level":"info","message":"GET /api/spotify/token","service":"irenes-circus-api","timestamp":"2025-04-25T21:50:28.114Z"}
+{"level":"info","message":"GET /api/spotify/token","service":"irenes-circus-api","timestamp":"2025-04-25T21:50:28.118Z"}
+{"level":"info","message":"GET /api/spotify/token","service":"irenes-circus-api","timestamp":"2025-04-25T21:50:47.194Z"}
+{"level":"info","message":"GET /api/spotify/token","service":"irenes-circus-api","timestamp":"2025-04-25T21:50:47.196Z"}
+{"level":"info","message":"GET /api/band-members","service":"irenes-circus-api","timestamp":"2025-04-25T21:50:57.885Z"}
+{"level":"info","message":"All band members retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T21:50:57.887Z"}
+{"level":"info","message":"GET /api/band-members","service":"irenes-circus-api","timestamp":"2025-04-25T21:50:57.890Z"}
+{"level":"info","message":"All band members retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T21:50:57.892Z"}
+{"level":"info","message":"GET /api/spotify/token","service":"irenes-circus-api","timestamp":"2025-04-25T21:51:05.267Z"}
+{"level":"info","message":"GET /api/spotify/token","service":"irenes-circus-api","timestamp":"2025-04-25T21:51:05.268Z"}
+{"level":"info","message":"GET /api/gallery","service":"irenes-circus-api","timestamp":"2025-04-25T21:51:26.521Z"}
+{"level":"info","message":"All gallery images retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T21:51:26.524Z"}
+{"level":"info","message":"GET /api/gallery","service":"irenes-circus-api","timestamp":"2025-04-25T21:51:26.525Z"}
+{"level":"info","message":"All gallery images retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T21:51:26.528Z"}
+{"level":"info","message":"GET /api/band-members","service":"irenes-circus-api","timestamp":"2025-04-25T21:51:28.250Z"}
+{"level":"info","message":"All band members retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T21:51:28.253Z"}
+{"level":"info","message":"GET /api/band-members","service":"irenes-circus-api","timestamp":"2025-04-25T21:51:28.255Z"}
+{"level":"info","message":"All band members retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T21:51:28.257Z"}
+{"level":"info","message":"GET /api/spotify/token","service":"irenes-circus-api","timestamp":"2025-04-25T21:52:18.082Z"}
+{"level":"info","message":"GET /api/spotify/token","service":"irenes-circus-api","timestamp":"2025-04-25T21:52:18.083Z"}
+{"level":"info","message":"GET /api/band-members","service":"irenes-circus-api","timestamp":"2025-04-25T21:52:20.187Z"}
+{"level":"info","message":"All band members retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T21:52:20.190Z"}
+{"level":"info","message":"GET /api/band-members","service":"irenes-circus-api","timestamp":"2025-04-25T21:52:20.191Z"}
+{"level":"info","message":"All band members retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T21:52:20.193Z"}
+{"level":"info","message":"GET /api/spotify/token","service":"irenes-circus-api","timestamp":"2025-04-25T21:53:06.844Z"}
+{"level":"info","message":"GET /api/spotify/token","service":"irenes-circus-api","timestamp":"2025-04-25T21:53:06.846Z"}
+{"level":"info","message":"GET /api/gallery","service":"irenes-circus-api","timestamp":"2025-04-25T21:55:57.045Z"}
+{"level":"info","message":"All gallery images retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T21:55:57.049Z"}
+{"level":"info","message":"GET /api/gallery","service":"irenes-circus-api","timestamp":"2025-04-25T21:55:57.051Z"}
+{"level":"info","message":"All gallery images retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T21:55:57.053Z"}
+{"level":"info","message":"GET /api/spotify/token","service":"irenes-circus-api","timestamp":"2025-04-25T21:55:58.162Z"}
+{"level":"info","message":"GET /api/spotify/token","service":"irenes-circus-api","timestamp":"2025-04-25T21:55:58.163Z"}
+{"level":"info","message":"GET /api/spotify/token","service":"irenes-circus-api","timestamp":"2025-04-25T21:59:06.824Z"}
+{"level":"info","message":"GET /api/spotify/token","service":"irenes-circus-api","timestamp":"2025-04-25T21:59:06.826Z"}
+{"level":"info","message":"GET /api/spotify/token","service":"irenes-circus-api","timestamp":"2025-04-25T22:00:38.065Z"}
+{"level":"info","message":"GET /api/spotify/token","service":"irenes-circus-api","timestamp":"2025-04-25T22:00:38.079Z"}
+{"level":"info","message":"GET /api/spotify/token","service":"irenes-circus-api","timestamp":"2025-04-25T22:00:38.250Z"}
+{"level":"info","message":"GET /api/spotify/token","service":"irenes-circus-api","timestamp":"2025-04-25T22:00:38.257Z"}
+{"level":"info","message":"POST /api/auth/login","service":"irenes-circus-api","timestamp":"2025-04-25T22:01:05.714Z"}
+{"level":"info","message":"User logged in: admin (admin@irenescircus.com)","service":"irenes-circus-api","timestamp":"2025-04-25T22:01:05.717Z"}
+{"level":"info","message":"GET /api/auth/me","service":"irenes-circus-api","timestamp":"2025-04-25T22:01:05.740Z"}
+{"level":"info","message":"Retrieved current user: admin","service":"irenes-circus-api","timestamp":"2025-04-25T22:01:05.743Z"}
+{"level":"info","message":"GET /api/auth/me","service":"irenes-circus-api","timestamp":"2025-04-25T22:01:05.744Z"}
+{"level":"info","message":"Retrieved current user: admin","service":"irenes-circus-api","timestamp":"2025-04-25T22:01:05.746Z"}
+{"level":"info","message":"GET /api/tracks","service":"irenes-circus-api","timestamp":"2025-04-25T22:01:05.796Z"}
+{"level":"info","message":"All tracks retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:01:05.800Z"}
+{"level":"info","message":"GET /api/band-members","service":"irenes-circus-api","timestamp":"2025-04-25T22:01:05.802Z"}
+{"level":"info","message":"GET /api/events","service":"irenes-circus-api","timestamp":"2025-04-25T22:01:05.805Z"}
+{"level":"info","message":"GET /api/gallery","service":"irenes-circus-api","timestamp":"2025-04-25T22:01:05.807Z"}
+{"level":"info","message":"All band members retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:01:05.809Z"}
+{"level":"info","message":"GET /api/contact","service":"irenes-circus-api","timestamp":"2025-04-25T22:01:05.811Z"}
+{"level":"info","message":"GET /api/tracks","service":"irenes-circus-api","timestamp":"2025-04-25T22:01:05.812Z"}
+{"level":"info","message":"GET /api/band-members","service":"irenes-circus-api","timestamp":"2025-04-25T22:01:05.814Z"}
+{"level":"info","message":"All events retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:01:05.928Z"}
+{"level":"info","message":"All contact messages retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:01:05.929Z"}
+{"level":"info","message":"All gallery images retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:01:05.932Z"}
+{"level":"info","message":"GET /api/events","service":"irenes-circus-api","timestamp":"2025-04-25T22:01:05.935Z"}
+{"level":"info","message":"GET /api/contact","service":"irenes-circus-api","timestamp":"2025-04-25T22:01:05.937Z"}
+{"level":"info","message":"GET /api/gallery","service":"irenes-circus-api","timestamp":"2025-04-25T22:01:05.939Z"}
+{"level":"info","message":"All events retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:01:05.942Z"}
+{"level":"info","message":"All contact messages retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:01:05.943Z"}
+{"level":"info","message":"All gallery images retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:01:05.945Z"}
+{"level":"info","message":"All tracks retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:01:05.946Z"}
+{"level":"info","message":"All band members retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:01:05.948Z"}
+{"level":"info","message":"GET /api/auth/me","service":"irenes-circus-api","timestamp":"2025-04-25T22:01:11.308Z"}
+{"level":"info","message":"Retrieved current user: admin","service":"irenes-circus-api","timestamp":"2025-04-25T22:01:11.311Z"}
+{"level":"info","message":"GET /api/auth/me","service":"irenes-circus-api","timestamp":"2025-04-25T22:01:11.312Z"}
+{"level":"info","message":"Retrieved current user: admin","service":"irenes-circus-api","timestamp":"2025-04-25T22:01:11.314Z"}
+{"level":"info","message":"GET /api/tracks","service":"irenes-circus-api","timestamp":"2025-04-25T22:01:11.333Z"}
+{"level":"info","message":"GET /api/band-members","service":"irenes-circus-api","timestamp":"2025-04-25T22:01:11.335Z"}
+{"level":"info","message":"GET /api/events","service":"irenes-circus-api","timestamp":"2025-04-25T22:01:11.337Z"}
+{"level":"info","message":"GET /api/gallery","service":"irenes-circus-api","timestamp":"2025-04-25T22:01:11.339Z"}
+{"level":"info","message":"GET /api/contact","service":"irenes-circus-api","timestamp":"2025-04-25T22:01:11.341Z"}
+{"level":"info","message":"All tracks retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:01:11.342Z"}
+{"level":"info","message":"All band members retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:01:11.344Z"}
+{"level":"info","message":"All events retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:01:11.345Z"}
+{"level":"info","message":"All gallery images retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:01:11.346Z"}
+{"level":"info","message":"All contact messages retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:01:11.347Z"}
+{"level":"info","message":"GET /api/tracks","service":"irenes-circus-api","timestamp":"2025-04-25T22:01:11.348Z"}
+{"level":"info","message":"GET /api/band-members","service":"irenes-circus-api","timestamp":"2025-04-25T22:01:11.349Z"}
+{"level":"info","message":"GET /api/events","service":"irenes-circus-api","timestamp":"2025-04-25T22:01:11.350Z"}
+{"level":"info","message":"GET /api/gallery","service":"irenes-circus-api","timestamp":"2025-04-25T22:01:11.351Z"}
+{"level":"info","message":"GET /api/contact","service":"irenes-circus-api","timestamp":"2025-04-25T22:01:11.352Z"}
+{"level":"info","message":"All tracks retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:01:11.355Z"}
+{"level":"info","message":"All band members retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:01:11.358Z"}
+{"level":"info","message":"All events retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:01:11.359Z"}
+{"level":"info","message":"All gallery images retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:01:11.360Z"}
+{"level":"info","message":"All contact messages retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:01:11.361Z"}
+{"level":"info","message":"GET /api/contact","service":"irenes-circus-api","timestamp":"2025-04-25T22:02:10.598Z"}
+{"level":"info","message":"GET /api/auth/me","service":"irenes-circus-api","timestamp":"2025-04-25T22:02:10.599Z"}
+{"level":"info","message":"All contact messages retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:02:10.600Z"}
+{"level":"info","message":"Retrieved current user: admin","service":"irenes-circus-api","timestamp":"2025-04-25T22:02:10.601Z"}
+{"level":"info","message":"GET /api/contact","service":"irenes-circus-api","timestamp":"2025-04-25T22:02:10.602Z"}
+{"level":"info","message":"All contact messages retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:02:10.605Z"}
+{"level":"info","message":"GET /api/spotify/token","service":"irenes-circus-api","timestamp":"2025-04-25T22:03:26.504Z"}
+{"level":"info","message":"GET /api/tracks","service":"irenes-circus-api","timestamp":"2025-04-25T22:03:26.506Z"}
+{"level":"info","message":"GET /api/band-members","service":"irenes-circus-api","timestamp":"2025-04-25T22:03:26.507Z"}
+{"level":"info","message":"GET /api/events","service":"irenes-circus-api","timestamp":"2025-04-25T22:03:26.509Z"}
+{"level":"info","message":"GET /api/gallery","service":"irenes-circus-api","timestamp":"2025-04-25T22:03:26.511Z"}
+{"level":"info","message":"GET /api/auth/me","service":"irenes-circus-api","timestamp":"2025-04-25T22:03:26.512Z"}
+{"level":"info","message":"GET /api/contact","service":"irenes-circus-api","timestamp":"2025-04-25T22:03:26.513Z"}
+{"level":"info","message":"All tracks retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:03:26.516Z"}
+{"level":"info","message":"All band members retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:03:26.517Z"}
+{"level":"info","message":"All events retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:03:26.519Z"}
+{"level":"info","message":"All gallery images retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:03:26.521Z"}
+{"level":"info","message":"Retrieved current user: admin","service":"irenes-circus-api","timestamp":"2025-04-25T22:03:26.522Z"}
+{"level":"info","message":"GET /api/spotify/token","service":"irenes-circus-api","timestamp":"2025-04-25T22:03:26.560Z"}
+{"level":"info","message":"GET /api/tracks","service":"irenes-circus-api","timestamp":"2025-04-25T22:03:26.561Z"}
+{"level":"info","message":"GET /api/band-members","service":"irenes-circus-api","timestamp":"2025-04-25T22:03:26.562Z"}
+{"level":"info","message":"GET /api/events","service":"irenes-circus-api","timestamp":"2025-04-25T22:03:26.564Z"}
+{"level":"info","message":"GET /api/gallery","service":"irenes-circus-api","timestamp":"2025-04-25T22:03:26.565Z"}
+{"level":"info","message":"All tracks retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:03:26.567Z"}
+{"level":"info","message":"All band members retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:03:26.569Z"}
+{"level":"info","message":"All events retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:03:26.571Z"}
+{"level":"info","message":"All gallery images retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:03:26.573Z"}
+{"level":"info","message":"All contact messages retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:03:26.575Z"}
+{"level":"info","message":"GET /api/contact","service":"irenes-circus-api","timestamp":"2025-04-25T22:03:26.577Z"}
+{"level":"info","message":"All contact messages retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:03:26.578Z"}
+{"level":"info","message":"GET /api/spotify/token","service":"irenes-circus-api","timestamp":"2025-04-25T22:03:26.809Z"}
+{"level":"info","message":"GET /api/spotify/token","service":"irenes-circus-api","timestamp":"2025-04-25T22:03:26.906Z"}
+{"level":"info","message":"GET /api/spotify/token","service":"irenes-circus-api","timestamp":"2025-04-25T22:04:12.870Z"}
+{"level":"info","message":"GET /api/spotify/token","service":"irenes-circus-api","timestamp":"2025-04-25T22:04:12.872Z"}
+{"level":"info","message":"GET /api/spotify/token","service":"irenes-circus-api","timestamp":"2025-04-25T22:04:13.036Z"}
+{"level":"info","message":"GET /api/spotify/token","service":"irenes-circus-api","timestamp":"2025-04-25T22:04:13.128Z"}
+{"level":"info","message":"GET /api/spotify/token","service":"irenes-circus-api","timestamp":"2025-04-25T22:05:04.877Z"}
+{"level":"info","message":"GET /api/tracks","service":"irenes-circus-api","timestamp":"2025-04-25T22:05:04.878Z"}
+{"level":"info","message":"All tracks retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:05:04.882Z"}
+{"level":"info","message":"GET /api/band-members","service":"irenes-circus-api","timestamp":"2025-04-25T22:05:04.883Z"}
+{"level":"info","message":"GET /api/events","service":"irenes-circus-api","timestamp":"2025-04-25T22:05:04.885Z"}
+{"level":"info","message":"GET /api/gallery","service":"irenes-circus-api","timestamp":"2025-04-25T22:05:04.886Z"}
+{"level":"info","message":"GET /api/contact","service":"irenes-circus-api","timestamp":"2025-04-25T22:05:04.888Z"}
+{"level":"info","message":"All band members retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:05:04.889Z"}
+{"level":"info","message":"All events retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:05:04.892Z"}
+{"level":"info","message":"All gallery images retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:05:04.893Z"}
+{"level":"info","message":"All contact messages retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:05:04.894Z"}
+{"level":"info","message":"GET /api/spotify/token","service":"irenes-circus-api","timestamp":"2025-04-25T22:05:05.039Z"}
+{"level":"info","message":"GET /api/auth/me","service":"irenes-circus-api","timestamp":"2025-04-25T22:07:48.890Z"}
+{"level":"info","message":"Retrieved current user: admin","service":"irenes-circus-api","timestamp":"2025-04-25T22:07:48.892Z"}
+{"level":"info","message":"GET /api/auth/me","service":"irenes-circus-api","timestamp":"2025-04-25T22:07:48.893Z"}
+{"level":"info","message":"Retrieved current user: admin","service":"irenes-circus-api","timestamp":"2025-04-25T22:07:48.896Z"}
+{"level":"info","message":"GET /api/spotify/token","service":"irenes-circus-api","timestamp":"2025-04-25T22:07:48.916Z"}
+{"level":"info","message":"GET /api/tracks","service":"irenes-circus-api","timestamp":"2025-04-25T22:07:48.916Z"}
+{"level":"info","message":"GET /api/band-members","service":"irenes-circus-api","timestamp":"2025-04-25T22:07:48.918Z"}
+{"level":"info","message":"GET /api/events","service":"irenes-circus-api","timestamp":"2025-04-25T22:07:48.920Z"}
+{"level":"info","message":"GET /api/gallery","service":"irenes-circus-api","timestamp":"2025-04-25T22:07:48.921Z"}
+{"level":"info","message":"GET /api/spotify/token","service":"irenes-circus-api","timestamp":"2025-04-25T22:07:48.923Z"}
+{"level":"info","message":"GET /api/contact","service":"irenes-circus-api","timestamp":"2025-04-25T22:07:48.925Z"}
+{"level":"info","message":"All tracks retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:07:48.928Z"}
+{"level":"info","message":"All band members retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:07:48.929Z"}
+{"level":"info","message":"All events retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:07:48.931Z"}
+{"level":"info","message":"All gallery images retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:07:48.933Z"}
+{"level":"info","message":"All contact messages retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:07:48.933Z"}
+{"level":"info","message":"GET /api/tracks","service":"irenes-circus-api","timestamp":"2025-04-25T22:07:48.934Z"}
+{"level":"info","message":"GET /api/band-members","service":"irenes-circus-api","timestamp":"2025-04-25T22:07:48.935Z"}
+{"level":"info","message":"GET /api/events","service":"irenes-circus-api","timestamp":"2025-04-25T22:07:48.937Z"}
+{"level":"info","message":"GET /api/gallery","service":"irenes-circus-api","timestamp":"2025-04-25T22:07:48.938Z"}
+{"level":"info","message":"GET /api/contact","service":"irenes-circus-api","timestamp":"2025-04-25T22:07:48.939Z"}
+{"level":"info","message":"All tracks retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:07:48.941Z"}
+{"level":"info","message":"All band members retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:07:48.942Z"}
+{"level":"info","message":"All events retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:07:48.945Z"}
+{"level":"info","message":"All gallery images retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:07:48.947Z"}
+{"level":"info","message":"All contact messages retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:07:48.948Z"}
+{"level":"info","message":"GET /api/spotify/token","service":"irenes-circus-api","timestamp":"2025-04-25T22:07:49.094Z"}
+{"level":"info","message":"GET /api/spotify/token","service":"irenes-circus-api","timestamp":"2025-04-25T22:07:49.209Z"}
+{"level":"info","message":"GET /api/contact","service":"irenes-circus-api","timestamp":"2025-04-25T22:07:53.820Z"}
+{"level":"info","message":"GET /api/auth/me","service":"irenes-circus-api","timestamp":"2025-04-25T22:07:53.821Z"}
+{"level":"info","message":"All contact messages retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:07:53.822Z"}
+{"level":"info","message":"Retrieved current user: admin","service":"irenes-circus-api","timestamp":"2025-04-25T22:07:53.823Z"}
+{"level":"info","message":"GET /api/contact","service":"irenes-circus-api","timestamp":"2025-04-25T22:07:53.824Z"}
+{"level":"info","message":"All contact messages retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:07:53.827Z"}
+{"level":"info","message":"GET /api/spotify/token","service":"irenes-circus-api","timestamp":"2025-04-25T22:07:55.315Z"}
+{"level":"info","message":"GET /api/tracks","service":"irenes-circus-api","timestamp":"2025-04-25T22:07:55.316Z"}
+{"level":"info","message":"All tracks retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:07:55.319Z"}
+{"level":"info","message":"GET /api/band-members","service":"irenes-circus-api","timestamp":"2025-04-25T22:07:55.320Z"}
+{"level":"info","message":"GET /api/events","service":"irenes-circus-api","timestamp":"2025-04-25T22:07:55.321Z"}
+{"level":"info","message":"GET /api/gallery","service":"irenes-circus-api","timestamp":"2025-04-25T22:07:55.323Z"}
+{"level":"info","message":"GET /api/spotify/token","service":"irenes-circus-api","timestamp":"2025-04-25T22:07:55.325Z"}
+{"level":"info","message":"GET /api/contact","service":"irenes-circus-api","timestamp":"2025-04-25T22:07:55.326Z"}
+{"level":"info","message":"All band members retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:07:55.328Z"}
+{"level":"info","message":"GET /api/auth/me","service":"irenes-circus-api","timestamp":"2025-04-25T22:07:55.329Z"}
+{"level":"info","message":"All events retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:07:55.331Z"}
+{"level":"info","message":"All gallery images retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:07:55.333Z"}
+{"level":"info","message":"GET /api/tracks","service":"irenes-circus-api","timestamp":"2025-04-25T22:07:55.334Z"}
+{"level":"info","message":"All contact messages retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:07:55.336Z"}
+{"level":"info","message":"Retrieved current user: admin","service":"irenes-circus-api","timestamp":"2025-04-25T22:07:55.337Z"}
+{"level":"info","message":"All tracks retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:07:55.339Z"}
+{"level":"info","message":"GET /api/band-members","service":"irenes-circus-api","timestamp":"2025-04-25T22:07:55.340Z"}
+{"level":"info","message":"All band members retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:07:55.343Z"}
+{"level":"info","message":"GET /api/events","service":"irenes-circus-api","timestamp":"2025-04-25T22:07:55.344Z"}
+{"level":"info","message":"All events retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:07:55.348Z"}
+{"level":"info","message":"GET /api/gallery","service":"irenes-circus-api","timestamp":"2025-04-25T22:07:55.349Z"}
+{"level":"info","message":"GET /api/contact","service":"irenes-circus-api","timestamp":"2025-04-25T22:07:55.351Z"}
+{"level":"info","message":"All gallery images retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:07:55.355Z"}
+{"level":"info","message":"All contact messages retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:07:55.356Z"}
+{"level":"info","message":"GET /api/spotify/token","service":"irenes-circus-api","timestamp":"2025-04-25T22:07:55.449Z"}
+{"level":"info","message":"GET /api/spotify/token","service":"irenes-circus-api","timestamp":"2025-04-25T22:07:55.542Z"}
+{"level":"info","message":"GET /api/auth/me","service":"irenes-circus-api","timestamp":"2025-04-25T22:07:57.771Z"}
+{"level":"info","message":"Retrieved current user: admin","service":"irenes-circus-api","timestamp":"2025-04-25T22:07:57.773Z"}
+{"level":"info","message":"GET /api/auth/me","service":"irenes-circus-api","timestamp":"2025-04-25T22:07:57.774Z"}
+{"level":"info","message":"Retrieved current user: admin","service":"irenes-circus-api","timestamp":"2025-04-25T22:07:57.776Z"}
+{"level":"info","message":"GET /api/tracks","service":"irenes-circus-api","timestamp":"2025-04-25T22:07:57.782Z"}
+{"level":"info","message":"GET /api/band-members","service":"irenes-circus-api","timestamp":"2025-04-25T22:07:57.785Z"}
+{"level":"info","message":"GET /api/events","service":"irenes-circus-api","timestamp":"2025-04-25T22:07:57.787Z"}
+{"level":"info","message":"GET /api/gallery","service":"irenes-circus-api","timestamp":"2025-04-25T22:07:57.788Z"}
+{"level":"info","message":"All tracks retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:07:57.790Z"}
+{"level":"info","message":"GET /api/contact","service":"irenes-circus-api","timestamp":"2025-04-25T22:07:57.791Z"}
+{"level":"info","message":"GET /api/spotify/token","service":"irenes-circus-api","timestamp":"2025-04-25T22:07:57.793Z"}
+{"level":"info","message":"All band members retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:07:57.794Z"}
+{"level":"info","message":"All events retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:07:57.795Z"}
+{"level":"info","message":"All gallery images retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:07:57.797Z"}
+{"level":"info","message":"GET /api/tracks","service":"irenes-circus-api","timestamp":"2025-04-25T22:07:57.799Z"}
+{"level":"info","message":"All contact messages retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:07:57.801Z"}
+{"level":"info","message":"GET /api/spotify/token","service":"irenes-circus-api","timestamp":"2025-04-25T22:07:57.802Z"}
+{"level":"info","message":"GET /api/band-members","service":"irenes-circus-api","timestamp":"2025-04-25T22:07:57.803Z"}
+{"level":"info","message":"GET /api/events","service":"irenes-circus-api","timestamp":"2025-04-25T22:07:57.804Z"}
+{"level":"info","message":"GET /api/gallery","service":"irenes-circus-api","timestamp":"2025-04-25T22:07:57.805Z"}
+{"level":"info","message":"All tracks retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:07:57.806Z"}
+{"level":"info","message":"GET /api/contact","service":"irenes-circus-api","timestamp":"2025-04-25T22:07:57.807Z"}
+{"level":"info","message":"All band members retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:07:57.808Z"}
+{"level":"info","message":"All events retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:07:57.810Z"}
+{"level":"info","message":"All gallery images retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:07:57.811Z"}
+{"level":"info","message":"All contact messages retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:07:57.812Z"}
+{"level":"info","message":"GET /api/spotify/token","service":"irenes-circus-api","timestamp":"2025-04-25T22:07:57.902Z"}
+{"level":"info","message":"GET /api/spotify/token","service":"irenes-circus-api","timestamp":"2025-04-25T22:07:58.000Z"}
+{"level":"info","message":"GET /api/auth/me","service":"irenes-circus-api","timestamp":"2025-04-25T22:07:59.506Z"}
+{"level":"info","message":"Retrieved current user: admin","service":"irenes-circus-api","timestamp":"2025-04-25T22:07:59.508Z"}
+{"level":"info","message":"GET /api/auth/me","service":"irenes-circus-api","timestamp":"2025-04-25T22:07:59.509Z"}
+{"level":"info","message":"Retrieved current user: admin","service":"irenes-circus-api","timestamp":"2025-04-25T22:07:59.511Z"}
+{"level":"info","message":"GET /api/tracks","service":"irenes-circus-api","timestamp":"2025-04-25T22:07:59.517Z"}
+{"level":"info","message":"GET /api/band-members","service":"irenes-circus-api","timestamp":"2025-04-25T22:07:59.518Z"}
+{"level":"info","message":"GET /api/events","service":"irenes-circus-api","timestamp":"2025-04-25T22:07:59.520Z"}
+{"level":"info","message":"GET /api/gallery","service":"irenes-circus-api","timestamp":"2025-04-25T22:07:59.521Z"}
+{"level":"info","message":"GET /api/contact","service":"irenes-circus-api","timestamp":"2025-04-25T22:07:59.523Z"}
+{"level":"info","message":"GET /api/spotify/token","service":"irenes-circus-api","timestamp":"2025-04-25T22:07:59.525Z"}
+{"level":"info","message":"All tracks retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:07:59.526Z"}
+{"level":"info","message":"All band members retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:07:59.527Z"}
+{"level":"info","message":"All events retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:07:59.529Z"}
+{"level":"info","message":"All gallery images retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:07:59.530Z"}
+{"level":"info","message":"All contact messages retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:07:59.531Z"}
+{"level":"info","message":"GET /api/spotify/token","service":"irenes-circus-api","timestamp":"2025-04-25T22:07:59.532Z"}
+{"level":"info","message":"GET /api/tracks","service":"irenes-circus-api","timestamp":"2025-04-25T22:07:59.533Z"}
+{"level":"info","message":"GET /api/band-members","service":"irenes-circus-api","timestamp":"2025-04-25T22:07:59.534Z"}
+{"level":"info","message":"GET /api/events","service":"irenes-circus-api","timestamp":"2025-04-25T22:07:59.536Z"}
+{"level":"info","message":"GET /api/gallery","service":"irenes-circus-api","timestamp":"2025-04-25T22:07:59.538Z"}
+{"level":"info","message":"GET /api/contact","service":"irenes-circus-api","timestamp":"2025-04-25T22:07:59.539Z"}
+{"level":"info","message":"All tracks retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:07:59.542Z"}
+{"level":"info","message":"All band members retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:07:59.544Z"}
+{"level":"info","message":"All events retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:07:59.545Z"}
+{"level":"info","message":"All gallery images retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:07:59.546Z"}
+{"level":"info","message":"All contact messages retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:07:59.547Z"}
+{"level":"info","message":"GET /api/spotify/token","service":"irenes-circus-api","timestamp":"2025-04-25T22:07:59.628Z"}
+{"level":"info","message":"GET /api/spotify/token","service":"irenes-circus-api","timestamp":"2025-04-25T22:07:59.720Z"}
+{"level":"info","message":"GET /api/tracks","service":"irenes-circus-api","timestamp":"2025-04-25T22:08:41.860Z"}
+{"level":"info","message":"GET /api/band-members","service":"irenes-circus-api","timestamp":"2025-04-25T22:08:41.862Z"}
+{"level":"info","message":"GET /api/events","service":"irenes-circus-api","timestamp":"2025-04-25T22:08:41.863Z"}
+{"level":"info","message":"All tracks retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:08:41.864Z"}
+{"level":"info","message":"All band members retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:08:41.865Z"}
+{"level":"info","message":"All events retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:08:41.867Z"}
+{"level":"info","message":"GET /api/spotify/token","service":"irenes-circus-api","timestamp":"2025-04-25T22:08:41.874Z"}
+{"level":"info","message":"GET /api/gallery","service":"irenes-circus-api","timestamp":"2025-04-25T22:08:41.877Z"}
+{"level":"info","message":"GET /api/contact","service":"irenes-circus-api","timestamp":"2025-04-25T22:08:41.879Z"}
+{"level":"info","message":"All gallery images retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:08:41.881Z"}
+{"level":"info","message":"All contact messages retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:08:41.882Z"}
+{"level":"info","message":"GET /api/spotify/token","service":"irenes-circus-api","timestamp":"2025-04-25T22:08:42.000Z"}
+{"level":"info","message":"GET /api/auth/me","service":"irenes-circus-api","timestamp":"2025-04-25T22:09:02.265Z"}
+{"level":"info","message":"Retrieved current user: admin","service":"irenes-circus-api","timestamp":"2025-04-25T22:09:02.267Z"}
+{"level":"info","message":"GET /api/auth/me","service":"irenes-circus-api","timestamp":"2025-04-25T22:09:02.268Z"}
+{"level":"info","message":"Retrieved current user: admin","service":"irenes-circus-api","timestamp":"2025-04-25T22:09:02.270Z"}
+{"level":"info","message":"GET /api/spotify/token","service":"irenes-circus-api","timestamp":"2025-04-25T22:09:02.329Z"}
+{"level":"info","message":"GET /api/tracks","service":"irenes-circus-api","timestamp":"2025-04-25T22:09:02.330Z"}
+{"level":"info","message":"GET /api/band-members","service":"irenes-circus-api","timestamp":"2025-04-25T22:09:02.332Z"}
+{"level":"info","message":"GET /api/events","service":"irenes-circus-api","timestamp":"2025-04-25T22:09:02.333Z"}
+{"level":"info","message":"GET /api/gallery","service":"irenes-circus-api","timestamp":"2025-04-25T22:09:02.336Z"}
+{"level":"info","message":"GET /api/contact","service":"irenes-circus-api","timestamp":"2025-04-25T22:09:02.337Z"}
+{"level":"info","message":"GET /api/spotify/token","service":"irenes-circus-api","timestamp":"2025-04-25T22:09:02.338Z"}
+{"level":"info","message":"All tracks retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:09:02.339Z"}
+{"level":"info","message":"All band members retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:09:02.341Z"}
+{"level":"info","message":"All events retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:09:02.342Z"}
+{"level":"info","message":"All gallery images retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:09:02.343Z"}
+{"level":"info","message":"All contact messages retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:09:02.345Z"}
+{"level":"info","message":"GET /api/tracks","service":"irenes-circus-api","timestamp":"2025-04-25T22:09:02.347Z"}
+{"level":"info","message":"GET /api/band-members","service":"irenes-circus-api","timestamp":"2025-04-25T22:09:02.348Z"}
+{"level":"info","message":"GET /api/events","service":"irenes-circus-api","timestamp":"2025-04-25T22:09:02.350Z"}
+{"level":"info","message":"GET /api/gallery","service":"irenes-circus-api","timestamp":"2025-04-25T22:09:02.351Z"}
+{"level":"info","message":"All tracks retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:09:02.353Z"}
+{"level":"info","message":"All band members retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:09:02.354Z"}
+{"level":"info","message":"All events retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:09:02.355Z"}
+{"level":"info","message":"All gallery images retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:09:02.357Z"}
+{"level":"info","message":"GET /api/contact","service":"irenes-circus-api","timestamp":"2025-04-25T22:09:02.358Z"}
+{"level":"info","message":"All contact messages retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:09:02.361Z"}
+{"level":"info","message":"GET /api/spotify/token","service":"irenes-circus-api","timestamp":"2025-04-25T22:09:02.434Z"}
+{"level":"info","message":"GET /api/spotify/token","service":"irenes-circus-api","timestamp":"2025-04-25T22:09:02.531Z"}
+{"level":"info","message":"GET /api/auth/me","service":"irenes-circus-api","timestamp":"2025-04-25T22:11:37.776Z"}
+{"level":"info","message":"Retrieved current user: admin","service":"irenes-circus-api","timestamp":"2025-04-25T22:11:37.778Z"}
+{"level":"info","message":"GET /api/auth/me","service":"irenes-circus-api","timestamp":"2025-04-25T22:11:37.779Z"}
+{"level":"info","message":"Retrieved current user: admin","service":"irenes-circus-api","timestamp":"2025-04-25T22:11:37.781Z"}
+{"level":"info","message":"GET /api/spotify/token","service":"irenes-circus-api","timestamp":"2025-04-25T22:11:37.801Z"}
+{"level":"info","message":"GET /api/tracks","service":"irenes-circus-api","timestamp":"2025-04-25T22:11:37.802Z"}
+{"level":"info","message":"GET /api/band-members","service":"irenes-circus-api","timestamp":"2025-04-25T22:11:37.804Z"}
+{"level":"info","message":"GET /api/events","service":"irenes-circus-api","timestamp":"2025-04-25T22:11:37.805Z"}
+{"level":"info","message":"GET /api/gallery","service":"irenes-circus-api","timestamp":"2025-04-25T22:11:37.806Z"}
+{"level":"info","message":"All tracks retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:11:37.808Z"}
+{"level":"info","message":"GET /api/contact","service":"irenes-circus-api","timestamp":"2025-04-25T22:11:37.809Z"}
+{"level":"info","message":"GET /api/spotify/token","service":"irenes-circus-api","timestamp":"2025-04-25T22:11:37.810Z"}
+{"level":"info","message":"All band members retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:11:37.812Z"}
+{"level":"info","message":"All events retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:11:37.814Z"}
+{"level":"info","message":"All gallery images retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:11:37.816Z"}
+{"level":"info","message":"GET /api/tracks","service":"irenes-circus-api","timestamp":"2025-04-25T22:11:37.817Z"}
+{"level":"info","message":"All contact messages retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:11:37.818Z"}
+{"level":"info","message":"GET /api/band-members","service":"irenes-circus-api","timestamp":"2025-04-25T22:11:37.819Z"}
+{"level":"info","message":"GET /api/events","service":"irenes-circus-api","timestamp":"2025-04-25T22:11:37.821Z"}
+{"level":"info","message":"GET /api/gallery","service":"irenes-circus-api","timestamp":"2025-04-25T22:11:37.823Z"}
+{"level":"info","message":"All tracks retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:11:37.825Z"}
+{"level":"info","message":"GET /api/contact","service":"irenes-circus-api","timestamp":"2025-04-25T22:11:37.826Z"}
+{"level":"info","message":"All band members retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:11:37.827Z"}
+{"level":"info","message":"All events retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:11:37.828Z"}
+{"level":"info","message":"All gallery images retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:11:37.829Z"}
+{"level":"info","message":"All contact messages retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:11:37.831Z"}
+{"level":"info","message":"GET /api/spotify/token","service":"irenes-circus-api","timestamp":"2025-04-25T22:11:37.953Z"}
+{"level":"info","message":"GET /api/spotify/token","service":"irenes-circus-api","timestamp":"2025-04-25T22:11:38.070Z"}
+{"level":"info","message":"GET /api/spotify/token","service":"irenes-circus-api","timestamp":"2025-04-25T22:12:58.882Z"}
+{"level":"info","message":"GET /api/band-members","service":"irenes-circus-api","timestamp":"2025-04-25T22:12:58.883Z"}
+{"level":"info","message":"GET /api/events","service":"irenes-circus-api","timestamp":"2025-04-25T22:12:58.885Z"}
+{"level":"info","message":"GET /api/gallery","service":"irenes-circus-api","timestamp":"2025-04-25T22:12:58.886Z"}
+{"level":"info","message":"GET /api/contact","service":"irenes-circus-api","timestamp":"2025-04-25T22:12:58.888Z"}
+{"level":"info","message":"All band members retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:12:58.889Z"}
+{"level":"info","message":"GET /api/spotify/token","service":"irenes-circus-api","timestamp":"2025-04-25T22:12:58.890Z"}
+{"level":"info","message":"All events retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:12:58.892Z"}
+{"level":"info","message":"All gallery images retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:12:58.893Z"}
+{"level":"info","message":"All contact messages retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:12:58.894Z"}
+{"level":"info","message":"GET /api/band-members","service":"irenes-circus-api","timestamp":"2025-04-25T22:12:58.896Z"}
+{"level":"info","message":"GET /api/events","service":"irenes-circus-api","timestamp":"2025-04-25T22:12:58.897Z"}
+{"level":"info","message":"GET /api/gallery","service":"irenes-circus-api","timestamp":"2025-04-25T22:12:58.899Z"}
+{"level":"info","message":"GET /api/contact","service":"irenes-circus-api","timestamp":"2025-04-25T22:12:58.901Z"}
+{"level":"info","message":"All band members retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:12:58.902Z"}
+{"level":"info","message":"All events retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:12:58.904Z"}
+{"level":"info","message":"All gallery images retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:12:58.905Z"}
+{"level":"info","message":"All contact messages retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:12:58.906Z"}
+{"level":"info","message":"GET /api/spotify/token","service":"irenes-circus-api","timestamp":"2025-04-25T22:12:59.062Z"}
+{"level":"info","message":"GET /api/spotify/token","service":"irenes-circus-api","timestamp":"2025-04-25T22:12:59.163Z"}
+{"level":"info","message":"GET /api/spotify/token","service":"irenes-circus-api","timestamp":"2025-04-25T22:12:59.169Z"}
+{"level":"info","message":"GET /api/spotify/token","service":"irenes-circus-api","timestamp":"2025-04-25T22:12:59.346Z"}
+{"level":"info","message":"GET /api/auth/me","service":"irenes-circus-api","timestamp":"2025-04-25T22:13:17.084Z"}
+{"level":"info","message":"Retrieved current user: admin","service":"irenes-circus-api","timestamp":"2025-04-25T22:13:17.087Z"}
+{"level":"info","message":"GET /api/auth/me","service":"irenes-circus-api","timestamp":"2025-04-25T22:13:17.089Z"}
+{"level":"info","message":"Retrieved current user: admin","service":"irenes-circus-api","timestamp":"2025-04-25T22:13:17.091Z"}
+{"level":"info","message":"GET /api/band-members","service":"irenes-circus-api","timestamp":"2025-04-25T22:13:17.109Z"}
+{"level":"info","message":"GET /api/events","service":"irenes-circus-api","timestamp":"2025-04-25T22:13:17.111Z"}
+{"level":"info","message":"GET /api/spotify/token","service":"irenes-circus-api","timestamp":"2025-04-25T22:13:17.113Z"}
+{"level":"info","message":"All band members retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:13:17.115Z"}
+{"level":"info","message":"GET /api/gallery","service":"irenes-circus-api","timestamp":"2025-04-25T22:13:17.117Z"}
+{"level":"info","message":"GET /api/contact","service":"irenes-circus-api","timestamp":"2025-04-25T22:13:17.118Z"}
+{"level":"info","message":"All events retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:13:17.121Z"}
+{"level":"info","message":"All gallery images retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:13:17.122Z"}
+{"level":"info","message":"All contact messages retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:13:17.149Z"}
+{"level":"info","message":"GET /api/spotify/token","service":"irenes-circus-api","timestamp":"2025-04-25T22:13:17.150Z"}
+{"level":"info","message":"GET /api/band-members","service":"irenes-circus-api","timestamp":"2025-04-25T22:13:17.151Z"}
+{"level":"info","message":"GET /api/events","service":"irenes-circus-api","timestamp":"2025-04-25T22:13:17.154Z"}
+{"level":"info","message":"All band members retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:13:17.156Z"}
+{"level":"info","message":"GET /api/gallery","service":"irenes-circus-api","timestamp":"2025-04-25T22:13:17.157Z"}
+{"level":"info","message":"All events retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:13:17.158Z"}
+{"level":"info","message":"All gallery images retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:13:17.161Z"}
+{"level":"info","message":"GET /api/contact","service":"irenes-circus-api","timestamp":"2025-04-25T22:13:17.162Z"}
+{"level":"info","message":"All contact messages retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:13:17.165Z"}
+{"level":"info","message":"GET /api/spotify/token","service":"irenes-circus-api","timestamp":"2025-04-25T22:13:17.264Z"}
+{"level":"info","message":"GET /api/spotify/token","service":"irenes-circus-api","timestamp":"2025-04-25T22:13:17.362Z"}
+{"level":"info","message":"GET /api/spotify/token","service":"irenes-circus-api","timestamp":"2025-04-25T22:13:17.388Z"}
+{"level":"info","message":"GET /api/spotify/token","service":"irenes-circus-api","timestamp":"2025-04-25T22:13:17.491Z"}
+{"level":"info","message":"GET /api/auth/me","service":"irenes-circus-api","timestamp":"2025-04-25T22:13:29.777Z"}
+{"level":"info","message":"Retrieved current user: admin","service":"irenes-circus-api","timestamp":"2025-04-25T22:13:29.779Z"}
+{"level":"info","message":"GET /api/auth/me","service":"irenes-circus-api","timestamp":"2025-04-25T22:13:29.780Z"}
+{"level":"info","message":"Retrieved current user: admin","service":"irenes-circus-api","timestamp":"2025-04-25T22:13:29.782Z"}
+{"level":"info","message":"GET /api/spotify/token","service":"irenes-circus-api","timestamp":"2025-04-25T22:13:29.800Z"}
+{"level":"info","message":"GET /api/band-members","service":"irenes-circus-api","timestamp":"2025-04-25T22:13:29.801Z"}
+{"level":"info","message":"GET /api/events","service":"irenes-circus-api","timestamp":"2025-04-25T22:13:29.803Z"}
+{"level":"info","message":"GET /api/spotify/token","service":"irenes-circus-api","timestamp":"2025-04-25T22:13:29.804Z"}
+{"level":"info","message":"All band members retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:13:29.807Z"}
+{"level":"info","message":"GET /api/gallery","service":"irenes-circus-api","timestamp":"2025-04-25T22:13:29.808Z"}
+{"level":"info","message":"All events retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:13:29.810Z"}
+{"level":"info","message":"GET /api/contact","service":"irenes-circus-api","timestamp":"2025-04-25T22:13:29.812Z"}
+{"level":"info","message":"GET /api/band-members","service":"irenes-circus-api","timestamp":"2025-04-25T22:13:29.813Z"}
+{"level":"info","message":"All gallery images retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:13:29.815Z"}
+{"level":"info","message":"All contact messages retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:13:29.817Z"}
+{"level":"info","message":"All band members retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:13:29.819Z"}
+{"level":"info","message":"GET /api/events","service":"irenes-circus-api","timestamp":"2025-04-25T22:13:29.821Z"}
+{"level":"info","message":"GET /api/gallery","service":"irenes-circus-api","timestamp":"2025-04-25T22:13:29.824Z"}
+{"level":"info","message":"All events retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:13:29.826Z"}
+{"level":"info","message":"GET /api/contact","service":"irenes-circus-api","timestamp":"2025-04-25T22:13:29.827Z"}
+{"level":"info","message":"All gallery images retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:13:29.830Z"}
+{"level":"info","message":"All contact messages retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:13:29.831Z"}
+{"level":"info","message":"GET /api/spotify/token","service":"irenes-circus-api","timestamp":"2025-04-25T22:13:29.946Z"}
+{"level":"info","message":"GET /api/spotify/token","service":"irenes-circus-api","timestamp":"2025-04-25T22:13:30.042Z"}
+{"level":"info","message":"GET /api/spotify/token","service":"irenes-circus-api","timestamp":"2025-04-25T22:13:30.111Z"}
+{"level":"info","message":"GET /api/spotify/token","service":"irenes-circus-api","timestamp":"2025-04-25T22:13:30.234Z"}
+{"level":"info","message":"GET /api/events","service":"irenes-circus-api","timestamp":"2025-04-25T22:13:30.352Z"}
+{"level":"info","message":"GET /api/auth/me","service":"irenes-circus-api","timestamp":"2025-04-25T22:13:30.353Z"}
+{"level":"info","message":"All events retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:13:30.357Z"}
+{"level":"info","message":"Retrieved current user: admin","service":"irenes-circus-api","timestamp":"2025-04-25T22:13:30.358Z"}
+{"level":"info","message":"GET /api/events","service":"irenes-circus-api","timestamp":"2025-04-25T22:13:30.359Z"}
+{"level":"info","message":"All events retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:13:30.362Z"}
+{"level":"info","message":"GET /api/auth/me","service":"irenes-circus-api","timestamp":"2025-04-25T22:13:48.068Z"}
+{"level":"info","message":"Retrieved current user: admin","service":"irenes-circus-api","timestamp":"2025-04-25T22:13:48.070Z"}
+{"level":"info","message":"GET /api/auth/me","service":"irenes-circus-api","timestamp":"2025-04-25T22:13:48.071Z"}
+{"level":"info","message":"Retrieved current user: admin","service":"irenes-circus-api","timestamp":"2025-04-25T22:13:48.073Z"}
+{"level":"info","message":"GET /api/events","service":"irenes-circus-api","timestamp":"2025-04-25T22:13:48.080Z"}
+{"level":"info","message":"All events retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:13:48.083Z"}
+{"level":"info","message":"GET /api/events","service":"irenes-circus-api","timestamp":"2025-04-25T22:13:48.085Z"}
+{"level":"info","message":"All events retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:13:48.087Z"}
+{"level":"info","message":"GET /api/spotify/token","service":"irenes-circus-api","timestamp":"2025-04-25T22:13:53.890Z"}
+{"level":"info","message":"GET /api/spotify/token","service":"irenes-circus-api","timestamp":"2025-04-25T22:13:53.891Z"}
+{"level":"info","message":"GET /api/auth/me","service":"irenes-circus-api","timestamp":"2025-04-25T22:13:56.180Z"}
+{"level":"info","message":"Retrieved current user: admin","service":"irenes-circus-api","timestamp":"2025-04-25T22:13:56.183Z"}
+{"level":"info","message":"GET /api/auth/me","service":"irenes-circus-api","timestamp":"2025-04-25T22:13:56.184Z"}
+{"level":"info","message":"Retrieved current user: admin","service":"irenes-circus-api","timestamp":"2025-04-25T22:13:56.186Z"}
+{"level":"info","message":"GET /api/spotify/token","service":"irenes-circus-api","timestamp":"2025-04-25T22:13:56.206Z"}
+{"level":"info","message":"GET /api/band-members","service":"irenes-circus-api","timestamp":"2025-04-25T22:13:56.207Z"}
+{"level":"info","message":"GET /api/events","service":"irenes-circus-api","timestamp":"2025-04-25T22:13:56.208Z"}
+{"level":"info","message":"GET /api/gallery","service":"irenes-circus-api","timestamp":"2025-04-25T22:13:56.210Z"}
+{"level":"info","message":"All band members retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:13:56.211Z"}
+{"level":"info","message":"GET /api/contact","service":"irenes-circus-api","timestamp":"2025-04-25T22:13:56.212Z"}
+{"level":"info","message":"GET /api/spotify/token","service":"irenes-circus-api","timestamp":"2025-04-25T22:13:56.214Z"}
+{"level":"info","message":"All events retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:13:56.216Z"}
+{"level":"info","message":"All gallery images retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:13:56.218Z"}
+{"level":"info","message":"GET /api/band-members","service":"irenes-circus-api","timestamp":"2025-04-25T22:13:56.219Z"}
+{"level":"info","message":"All contact messages retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:13:56.220Z"}
+{"level":"info","message":"All band members retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:13:56.221Z"}
+{"level":"info","message":"GET /api/events","service":"irenes-circus-api","timestamp":"2025-04-25T22:13:56.225Z"}
+{"level":"info","message":"GET /api/gallery","service":"irenes-circus-api","timestamp":"2025-04-25T22:13:56.227Z"}
+{"level":"info","message":"GET /api/contact","service":"irenes-circus-api","timestamp":"2025-04-25T22:13:56.229Z"}
+{"level":"info","message":"All events retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:13:56.234Z"}
+{"level":"info","message":"All gallery images retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:13:56.235Z"}
+{"level":"info","message":"All contact messages retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:13:56.237Z"}
+{"level":"info","message":"GET /api/spotify/token","service":"irenes-circus-api","timestamp":"2025-04-25T22:13:56.351Z"}
+{"level":"info","message":"GET /api/spotify/token","service":"irenes-circus-api","timestamp":"2025-04-25T22:13:56.446Z"}
+{"level":"info","message":"GET /api/spotify/token","service":"irenes-circus-api","timestamp":"2025-04-25T22:13:56.457Z"}
+{"level":"info","message":"GET /api/spotify/token","service":"irenes-circus-api","timestamp":"2025-04-25T22:13:56.570Z"}
+{"level":"info","message":"GET /api/spotify/token","service":"irenes-circus-api","timestamp":"2025-04-25T22:14:08.758Z"}
+{"level":"info","message":"GET /api/band-members","service":"irenes-circus-api","timestamp":"2025-04-25T22:14:08.759Z"}
+{"level":"info","message":"GET /api/events","service":"irenes-circus-api","timestamp":"2025-04-25T22:14:08.761Z"}
+{"level":"info","message":"GET /api/gallery","service":"irenes-circus-api","timestamp":"2025-04-25T22:14:08.762Z"}
+{"level":"info","message":"All band members retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:14:08.764Z"}
+{"level":"info","message":"GET /api/contact","service":"irenes-circus-api","timestamp":"2025-04-25T22:14:08.764Z"}
+{"level":"info","message":"All events retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:14:08.767Z"}
+{"level":"info","message":"All gallery images retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:14:08.768Z"}
+{"level":"info","message":"All contact messages retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:14:08.769Z"}
+{"level":"info","message":"GET /api/spotify/token","service":"irenes-circus-api","timestamp":"2025-04-25T22:14:08.865Z"}
+{"level":"info","message":"GET /api/spotify/token","service":"irenes-circus-api","timestamp":"2025-04-25T22:14:08.975Z"}
+{"level":"info","message":"GET /api/auth/me","service":"irenes-circus-api","timestamp":"2025-04-25T22:17:36.786Z"}
+{"level":"info","message":"Retrieved current user: admin","service":"irenes-circus-api","timestamp":"2025-04-25T22:17:36.789Z"}
+{"level":"info","message":"GET /api/auth/me","service":"irenes-circus-api","timestamp":"2025-04-25T22:17:36.792Z"}
+{"level":"info","message":"Retrieved current user: admin","service":"irenes-circus-api","timestamp":"2025-04-25T22:17:36.795Z"}
+{"level":"info","message":"GET /api/spotify/token","service":"irenes-circus-api","timestamp":"2025-04-25T22:17:36.832Z"}
+{"level":"info","message":"GET /api/band-members","service":"irenes-circus-api","timestamp":"2025-04-25T22:17:36.833Z"}
+{"level":"info","message":"GET /api/events","service":"irenes-circus-api","timestamp":"2025-04-25T22:17:36.834Z"}
+{"level":"info","message":"GET /api/gallery","service":"irenes-circus-api","timestamp":"2025-04-25T22:17:36.836Z"}
+{"level":"info","message":"GET /api/contact","service":"irenes-circus-api","timestamp":"2025-04-25T22:17:36.838Z"}
+{"level":"info","message":"GET /api/spotify/token","service":"irenes-circus-api","timestamp":"2025-04-25T22:17:36.840Z"}
+{"level":"info","message":"All band members retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:17:36.841Z"}
+{"level":"info","message":"All events retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:17:36.843Z"}
+{"level":"info","message":"All gallery images retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:17:36.845Z"}
+{"level":"info","message":"All contact messages retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:17:36.846Z"}
+{"level":"info","message":"GET /api/band-members","service":"irenes-circus-api","timestamp":"2025-04-25T22:17:36.853Z"}
+{"level":"info","message":"GET /api/events","service":"irenes-circus-api","timestamp":"2025-04-25T22:17:36.854Z"}
+{"level":"info","message":"GET /api/gallery","service":"irenes-circus-api","timestamp":"2025-04-25T22:17:36.857Z"}
+{"level":"info","message":"All band members retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:17:36.860Z"}
+{"level":"info","message":"All events retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:17:36.861Z"}
+{"level":"info","message":"All gallery images retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:17:36.864Z"}
+{"level":"info","message":"GET /api/contact","service":"irenes-circus-api","timestamp":"2025-04-25T22:17:36.900Z"}
+{"level":"info","message":"All contact messages retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:17:36.903Z"}
+{"level":"info","message":"GET /api/spotify/token","service":"irenes-circus-api","timestamp":"2025-04-25T22:17:37.074Z"}
+{"level":"info","message":"GET /api/spotify/token","service":"irenes-circus-api","timestamp":"2025-04-25T22:17:37.185Z"}
+{"level":"info","message":"GET /api/spotify/token","service":"irenes-circus-api","timestamp":"2025-04-25T22:17:37.192Z"}
+{"level":"info","message":"GET /api/spotify/token","service":"irenes-circus-api","timestamp":"2025-04-25T22:17:37.352Z"}
+{"level":"info","message":"GET /api/auth/me","service":"irenes-circus-api","timestamp":"2025-04-25T22:17:55.107Z"}
+{"level":"info","message":"Retrieved current user: admin","service":"irenes-circus-api","timestamp":"2025-04-25T22:17:55.109Z"}
+{"level":"info","message":"GET /api/auth/me","service":"irenes-circus-api","timestamp":"2025-04-25T22:17:55.110Z"}
+{"level":"info","message":"Retrieved current user: admin","service":"irenes-circus-api","timestamp":"2025-04-25T22:17:55.112Z"}
+{"level":"info","message":"GET /api/spotify/token","service":"irenes-circus-api","timestamp":"2025-04-25T22:17:55.126Z"}
+{"level":"info","message":"GET /api/band-members","service":"irenes-circus-api","timestamp":"2025-04-25T22:17:55.127Z"}
+{"level":"info","message":"GET /api/events","service":"irenes-circus-api","timestamp":"2025-04-25T22:17:55.128Z"}
+{"level":"info","message":"GET /api/gallery","service":"irenes-circus-api","timestamp":"2025-04-25T22:17:55.130Z"}
+{"level":"info","message":"All band members retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:17:55.132Z"}
+{"level":"info","message":"GET /api/spotify/token","service":"irenes-circus-api","timestamp":"2025-04-25T22:17:55.132Z"}
+{"level":"info","message":"GET /api/contact","service":"irenes-circus-api","timestamp":"2025-04-25T22:17:55.133Z"}
+{"level":"info","message":"All events retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:17:55.136Z"}
+{"level":"info","message":"All gallery images retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:17:55.137Z"}
+{"level":"info","message":"GET /api/band-members","service":"irenes-circus-api","timestamp":"2025-04-25T22:17:55.138Z"}
+{"level":"info","message":"All contact messages retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:17:55.139Z"}
+{"level":"info","message":"GET /api/events","service":"irenes-circus-api","timestamp":"2025-04-25T22:17:55.140Z"}
+{"level":"info","message":"GET /api/gallery","service":"irenes-circus-api","timestamp":"2025-04-25T22:17:55.141Z"}
+{"level":"info","message":"All band members retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:17:55.142Z"}
+{"level":"info","message":"GET /api/contact","service":"irenes-circus-api","timestamp":"2025-04-25T22:17:55.143Z"}
+{"level":"info","message":"All events retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:17:55.145Z"}
+{"level":"info","message":"All gallery images retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:17:55.146Z"}
+{"level":"info","message":"All contact messages retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:17:55.147Z"}
+{"level":"info","message":"GET /api/spotify/token","service":"irenes-circus-api","timestamp":"2025-04-25T22:17:55.235Z"}
+{"level":"info","message":"GET /api/spotify/token","service":"irenes-circus-api","timestamp":"2025-04-25T22:17:55.353Z"}
+{"level":"info","message":"GET /api/spotify/token","service":"irenes-circus-api","timestamp":"2025-04-25T22:17:55.362Z"}
+{"level":"info","message":"GET /api/spotify/token","service":"irenes-circus-api","timestamp":"2025-04-25T22:17:55.467Z"}
+{"level":"info","message":"GET /api/auth/me","service":"irenes-circus-api","timestamp":"2025-04-25T22:18:12.820Z"}
+{"level":"info","message":"Retrieved current user: admin","service":"irenes-circus-api","timestamp":"2025-04-25T22:18:12.822Z"}
+{"level":"info","message":"GET /api/auth/me","service":"irenes-circus-api","timestamp":"2025-04-25T22:18:12.823Z"}
+{"level":"info","message":"Retrieved current user: admin","service":"irenes-circus-api","timestamp":"2025-04-25T22:18:12.825Z"}
+{"level":"info","message":"GET /api/spotify/token","service":"irenes-circus-api","timestamp":"2025-04-25T22:18:12.839Z"}
+{"level":"info","message":"GET /api/band-members","service":"irenes-circus-api","timestamp":"2025-04-25T22:18:12.839Z"}
+{"level":"info","message":"GET /api/events","service":"irenes-circus-api","timestamp":"2025-04-25T22:18:12.841Z"}
+{"level":"info","message":"All band members retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:18:12.843Z"}
+{"level":"info","message":"GET /api/spotify/token","service":"irenes-circus-api","timestamp":"2025-04-25T22:18:12.844Z"}
+{"level":"info","message":"GET /api/gallery","service":"irenes-circus-api","timestamp":"2025-04-25T22:18:12.844Z"}
+{"level":"info","message":"GET /api/contact","service":"irenes-circus-api","timestamp":"2025-04-25T22:18:12.846Z"}
+{"level":"info","message":"All events retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:18:12.848Z"}
+{"level":"info","message":"GET /api/band-members","service":"irenes-circus-api","timestamp":"2025-04-25T22:18:12.849Z"}
+{"level":"info","message":"All gallery images retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:18:12.852Z"}
+{"level":"info","message":"All contact messages retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:18:12.853Z"}
+{"level":"info","message":"GET /api/events","service":"irenes-circus-api","timestamp":"2025-04-25T22:18:12.854Z"}
+{"level":"info","message":"All band members retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:18:12.856Z"}
+{"level":"info","message":"GET /api/gallery","service":"irenes-circus-api","timestamp":"2025-04-25T22:18:12.856Z"}
+{"level":"info","message":"GET /api/contact","service":"irenes-circus-api","timestamp":"2025-04-25T22:18:12.858Z"}
+{"level":"info","message":"All events retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:18:12.859Z"}
+{"level":"info","message":"All gallery images retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:18:12.859Z"}
+{"level":"info","message":"All contact messages retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:18:12.860Z"}
+{"level":"info","message":"GET /api/spotify/token","service":"irenes-circus-api","timestamp":"2025-04-25T22:18:12.945Z"}
+{"level":"info","message":"GET /api/spotify/token","service":"irenes-circus-api","timestamp":"2025-04-25T22:18:13.037Z"}
+{"level":"info","message":"GET /api/spotify/token","service":"irenes-circus-api","timestamp":"2025-04-25T22:18:13.050Z"}
+{"level":"info","message":"GET /api/spotify/token","service":"irenes-circus-api","timestamp":"2025-04-25T22:18:13.157Z"}
+{"level":"info","message":"GET /api/auth/me","service":"irenes-circus-api","timestamp":"2025-04-25T22:19:23.514Z"}
+{"level":"info","message":"Retrieved current user: admin","service":"irenes-circus-api","timestamp":"2025-04-25T22:19:23.517Z"}
+{"level":"info","message":"GET /api/auth/me","service":"irenes-circus-api","timestamp":"2025-04-25T22:19:23.519Z"}
+{"level":"info","message":"Retrieved current user: admin","service":"irenes-circus-api","timestamp":"2025-04-25T22:19:23.522Z"}
+{"level":"info","message":"GET /api/spotify/token","service":"irenes-circus-api","timestamp":"2025-04-25T22:19:23.537Z"}
+{"level":"info","message":"GET /api/band-members","service":"irenes-circus-api","timestamp":"2025-04-25T22:19:23.539Z"}
+{"level":"info","message":"GET /api/events","service":"irenes-circus-api","timestamp":"2025-04-25T22:19:23.541Z"}
+{"level":"info","message":"GET /api/gallery","service":"irenes-circus-api","timestamp":"2025-04-25T22:19:23.542Z"}
+{"level":"info","message":"GET /api/contact","service":"irenes-circus-api","timestamp":"2025-04-25T22:19:23.543Z"}
+{"level":"info","message":"GET /api/spotify/token","service":"irenes-circus-api","timestamp":"2025-04-25T22:19:23.545Z"}
+{"level":"info","message":"All band members retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:19:23.546Z"}
+{"level":"info","message":"All events retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:19:23.548Z"}
+{"level":"info","message":"All gallery images retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:19:23.549Z"}
+{"level":"info","message":"All contact messages retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:19:23.551Z"}
+{"level":"info","message":"GET /api/band-members","service":"irenes-circus-api","timestamp":"2025-04-25T22:19:23.552Z"}
+{"level":"info","message":"GET /api/events","service":"irenes-circus-api","timestamp":"2025-04-25T22:19:23.553Z"}
+{"level":"info","message":"GET /api/gallery","service":"irenes-circus-api","timestamp":"2025-04-25T22:19:23.555Z"}
+{"level":"info","message":"GET /api/contact","service":"irenes-circus-api","timestamp":"2025-04-25T22:19:23.556Z"}
+{"level":"info","message":"All band members retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:19:23.558Z"}
+{"level":"info","message":"All events retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:19:23.559Z"}
+{"level":"info","message":"All gallery images retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:19:23.560Z"}
+{"level":"info","message":"All contact messages retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:19:23.561Z"}
+{"level":"info","message":"GET /api/spotify/token","service":"irenes-circus-api","timestamp":"2025-04-25T22:19:23.681Z"}
+{"level":"info","message":"GET /api/spotify/token","service":"irenes-circus-api","timestamp":"2025-04-25T22:19:23.792Z"}
+{"level":"info","message":"GET /api/spotify/token","service":"irenes-circus-api","timestamp":"2025-04-25T22:19:23.811Z"}
+{"level":"info","message":"GET /api/spotify/token","service":"irenes-circus-api","timestamp":"2025-04-25T22:19:23.925Z"}
+{"level":"info","message":"GET /api/auth/me","service":"irenes-circus-api","timestamp":"2025-04-25T22:23:25.864Z"}
+{"level":"info","message":"Retrieved current user: admin","service":"irenes-circus-api","timestamp":"2025-04-25T22:23:25.867Z"}
+{"level":"info","message":"GET /api/auth/me","service":"irenes-circus-api","timestamp":"2025-04-25T22:23:36.842Z"}
+{"level":"info","message":"Retrieved current user: admin","service":"irenes-circus-api","timestamp":"2025-04-25T22:23:36.843Z"}
+{"level":"info","message":"GET /api/auth/me","service":"irenes-circus-api","timestamp":"2025-04-25T22:23:36.844Z"}
+{"level":"info","message":"Retrieved current user: admin","service":"irenes-circus-api","timestamp":"2025-04-25T22:23:36.846Z"}
+{"level":"info","message":"GET /api/spotify/token","service":"irenes-circus-api","timestamp":"2025-04-25T22:23:36.861Z"}
+{"level":"info","message":"GET /api/band-members","service":"irenes-circus-api","timestamp":"2025-04-25T22:23:36.861Z"}
+{"level":"info","message":"GET /api/events","service":"irenes-circus-api","timestamp":"2025-04-25T22:23:36.863Z"}
+{"level":"info","message":"GET /api/spotify/token","service":"irenes-circus-api","timestamp":"2025-04-25T22:23:36.864Z"}
+{"level":"info","message":"All band members retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:23:36.866Z"}
+{"level":"info","message":"GET /api/gallery","service":"irenes-circus-api","timestamp":"2025-04-25T22:23:36.867Z"}
+{"level":"info","message":"All events retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:23:36.869Z"}
+{"level":"info","message":"GET /api/contact","service":"irenes-circus-api","timestamp":"2025-04-25T22:23:36.870Z"}
+{"level":"info","message":"GET /api/band-members","service":"irenes-circus-api","timestamp":"2025-04-25T22:23:36.871Z"}
+{"level":"info","message":"All gallery images retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:23:36.873Z"}
+{"level":"info","message":"GET /api/events","service":"irenes-circus-api","timestamp":"2025-04-25T22:23:36.874Z"}
+{"level":"info","message":"All contact messages retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:23:36.875Z"}
+{"level":"info","message":"All band members retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:23:36.876Z"}
+{"level":"info","message":"GET /api/gallery","service":"irenes-circus-api","timestamp":"2025-04-25T22:23:36.877Z"}
+{"level":"info","message":"All events retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:23:36.879Z"}
+{"level":"info","message":"GET /api/contact","service":"irenes-circus-api","timestamp":"2025-04-25T22:23:36.881Z"}
+{"level":"info","message":"All gallery images retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:23:36.883Z"}
+{"level":"info","message":"All contact messages retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:23:36.885Z"}
+{"level":"info","message":"GET /api/spotify/token","service":"irenes-circus-api","timestamp":"2025-04-25T22:23:37.010Z"}
+{"level":"info","message":"GET /api/spotify/token","service":"irenes-circus-api","timestamp":"2025-04-25T22:23:37.105Z"}
+{"level":"info","message":"GET /api/spotify/token","service":"irenes-circus-api","timestamp":"2025-04-25T22:23:37.124Z"}
+{"level":"info","message":"GET /api/spotify/token","service":"irenes-circus-api","timestamp":"2025-04-25T22:23:37.221Z"}
+{"level":"info","message":"GET /api/events","service":"irenes-circus-api","timestamp":"2025-04-25T22:23:37.892Z"}
+{"level":"info","message":"GET /api/auth/me","service":"irenes-circus-api","timestamp":"2025-04-25T22:23:37.893Z"}
+{"level":"info","message":"All events retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:23:37.896Z"}
+{"level":"info","message":"Retrieved current user: admin","service":"irenes-circus-api","timestamp":"2025-04-25T22:23:37.897Z"}
+{"level":"info","message":"GET /api/events","service":"irenes-circus-api","timestamp":"2025-04-25T22:23:37.899Z"}
+{"level":"info","message":"All events retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:23:37.902Z"}
+{"level":"info","message":"GET /api/auth/me","service":"irenes-circus-api","timestamp":"2025-04-25T22:23:39.905Z"}
+{"level":"info","message":"Retrieved current user: admin","service":"irenes-circus-api","timestamp":"2025-04-25T22:23:39.908Z"}
+{"level":"info","message":"GET /api/auth/me","service":"irenes-circus-api","timestamp":"2025-04-25T22:23:39.909Z"}
+{"level":"info","message":"Retrieved current user: admin","service":"irenes-circus-api","timestamp":"2025-04-25T22:23:39.911Z"}
+{"level":"info","message":"GET /api/events","service":"irenes-circus-api","timestamp":"2025-04-25T22:23:39.914Z"}
+{"level":"info","message":"All events retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:23:39.918Z"}
+{"level":"info","message":"GET /api/events","service":"irenes-circus-api","timestamp":"2025-04-25T22:23:39.919Z"}
+{"level":"info","message":"All events retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:23:39.923Z"}
+{"level":"info","message":"GET /api/gallery","service":"irenes-circus-api","timestamp":"2025-04-25T22:23:40.811Z"}
+{"level":"info","message":"GET /api/auth/me","service":"irenes-circus-api","timestamp":"2025-04-25T22:23:40.812Z"}
+{"level":"info","message":"All gallery images retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:23:40.814Z"}
+{"level":"info","message":"Retrieved current user: admin","service":"irenes-circus-api","timestamp":"2025-04-25T22:23:40.815Z"}
+{"level":"info","message":"GET /api/gallery","service":"irenes-circus-api","timestamp":"2025-04-25T22:23:40.815Z"}
+{"level":"info","message":"All gallery images retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:23:40.819Z"}
+{"level":"info","message":"GET /api/gallery/680bffafb19a9aece8cc3309","service":"irenes-circus-api","timestamp":"2025-04-25T22:23:43.510Z"}
+{"level":"info","message":"GET /api/auth/me","service":"irenes-circus-api","timestamp":"2025-04-25T22:23:43.511Z"}
+{"level":"info","message":"Retrieved gallery image with id: 680bffafb19a9aece8cc3309","service":"irenes-circus-api","timestamp":"2025-04-25T22:23:43.514Z"}
+{"level":"info","message":"Retrieved current user: admin","service":"irenes-circus-api","timestamp":"2025-04-25T22:23:43.516Z"}
+{"level":"info","message":"GET /api/gallery/680bffafb19a9aece8cc3309","service":"irenes-circus-api","timestamp":"2025-04-25T22:23:43.517Z"}
+{"level":"info","message":"Retrieved gallery image with id: 680bffafb19a9aece8cc3309","service":"irenes-circus-api","timestamp":"2025-04-25T22:23:43.521Z"}
+{"level":"info","message":"GET /api/auth/me","service":"irenes-circus-api","timestamp":"2025-04-25T22:23:45.332Z"}
+{"level":"info","message":"GET /api/gallery","service":"irenes-circus-api","timestamp":"2025-04-25T22:23:45.334Z"}
+{"level":"info","message":"Retrieved current user: admin","service":"irenes-circus-api","timestamp":"2025-04-25T22:23:45.335Z"}
+{"level":"info","message":"All gallery images retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:23:45.336Z"}
+{"level":"info","message":"GET /api/gallery","service":"irenes-circus-api","timestamp":"2025-04-25T22:23:45.339Z"}
+{"level":"info","message":"All gallery images retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:23:45.341Z"}
+{"level":"info","message":"GET /api/gallery","service":"irenes-circus-api","timestamp":"2025-04-25T22:24:11.537Z"}
+{"level":"info","message":"All gallery images retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:24:11.539Z"}
+{"level":"info","message":"GET /api/auth/me","service":"irenes-circus-api","timestamp":"2025-04-25T22:25:45.032Z"}
+{"level":"info","message":"Retrieved current user: admin","service":"irenes-circus-api","timestamp":"2025-04-25T22:25:45.034Z"}
+{"level":"info","message":"GET /api/auth/me","service":"irenes-circus-api","timestamp":"2025-04-25T22:25:45.035Z"}
+{"level":"info","message":"Retrieved current user: admin","service":"irenes-circus-api","timestamp":"2025-04-25T22:25:45.038Z"}
+{"level":"info","message":"GET /api/gallery","service":"irenes-circus-api","timestamp":"2025-04-25T22:25:45.051Z"}
+{"level":"info","message":"All gallery images retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:25:45.052Z"}
+{"level":"info","message":"GET /api/gallery","service":"irenes-circus-api","timestamp":"2025-04-25T22:25:45.055Z"}
+{"level":"info","message":"All gallery images retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:25:45.058Z"}
+{"level":"info","message":"GET /api/auth/me","service":"irenes-circus-api","timestamp":"2025-04-25T22:28:12.312Z"}
+{"level":"info","message":"Retrieved current user: admin","service":"irenes-circus-api","timestamp":"2025-04-25T22:28:12.314Z"}
+{"level":"info","message":"GET /api/auth/me","service":"irenes-circus-api","timestamp":"2025-04-25T22:28:12.315Z"}
+{"level":"info","message":"Retrieved current user: admin","service":"irenes-circus-api","timestamp":"2025-04-25T22:28:12.317Z"}
+{"level":"info","message":"GET /api/band-members","service":"irenes-circus-api","timestamp":"2025-04-25T22:28:12.325Z"}
+{"level":"info","message":"All band members retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:28:12.327Z"}
+{"level":"info","message":"GET /api/band-members","service":"irenes-circus-api","timestamp":"2025-04-25T22:28:12.328Z"}
+{"level":"info","message":"All band members retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:28:12.330Z"}
+{"level":"info","message":"GET /api/spotify/token","service":"irenes-circus-api","timestamp":"2025-04-25T22:28:25.033Z"}
+{"level":"info","message":"GET /api/auth/me","service":"irenes-circus-api","timestamp":"2025-04-25T22:28:25.034Z"}
+{"level":"info","message":"GET /api/spotify/token","service":"irenes-circus-api","timestamp":"2025-04-25T22:28:25.036Z"}
+{"level":"info","message":"Retrieved current user: admin","service":"irenes-circus-api","timestamp":"2025-04-25T22:28:25.037Z"}
+{"level":"info","message":"GET /api/auth/me","service":"irenes-circus-api","timestamp":"2025-04-25T22:28:26.591Z"}
+{"level":"info","message":"GET /api/gallery","service":"irenes-circus-api","timestamp":"2025-04-25T22:28:26.593Z"}
+{"level":"info","message":"Retrieved current user: admin","service":"irenes-circus-api","timestamp":"2025-04-25T22:28:26.596Z"}
+{"level":"info","message":"All gallery images retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:28:26.597Z"}
+{"level":"info","message":"GET /api/gallery","service":"irenes-circus-api","timestamp":"2025-04-25T22:28:26.600Z"}
+{"level":"info","message":"All gallery images retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:28:26.603Z"}
+{"level":"info","message":"GET /api/gallery","service":"irenes-circus-api","timestamp":"2025-04-25T22:28:28.857Z"}
+{"level":"info","message":"GET /api/spotify/token","service":"irenes-circus-api","timestamp":"2025-04-25T22:28:28.860Z"}
+{"level":"info","message":"All gallery images retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:28:28.861Z"}
+{"level":"info","message":"GET /api/auth/me","service":"irenes-circus-api","timestamp":"2025-04-25T22:28:28.862Z"}
+{"level":"info","message":"GET /api/band-members","service":"irenes-circus-api","timestamp":"2025-04-25T22:28:28.864Z"}
+{"level":"info","message":"GET /api/events","service":"irenes-circus-api","timestamp":"2025-04-25T22:28:28.865Z"}
+{"level":"info","message":"GET /api/contact","service":"irenes-circus-api","timestamp":"2025-04-25T22:28:28.867Z"}
+{"level":"info","message":"GET /api/spotify/token","service":"irenes-circus-api","timestamp":"2025-04-25T22:28:28.868Z"}
+{"level":"info","message":"GET /api/gallery","service":"irenes-circus-api","timestamp":"2025-04-25T22:28:28.869Z"}
+{"level":"info","message":"Retrieved current user: admin","service":"irenes-circus-api","timestamp":"2025-04-25T22:28:28.871Z"}
+{"level":"info","message":"All band members retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:28:28.873Z"}
+{"level":"info","message":"All events retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:28:28.874Z"}
+{"level":"info","message":"All contact messages retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:28:28.875Z"}
+{"level":"info","message":"All gallery images retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:28:28.876Z"}
+{"level":"info","message":"GET /api/band-members","service":"irenes-circus-api","timestamp":"2025-04-25T22:28:28.877Z"}
+{"level":"info","message":"GET /api/events","service":"irenes-circus-api","timestamp":"2025-04-25T22:28:28.878Z"}
+{"level":"info","message":"GET /api/contact","service":"irenes-circus-api","timestamp":"2025-04-25T22:28:28.880Z"}
+{"level":"info","message":"All band members retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:28:28.882Z"}
+{"level":"info","message":"All events retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:28:28.884Z"}
+{"level":"info","message":"All contact messages retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:28:28.885Z"}
+{"level":"info","message":"GET /api/spotify/token","service":"irenes-circus-api","timestamp":"2025-04-25T22:28:29.004Z"}
+{"level":"info","message":"GET /api/spotify/token","service":"irenes-circus-api","timestamp":"2025-04-25T22:28:29.098Z"}
+{"level":"info","message":"GET /api/spotify/token","service":"irenes-circus-api","timestamp":"2025-04-25T22:28:29.117Z"}
+{"level":"info","message":"GET /api/spotify/token","service":"irenes-circus-api","timestamp":"2025-04-25T22:28:29.223Z"}
+{"level":"info","message":"GET /api/spotify/token","service":"irenes-circus-api","timestamp":"2025-04-25T22:28:52.372Z"}
+{"level":"info","message":"GET /api/spotify/token","service":"irenes-circus-api","timestamp":"2025-04-25T22:28:52.373Z"}
+{"level":"info","message":"GET /api/auth/me","service":"irenes-circus-api","timestamp":"2025-04-25T22:28:52.375Z"}
+{"level":"info","message":"Retrieved current user: admin","service":"irenes-circus-api","timestamp":"2025-04-25T22:28:52.378Z"}
+{"level":"info","message":"GET /api/events","service":"irenes-circus-api","timestamp":"2025-04-25T22:28:59.054Z"}
+{"level":"info","message":"GET /api/auth/me","service":"irenes-circus-api","timestamp":"2025-04-25T22:28:59.055Z"}
+{"level":"info","message":"All events retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:28:59.056Z"}
+{"level":"info","message":"Retrieved current user: admin","service":"irenes-circus-api","timestamp":"2025-04-25T22:28:59.057Z"}
+{"level":"info","message":"GET /api/events","service":"irenes-circus-api","timestamp":"2025-04-25T22:28:59.058Z"}
+{"level":"info","message":"All events retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:28:59.060Z"}
+{"level":"info","message":"GET /api/auth/me","service":"irenes-circus-api","timestamp":"2025-04-25T22:28:59.803Z"}
+{"level":"info","message":"GET /api/band-members","service":"irenes-circus-api","timestamp":"2025-04-25T22:28:59.804Z"}
+{"level":"info","message":"Retrieved current user: admin","service":"irenes-circus-api","timestamp":"2025-04-25T22:28:59.805Z"}
+{"level":"info","message":"All band members retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:28:59.806Z"}
+{"level":"info","message":"GET /api/band-members","service":"irenes-circus-api","timestamp":"2025-04-25T22:28:59.807Z"}
+{"level":"info","message":"All band members retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:28:59.810Z"}
+{"level":"info","message":"GET /api/auth/me","service":"irenes-circus-api","timestamp":"2025-04-25T22:29:05.244Z"}
+{"level":"info","message":"Retrieved current user: admin","service":"irenes-circus-api","timestamp":"2025-04-25T22:29:05.246Z"}
+{"level":"info","message":"GET /api/auth/me","service":"irenes-circus-api","timestamp":"2025-04-25T22:29:05.247Z"}
+{"level":"info","message":"Retrieved current user: admin","service":"irenes-circus-api","timestamp":"2025-04-25T22:29:05.250Z"}
+{"level":"info","message":"GET /api/band-members","service":"irenes-circus-api","timestamp":"2025-04-25T22:29:05.260Z"}
+{"level":"info","message":"All band members retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:29:05.262Z"}
+{"level":"info","message":"GET /api/band-members","service":"irenes-circus-api","timestamp":"2025-04-25T22:29:05.264Z"}
+{"level":"info","message":"All band members retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:29:05.266Z"}
+{"level":"info","message":"GET /api/gallery","service":"irenes-circus-api","timestamp":"2025-04-25T22:29:23.499Z"}
+{"level":"info","message":"GET /api/auth/me","service":"irenes-circus-api","timestamp":"2025-04-25T22:29:23.501Z"}
+{"level":"info","message":"All gallery images retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:29:23.502Z"}
+{"level":"info","message":"Retrieved current user: admin","service":"irenes-circus-api","timestamp":"2025-04-25T22:29:23.504Z"}
+{"level":"info","message":"GET /api/gallery","service":"irenes-circus-api","timestamp":"2025-04-25T22:29:23.505Z"}
+{"level":"info","message":"All gallery images retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:29:23.507Z"}
+{"level":"info","message":"GET /api/auth/me","service":"irenes-circus-api","timestamp":"2025-04-25T22:29:25.454Z"}
+{"level":"info","message":"GET /api/gallery/680bffafb19a9aece8cc3309","service":"irenes-circus-api","timestamp":"2025-04-25T22:29:25.455Z"}
+{"level":"info","message":"Retrieved current user: admin","service":"irenes-circus-api","timestamp":"2025-04-25T22:29:25.456Z"}
+{"level":"info","message":"Retrieved gallery image with id: 680bffafb19a9aece8cc3309","service":"irenes-circus-api","timestamp":"2025-04-25T22:29:25.458Z"}
+{"level":"info","message":"GET /api/gallery/680bffafb19a9aece8cc3309","service":"irenes-circus-api","timestamp":"2025-04-25T22:29:25.459Z"}
+{"level":"info","message":"Retrieved gallery image with id: 680bffafb19a9aece8cc3309","service":"irenes-circus-api","timestamp":"2025-04-25T22:29:25.462Z"}
+{"level":"info","message":"GET /api/gallery","service":"irenes-circus-api","timestamp":"2025-04-25T22:29:27.168Z"}
+{"level":"info","message":"GET /api/auth/me","service":"irenes-circus-api","timestamp":"2025-04-25T22:29:27.169Z"}
+{"level":"info","message":"All gallery images retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:29:27.171Z"}
+{"level":"info","message":"Retrieved current user: admin","service":"irenes-circus-api","timestamp":"2025-04-25T22:29:27.172Z"}
+{"level":"info","message":"GET /api/gallery","service":"irenes-circus-api","timestamp":"2025-04-25T22:29:27.173Z"}
+{"level":"info","message":"All gallery images retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:29:27.175Z"}
+{"level":"info","message":"GET /api/auth/me","service":"irenes-circus-api","timestamp":"2025-04-25T22:29:28.965Z"}
+{"level":"info","message":"Retrieved current user: admin","service":"irenes-circus-api","timestamp":"2025-04-25T22:29:28.967Z"}
+{"level":"info","message":"GET /api/gallery","service":"irenes-circus-api","timestamp":"2025-04-25T22:29:34.480Z"}
+{"level":"info","message":"GET /api/auth/me","service":"irenes-circus-api","timestamp":"2025-04-25T22:29:34.481Z"}
+{"level":"info","message":"All gallery images retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:29:34.483Z"}
+{"level":"info","message":"Retrieved current user: admin","service":"irenes-circus-api","timestamp":"2025-04-25T22:29:34.484Z"}
+{"level":"info","message":"GET /api/gallery","service":"irenes-circus-api","timestamp":"2025-04-25T22:29:34.485Z"}
+{"level":"info","message":"All gallery images retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:29:34.487Z"}
+{"level":"info","message":"GET /api/auth/me","service":"irenes-circus-api","timestamp":"2025-04-25T22:29:36.572Z"}
+{"level":"info","message":"GET /api/gallery/680bffafb19a9aece8cc3309","service":"irenes-circus-api","timestamp":"2025-04-25T22:29:36.573Z"}
+{"level":"info","message":"Retrieved current user: admin","service":"irenes-circus-api","timestamp":"2025-04-25T22:29:36.575Z"}
+{"level":"info","message":"Retrieved gallery image with id: 680bffafb19a9aece8cc3309","service":"irenes-circus-api","timestamp":"2025-04-25T22:29:36.576Z"}
+{"level":"info","message":"GET /api/gallery/680bffafb19a9aece8cc3309","service":"irenes-circus-api","timestamp":"2025-04-25T22:29:36.577Z"}
+{"level":"info","message":"Retrieved gallery image with id: 680bffafb19a9aece8cc3309","service":"irenes-circus-api","timestamp":"2025-04-25T22:29:36.580Z"}
+{"level":"info","message":"GET /api/gallery","service":"irenes-circus-api","timestamp":"2025-04-25T22:29:38.381Z"}
+{"level":"info","message":"GET /api/spotify/token","service":"irenes-circus-api","timestamp":"2025-04-25T22:29:38.383Z"}
+{"level":"info","message":"GET /api/auth/me","service":"irenes-circus-api","timestamp":"2025-04-25T22:29:38.384Z"}
+{"level":"info","message":"All gallery images retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:29:38.386Z"}
+{"level":"info","message":"Retrieved current user: admin","service":"irenes-circus-api","timestamp":"2025-04-25T22:29:38.387Z"}
+{"level":"info","message":"GET /api/band-members","service":"irenes-circus-api","timestamp":"2025-04-25T22:29:38.388Z"}
+{"level":"info","message":"GET /api/events","service":"irenes-circus-api","timestamp":"2025-04-25T22:29:38.390Z"}
+{"level":"info","message":"GET /api/contact","service":"irenes-circus-api","timestamp":"2025-04-25T22:29:38.391Z"}
+{"level":"info","message":"GET /api/spotify/token","service":"irenes-circus-api","timestamp":"2025-04-25T22:29:38.392Z"}
+{"level":"info","message":"GET /api/gallery","service":"irenes-circus-api","timestamp":"2025-04-25T22:29:38.393Z"}
+{"level":"info","message":"All band members retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:29:38.395Z"}
+{"level":"info","message":"All events retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:29:38.396Z"}
+{"level":"info","message":"All contact messages retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:29:38.399Z"}
+{"level":"info","message":"All gallery images retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:29:38.400Z"}
+{"level":"info","message":"GET /api/band-members","service":"irenes-circus-api","timestamp":"2025-04-25T22:29:38.402Z"}
+{"level":"info","message":"GET /api/events","service":"irenes-circus-api","timestamp":"2025-04-25T22:29:38.403Z"}
+{"level":"info","message":"All band members retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:29:38.405Z"}
+{"level":"info","message":"All events retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:29:38.406Z"}
+{"level":"info","message":"GET /api/contact","service":"irenes-circus-api","timestamp":"2025-04-25T22:29:38.407Z"}
+{"level":"info","message":"All contact messages retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:29:38.409Z"}
+{"level":"info","message":"GET /api/spotify/token","service":"irenes-circus-api","timestamp":"2025-04-25T22:29:38.612Z"}
+{"level":"info","message":"GET /api/spotify/token","service":"irenes-circus-api","timestamp":"2025-04-25T22:29:38.710Z"}
+{"level":"info","message":"GET /api/spotify/token","service":"irenes-circus-api","timestamp":"2025-04-25T22:29:38.751Z"}
+{"level":"info","message":"GET /api/spotify/token","service":"irenes-circus-api","timestamp":"2025-04-25T22:29:38.844Z"}
+{"level":"info","message":"GET /api/band-members","service":"irenes-circus-api","timestamp":"2025-04-25T22:34:09.610Z"}
+{"level":"info","message":"GET /api/auth/me","service":"irenes-circus-api","timestamp":"2025-04-25T22:34:09.612Z"}
+{"level":"info","message":"All band members retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:34:09.615Z"}
+{"level":"info","message":"Retrieved current user: admin","service":"irenes-circus-api","timestamp":"2025-04-25T22:34:09.616Z"}
+{"level":"info","message":"GET /api/band-members","service":"irenes-circus-api","timestamp":"2025-04-25T22:34:09.618Z"}
+{"level":"info","message":"All band members retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:34:09.620Z"}
+{"level":"info","message":"GET /api/auth/me","service":"irenes-circus-api","timestamp":"2025-04-25T22:34:17.462Z"}
+{"level":"info","message":"Retrieved current user: admin","service":"irenes-circus-api","timestamp":"2025-04-25T22:34:17.464Z"}
+{"level":"info","message":"GET /api/auth/me","service":"irenes-circus-api","timestamp":"2025-04-25T22:34:17.465Z"}
+{"level":"info","message":"Retrieved current user: admin","service":"irenes-circus-api","timestamp":"2025-04-25T22:34:17.467Z"}
+{"level":"info","message":"GET /api/band-members","service":"irenes-circus-api","timestamp":"2025-04-25T22:34:17.473Z"}
+{"level":"info","message":"All band members retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:34:17.475Z"}
+{"level":"info","message":"GET /api/band-members","service":"irenes-circus-api","timestamp":"2025-04-25T22:34:17.477Z"}
+{"level":"info","message":"All band members retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:34:17.478Z"}
+{"level":"info","message":"GET /api/auth/me","service":"irenes-circus-api","timestamp":"2025-04-25T22:38:16.779Z"}
+{"level":"info","message":"Retrieved current user: admin","service":"irenes-circus-api","timestamp":"2025-04-25T22:38:16.782Z"}
+{"level":"info","message":"GET /api/auth/me","service":"irenes-circus-api","timestamp":"2025-04-25T22:38:16.785Z"}
+{"level":"info","message":"Retrieved current user: admin","service":"irenes-circus-api","timestamp":"2025-04-25T22:38:16.788Z"}
+{"level":"info","message":"GET /api/band-members","service":"irenes-circus-api","timestamp":"2025-04-25T22:38:16.799Z"}
+{"level":"info","message":"All band members retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:38:16.802Z"}
+{"level":"info","message":"GET /api/band-members","service":"irenes-circus-api","timestamp":"2025-04-25T22:38:16.811Z"}
+{"level":"info","message":"All band members retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:38:16.813Z"}
+{"level":"info","message":"GET /api/auth/me","service":"irenes-circus-api","timestamp":"2025-04-25T22:38:18.811Z"}
+{"level":"info","message":"GET /api/band-members/680bffafb19a9aece8cc3304","service":"irenes-circus-api","timestamp":"2025-04-25T22:38:18.812Z"}
+{"level":"info","message":"Retrieved current user: admin","service":"irenes-circus-api","timestamp":"2025-04-25T22:38:18.814Z"}
+{"level":"info","message":"Retrieved band member with id: 680bffafb19a9aece8cc3304","service":"irenes-circus-api","timestamp":"2025-04-25T22:38:18.814Z"}
+{"level":"info","message":"GET /api/band-members/680bffafb19a9aece8cc3304","service":"irenes-circus-api","timestamp":"2025-04-25T22:38:18.815Z"}
+{"level":"info","message":"Retrieved band member with id: 680bffafb19a9aece8cc3304","service":"irenes-circus-api","timestamp":"2025-04-25T22:38:18.817Z"}
+{"level":"info","message":"GET /api/band-members","service":"irenes-circus-api","timestamp":"2025-04-25T22:38:20.088Z"}
+{"level":"info","message":"GET /api/auth/me","service":"irenes-circus-api","timestamp":"2025-04-25T22:38:20.090Z"}
+{"level":"info","message":"All band members retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:38:20.091Z"}
+{"level":"info","message":"Retrieved current user: admin","service":"irenes-circus-api","timestamp":"2025-04-25T22:38:20.092Z"}
+{"level":"info","message":"GET /api/band-members","service":"irenes-circus-api","timestamp":"2025-04-25T22:38:20.093Z"}
+{"level":"info","message":"All band members retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:38:20.096Z"}
+{"level":"info","message":"GET /api/auth/me","service":"irenes-circus-api","timestamp":"2025-04-25T22:38:21.371Z"}
+{"level":"info","message":"Retrieved current user: admin","service":"irenes-circus-api","timestamp":"2025-04-25T22:38:21.376Z"}
+{"level":"info","message":"GET /api/gallery","service":"irenes-circus-api","timestamp":"2025-04-25T22:38:23.572Z"}
+{"level":"info","message":"GET /api/auth/me","service":"irenes-circus-api","timestamp":"2025-04-25T22:38:23.573Z"}
+{"level":"info","message":"All gallery images retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:38:23.575Z"}
+{"level":"info","message":"Retrieved current user: admin","service":"irenes-circus-api","timestamp":"2025-04-25T22:38:23.576Z"}
+{"level":"info","message":"GET /api/gallery","service":"irenes-circus-api","timestamp":"2025-04-25T22:38:23.577Z"}
+{"level":"info","message":"All gallery images retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:38:23.579Z"}
+{"level":"info","message":"GET /api/auth/me","service":"irenes-circus-api","timestamp":"2025-04-25T22:38:25.528Z"}
+{"level":"info","message":"Retrieved current user: admin","service":"irenes-circus-api","timestamp":"2025-04-25T22:38:25.530Z"}
+{"level":"info","message":"GET /api/gallery","service":"irenes-circus-api","timestamp":"2025-04-25T22:38:27.357Z"}
+{"level":"info","message":"GET /api/auth/me","service":"irenes-circus-api","timestamp":"2025-04-25T22:38:27.358Z"}
+{"level":"info","message":"All gallery images retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:38:27.360Z"}
+{"level":"info","message":"Retrieved current user: admin","service":"irenes-circus-api","timestamp":"2025-04-25T22:38:27.361Z"}
+{"level":"info","message":"GET /api/gallery","service":"irenes-circus-api","timestamp":"2025-04-25T22:38:27.362Z"}
+{"level":"info","message":"All gallery images retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:38:27.365Z"}
+{"level":"info","message":"GET /api/spotify/token","service":"irenes-circus-api","timestamp":"2025-04-25T22:38:27.937Z"}
+{"level":"info","message":"GET /api/auth/me","service":"irenes-circus-api","timestamp":"2025-04-25T22:38:27.938Z"}
+{"level":"info","message":"GET /api/spotify/token","service":"irenes-circus-api","timestamp":"2025-04-25T22:38:27.940Z"}
+{"level":"info","message":"Retrieved current user: admin","service":"irenes-circus-api","timestamp":"2025-04-25T22:38:27.941Z"}
+{"level":"info","message":"GET /api/spotify/token","service":"irenes-circus-api","timestamp":"2025-04-25T22:38:28.869Z"}
+{"level":"info","message":"GET /api/band-members","service":"irenes-circus-api","timestamp":"2025-04-25T22:38:28.870Z"}
+{"level":"info","message":"GET /api/events","service":"irenes-circus-api","timestamp":"2025-04-25T22:38:28.871Z"}
+{"level":"info","message":"GET /api/gallery","service":"irenes-circus-api","timestamp":"2025-04-25T22:38:28.873Z"}
+{"level":"info","message":"GET /api/contact","service":"irenes-circus-api","timestamp":"2025-04-25T22:38:28.874Z"}
+{"level":"info","message":"GET /api/auth/me","service":"irenes-circus-api","timestamp":"2025-04-25T22:38:28.876Z"}
+{"level":"info","message":"GET /api/spotify/token","service":"irenes-circus-api","timestamp":"2025-04-25T22:38:28.877Z"}
+{"level":"info","message":"All band members retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:38:28.878Z"}
+{"level":"info","message":"All events retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:38:28.880Z"}
+{"level":"info","message":"All gallery images retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:38:28.881Z"}
+{"level":"info","message":"All contact messages retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:38:28.882Z"}
+{"level":"info","message":"Retrieved current user: admin","service":"irenes-circus-api","timestamp":"2025-04-25T22:38:28.883Z"}
+{"level":"info","message":"GET /api/band-members","service":"irenes-circus-api","timestamp":"2025-04-25T22:38:28.884Z"}
+{"level":"info","message":"GET /api/events","service":"irenes-circus-api","timestamp":"2025-04-25T22:38:28.887Z"}
+{"level":"info","message":"All band members retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:38:28.889Z"}
+{"level":"info","message":"GET /api/gallery","service":"irenes-circus-api","timestamp":"2025-04-25T22:38:28.890Z"}
+{"level":"info","message":"GET /api/contact","service":"irenes-circus-api","timestamp":"2025-04-25T22:38:28.891Z"}
+{"level":"info","message":"All events retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:38:28.893Z"}
+{"level":"info","message":"All gallery images retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:38:28.895Z"}
+{"level":"info","message":"All contact messages retrieved successfully","service":"irenes-circus-api","timestamp":"2025-04-25T22:38:28.896Z"}
+{"level":"info","message":"GET /api/spotify/token","service":"irenes-circus-api","timestamp":"2025-04-25T22:38:28.972Z"}
+{"level":"info","message":"GET /api/spotify/token","service":"irenes-circus-api","timestamp":"2025-04-25T22:38:29.075Z"}
+{"level":"info","message":"GET /api/spotify/token","service":"irenes-circus-api","timestamp":"2025-04-25T22:38:29.080Z"}
+{"level":"info","message":"GET /api/spotify/token","service":"irenes-circus-api","timestamp":"2025-04-25T22:38:29.178Z"}

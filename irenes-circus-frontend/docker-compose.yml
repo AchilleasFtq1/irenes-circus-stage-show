@@ -1,0 +1,18 @@
+version: '3.9'
+
+services:
+  mongodb:
+    image: mongo:latest
+    container_name: irenes-circus-mongodb
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodb_data:/data/db
+    environment:
+      - MONGO_INITDB_DATABASE=irenes-circus
+    restart: unless-stopped
+    command: mongod --logpath=/dev/null # Disable logging to console for cleaner output
+
+volumes:
+  mongodb_data:
+    driver: local 
