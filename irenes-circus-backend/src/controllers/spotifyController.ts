@@ -21,8 +21,8 @@ export const getSpotifyToken = async (req: Request, res: Response) => {
     }
 
     // Get credentials from environment variables
-    const clientId = process.env.VITE_SPOTIFY_CLIENT_ID;
-    const clientSecret = process.env.VITE_SPOTIFY_CLIENT_SECRET;
+    const clientId = process.env.SPOTIFY_CLIENT_ID;
+    const clientSecret = process.env.SPOTIFY_CLIENT_SECRET;
 
     if (!clientId || !clientSecret) {
       logger.error('Missing Spotify API credentials');
