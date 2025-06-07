@@ -1,5 +1,5 @@
 
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { Play, Pause, SkipBack, SkipForward, Volume2 } from "lucide-react";
 
 interface Track {
@@ -11,39 +11,83 @@ interface Track {
 }
 
 const MusicPlayer = ({ tracks }: { tracks: Track[] }) => {
-  const [currentTrack, setCurrentTrack] = useState<Track | null>(null);
+  const audioRef = useRef<HTMLAudioElement | null>(null);
+  const [currentIndex, setCurrentIndex] = useState<number>(0);
   const [isPlaying, setIsPlaying] = useState(false);
+  const [progress, setProgress] = useState(0);
+
+  const currentTrack = tracks[currentIndex];
   
   const handlePlayPause = () => {
     if (!currentTrack && tracks.length > 0) {
-      setCurrentTrack(tracks[0]);
+      setCurrentIndex(0);
     }
-    setIsPlaying(!isPlaying);
+    setIsPlaying(prev => !prev);
   };
   
   const handleTrackSelect = (track: Track) => {
-    setCurrentTrack(track);
-    setIsPlaying(true);
+    const index = tracks.findIndex(t => t.id === track.id);
+    if (index !== -1) {
+      setCurrentIndex(index);
+      setIsPlaying(true);
+    }
   };
   
   const handleNext = () => {
-    if (!currentTrack) return;
-    const currentIndex = tracks.findIndex(track => track.id === currentTrack.id);
-    const nextIndex = (currentIndex + 1) % tracks.length;
-    setCurrentTrack(tracks[nextIndex]);
+    if (tracks.length === 0) return;
+    setCurrentIndex((prev) => (prev + 1) % tracks.length);
     setIsPlaying(true);
   };
   
   const handlePrev = () => {
-    if (!currentTrack) return;
-    const currentIndex = tracks.findIndex(track => track.id === currentTrack.id);
-    const prevIndex = (currentIndex - 1 + tracks.length) % tracks.length;
-    setCurrentTrack(tracks[prevIndex]);
+    if (tracks.length === 0) return;
+    setCurrentIndex((prev) => (prev - 1 + tracks.length) % tracks.length);
     setIsPlaying(true);
   };
 
+  useEffect(() => {
+    const audio = audioRef.current;
+    if (!audio || !currentTrack) return;
+    audio.src = currentTrack.audioSrc;
+    audio.currentTime = 0;
+    setProgress(0);
+    if (isPlaying) {
+      audio.play();
+    }
+  }, [currentTrack]);
+
+  useEffect(() => {
+    const audio = audioRef.current;
+    if (!audio) return;
+    if (isPlaying) {
+      audio.play();
+    } else {
+      audio.pause();
+    }
+  }, [isPlaying]);
+
+  useEffect(() => {
+    const audio = audioRef.current;
+    if (!audio) return;
+    const updateProgress = () => {
+      if (audio.duration) {
+        setProgress((audio.currentTime / audio.duration) * 100);
+      }
+    };
+    const handleEnded = () => {
+      handleNext();
+    };
+    audio.addEventListener('timeupdate', updateProgress);
+    audio.addEventListener('ended', handleEnded);
+    return () => {
+      audio.removeEventListener('timeupdate', updateProgress);
+      audio.removeEventListener('ended', handleEnded);
+    };
+  }, [currentIndex]);
+
   return (
     <div className="bg-circus-dark/90 text-circus-cream rounded-lg p-4 shadow-lg">
+      <audio ref={audioRef} hidden />
       <div className="flex flex-col md:flex-row gap-6">
         {/* Album Art */}
         <div className="w-full md:w-64 h-64 overflow-hidden rounded-lg">
@@ -63,9 +107,12 @@ const MusicPlayer = ({ tracks }: { tracks: Track[] }) => {
             {currentTrack ? "Irene's Circus" : ""}
           </p>
           
-          {/* Progress Bar Placeholder */}
+          {/* Progress Bar */}
           <div className="w-full h-1 bg-circus-cream/20 rounded-full mb-4">
-            <div className="bg-circus-gold h-full rounded-full w-1/3"></div>
+            <div
+              className="bg-circus-gold h-full rounded-full"
+              style={{ width: `${progress}%` }}
+            ></div>
           </div>
           
           {/* Controls */}
