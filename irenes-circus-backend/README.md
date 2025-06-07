@@ -28,12 +28,14 @@ cd irenes-circus-backend
 ```bash
 npm install
 ```
-4. Create a `.env` file in the root directory with the following variables (use env.example as a template):
+4. Create a `.env` file in the root directory with the following variables (use `env.example` as a template):
 ```
 PORT=5000
 MONGODB_URI=mongodb://localhost:27017/irenes-circus
 NODE_ENV=development
 LOG_LEVEL=debug
+SPOTIFY_CLIENT_ID=your_spotify_client_id
+SPOTIFY_CLIENT_SECRET=your_spotify_client_secret
 ```
 
 ### Running the Application
