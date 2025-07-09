@@ -1,92 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Merriweather:wght@300;400;700;900&family=Bebas+Neue&family=Fira+Sans:wght@300;400;500;600;700&family=Playfair+Display:wght@400;700;900&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    --background: 15 15 15%; /* Dark rock background */
+    --foreground: 247 250 252%; /* Light cream foreground */
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card: 26 26 26%; /* Dark charcoal cards */
+    --card-foreground: 247 250 252%; /* Light cream text */
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover: 26 26 26%; /* Dark popover */
+    --popover-foreground: 247 250 252%; /* Light text */
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 184 84 80%; /* Rust red primary */
+    --primary-foreground: 247 250 252%; /* Light text */
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 67 67 67%; /* Steel gray secondary */
+    --secondary-foreground: 247 250 252%; /* Light text */
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 45 45 45%; /* Medium slate muted */
+    --muted-foreground: 156 163 175%; /* Smoke gray text */
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 214 158 46%; /* Amber accent */
+    --accent-foreground: 10 10 10%; /* Deep black text */
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 220 38 38%; /* Blood red destructive */
+    --destructive-foreground: 247 250 252%; /* Light text */
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 45 45 45%; /* Medium slate border */
+    --input: 45 45 45%; /* Medium slate input */
+    --ring: 184 84 80%; /* Rust red ring */
 
-    --radius: 0.5rem;
+    --radius: 0.375rem; /* Slightly sharper corners for rock feel */
 
-    --sidebar-background: 0 0% 98%;
-
-    --sidebar-foreground: 240 5.3% 26.1%;
-
-    --sidebar-primary: 240 5.9% 10%;
-
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --sidebar-background: 10 10 10%; /* Deep black sidebar */
+    --sidebar-foreground: 247 250 252%; /* Light text */
+    --sidebar-primary: 184 84 80%; /* Rust red primary */
+    --sidebar-primary-foreground: 247 250 252%; /* Light text */
+    --sidebar-accent: 45 45 45%; /* Medium slate accent */
+    --sidebar-accent-foreground: 247 250 252%; /* Light text */
+    --sidebar-border: 45 45 45%; /* Medium slate border */
+    --sidebar-ring: 214 158 46%; /* Amber ring */
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
+    --background: 10 10 10%; /* Even darker background */
+    --foreground: 247 250 252%; /* Light cream foreground */
 
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
+    --card: 26 26 26%; /* Dark charcoal cards */
+    --card-foreground: 247 250 252%; /* Light cream text */
 
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
+    --popover: 26 26 26%; /* Dark popover */
+    --popover-foreground: 247 250 252%; /* Light text */
 
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
+    --primary: 214 158 46%; /* Amber primary in dark mode */
+    --primary-foreground: 10 10 10%; /* Deep black text */
 
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
+    --secondary: 67 67 67%; /* Steel gray secondary */
+    --secondary-foreground: 247 250 252%; /* Light text */
 
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
+    --muted: 45 45 45%; /* Medium slate muted */
+    --muted-foreground: 156 163 175%; /* Smoke gray text */
 
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
+    --accent: 184 84 80%; /* Rust red accent */
+    --accent-foreground: 247 250 252%; /* Light text */
 
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 220 38 38%; /* Blood red destructive */
+    --destructive-foreground: 247 250 252%; /* Light text */
 
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --border: 45 45 45%; /* Medium slate border */
+    --input: 45 45 45%; /* Medium slate input */
+    --ring: 214 158 46%; /* Amber ring */
+
+    --sidebar-background: 10 10 10%; /* Deep black sidebar */
+    --sidebar-foreground: 247 250 252%; /* Light text */
+    --sidebar-primary: 214 158 46%; /* Amber primary */
+    --sidebar-primary-foreground: 10 10 10%; /* Deep black text */
+    --sidebar-accent: 45 45 45%; /* Medium slate accent */
+    --sidebar-accent-foreground: 247 250 252%; /* Light text */
+    --sidebar-border: 45 45 45%; /* Medium slate border */
+    --sidebar-ring: 184 84 80%; /* Rust red ring */
   }
 }
 
@@ -97,5 +93,124 @@
 
   body {
     @apply bg-background text-foreground;
+    background-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGcgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj4KPGcgZmlsbD0iIzAwMCIgZmlsbC1vcGFjaXR5PSIwLjA1Ij4KPGNpcmNsZSBjeD0iNyIgY3k9IjciIHI9IjEiLz4KPGNpcmNsZSBjeD0iNTMiIGN5PSI3IiByPSIxIi8+CjxjaXJjbGUgY3g9IjciIGN5PSI1MyIgcj0iMSIvPgo8Y2lyY2xlIGN4PSI1MyIgY3k9IjUzIiByPSIxIi8+CjwvZz4KPC9nPgo8L3N2Zz4=');
+  }
+
+  /* Custom rock styling */
+  .rock-text-shadow {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+  }
+
+  .grunge-border {
+    border: 2px solid;
+    border-image: linear-gradient(45deg, #B85450, #D69E2E, #B85450) 1;
+    position: relative;
+  }
+
+  .grunge-border::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, #B85450, #D69E2E, #B85450);
+    border-radius: inherit;
+    z-index: -1;
+    filter: blur(1px);
+  }
+
+  .distorted-text {
+    position: relative;
+    display: inline-block;
+  }
+
+  .distorted-text::before {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 2px;
+    color: #B85450;
+    opacity: 0.3;
+    z-index: -1;
+    text-shadow: none;
+  }
+
+  .distorted-text::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: -2px;
+    color: #D69E2E;
+    opacity: 0.3;
+    z-index: -1;
+    text-shadow: none;
+  }
+
+  /* Amp-style glow effect */
+  .amp-glow {
+    box-shadow: 
+      0 0 10px rgba(184, 84, 80, 0.5),
+      0 0 20px rgba(184, 84, 80, 0.3),
+      0 0 30px rgba(184, 84, 80, 0.1);
+  }
+
+  .amp-glow:hover {
+    box-shadow: 
+      0 0 15px rgba(184, 84, 80, 0.7),
+      0 0 30px rgba(184, 84, 80, 0.5),
+      0 0 45px rgba(184, 84, 80, 0.3);
+  }
+
+  /* Vinyl record effect */
+  .vinyl-record {
+    background: 
+      radial-gradient(circle at center, transparent 15%, rgba(0,0,0,0.1) 15.5%, rgba(0,0,0,0.1) 16%, transparent 16.5%),
+      radial-gradient(circle at center, transparent 25%, rgba(0,0,0,0.05) 25.5%, rgba(0,0,0,0.05) 26%, transparent 26.5%),
+      radial-gradient(circle at center, transparent 35%, rgba(0,0,0,0.05) 35.5%, rgba(0,0,0,0.05) 36%, transparent 36.5%);
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #1A1A1A;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #B85450;
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #D69E2E;
+  }
+}
+
+/* Utilities for rock aesthetic */
+@layer utilities {
+  .text-rock-shadow {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+  }
+
+  .text-neon-glow {
+    text-shadow: 
+      0 0 5px currentColor,
+      0 0 10px currentColor,
+      0 0 15px currentColor;
+  }
+
+  .bg-rock-gradient {
+    background: linear-gradient(135deg, #0A0A0A 0%, #1A1A1A 50%, #2D2D2D 100%);
+  }
+
+  .bg-rust-gradient {
+    background: linear-gradient(135deg, #B85450 0%, #D69E2E 100%);
+  }
+
+  .bg-grunge-overlay {
+    background-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgdmlld0JveD0iMCAwIDEwMCAxMDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxkZWZzPgo8ZmlsdGVyIGlkPSJub2lzZSI+CjxmZVR1cmJ1bGVuY2UgYmFzZUZyZXF1ZW5jeT0iMC45IiBudW1PY3RhdmVzPSI0IiByZXN1bHQ9Im5vaXNlIi8+CjxmZUNvbG9yTWF0cml4IGluPSJub2lzZSIgdHlwZT0ic2F0dXJhdGUiIHZhbHVlcz0iMCIvPgo8L2ZpbHRlcj4KPC9kZWZzPgo8cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWx0ZXI9InVybCgjbm9pc2UpIiBvcGFjaXR5PSIwLjA1Ii8+Cjwvc3ZnPg==');
   }
 }
