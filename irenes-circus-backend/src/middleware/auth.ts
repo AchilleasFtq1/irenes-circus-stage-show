@@ -1,67 +1,83 @@
 import { Request, Response, NextFunction } from 'express';
+import jwt from 'jsonwebtoken';
+import User from '../models/User';
 import logger from '../config/logger';
 
-// Extend the Request interface to include the userId property
+// Extend Request interface to include user data
 declare global {
   namespace Express {
     interface Request {
       userId?: string;
+      user?: any;
     }
   }
 }
 
-export const authenticateToken = (req: Request, res: Response, next: NextFunction): void => {
+// JWT token verification middleware
+export const authenticateToken = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
   try {
     const authHeader = req.headers.authorization;
     const token = authHeader && authHeader.split(' ')[1]; // Bearer TOKEN
-    
+
     if (!token) {
       logger.warn('Authentication failed: No token provided');
-      res.status(401).json({ message: 'Authentication required' });
+      res.status(401).json({ message: 'Access token required' });
       return;
     }
+
+    // Verify JWT token
+    const secret = process.env.JWT_SECRET || 'your-super-secret-jwt-key-change-in-production';
+    let payload: any;
     
     try {
-      // In a real app, verify with JWT
-      // For this simple example, we'll decode the base64 token
-      const decoded = JSON.parse(Buffer.from(token, 'base64').toString());
-      
-      if (!decoded.userId || !decoded.timestamp) {
-        throw new Error('Invalid token format');
-      }
-      
-      // Add userId to request object for use in route handlers
-      req.userId = decoded.userId;
-      
-      next();
+      payload = jwt.verify(token, secret) as any;
     } catch (error) {
-      logger.warn('Authentication failed: Invalid token', error);
-      res.status(403).json({ message: 'Invalid or expired token' });
+      if (error instanceof jwt.TokenExpiredError) {
+        logger.warn('Authentication failed: Token expired');
+        res.status(401).json({ message: 'Token expired' });
+        return;
+      } else if (error instanceof jwt.JsonWebTokenError) {
+        logger.warn('Authentication failed: Invalid token');
+        res.status(401).json({ message: 'Invalid token' });
+        return;
+      } else {
+        throw error;
+      }
     }
+
+    // Verify user exists
+    const user = await User.findById(payload.userId);
+    if (!user) {
+      logger.warn(`Authentication failed: User not found for token ${payload.userId}`);
+      res.status(401).json({ message: 'Invalid token' });
+      return;
+    }
+
+    // Add user info to request object
+    req.userId = payload.userId;
+    req.user = user;
+    
+    next();
   } catch (error) {
-    logger.error('Error in authentication middleware:', error);
-    res.status(500).json({ message: 'Internal server error' });
+    logger.error('Authentication middleware error:', error);
+    res.status(500).json({ message: 'Authentication error' });
   }
 };
 
-export const requireRole = (role: string) => {
+// Role-based authorization middleware
+export const requireRole = (requiredRole: string) => {
   return async (req: Request, res: Response, next: NextFunction): Promise<void> => {
     try {
-      // @ts-ignore - userId is added by auth middleware
-      const userId = req.userId;
+      const user = req.user;
       
-      if (!userId) {
-        logger.warn('Authorization failed: No user ID in request');
+      if (!user) {
+        logger.warn('Authorization failed: No user in request');
         res.status(401).json({ message: 'Authentication required' });
         return;
       }
       
-      // In a real app, fetch the user from the database
-      // For this example, we'll just check a sample user
-      const user = { role: 'admin' }; // Mock user - replace with database lookup
-      
-      if (user.role !== role) {
-        logger.warn(`Authorization failed: User does not have ${role} role`);
+      if (user.role !== requiredRole && user.role !== 'admin') {
+        logger.warn(`Authorization failed: User does not have ${requiredRole} role`);
         res.status(403).json({ message: 'Insufficient permissions' });
         return;
       }
@@ -72,4 +88,31 @@ export const requireRole = (role: string) => {
       res.status(500).json({ message: 'Internal server error' });
     }
   };
-}; 
+};
+
+// Admin-only middleware
+export const requireAdmin = requireRole('admin');
+
+// Editor or Admin middleware
+export const requireEditor = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
+  try {
+    const user = req.user;
+    
+    if (!user) {
+      logger.warn('Authorization failed: No user in request');
+      res.status(401).json({ message: 'Authentication required' });
+      return;
+    }
+    
+    if (user.role !== 'editor' && user.role !== 'admin') {
+      logger.warn(`Authorization failed: User does not have editor or admin role`);
+      res.status(403).json({ message: 'Insufficient permissions' });
+      return;
+    }
+    
+    next();
+  } catch (error) {
+    logger.error('Error in authorization middleware:', error);
+    res.status(500).json({ message: 'Internal server error' });
+  }
+};

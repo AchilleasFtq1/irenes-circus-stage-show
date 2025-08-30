@@ -1,41 +1,14 @@
-import React, { useState, useEffect } from 'react';
-import { useNavigate, Link, Outlet } from 'react-router-dom';
+import React, { useState } from 'react';
+import { Link, Outlet } from 'react-router-dom';
 import { LayoutDashboard, Music, Calendar, Users, Image, MessageSquare, LogOut, Menu, X } from 'lucide-react';
-import { authAPI } from '@/lib/api';
-import { IUser } from '@/lib/types';
+import { useAuth } from '@/contexts/AuthContext';
 
 const AdminLayout = () => {
-  const [user, setUser] = useState<IUser | null>(null);
-  const [isLoading, setIsLoading] = useState(true);
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-  const navigate = useNavigate();
-
-  useEffect(() => {
-    const checkAuth = async () => {
-      try {
-        const token = localStorage.getItem('auth_token');
-        if (!token) {
-          navigate('/admin/login');
-          return;
-        }
-
-        const { user } = await authAPI.getCurrentUser();
-        setUser(user);
-      } catch (error) {
-        console.error('Authentication error:', error);
-        localStorage.removeItem('auth_token');
-        navigate('/admin/login');
-      } finally {
-        setIsLoading(false);
-      }
-    };
-
-    checkAuth();
-  }, [navigate]);
+  const { user, logout, isLoading } = useAuth();
 
   const handleLogout = () => {
-    localStorage.removeItem('auth_token');
-    navigate('/admin/login');
+    logout();
   };
 
   if (isLoading) {

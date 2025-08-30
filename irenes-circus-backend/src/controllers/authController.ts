@@ -1,12 +1,20 @@
 import { Request, Response } from 'express';
+import jwt from 'jsonwebtoken';
 import User, { IUser } from '../models/User';
 import logger from '../config/logger';
-import crypto from 'crypto';
 
-// Generate a simple JWT-like token (for demo purposes only)
-const generateToken = (userId: string): string => {
-  const payload = { userId, timestamp: Date.now() };
-  return Buffer.from(JSON.stringify(payload)).toString('base64');
+// Generate JWT token
+const generateToken = (userId: string, role: string): string => {
+  const payload = { 
+    userId, 
+    role,
+    iat: Math.floor(Date.now() / 1000)
+  };
+  
+  const secret = process.env.JWT_SECRET || 'your-super-secret-jwt-key-change-in-production';
+  return jwt.sign(payload, secret, { 
+    expiresIn: process.env.JWT_EXPIRES_IN || '7d' 
+  });
 };
 
 // Register a new user
@@ -30,6 +38,9 @@ export const register = async (req: Request, res: Response): Promise<void> => {
       role: role || 'editor'
     });
     
+    // Generate token for the new user
+    const token = generateToken(user._id.toString(), user.role);
+    
     logger.info(`New user registered: ${username} (${email})`);
     res.status(201).json({
       message: 'User registered successfully',
@@ -38,7 +49,8 @@ export const register = async (req: Request, res: Response): Promise<void> => {
         username: user.username,
         email: user.email,
         role: user.role
-      }
+      },
+      token
     });
   } catch (error) {
     logger.error('Error registering user:', error);
@@ -60,7 +72,7 @@ export const login = async (req: Request, res: Response): Promise<void> => {
     }
     
     // Check password
-    const isPasswordValid = user.comparePassword(password);
+    const isPasswordValid = await user.comparePassword(password);
     if (!isPasswordValid) {
       logger.warn(`Login failed: Invalid password for ${email}`);
       res.status(401).json({ message: 'Invalid credentials' });
@@ -68,7 +80,7 @@ export const login = async (req: Request, res: Response): Promise<void> => {
     }
     
     // Generate token
-    const token = generateToken(user._id.toString());
+    const token = generateToken(user._id.toString(), user.role);
     
     logger.info(`User logged in: ${user.username} (${email})`);
     res.status(200).json({

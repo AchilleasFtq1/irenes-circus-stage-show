@@ -34,6 +34,14 @@ This project is split into two main parts:
    MONGODB_URI=mongodb://localhost:27017/irenes-circus
    NODE_ENV=development
    LOG_LEVEL=debug
+   
+   # Required for JWT authentication
+   JWT_SECRET=your-super-secret-jwt-key-change-in-production-min-32-chars
+   JWT_EXPIRES_IN=7d
+   
+   # Spotify API credentials (optional)
+   SPOTIFY_CLIENT_ID=your_spotify_client_id
+   SPOTIFY_CLIENT_SECRET=your_spotify_client_secret
    ```
 
 4. Seed the database with initial data:
@@ -79,10 +87,21 @@ This project is split into two main parts:
 
 ## Admin Access
 
+⚠️ **Important**: Due to security upgrades, existing passwords have been reset. See `PASSWORD_MIGRATION_GUIDE.md` for details.
+
 To access the admin dashboard, navigate to `/admin/login` and use the following credentials:
 
+**Default Admin User** (after running `pnpm seed`):
 - Email: admin@irenescircus.com
 - Password: admin123
+
+**Default Editor User** (after running `pnpm seed`):
+- Email: editor@irenescircus.com
+- Password: editor123
+
+**After Migration** (if using `pnpm migrate:passwords`):
+- Use your existing email with temporary password: `TempSecure123!`
+- Change password immediately after login
 
 ## Deployment
 

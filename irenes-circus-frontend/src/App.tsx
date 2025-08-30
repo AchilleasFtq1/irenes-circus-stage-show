@@ -1,4 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { AuthProvider } from '@/contexts/AuthContext';
+import ProtectedRoute from '@/components/ProtectedRoute';
 
 // Public pages
 import Home from '@/pages/Home';
@@ -24,37 +26,43 @@ import MemberEdit from '@/pages/admin/MemberEdit';
 
 const App = () => {
   return (
-    <Router>
-      <Routes>
-        {/* Public Routes */}
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/music" element={<Music />} />
-        <Route path="/tour" element={<Tour />} />
-        <Route path="/gallery" element={<Gallery />} />
-        <Route path="/contact" element={<Contact />} />
+    <AuthProvider>
+      <Router>
+        <Routes>
+          {/* Public Routes */}
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/music" element={<Music />} />
+          <Route path="/tour" element={<Tour />} />
+          <Route path="/gallery" element={<Gallery />} />
+          <Route path="/contact" element={<Contact />} />
 
-        {/* Admin Routes */}
-        <Route path="/admin/login" element={<AdminLogin />} />
-        <Route path="/admin" element={<AdminLayout />}>
-          <Route index element={<AdminDashboard />} />
-          <Route path="dashboard" element={<AdminDashboard />} />
-          <Route path="tracks" element={<AdminTracks />} />
-          <Route path="events" element={<AdminEvents />} />
-          <Route path="band-members" element={<AdminMembers />} />
-          <Route path="band-members/new" element={<MemberNew />} />
-          <Route path="band-members/edit/:id" element={<MemberEdit />} />
-          <Route path="messages" element={<AdminMessages />} />
-          <Route path="gallery" element={<AdminGallery />} />
-          <Route path="gallery/new" element={<GalleryNew />} />
-          <Route path="gallery/edit/:id" element={<GalleryEdit />} />
-          
-          {/* You can add more admin routes here */}
-          {/* <Route path="tracks" element={<AdminTracks />} /> */}
-          {/* <Route path="band-members" element={<AdminBandMembers />} /> */}
-        </Route>
-      </Routes>
-    </Router>
+          {/* Admin Routes */}
+          <Route path="/admin/login" element={<AdminLogin />} />
+          <Route path="/admin" element={
+            <ProtectedRoute>
+              <AdminLayout />
+            </ProtectedRoute>
+          }>
+            <Route index element={<AdminDashboard />} />
+            <Route path="dashboard" element={<AdminDashboard />} />
+            <Route path="tracks" element={<AdminTracks />} />
+            <Route path="events" element={<AdminEvents />} />
+            <Route path="band-members" element={<AdminMembers />} />
+            <Route path="band-members/new" element={<MemberNew />} />
+            <Route path="band-members/edit/:id" element={<MemberEdit />} />
+            <Route path="messages" element={
+              <ProtectedRoute requireAdmin={true}>
+                <AdminMessages />
+              </ProtectedRoute>
+            } />
+            <Route path="gallery" element={<AdminGallery />} />
+            <Route path="gallery/new" element={<GalleryNew />} />
+            <Route path="gallery/edit/:id" element={<GalleryEdit />} />
+          </Route>
+        </Routes>
+      </Router>
+    </AuthProvider>
   );
 };
 

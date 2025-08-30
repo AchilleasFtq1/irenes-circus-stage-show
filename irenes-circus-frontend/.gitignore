@@ -1,20 +1,20 @@
-# ====================================
-# FRONTEND GITIGNORE (React/Vite/TypeScript)
-# ====================================
+# Frontend specific gitignore for Irene's Circus
 
 # Dependencies
 node_modules/
-/.pnp
-.pnp.js
-/.yarn/
-.yarn/cache/
-.yarn/unplugged/
-.yarn/build-state.yml
-.yarn/install-state.gz
-yarn.lock
-package-lock.json
-pnpm-lock.yaml
-bun.lockb
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Build outputs
+dist/
+build/
+.next/
+.nuxt/
+.cache/
+.parcel-cache/
 
 # Environment variables
 .env
@@ -23,43 +23,58 @@ bun.lockb
 .env.test.local
 .env.production.local
 
-# Build outputs
-/build
-/dist
-/out
-dist-ssr
-*.local
+# Vite
+.vite/
+
+# TypeScript
+*.tsbuildinfo
+
+# ESLint cache
+.eslintcache
+
+# Stylelint cache
+.stylelintcache
+
+# Prettier cache
+.prettiercache
 
 # Testing
-/coverage
-/test-results
-/nyc_output
+coverage/
+.nyc_output/
+junit.xml
+
+# Storybook
+.storybook-out/
+storybook-static/
+
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
 
 # Logs
-logs
+logs/
 *.log
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-pnpm-debug.log*
-lerna-debug.log*
 
 # Runtime data
-pids
+pids/
 *.pid
 *.seed
 *.pid.lock
 
-# Vite
-.vite/
-.vite-cache/
-
-# TypeScript
-*.tsbuildinfo
-*.d.ts.map
-
 # Optional npm cache directory
-.npm
+.npm/
 
 # Optional eslint cache
 .eslintcache
@@ -79,83 +94,39 @@ pids
 # Yarn Integrity file
 .yarn-integrity
 
-# parcel-bundler cache (https://parceljs.org/)
-.cache
-.parcel-cache
+# TailwindCSS
+.tailwindcss-cache/
 
-# Next.js build output
-.next
+# Generated files
+src/generated/
+public/generated/
 
-# Nuxt.js build / generate output
-.nuxt
-dist
+# Static files that shouldn't be committed
+public/uploads/
+public/images/uploads/
 
-# Storybook build outputs
-.out
-.storybook-out
-
-# Temporary folders
+# Temporary files
 tmp/
 temp/
 
-# Editor directories and files
-.vscode/*
-!.vscode/extensions.json
-.idea
-*.swp
-*.swo
-*~
-*.suo
-*.ntvs*
-*.njsproj
-*.sln
-*.sw?
+# Local configuration
+config/local.json
+config/local.js
 
-# OS
-.DS_Store
-.DS_Store?
-._*
-.Spotlight-V100
-.Trashes
-ehthumbs.db
-Thumbs.db
+# Backup files
+*.backup
+*.bak
+*.old
 
-# Uploads
-uploads/
-public/uploads/
-
-# Hot reload
-.hot/
-
-# Webpack
-.webpack/
-webpack-stats.json
-
-# ESLint
-.eslintcache
-
-# Stylelint
-.stylelintcache
-
-# Prettier
-.prettierignore
-
-# Storybook
-.storybook/
-storybook-static/
-
-# Chromatic
-chromatic.log
-
-# Cypress
-cypress/videos/
-cypress/screenshots/
+# Package lock files (choose one based on your package manager)
+# package-lock.json  # Uncomment if using yarn exclusively
+# yarn.lock          # Uncomment if using npm exclusively
 
 # PWA
 sw.js
-sw.js.map
 workbox-*.js
-workbox-*.js.map
 
-# Sentry
-.sentryclirc
+# Capacitor
+.capacitor/
+android/
+ios/
