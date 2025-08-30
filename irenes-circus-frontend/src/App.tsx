@@ -1,6 +1,9 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { AuthProvider } from '@/contexts/AuthContext';
 import ProtectedRoute from '@/components/ProtectedRoute';
+import ErrorBoundary from '@/components/ErrorBoundary';
+import ToastContainer from '@/components/ToastContainer';
+import { AccessibilityProvider, SkipToContent } from '@/components/AccessibilityProvider';
 
 // Public pages
 import Home from '@/pages/Home';
@@ -26,9 +29,14 @@ import MemberEdit from '@/pages/admin/MemberEdit';
 
 const App = () => {
   return (
-    <AuthProvider>
-      <Router>
-        <Routes>
+    <ErrorBoundary>
+      <AccessibilityProvider>
+        <AuthProvider>
+          <Router>
+            <SkipToContent />
+            <ToastContainer />
+            <div id="main-content">
+              <Routes>
           {/* Public Routes */}
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
@@ -60,9 +68,12 @@ const App = () => {
             <Route path="gallery/new" element={<GalleryNew />} />
             <Route path="gallery/edit/:id" element={<GalleryEdit />} />
           </Route>
-        </Routes>
-      </Router>
-    </AuthProvider>
+                </Routes>
+              </div>
+            </Router>
+          </AuthProvider>
+        </AccessibilityProvider>
+    </ErrorBoundary>
   );
 };
 

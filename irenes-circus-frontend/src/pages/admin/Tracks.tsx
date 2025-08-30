@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { ArrowLeft, ExternalLink, Play, Pause, Music } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { getArtistTopTracks } from '@/lib/spotify';
+import { getArtistTopTracks, SpotifyTrack } from '@/lib/spotify';
 
 const AdminTracks: React.FC = () => {
-  const [tracks, setTracks] = useState<any[]>([]);
+  const [tracks, setTracks] = useState<SpotifyTrack[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
   const [currentlyPlaying, setCurrentlyPlaying] = useState<string | null>(null);
@@ -37,7 +37,7 @@ const AdminTracks: React.FC = () => {
         audioRef.src = '';
       }
     };
-  }, []);
+  }, [audioRef]);
 
   const formatDuration = (ms: number) => {
     const minutes = Math.floor(ms / 60000);
@@ -157,7 +157,7 @@ const AdminTracks: React.FC = () => {
                             {track.name}
                           </div>
                           <div className="text-sm text-gray-500">
-                            {track.artists?.map((a: any) => a.name).join(", ")}
+                            {track.artists?.map((a) => a.name).join(", ")}
                           </div>
                         </div>
                       </div>

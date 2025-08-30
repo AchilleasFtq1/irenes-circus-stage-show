@@ -1,7 +1,7 @@
 // API client for connecting to the backend
 import { ITrack, IEvent, IBandMember, IGalleryImage, IContact } from './types';
 
-const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000/api';
+const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5001/api';
 
 // Helper function for API requests
 async function fetchAPI<T>(
@@ -49,7 +49,7 @@ async function fetchAPI<T>(
       
       // Handle validation errors
       if (errorData.errors && Array.isArray(errorData.errors)) {
-        errorMessage = errorData.errors.map((err: any) => err.msg || err.message).join(', ');
+        errorMessage = errorData.errors.map((err: { msg?: string; message?: string }) => err.msg || err.message).join(', ');
       }
     } catch (e) {
       // If we can't parse JSON, use status text

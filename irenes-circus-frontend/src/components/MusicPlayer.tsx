@@ -33,11 +33,11 @@ const MusicPlayer = ({ tracks }: { tracks: Track[] }) => {
     }
   };
   
-  const handleNext = () => {
+  const handleNext = React.useCallback(() => {
     if (tracks.length === 0) return;
     setCurrentIndex((prev) => (prev + 1) % tracks.length);
     setIsPlaying(true);
-  };
+  }, [tracks.length]);
   
   const handlePrev = () => {
     if (tracks.length === 0) return;
@@ -54,7 +54,7 @@ const MusicPlayer = ({ tracks }: { tracks: Track[] }) => {
     if (isPlaying) {
       audio.play();
     }
-  }, [currentTrack]);
+  }, [currentTrack, isPlaying]);
 
   useEffect(() => {
     const audio = audioRef.current;
@@ -83,7 +83,7 @@ const MusicPlayer = ({ tracks }: { tracks: Track[] }) => {
       audio.removeEventListener('timeupdate', updateProgress);
       audio.removeEventListener('ended', handleEnded);
     };
-  }, [currentIndex]);
+  }, [currentIndex, handleNext]);
 
   return (
     <div className="bg-circus-dark/90 text-circus-cream rounded-lg p-4 shadow-lg">

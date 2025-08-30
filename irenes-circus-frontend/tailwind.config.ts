@@ -82,6 +82,12 @@ export default {
 					fire: '#EA580C',        // Fire orange
 					lightning: '#F59E0B',   // Lightning yellow
 					storm: '#374151',       // Storm gray
+				},
+				circus: {
+					dark: '#1A202C',        // Dark text
+					cream: '#F7FAFC',       // Light cream background
+					gold: '#D69E2E',        // Gold accent
+					red: '#B85450',         // Red accent
 				}
 			},
 			borderRadius: {

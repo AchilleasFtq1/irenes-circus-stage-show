@@ -46,44 +46,7 @@
     --sidebar-ring: 214 158 46%; /* Amber ring */
   }
 
-  .dark {
-    --background: 10 10 10%; /* Even darker background */
-    --foreground: 247 250 252%; /* Light cream foreground */
-
-    --card: 26 26 26%; /* Dark charcoal cards */
-    --card-foreground: 247 250 252%; /* Light cream text */
-
-    --popover: 26 26 26%; /* Dark popover */
-    --popover-foreground: 247 250 252%; /* Light text */
-
-    --primary: 214 158 46%; /* Amber primary in dark mode */
-    --primary-foreground: 10 10 10%; /* Deep black text */
-
-    --secondary: 67 67 67%; /* Steel gray secondary */
-    --secondary-foreground: 247 250 252%; /* Light text */
-
-    --muted: 45 45 45%; /* Medium slate muted */
-    --muted-foreground: 156 163 175%; /* Smoke gray text */
-
-    --accent: 184 84 80%; /* Rust red accent */
-    --accent-foreground: 247 250 252%; /* Light text */
-
-    --destructive: 220 38 38%; /* Blood red destructive */
-    --destructive-foreground: 247 250 252%; /* Light text */
-
-    --border: 45 45 45%; /* Medium slate border */
-    --input: 45 45 45%; /* Medium slate input */
-    --ring: 214 158 46%; /* Amber ring */
-
-    --sidebar-background: 10 10 10%; /* Deep black sidebar */
-    --sidebar-foreground: 247 250 252%; /* Light text */
-    --sidebar-primary: 214 158 46%; /* Amber primary */
-    --sidebar-primary-foreground: 10 10 10%; /* Deep black text */
-    --sidebar-accent: 45 45 45%; /* Medium slate accent */
-    --sidebar-accent-foreground: 247 250 252%; /* Light text */
-    --sidebar-border: 45 45 45%; /* Medium slate border */
-    --sidebar-ring: 184 84 80%; /* Rust red ring */
-  }
+  /* Rock theme uses consistent dark colors by default - no dark mode toggle needed */
 }
 
 @layer base {

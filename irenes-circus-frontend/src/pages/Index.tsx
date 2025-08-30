@@ -6,6 +6,7 @@ import Footer from "@/components/Footer";
 import MusicPlayer from "@/components/MusicPlayer";
 import EventCard from "@/components/EventCard";
 import { getArtistTopTracks } from "@/lib/spotify";
+import { IEvent } from "@/lib/types";
 import type { SpotifyTrack } from "@/lib/spotify";
 
 interface Track {
@@ -17,7 +18,7 @@ interface Track {
 }
 
 const Index = () => {
-  const [events, setEvents] = useState<any[]>([]);
+  const [events, setEvents] = useState<IEvent[]>([]);
   const [tracks, setTracks] = useState<Track[]>([]);
   const [loading, setLoading] = useState(true);
 
@@ -25,7 +26,7 @@ const Index = () => {
     const fetchData = async () => {
       try {
         // Fetch events from backend
-        const eventsResponse = await fetch(`${import.meta.env.VITE_API_URL}/api/events`);
+        const eventsResponse = await fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:5001/api'}/events`);
         const eventsData = await eventsResponse.json();
         setEvents(eventsData);
 
@@ -64,13 +65,13 @@ const Index = () => {
   const spotifyUrl = "https://open.spotify.com/artist/25XfQgnvMcoCvcfNqU69ZG";
 
   if (loading) {
-    return <div className="min-h-screen bg-circus-cream flex items-center justify-center">
+    return <div className="min-h-screen bg-gradient-to-b from-circus-cream to-white flex items-center justify-center">
       <div className="animate-spin rounded-full h-32 w-32 border-t-2 border-b-2 border-circus-gold"></div>
     </div>;
   }
 
   return (
-    <div className="min-h-screen bg-circus-cream text-circus-dark" style={{ background: "linear-gradient(to bottom, #F9F4D2 0%, #fff 100%)" }}>
+    <div className="min-h-screen bg-gradient-to-b from-circus-cream to-white text-circus-dark">
       <Navbar />
       
       {/* Hero Section */}

@@ -31,7 +31,7 @@ const AdminLayout = () => {
   );
 
   return (
-    <div className="flex h-screen bg-white">
+    <div className="flex h-screen bg-gradient-to-b from-circus-cream to-white">
       {/* Mobile Sidebar Toggle */}
       <button 
         className="md:hidden fixed top-4 left-4 z-50 p-2 bg-circus-dark text-circus-gold rounded-md"
@@ -77,7 +77,7 @@ const AdminLayout = () => {
 
       {/* Main Content */}
       <div className="flex-1 flex flex-col h-full overflow-hidden">
-        <main className="flex-1 overflow-y-auto p-6 bg-gray-50">
+        <main className="flex-1 overflow-y-auto p-6 bg-gradient-to-b from-circus-cream to-white">
           <Outlet />
         </main>
       </div>

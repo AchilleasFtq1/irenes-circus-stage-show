@@ -21,7 +21,7 @@ const Tour = () => {
   useEffect(() => {
     const fetchEvents = async () => {
       try {
-        const response = await fetch(`${import.meta.env.VITE_API_URL}/events`);
+        const response = await fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:5001/api'}/events`);
         if (!response.ok) throw new Error('Failed to fetch events');
         const data = await response.json();
         setEvents(data);
@@ -52,22 +52,30 @@ const Tour = () => {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-circus-cream flex items-center justify-center">
+      <div className="min-h-screen bg-gradient-to-b from-circus-cream to-white flex items-center justify-center">
         <div className="animate-spin rounded-full h-32 w-32 border-t-2 border-b-2 border-circus-gold"></div>
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-circus-cream">
+    <div className="min-h-screen bg-gradient-to-b from-circus-cream to-white">
       <Navbar />
       
+      {/* Hero Section */}
+      <section className="relative bg-white/70 backdrop-blur text-circus-dark py-20">
+        <div className="container mx-auto px-4">
+          <h1 className="font-circus text-4xl md:text-5xl font-bold mb-4 text-circus-gold animate-spotlight">
+            Tour Dates
+          </h1>
+          <p className="font-alt text-xl max-w-2xl mb-6">
+            Join us for an unforgettable evening of theatrical music and circus arts.
+            Check our upcoming shows and secure your tickets.
+          </p>
+        </div>
+      </section>
+      
       <main className="container mx-auto px-4 py-12">
-        <h1 className="font-circus text-4xl md:text-6xl text-circus-dark mb-4">Tour Dates</h1>
-        <p className="font-alt text-lg mb-12 max-w-2xl text-circus-dark/80">
-          Join us for an unforgettable evening of theatrical music and circus arts.
-          Check our upcoming shows and secure your tickets.
-        </p>
 
         {error && (
           <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-6">

@@ -14,7 +14,7 @@ const generateToken = (userId: string, role: string): string => {
   const secret = process.env.JWT_SECRET || 'your-super-secret-jwt-key-change-in-production';
   return jwt.sign(payload, secret, { 
     expiresIn: process.env.JWT_EXPIRES_IN || '7d' 
-  });
+  } as jwt.SignOptions);
 };
 
 // Register a new user

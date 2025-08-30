@@ -40,9 +40,10 @@ const AdminLogin = () => {
       const from = location.state?.from?.pathname || '/admin/dashboard';
       navigate(from, { replace: true });
       
-    } catch (err: any) {
+    } catch (err: unknown) {
       console.error('Login error:', err);
-      setError(err.message || 'Invalid email or password. Please try again.');
+      const errorMessage = err instanceof Error ? err.message : 'Invalid email or password. Please try again.';
+      setError(errorMessage);
     } finally {
       setIsSubmitting(false);
     }
