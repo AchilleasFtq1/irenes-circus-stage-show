@@ -6,6 +6,7 @@ import routes from './routes';
 import connectDB from './config/database';
 import logger from './config/logger';
 import { generalLimiter } from './middleware/security';
+import seedProductionDB from './utils/seedProduction';
 
 // Load environment variables
 dotenv.config();
@@ -82,6 +83,16 @@ const startServer = async (): Promise<void> => {
   try {
     // Connect to MongoDB
     await connectDB();
+    
+    // Auto-seed database in production if empty
+    if (process.env.NODE_ENV === 'production') {
+      logger.info('Production environment detected. Checking if database seeding is needed...');
+      try {
+        await seedProductionDB();
+      } catch (seedError) {
+        logger.warn('Database seeding failed, but continuing with server startup:', seedError);
+      }
+    }
     
     app.listen(PORT, () => {
       logger.info(`Server running on port ${PORT}`);

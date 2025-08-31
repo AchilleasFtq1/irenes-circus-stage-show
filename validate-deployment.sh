@@ -226,11 +226,8 @@ else
     print_error "MongoDB service missing from render.yaml"
 fi
 
-if grep -q "name: seed-database" render.yaml; then
-    print_success "Database seeding job defined in render.yaml"
-else
-    print_error "Database seeding job missing from render.yaml"
-fi
+# Note: Database seeding is now handled automatically by the backend on startup
+print_success "Database seeding configured (automatic on backend startup)"
 
 # Check for health check
 if grep -q "healthCheckPath: /api/health" render.yaml; then

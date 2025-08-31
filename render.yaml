@@ -13,7 +13,7 @@ services:
       - key: MONGO_INITDB_ROOT_USERNAME
         value: admin
       - key: MONGO_INITDB_ROOT_PASSWORD
-        sync: false  # Set this manually in Render dashboard
+        value: admin123
       - key: MONGO_INITDB_DATABASE
         value: irenes-circus
 
@@ -32,9 +32,9 @@ services:
       - key: PORT
         value: 10000
       - key: MONGODB_URI
-        value: mongodb://admin:${MONGO_PASSWORD}@irenes-circus-mongodb:27017/irenes-circus
+        value: mongodb://admin:admin123@irenes-circus-mongodb:27017/irenes-circus
       - key: JWT_SECRET
-        sync: false  # This will be set manually in Render dashboard
+        value: a8f5f167f44f4964e6c998dee827110c89b7e8f8d12345678901234567890123
       - key: JWT_EXPIRES_IN
         value: 7d
       - key: LOG_LEVEL
@@ -79,26 +79,10 @@ services:
         value: production
 
 # Note: Using Docker MongoDB instead of managed database for hobby plan
-# databases:f
+# databases:
 #   - name: irenes-circus-db
 #     databaseName: irenes-circus
 #     user: irenes-circus-user
 #     plan: free
 
-# Database seeding job
-jobs:
-  - type: job
-    name: seed-database
-    env: node
-    buildCommand: cd irenes-circus-backend && pnpm install && pnpm build
-    startCommand: cd irenes-circus-backend && pnpm seed:production
-    plan: free
-    schedule: "@once"
-    envVars:
-      - key: NODE_ENV
-        value: production
-      - key: MONGODB_URI
-        fromService:
-          type: pserv
-          name: irenes-circus-mongodb
-          property: connectionString
+# Note: Database seeding will be handled automatically by the backend on first startup

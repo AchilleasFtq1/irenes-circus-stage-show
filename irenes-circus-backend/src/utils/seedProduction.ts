@@ -142,10 +142,12 @@ const seedProductionDB = async (): Promise<void> => {
       throw new Error('MONGODB_URI environment variable is required');
     }
 
-    logger.info('Connecting to MongoDB for production seeding...');
-    logger.info(`MongoDB URI: ${mongoURI.replace(/\/\/.*@/, '//*****@')}`); // Log URI with password hidden
-    
-    await mongoose.connect(mongoURI);
+    // Check if we're already connected to avoid double connection
+    if (mongoose.connection.readyState !== 1) {
+      logger.info('Connecting to MongoDB for production seeding...');
+      logger.info(`MongoDB URI: ${mongoURI.replace(/\/\/.*@/, '//*****@')}`); // Log URI with password hidden
+      await mongoose.connect(mongoURI);
+    }
     logger.info('Connected to MongoDB for production seeding');
     
     // Check if data already exists
@@ -168,7 +170,6 @@ const seedProductionDB = async (): Promise<void> => {
         logger.info('Created admin user - Email: admin@irenescircus.com, Password: admin123');
       }
       
-      await mongoose.disconnect();
       logger.info('Production seeding completed (data already existed)');
       return;
     }
@@ -212,16 +213,12 @@ const seedProductionDB = async (): Promise<void> => {
     });
     logger.info('Created editor user - Email: editor@irenescircus.com, Password: editor123');
     
-    await mongoose.disconnect();
     logger.info('Production database seeding completed successfully');
     logger.info('⚠️  IMPORTANT: Change default passwords immediately after deployment!');
     
   } catch (error) {
     logger.error('Error seeding production database:', error);
-    if (mongoose.connection.readyState === 1) {
-      await mongoose.disconnect();
-    }
-    process.exit(1);
+    throw error; // Re-throw to let the caller handle it
   }
 };
 
