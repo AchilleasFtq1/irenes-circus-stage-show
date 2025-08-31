@@ -45,7 +45,6 @@ services:
   - type: web
     name: irenes-circus-frontend
     env: static
-    plan: free
     buildCommand: cd irenes-circus-frontend && pnpm install && pnpm build
     staticPublishPath: ./irenes-circus-frontend/dist
     pullRequestPreviewsEnabled: true
