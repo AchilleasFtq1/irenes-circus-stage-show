@@ -18,7 +18,7 @@ services:
     name: irenes-circus-backend
     env: node
     region: oregon
-    plan: free
+    plan: starter
     buildCommand: cd irenes-circus-backend && pnpm install && pnpm build
     startCommand: cd irenes-circus-backend && pnpm start
     healthCheckPath: /api/health
@@ -45,7 +45,7 @@ services:
   - type: web
     name: irenes-circus-frontend
     env: static
-    plan: free
+    plan: starter
     buildCommand: cd irenes-circus-frontend && pnpm install && pnpm build
     staticPublishPath: ./irenes-circus-frontend/dist
     pullRequestPreviewsEnabled: true
