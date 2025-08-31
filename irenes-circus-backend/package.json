@@ -7,6 +7,7 @@
     "build": "tsc",
     "start": "node dist/index.js",
     "seed": "ts-node src/utils/seedData.ts",
+    "seed:production": "node dist/utils/seedProduction.js",
     "migrate:passwords": "ts-node src/utils/migratePasswords.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

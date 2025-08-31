@@ -20,7 +20,9 @@
     "audit:fix": "concurrently \"cd irenes-circus-frontend && pnpm audit --fix\" \"cd irenes-circus-backend && pnpm audit --fix\"",
     "security:check": "echo 'Running security checks...' && pnpm audit && echo 'Security check completed!'",
     "deploy:prep": "./deploy.sh",
-    "deploy:prep:seed": "./deploy.sh --seed"
+    "deploy:prep:seed": "./deploy.sh --seed",
+    "validate:deployment": "./validate-deployment.sh",
+    "deploy:render": "./deploy-render.sh"
   },
   "keywords": [
     "circus",
