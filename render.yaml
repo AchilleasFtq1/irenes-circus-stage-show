@@ -5,10 +5,6 @@ services:
     env: docker
     dockerfilePath: ./mongo-dockerfile
     plan: free
-    disk:
-      name: mongodb-data
-      mountPath: /data/db
-      sizeGB: 10
     envVars:
       - key: MONGO_INITDB_ROOT_USERNAME
         value: admin
@@ -44,16 +40,11 @@ services:
           type: web
           name: irenes-circus-frontend
           property: host
-    routes:
-      - type: rewrite
-        source: /api/*
-        destination: /api/*
 
   # Frontend Static Site
   - type: web
     name: irenes-circus-frontend
     env: static
-    region: oregon
     plan: free
     buildCommand: cd irenes-circus-frontend && pnpm install && pnpm build
     staticPublishPath: ./irenes-circus-frontend/dist
