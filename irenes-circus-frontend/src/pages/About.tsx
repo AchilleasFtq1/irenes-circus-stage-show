@@ -33,7 +33,7 @@ const About = () => {
       <Navbar />
       
       {/* Hero Section */}
-      <section className="relative bg-circus-dark text-circus-cream py-20">
+      <section className="relative bg-white/70 backdrop-blur text-circus-dark py-20">
         <div className="container mx-auto px-4">
           <h1 className="font-circus text-4xl md:text-5xl font-bold mb-4 text-circus-gold animate-spotlight">
             About Us
@@ -102,7 +102,7 @@ const About = () => {
               <p>{error}</p>
               <button 
                 onClick={() => window.location.reload()} 
-                className="mt-4 px-4 py-2 bg-circus-gold text-circus-dark rounded-md hover:bg-circus-red hover:text-circus-cream transition-colors">
+                className="mt-4 px-4 py-2 bg-circus-gold text-circus-dark rounded-md hover:bg-circus-red hover:text-white transition-colors">
                 Try Again
               </button>
             </div>
@@ -119,7 +119,7 @@ const About = () => {
       </section>
       
       {/* Press Kit */}
-      <section className="py-16 bg-circus-dark text-circus-cream">
+      <section className="py-16 bg-white/70 backdrop-blur text-circus-dark">
         <div className="container mx-auto px-4 text-center">
           <h2 className="font-circus text-3xl font-bold mb-4 text-circus-gold">
             Press & Media
@@ -130,7 +130,7 @@ const About = () => {
           
           <a 
             href="mailto:press@irenescircus.com" 
-            className="bg-circus-gold text-circus-dark px-6 py-3 rounded-lg font-bold inline-block hover:bg-circus-red hover:text-circus-cream transition-colors mr-4"
+            className="bg-circus-gold text-circus-dark px-6 py-3 rounded-lg font-bold inline-block hover:bg-circus-red hover:text-white transition-colors mr-4"
           >
             Contact Press
           </a>

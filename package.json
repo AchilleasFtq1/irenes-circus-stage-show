@@ -14,7 +14,15 @@
     "build:frontend": "cd irenes-circus-frontend && pnpm build",
     "build:backend": "cd irenes-circus-backend && pnpm build",
     "seed": "cd irenes-circus-backend && pnpm seed",
-    "setup": "pnpm install && concurrently \"cd irenes-circus-frontend && pnpm install\" \"cd irenes-circus-backend && pnpm install\""
+    "migrate:passwords": "cd irenes-circus-backend && pnpm migrate:passwords",
+    "setup": "pnpm install && concurrently \"cd irenes-circus-frontend && pnpm install\" \"cd irenes-circus-backend && pnpm install\"",
+    "audit": "concurrently \"cd irenes-circus-frontend && pnpm audit\" \"cd irenes-circus-backend && pnpm audit\"",
+    "audit:fix": "concurrently \"cd irenes-circus-frontend && pnpm audit --fix\" \"cd irenes-circus-backend && pnpm audit --fix\"",
+    "security:check": "echo 'Running security checks...' && pnpm audit && echo 'Security check completed!'",
+    "deploy:prep": "./deploy.sh",
+    "deploy:prep:seed": "./deploy.sh --seed",
+    "validate:deployment": "./validate-deployment.sh",
+    "deploy:render": "./deploy-render.sh"
   },
   "keywords": [
     "circus",

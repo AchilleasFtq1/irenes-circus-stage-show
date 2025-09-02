@@ -6,7 +6,7 @@ const spotifyApi = new SpotifyWebApi();
 export const ARTIST_ID = '25XfQgnvMcoCvcfNqU69ZG';
 
 // API BASE URL for our backend
-const API_BASE = import.meta.env.VITE_API_URL || 'http://localhost:5000/api';
+const API_BASE = import.meta.env.VITE_API_URL || 'http://localhost:5001/api';
 
 /**
  * Fetch a fresh access token from our backend
@@ -38,8 +38,8 @@ export const getAccessToken = async (): Promise<string | null> => {
 // Types for Spotify API responses
 export interface SpotifyImage {
   url: string;
-  height: number;
-  width: number;
+  height?: number;
+  width?: number;
 }
 
 export interface SpotifyAlbum {
@@ -51,8 +51,8 @@ export interface SpotifyAlbum {
   };
   type: string;
   album_type: string;
-  release_date: string;
-  total_tracks: number;
+  release_date?: string;
+  total_tracks?: number;
 }
 
 export interface SpotifyArtist {
@@ -62,10 +62,11 @@ export interface SpotifyArtist {
   external_urls: {
     spotify: string;
   };
-  followers: {
+  followers?: {
     total: number;
   };
-  genres: string[];
+  genres?: string[];
+  popularity?: number;
 }
 
 export interface SpotifyTrack {
@@ -80,6 +81,8 @@ export interface SpotifyTrack {
   external_urls: {
     spotify: string;
   };
+  popularity?: number;
+  preview_url?: string;
 }
 
 // Fetch artist info

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Music, Users, Calendar, Image, MessageSquare, BarChart, PieChart, LineChart } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { bandMembersAPI, eventsAPI, galleryAPI, contactAPI } from '@/lib/api';
-import { getArtistTopTracks, getArtistInfo, getArtistAlbums } from "@/lib/spotify";
+import { getArtistTopTracks, getArtistInfo, getArtistAlbums, SpotifyTrack, SpotifyArtist, SpotifyAlbum } from "@/lib/spotify";
 
 interface StatsItemProps {
   title: string;
@@ -39,10 +39,10 @@ const AdminDashboard: React.FC = () => {
   });
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-  const [spotifyTracks, setSpotifyTracks] = useState<any[]>([]);
-  const [artistInfo, setArtistInfo] = useState<any | null>(null);
+  const [spotifyTracks, setSpotifyTracks] = useState<SpotifyTrack[]>([]);
+  const [artistInfo, setArtistInfo] = useState<SpotifyArtist | null>(null);
   const [spotifyTrackCount, setSpotifyTrackCount] = useState<number>(0);
-  const [spotifyAlbums, setSpotifyAlbums] = useState<any[]>([]);
+  const [spotifyAlbums, setSpotifyAlbums] = useState<SpotifyAlbum[]>([]);
 
   useEffect(() => {
     const fetchStats = async () => {
@@ -76,22 +76,22 @@ const AdminDashboard: React.FC = () => {
         // Get artist info
         const artistData = await getArtistInfo();
         if (artistData) {
-          setArtistInfo(artistData);
+          setArtistInfo(artistData as SpotifyArtist);
         }
         
         // Get top tracks
         const trackData = await getArtistTopTracks();
         if (trackData) {
-          setSpotifyTracks(trackData);
+          setSpotifyTracks(trackData as SpotifyTrack[]);
         }
 
         // Get all albums to count total tracks
         const albumsData = await getArtistAlbums();
         if (albumsData) {
-          setSpotifyAlbums(albumsData);
+          setSpotifyAlbums(albumsData as SpotifyAlbum[]);
           
           // Calculate total tracks across all albums
-          const totalTracks = albumsData.reduce((sum, album) => sum + ((album as any).total_tracks || 0), 0);
+          const totalTracks = albumsData.reduce((sum, album) => sum + ((album as SpotifyAlbum).total_tracks || 0), 0);
           setSpotifyTrackCount(totalTracks);
         }
       } catch (err) {
@@ -193,7 +193,7 @@ const AdminDashboard: React.FC = () => {
           <div className="bg-white rounded-lg shadow p-6">
             <h3 className="text-gray-500 font-medium mb-2">Popularity</h3>
             <div className="flex items-center">
-              <div className="text-3xl font-bold">{artistInfo.popularity || 'N/A'}/100</div>
+              <div className="text-3xl font-bold">{artistInfo.popularity ?? 'N/A'}/100</div>
               <div className="ml-4 text-yellow-500">
                 <PieChart size={24} />
               </div>
@@ -293,7 +293,7 @@ const AdminDashboard: React.FC = () => {
                             {track.name}
                           </div>
                           <div className="text-sm text-gray-500">
-                            {track.artists?.map((a: any) => a.name).join(", ")}
+                            {track.artists?.map((a) => a.name).join(", ")}
                           </div>
                         </div>
                       </div>
@@ -310,13 +310,13 @@ const AdminDashboard: React.FC = () => {
                           <div 
                             className="h-2.5 rounded-full"
                             style={{ 
-                              width: `${(track.popularity || 0) / 100 * 100}%`,
-                              backgroundColor: `hsl(${120 * ((track.popularity || 0) / 100)}, 70%, 50%)`
+                              width: `${(track.popularity ?? 0) / 100 * 100}%`,
+                              backgroundColor: `hsl(${120 * ((track.popularity ?? 0) / 100)}, 70%, 50%)`
                             }}
                           ></div>
                         </div>
                         <span className="ml-2 text-sm text-gray-500">
-                          {track.popularity || 'N/A'}
+                          {track.popularity ?? 'N/A'}
                         </span>
                       </div>
                     </td>

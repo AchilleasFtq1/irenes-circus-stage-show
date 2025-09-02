@@ -1,13 +1,14 @@
 import { useState } from 'react';
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import ContactForm from "@/components/ContactForm";
+import ContactFormSimple from "@/components/ContactFormSimple";
 import { contactAPI } from '@/lib/api';
+import { useToast } from '@/hooks/useToast';
 
 const Contact = () => {
   const [submitSuccess, setSubmitSuccess] = useState<boolean>(false);
-  const [submitError, setSubmitError] = useState<string | null>(null);
   const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
+  const { success, error: showError } = useToast();
 
   const handleFormSubmit = async (formData: {
     name: string;
@@ -17,14 +18,15 @@ const Contact = () => {
   }) => {
     try {
       setIsSubmitting(true);
-      setSubmitError(null);
       
       await contactAPI.submitForm(formData);
       
       setSubmitSuccess(true);
+      success("Message sent successfully! We'll get back to you soon.", "Thank you!");
     } catch (error) {
       console.error('Error submitting contact form:', error);
-      setSubmitError('Failed to send your message. Please try again later.');
+      const errorMessage = error instanceof Error ? error.message : 'Failed to send your message. Please try again later.';
+      showError(errorMessage, "Error");
       setSubmitSuccess(false);
     } finally {
       setIsSubmitting(false);
@@ -55,9 +57,9 @@ const Contact = () => {
               </button>
             </div>
           ) : (
-            <ContactForm 
+            <ContactFormSimple 
               onSubmit={handleFormSubmit} 
-              error={submitError}
+              error={null}
               isSubmitting={isSubmitting}
             />
           )}

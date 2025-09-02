@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { authAPI } from '@/lib/api';
+import React, { useState, useEffect } from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
+import { useAuth } from '@/contexts/AuthContext';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Mail, Lock } from 'lucide-react';
@@ -11,6 +11,16 @@ const AdminLogin = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const navigate = useNavigate();
+  const location = useLocation();
+  const { login, isAuthenticated, isLoading } = useAuth();
+
+  // Redirect if already authenticated
+  useEffect(() => {
+    if (!isLoading && isAuthenticated) {
+      const from = location.state?.from?.pathname || '/admin/dashboard';
+      navigate(from, { replace: true });
+    }
+  }, [isAuthenticated, isLoading, navigate, location]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -24,17 +34,16 @@ const AdminLogin = () => {
       setIsSubmitting(true);
       setError(null);
       
-      const response = await authAPI.login(email, password);
+      await login(email, password);
       
-      if (response.token) {
-        localStorage.setItem('auth_token', response.token);
-        navigate('/admin/dashboard');
-      } else {
-        throw new Error('No token received');
-      }
-    } catch (err) {
+      // Navigation will be handled by the useEffect hook
+      const from = location.state?.from?.pathname || '/admin/dashboard';
+      navigate(from, { replace: true });
+      
+    } catch (err: unknown) {
       console.error('Login error:', err);
-      setError('Invalid email or password. Please try again.');
+      const errorMessage = err instanceof Error ? err.message : 'Invalid email or password. Please try again.';
+      setError(errorMessage);
     } finally {
       setIsSubmitting(false);
     }

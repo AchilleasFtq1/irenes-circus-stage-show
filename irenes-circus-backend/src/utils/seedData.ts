@@ -146,7 +146,10 @@ const seedDB = async (): Promise<void> => {
     await BandMember.deleteMany({});
     await GalleryImage.deleteMany({});
     
-    logger.info('Cleared existing collections');
+    // Clear existing users to ensure fresh start with new password hashing
+    await User.deleteMany({});
+    
+    logger.info('Cleared existing collections including users (due to password hashing upgrade)');
     
     // Seed data
     await Track.insertMany(tracks);
@@ -154,17 +157,24 @@ const seedDB = async (): Promise<void> => {
     await BandMember.insertMany(bandMembers);
     await GalleryImage.insertMany(galleryImages);
     
-    // Create default admin user if none exists
-    const adminExists = await User.findOne({ role: 'admin' });
-    if (!adminExists) {
-      await User.create({
-        username: 'admin',
-        email: 'admin@irenescircus.com',
-        password: 'admin123', // This will be hashed by the model's pre-save hook
-        role: 'admin'
-      });
-      logger.info('Created default admin user');
-    }
+    // Create default admin user with bcrypt hashing
+    logger.info('Creating default admin user with new bcrypt password hashing...');
+    await User.create({
+      username: 'admin',
+      email: 'admin@irenescircus.com',
+      password: 'admin123', // This will be hashed by the model's pre-save hook using bcrypt
+      role: 'admin'
+    });
+    logger.info('Created default admin user - Email: admin@irenescircus.com, Password: admin123');
+    
+    // Create a sample editor user as well
+    await User.create({
+      username: 'editor',
+      email: 'editor@irenescircus.com',
+      password: 'editor123', // This will be hashed by the model's pre-save hook using bcrypt
+      role: 'editor'
+    });
+    logger.info('Created sample editor user - Email: editor@irenescircus.com, Password: editor123');
     
     logger.info('Database seeding completed successfully');
     process.exit(0);

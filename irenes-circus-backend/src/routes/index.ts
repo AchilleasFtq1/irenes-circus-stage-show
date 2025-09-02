@@ -20,6 +20,17 @@ router.get('/', (req, res) => {
   });
 });
 
+// Dedicated health check endpoint for Render
+router.get('/health', (req, res) => {
+  logger.info('Health check endpoint accessed');
+  res.status(200).json({
+    status: 'healthy',
+    timestamp: new Date().toISOString(),
+    uptime: process.uptime(),
+    environment: process.env.NODE_ENV || 'development'
+  });
+});
+
 // Mount routes
 router.use('/tracks', trackRoutes);
 router.use('/events', eventRoutes);

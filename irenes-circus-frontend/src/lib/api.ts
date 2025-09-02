@@ -1,7 +1,7 @@
 // API client for connecting to the backend
 import { ITrack, IEvent, IBandMember, IGalleryImage, IContact } from './types';
 
-const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000/api';
+const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5001/api';
 
 // Helper function for API requests
 async function fetchAPI<T>(
@@ -20,15 +20,37 @@ async function fetchAPI<T>(
 
   const response = await fetch(`${API_URL}${endpoint}`, {
     ...options,
-    headers
+    headers,
+    credentials: 'include' // Include cookies for CORS
   });
+
+  // Handle token expiration
+  if (response.status === 401) {
+    const errorData = await response.json().catch(() => ({}));
+    if (errorData.message === 'Token expired' || errorData.message === 'Invalid token') {
+      // Clear expired token
+      localStorage.removeItem('auth_token');
+      localStorage.removeItem('user_data');
+      
+      // Redirect to login if we're in admin area
+      if (window.location.pathname.startsWith('/admin') && !window.location.pathname.includes('/login')) {
+        window.location.href = '/admin/login';
+        return Promise.reject(new Error('Session expired. Please log in again.'));
+      }
+    }
+  }
 
   if (!response.ok) {
     // Try to get error message from response
     let errorMessage = 'Something went wrong';
     try {
       const errorData = await response.json();
-      errorMessage = errorData.message || errorMessage;
+      errorMessage = errorData.message || errorData.error || errorMessage;
+      
+      // Handle validation errors
+      if (errorData.errors && Array.isArray(errorData.errors)) {
+        errorMessage = errorData.errors.map((err: { msg?: string; message?: string }) => err.msg || err.message).join(', ');
+      }
     } catch (e) {
       // If we can't parse JSON, use status text
       errorMessage = response.statusText;

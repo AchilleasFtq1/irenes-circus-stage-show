@@ -1,12 +1,12 @@
 import mongoose from 'mongoose';
-import crypto from 'crypto';
+import bcrypt from 'bcryptjs';
 
 export interface IUser {
   username: string;
   email: string;
   password: string;
   role: 'admin' | 'editor';
-  comparePassword(candidatePassword: string): boolean;
+  comparePassword(candidatePassword: string): Promise<boolean>;
 }
 
 const userSchema = new mongoose.Schema<IUser>({
@@ -36,25 +36,25 @@ const userSchema = new mongoose.Schema<IUser>({
   timestamps: true
 });
 
-// Simple password hashing - in production, use a proper library like bcrypt
-userSchema.pre('save', function(next) {
+// Hash password with bcrypt before saving
+userSchema.pre('save', async function(next) {
   if (!this.isModified('password')) return next();
   
-  this.password = crypto
-    .createHash('sha256')
-    .update(this.password)
-    .digest('hex');
-  
-  next();
+  try {
+    const salt = await bcrypt.genSalt(12);
+    this.password = await bcrypt.hash(this.password, salt);
+    next();
+  } catch (error) {
+    next(error as Error);
+  }
 });
 
-userSchema.methods.comparePassword = function(candidatePassword: string): boolean {
-  const hashedPassword = crypto
-    .createHash('sha256')
-    .update(candidatePassword)
-    .digest('hex');
-    
-  return this.password === hashedPassword;
+userSchema.methods.comparePassword = async function(candidatePassword: string): Promise<boolean> {
+  try {
+    return await bcrypt.compare(candidatePassword, this.password);
+  } catch (error) {
+    return false;
+  }
 };
 
 export default mongoose.model<IUser>('User', userSchema); 

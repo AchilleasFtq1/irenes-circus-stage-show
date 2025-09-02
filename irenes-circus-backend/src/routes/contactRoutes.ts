@@ -1,16 +1,18 @@
 import express from 'express';
 import { getContacts, getContactById, createContact, markContactAsRead, deleteContact } from '../controllers/contactController';
-import { authenticateToken, requireRole } from '../middleware/auth';
+import { authenticateToken, requireAdmin } from '../middleware/auth';
+import { validateContact, handleValidationErrors } from '../middleware/validation';
+import { contactLimiter, adminLimiter } from '../middleware/security';
 
 const router = express.Router();
 
-// Public routes
-router.post('/', createContact);
+// Public routes with validation and rate limiting
+router.post('/', contactLimiter, validateContact, handleValidationErrors, createContact);
 
 // Protected routes (admin only)
-router.get('/', authenticateToken, requireRole('admin'), getContacts);
-router.get('/:id', authenticateToken, requireRole('admin'), getContactById);
-router.put('/:id/read', authenticateToken, requireRole('admin'), markContactAsRead);
-router.delete('/:id', authenticateToken, requireRole('admin'), deleteContact);
+router.get('/', adminLimiter, authenticateToken, requireAdmin, getContacts);
+router.get('/:id', adminLimiter, authenticateToken, requireAdmin, getContactById);
+router.put('/:id/read', adminLimiter, authenticateToken, requireAdmin, markContactAsRead);
+router.delete('/:id', adminLimiter, authenticateToken, requireAdmin, deleteContact);
 
 export default router; 

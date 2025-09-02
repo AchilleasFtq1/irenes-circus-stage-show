@@ -15,7 +15,7 @@ const Music = () => {
     if (albums && albums.length > 0 && !selectedAlbum) {
       setSelectedAlbum(albums[0].id);
     }
-  }, [albums]);
+  }, [albums, selectedAlbum]);
 
   // Streaming platform links
   const streamingLinks = {
@@ -26,7 +26,7 @@ const Music = () => {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-circus-cream flex items-center justify-center">
+      <div className="min-h-screen bg-gradient-to-b from-circus-cream to-white flex items-center justify-center">
         <div className="animate-spin rounded-full h-32 w-32 border-t-2 border-b-2 border-circus-gold"></div>
       </div>
     );
@@ -34,7 +34,7 @@ const Music = () => {
 
   if (error) {
     return (
-      <div className="min-h-screen bg-circus-cream flex items-center justify-center">
+      <div className="min-h-screen bg-gradient-to-b from-circus-cream to-white flex items-center justify-center">
         <div className="text-center">
           <h2 className="text-2xl font-circus text-circus-gold mb-4">Oops!</h2>
           <p className="text-circus-dark">{error}</p>
@@ -44,7 +44,7 @@ const Music = () => {
   }
 
   return (
-    <div className="min-h-screen bg-circus-dark text-circus-cream">
+    <div className="min-h-screen bg-gradient-to-b from-circus-cream to-white text-circus-dark">
       <Navbar />
       
       <main className="container mx-auto px-4 py-12">
@@ -62,10 +62,10 @@ const Music = () => {
               {albums.map((album: SpotifyAlbum) => (
                     <div 
                       key={album.id}
-                  className={`bg-circus-dark/50 backdrop-blur rounded-lg p-6 border cursor-pointer transition-all
+                  className={`bg-white/70 backdrop-blur rounded-lg p-6 border cursor-pointer transition-all
                     ${selectedAlbum === album.id 
                       ? 'border-circus-gold ring-2 ring-circus-gold/20' 
-                      : 'border-circus-cream/20 hover:border-circus-gold/50'}`}
+                      : 'border-circus-dark/20 hover:border-circus-gold/50'}`}
                       onClick={() => setSelectedAlbum(album.id)}
                     >
                   <div className="flex gap-4">
@@ -75,8 +75,8 @@ const Music = () => {
                       className="w-24 h-24 object-cover rounded-md"
                         />
                         <div>
-                      <h3 className="font-circus text-xl mb-2">{album.name}</h3>
-                      <p className="text-circus-cream/60 mb-2">
+                      <h3 className="font-circus text-xl mb-2 text-circus-dark">{album.name}</h3>
+                      <p className="text-circus-dark/70 mb-2">
                         {album.album_type.charAt(0).toUpperCase() + album.album_type.slice(1)} • {new Date(album.release_date).getFullYear()} • {album.total_tracks} tracks
                           </p>
                         </div>
@@ -86,7 +86,7 @@ const Music = () => {
                 </div>
                 
             {/* Fixed-height Spotify Player */}
-            <div className="bg-circus-dark/50 backdrop-blur rounded-lg p-6 border border-circus-cream/20 h-[600px] flex items-center justify-center">
+            <div className="bg-white/70 backdrop-blur rounded-lg p-6 border border-circus-dark/20 h-[600px] flex items-center justify-center">
               {selectedAlbum ? (
                       <iframe 
                   src={`https://open.spotify.com/embed/album/${selectedAlbum}?utm_source=generator&theme=0`}
@@ -98,7 +98,7 @@ const Music = () => {
                   className="rounded-lg"
                       ></iframe>
               ) : (
-                <div className="text-center text-circus-cream/60">
+                <div className="text-center text-circus-dark/70">
                   <p>Select an album to play</p>
                 </div>
               )}

@@ -54,5 +54,5 @@ export interface IUser {
 
 export interface ApiError {
   message: string;
-  error?: any;
+  error?: string | Record<string, unknown>;
 } 

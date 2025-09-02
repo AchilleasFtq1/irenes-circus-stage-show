@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import MobileNav from "@/components/MobileNav";
 
 const Navbar = () => {
   return (
@@ -21,8 +22,8 @@ const Navbar = () => {
           </div>
         </Link>
 
-        {/* Navigation Links */}
-        <ul className="flex gap-8 font-rock font-bold text-base">
+        {/* Desktop Navigation Links */}
+        <ul className="hidden md:flex gap-8 font-rock font-bold text-base">
           <li>
             <Link 
               to="/" 
@@ -80,6 +81,9 @@ const Navbar = () => {
             </Link>
           </li>
         </ul>
+
+        {/* Mobile Navigation */}
+        <MobileNav />
       </div>
     </nav>
   );

@@ -1,15 +1,27 @@
 import { useForm } from "react-hook-form";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { Button } from "@/components/ui/button";
-import { Mail, User, MessageSquare } from "lucide-react";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { z } from "zod";
+import { InputField, TextareaField, FormActions } from "@/components/FormField";
+import { Mail, User, MessageSquare, FileText } from "lucide-react";
+import { useToast } from "@/hooks/useToast";
 
-interface ContactFormValues {
-  name: string;
-  email: string;
-  subject: string;
-  message: string;
-}
+// Validation schema
+const contactSchema = z.object({
+  name: z.string()
+    .min(2, "Name must be at least 2 characters")
+    .max(100, "Name must be less than 100 characters"),
+  email: z.string()
+    .email("Please enter a valid email address")
+    .max(254, "Email must be less than 254 characters"),
+  subject: z.string()
+    .min(3, "Subject must be at least 3 characters")
+    .max(200, "Subject must be less than 200 characters"),
+  message: z.string()
+    .min(10, "Message must be at least 10 characters")
+    .max(5000, "Message must be less than 5000 characters"),
+});
+
+type ContactFormValues = z.infer<typeof contactSchema>;
 
 interface ContactFormProps {
   onSubmit: (data: ContactFormValues) => Promise<void>;
@@ -18,7 +30,10 @@ interface ContactFormProps {
 }
 
 const ContactForm = ({ onSubmit, error, isSubmitting }: ContactFormProps) => {
-  const { register, handleSubmit, reset, formState } = useForm<ContactFormValues>();
+  const { register, handleSubmit, reset, formState: { errors } } = useForm<ContactFormValues>({
+    resolver: zodResolver(contactSchema),
+  });
+  const { success, error: showError } = useToast();
 
   const handleFormSubmit = async (data: ContactFormValues) => {
     await onSubmit(data);
@@ -27,72 +42,61 @@ const ContactForm = ({ onSubmit, error, isSubmitting }: ContactFormProps) => {
 
   return (
     <form onSubmit={handleSubmit(handleFormSubmit)} className="space-y-6 bg-white/80 p-8 rounded-lg shadow-md">
-      {error && (
-        <div className="bg-red-100 text-red-800 p-4 rounded-md mb-4">
-          {error}
-        </div>
-      )}
-      
-      <div>
-        <label className="block font-alt text-circus-dark mb-1" htmlFor="name">
-          <span className="flex items-center gap-2"><User className="text-circus-gold" size={18}/> Name</span>
-        </label>
-        <Input 
-          id="name"
-          className="bg-circus-cream/60 border-circus-gold text-circus-dark placeholder:text-circus-gold"
+      <div className="space-y-6">
+        <InputField
+          name="name"
+          label="Name"
+          register={register}
+          error={errors.name}
+          disabled={isSubmitting}
+          required
+          icon={<User className="text-circus-gold" size={18} />}
           placeholder="Your Name"
-          {...register("name", { required: true })}
-          disabled={isSubmitting}
+          className="bg-circus-cream/60 border-circus-gold text-circus-dark"
         />
-      </div>
-      
-      <div>
-        <label className="block font-alt text-circus-dark mb-1" htmlFor="email">
-          <span className="flex items-center gap-2"><Mail className="text-circus-gold" size={18}/> Email</span>
-        </label>
-        <Input 
-          id="email"
+
+        <InputField
+          name="email"
+          label="Email"
           type="email"
-          className="bg-circus-cream/60 border-circus-gold text-circus-dark placeholder:text-circus-gold"
+          register={register}
+          error={errors.email}
+          disabled={isSubmitting}
+          required
+          icon={<Mail className="text-circus-gold" size={18} />}
           placeholder="you@email.com"
-          {...register("email", { required: true })}
+          helpText="We'll never share your email with anyone else."
+        />
+
+        <InputField
+          name="subject"
+          label="Subject"
+          register={register}
+          error={errors.subject}
           disabled={isSubmitting}
+          required
+          icon={<FileText className="text-circus-gold" size={18} />}
+          placeholder="What's this about?"
+        />
+
+        <TextareaField
+          name="message"
+          label="Message"
+          register={register}
+          error={errors.message}
+          disabled={isSubmitting}
+          required
+          rows={6}
+          placeholder="Tell us what's on your mind..."
+          helpText="Please be as detailed as possible to help us assist you better."
         />
       </div>
-      
-      <div>
-        <label className="block font-alt text-circus-dark mb-1" htmlFor="subject">
-          <span className="flex items-center gap-2"><MessageSquare className="text-circus-gold" size={18}/> Subject</span>
-        </label>
-        <Input 
-          id="subject"
-          className="bg-circus-cream/60 border-circus-gold text-circus-dark placeholder:text-circus-gold"
-          placeholder="Subject of your message"
-          {...register("subject", { required: true })}
-          disabled={isSubmitting}
-        />
-      </div>
-      
-      <div>
-        <label className="block font-alt text-circus-dark mb-1" htmlFor="message">
-          Message
-        </label>
-        <Textarea 
-          id="message"
-          className="bg-circus-cream/60 border-circus-gold text-circus-dark placeholder:text-circus-gold min-h-[120px]"
-          placeholder="Type your message here..."
-          {...register("message", { required: true })}
-          disabled={isSubmitting}
-        />
-      </div>
-      
-      <Button 
-        type="submit"
-        className="w-full bg-circus-gold text-circus-dark font-bold hover:bg-circus-red hover:text-circus-cream transition-colors"
-        disabled={isSubmitting}
-      >
-        {isSubmitting ? "Sending..." : "Send Message"}
-      </Button>
+
+      <FormActions
+        isSubmitting={isSubmitting}
+        submitLabel="🎪 Send Message"
+        className="pt-6"
+      />
     </form>
   );
 };

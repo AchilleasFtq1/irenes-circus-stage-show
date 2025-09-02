@@ -1,41 +1,14 @@
-import React, { useState, useEffect } from 'react';
-import { useNavigate, Link, Outlet } from 'react-router-dom';
+import React, { useState } from 'react';
+import { Link, Outlet } from 'react-router-dom';
 import { LayoutDashboard, Music, Calendar, Users, Image, MessageSquare, LogOut, Menu, X } from 'lucide-react';
-import { authAPI } from '@/lib/api';
-import { IUser } from '@/lib/types';
+import { useAuth } from '@/contexts/AuthContext';
 
 const AdminLayout = () => {
-  const [user, setUser] = useState<IUser | null>(null);
-  const [isLoading, setIsLoading] = useState(true);
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-  const navigate = useNavigate();
-
-  useEffect(() => {
-    const checkAuth = async () => {
-      try {
-        const token = localStorage.getItem('auth_token');
-        if (!token) {
-          navigate('/admin/login');
-          return;
-        }
-
-        const { user } = await authAPI.getCurrentUser();
-        setUser(user);
-      } catch (error) {
-        console.error('Authentication error:', error);
-        localStorage.removeItem('auth_token');
-        navigate('/admin/login');
-      } finally {
-        setIsLoading(false);
-      }
-    };
-
-    checkAuth();
-  }, [navigate]);
+  const { user, logout, isLoading } = useAuth();
 
   const handleLogout = () => {
-    localStorage.removeItem('auth_token');
-    navigate('/admin/login');
+    logout();
   };
 
   if (isLoading) {
@@ -58,7 +31,7 @@ const AdminLayout = () => {
   );
 
   return (
-    <div className="flex h-screen bg-white">
+    <div className="flex h-screen bg-gradient-to-b from-circus-cream to-white">
       {/* Mobile Sidebar Toggle */}
       <button 
         className="md:hidden fixed top-4 left-4 z-50 p-2 bg-circus-dark text-circus-gold rounded-md"
@@ -104,7 +77,7 @@ const AdminLayout = () => {
 
       {/* Main Content */}
       <div className="flex-1 flex flex-col h-full overflow-hidden">
-        <main className="flex-1 overflow-y-auto p-6 bg-gray-50">
+        <main className="flex-1 overflow-y-auto p-6 bg-gradient-to-b from-circus-cream to-white">
           <Outlet />
         </main>
       </div>

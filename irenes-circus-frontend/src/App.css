@@ -266,6 +266,203 @@ input::placeholder, textarea::placeholder {
   position: relative;
 }
 
+/* Accessibility Improvements */
+
+/* Reduced Motion */
+.reduce-motion *,
+.reduce-motion *::before,
+.reduce-motion *::after {
+  animation-duration: 0.01ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.01ms !important;
+  scroll-behavior: auto !important;
+}
+
+/* High Contrast Mode - Enhanced for rock theme */
+.high-contrast {
+  --rock-black: #000000;
+  --rock-cream: #ffffff;
+  --rock-amber: #ffff00;
+  --rock-rust: #ff0000;
+  --rock-charcoal: #333333;
+  --rock-steel: #666666;
+}
+
+.high-contrast * {
+  text-shadow: none !important;
+  box-shadow: none !important;
+}
+
+.high-contrast button,
+.high-contrast input,
+.high-contrast select,
+.high-contrast textarea {
+  border: 2px solid currentColor !important;
+}
+
+/* Font Size Controls */
+.font-small {
+  font-size: 14px;
+}
+
+.font-medium {
+  font-size: 16px;
+}
+
+.font-large {
+  font-size: 18px;
+}
+
+.font-large h1 { font-size: 3rem !important; }
+.font-large h2 { font-size: 2.5rem !important; }
+.font-large h3 { font-size: 2rem !important; }
+.font-large h4 { font-size: 1.5rem !important; }
+
+/* Focus Indicators */
+*:focus {
+  outline: 2px solid #D69E2E !important;
+  outline-offset: 2px !important;
+}
+
+*:focus:not(:focus-visible) {
+  outline: none !important;
+}
+
+/* Skip Links */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.sr-only:focus {
+  position: static;
+  width: auto;
+  height: auto;
+  padding: 0.5rem 1rem;
+  margin: 0;
+  overflow: visible;
+  clip: auto;
+  white-space: normal;
+}
+
+/* Screen Reader Only Text */
+.screen-reader-only {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+/* Keyboard Navigation Improvements */
+.keyboard-nav *:focus {
+  z-index: 1000;
+  position: relative;
+}
+
+/* Toast Animation for Accessibility */
+@keyframes toast-progress {
+  from { width: 100%; }
+  to { width: 0%; }
+}
+
+.animate-toast-progress {
+  animation: toast-progress linear forwards;
+}
+
+/* High Contrast Button States */
+.high-contrast button:hover,
+.high-contrast button:focus {
+  background: #ffff00 !important;
+  color: #000000 !important;
+  border-color: #000000 !important;
+}
+
+.high-contrast a:hover,
+.high-contrast a:focus {
+  background: #ffff00 !important;
+  color: #000000 !important;
+  text-decoration: underline !important;
+}
+
+/* Error States with High Contrast */
+.high-contrast .error,
+.high-contrast .text-red-500,
+.high-contrast .border-red-500 {
+  color: #ff0000 !important;
+  border-color: #ff0000 !important;
+}
+
+.high-contrast .success,
+.high-contrast .text-green-500,
+.high-contrast .border-green-500 {
+  color: #008000 !important;
+  border-color: #008000 !important;
+}
+
+/* Loading State Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .animate-spin {
+    animation: none;
+  }
+  
+  .animate-pulse {
+    animation: none;
+    opacity: 0.8;
+  }
+}
+
+/* Focus Management */
+.focus-trap {
+  position: relative;
+}
+
+.focus-trap:focus-within {
+  outline: 2px solid #D69E2E;
+  outline-offset: 2px;
+}
+
+/* Mobile Touch Targets */
+@media (max-width: 768px) {
+  button,
+  input,
+  select,
+  textarea,
+  a {
+    min-height: 44px;
+    min-width: 44px;
+  }
+}
+
+/* Print Styles */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  
+  * {
+    background: white !important;
+    color: black !important;
+    text-shadow: none !important;
+    box-shadow: none !important;
+  }
+  
+  a[href]:after {
+    content: " (" attr(href) ")";
+  }
+}
+
 .country-rock-accent::before {
   content: "🎸";
   position: absolute;
