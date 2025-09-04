@@ -1,6 +1,6 @@
 import { Router, Request, Response, NextFunction } from 'express';
 import { getSpotifyToken, testSpotifyAPI } from '../controllers/spotifyController';
-import { spotifyLimiter } from '../middleware/security';
+// Rate limiting removed
 
 const router = Router();
 
@@ -18,10 +18,10 @@ const asyncHandler = (fn: AsyncHandler) => (
   return Promise.resolve(fn(req, res, next)).catch(next);
 };
 
-// Test endpoint with rate limiting
-router.get('/', spotifyLimiter, asyncHandler(testSpotifyAPI));
+// Test endpoint (rate limiting removed)
+router.get('/', asyncHandler(testSpotifyAPI));
 
-// Get Spotify access token with rate limiting
-router.get('/token', spotifyLimiter, asyncHandler(getSpotifyToken));
+// Get Spotify access token (rate limiting removed)
+router.get('/token', asyncHandler(getSpotifyToken));
 
 export default router; 

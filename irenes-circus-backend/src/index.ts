@@ -5,7 +5,7 @@ import dotenv from 'dotenv';
 import routes from './routes';
 import connectDB from './config/database';
 import logger from './config/logger';
-import { generalLimiter } from './middleware/security';
+// Rate limiting imports removed
 import seedProductionDB from './utils/seedProduction';
 
 // Load environment variables
@@ -50,8 +50,7 @@ const corsOptions = {
 
 app.use(cors(corsOptions));
 
-// Rate limiting
-app.use(generalLimiter);
+// Rate limiting removed
 
 // Body parsing middleware
 app.use(express.json({ limit: '10mb' }));

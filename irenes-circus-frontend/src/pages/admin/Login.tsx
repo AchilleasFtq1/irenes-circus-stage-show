@@ -42,15 +42,15 @@ const AdminLogin = () => {
       
     } catch (err: unknown) {
       console.error('Login error:', err);
-      const errorMessage = err instanceof Error ? err.message : 'Invalid email or password. Please try again.';
-      setError(errorMessage);
+      // Always show generic message for security - don't reveal if username exists
+      setError('Invalid email or password. Please try again.');
     } finally {
       setIsSubmitting(false);
     }
   };
 
   return (
-    <div className="flex min-h-screen bg-gradient-to-b from-circus-cream to-white">
+    <div className="flex min-h-screen bg-gradient-to-b from-circus-cream to-white admin-login-page">
       <div className="m-auto w-full max-w-md p-8 bg-white rounded-lg shadow-xl">
         <div className="text-center mb-6">
           <h1 className="font-circus text-3xl text-gray-800">Admin Login</h1>

@@ -46,21 +46,12 @@ const Login = () => {
     } catch (error: any) {
       console.error('Login error:', error);
       
-      // Handle different types of errors
-      let errorMessage = "Login failed. Please try again.";
+      // Always show generic message for security - don't reveal if username exists
+      // Only show rate limiting message if it's specifically a rate limit error
+      let errorMessage = "Invalid email or password. Please try again.";
       
-      if (error.message) {
-        if (error.message.includes('Invalid credentials')) {
-          errorMessage = "Invalid email or password. Please check your credentials.";
-        } else if (error.message.includes('Too many')) {
-          errorMessage = "Too many login attempts. Please wait a few minutes before trying again.";
-        } else if (error.message.includes('Network')) {
-          errorMessage = "Network error. Please check your connection and try again.";
-        } else if (error.message.includes('Server')) {
-          errorMessage = "Server error. Please try again later.";
-        } else {
-          errorMessage = error.message;
-        }
+      if (error.message && error.message.includes('Too many')) {
+        errorMessage = "Too many login attempts. Please wait a few minutes before trying again.";
       }
       
       setError(errorMessage);
