@@ -175,7 +175,7 @@ const AdminEvents = () => {
               resetForm();
               setShowForm(!showForm);
             }}
-            className="flex items-center gap-2 bg-circus-gold text-circus-dark hover:bg-circus-red hover:text-circus-cream"
+            className="flex items-center gap-2 bg-blue-600 text-white hover:bg-blue-700"
           >
             {showForm ? 'Cancel' : <><Plus size={16} /> Add Event</>}
           </Button>
@@ -297,7 +297,7 @@ const AdminEvents = () => {
               </Button>
               <Button
                 type="submit"
-                className="bg-circus-gold text-circus-dark hover:bg-circus-red hover:text-circus-cream"
+                className="bg-blue-600 text-white hover:bg-blue-700"
                 disabled={formSubmitting}
               >
                 {formSubmitting ? 'Saving...' : isEditing ? 'Update Event' : 'Add Event'}
@@ -315,7 +315,7 @@ const AdminEvents = () => {
 
       {isLoading ? (
         <div className="flex justify-center items-center h-64">
-          <div className="animate-spin rounded-full h-16 w-16 border-b-2 border-circus-gold"></div>
+          <div className="animate-spin rounded-full h-16 w-16 border-b-2 border-gray-800"></div>
         </div>
       ) : events.length === 0 ? (
         <div className="bg-white rounded-lg shadow p-8 text-center">
@@ -333,7 +333,7 @@ const AdminEvents = () => {
               <div className="flex justify-between items-start">
                 <div>
                   <div className="flex items-center gap-2 mb-1">
-                    <Calendar size={18} className="text-circus-gold" />
+                    <Calendar size={18} className="text-gray-600" />
                     <span className="font-bold">{formatDate(event.date)}</span>
                   </div>
                   <h2 className="text-xl font-bold mb-1">

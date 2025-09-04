@@ -90,7 +90,7 @@ const AdminMessages = () => {
 
       {isLoading ? (
         <div className="flex justify-center items-center h-64">
-          <div className="animate-spin rounded-full h-16 w-16 border-b-2 border-circus-gold"></div>
+          <div className="animate-spin rounded-full h-16 w-16 border-b-2 border-gray-800"></div>
         </div>
       ) : messages.length === 0 ? (
         <div className="bg-white rounded-lg shadow p-8 text-center">
@@ -104,12 +104,12 @@ const AdminMessages = () => {
             <div 
               key={message._id}
               className={`bg-white rounded-lg shadow p-6 border-l-4 ${
-                message.isRead ? 'border-gray-300' : 'border-circus-gold'
+                message.isRead ? 'border-gray-300' : 'border-blue-500'
               }`}
             >
               <div className="flex justify-between items-start">
                 <div>
-                  <h2 className={`text-xl font-bold mb-1 ${!message.isRead && 'text-circus-gold'}`}>
+                  <h2 className={`text-xl font-bold mb-1 ${!message.isRead && 'text-gray-800'}`}>
                     {message.subject}
                   </h2>
                   <div className="flex items-center gap-2 text-sm text-gray-500 mb-4">
@@ -119,7 +119,7 @@ const AdminMessages = () => {
                     {!message.isRead && (
                       <>
                         <span>•</span>
-                        <span className="bg-circus-gold text-circus-dark px-2 py-0.5 rounded-full text-xs font-medium">
+                        <span className="bg-blue-500 text-white px-2 py-0.5 rounded-full text-xs font-medium">
                           New
                         </span>
                       </>

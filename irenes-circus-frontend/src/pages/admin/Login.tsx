@@ -53,7 +53,7 @@ const AdminLogin = () => {
     <div className="flex min-h-screen bg-gradient-to-b from-circus-cream to-white">
       <div className="m-auto w-full max-w-md p-8 bg-white rounded-lg shadow-xl">
         <div className="text-center mb-6">
-          <h1 className="font-circus text-3xl text-circus-gold">Admin Login</h1>
+          <h1 className="font-circus text-3xl text-gray-800">Admin Login</h1>
           <p className="font-alt text-circus-dark mt-2">Irene's Circus Management</p>
         </div>
 
@@ -67,7 +67,7 @@ const AdminLogin = () => {
           <div>
             <label className="block font-alt text-circus-dark mb-1" htmlFor="email">
               <span className="flex items-center gap-2">
-                <Mail className="text-circus-gold" size={18}/>
+                <Mail className="text-gray-600" size={18}/>
                 Email
               </span>
             </label>
@@ -76,7 +76,7 @@ const AdminLogin = () => {
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="bg-circus-cream/20 border-circus-gold text-circus-dark"
+              className="bg-gray-50 border-gray-300 text-gray-800"
               placeholder="admin@irenescircus.com"
               disabled={isSubmitting}
             />
@@ -85,7 +85,7 @@ const AdminLogin = () => {
           <div>
             <label className="block font-alt text-circus-dark mb-1" htmlFor="password">
               <span className="flex items-center gap-2">
-                <Lock className="text-circus-gold" size={18}/>
+                <Lock className="text-gray-600" size={18}/>
                 Password
               </span>
             </label>
@@ -94,7 +94,7 @@ const AdminLogin = () => {
               type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="bg-circus-cream/20 border-circus-gold text-circus-dark"
+              className="bg-gray-50 border-gray-300 text-gray-800"
               placeholder="••••••••"
               disabled={isSubmitting}
             />
@@ -102,7 +102,7 @@ const AdminLogin = () => {
 
           <Button
             type="submit"
-            className="w-full bg-circus-gold text-circus-dark font-bold hover:bg-circus-red hover:text-circus-cream transition-colors"
+            className="w-full bg-blue-600 text-white font-bold hover:bg-blue-700 transition-colors"
             disabled={isSubmitting}
           >
             {isSubmitting ? "Logging in..." : "Login"}
@@ -112,7 +112,7 @@ const AdminLogin = () => {
         <div className="text-center mt-8">
           <a 
             href="/" 
-            className="text-circus-gold hover:text-circus-red transition-colors font-alt"
+            className="text-gray-600 hover:text-gray-800 transition-colors font-alt"
           >
             Return to Website
           </a>

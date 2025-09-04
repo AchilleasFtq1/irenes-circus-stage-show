@@ -1,47 +1,3 @@
-version: '3.8'
-
-services:
-  mongodb:
-    image: mongo:8.0
-    container_name: irenes-circus-mongodb
-    restart: unless-stopped
-    ports:
-      - "27017:27017"
-    environment:
-      MONGO_INITDB_ROOT_USERNAME: admin
-      MONGO_INITDB_ROOT_PASSWORD: admin123
-      MONGO_INITDB_DATABASE: irenes-circus
-    volumes:
-      - mongodb_data:/data/db
-      - ./mongo-init:/docker-entrypoint-initdb.d
-    networks:
-      - irenes-circus-network
-
-  # Optional: MongoDB Express for database administration
-  mongo-express:
-    image: mongo-express:1.0.2
-    container_name: irenes-circus-mongo-express
-    restart: unless-stopped
-    ports:
-      - "8081:8081"
-    environment:
-      ME_CONFIG_MONGODB_ADMINUSERNAME: admin
-      ME_CONFIG_MONGODB_ADMINPASSWORD: admin123
-      ME_CONFIG_MONGODB_URL: mongodb://admin:admin123@mongodb:27017/
-      ME_CONFIG_BASICAUTH: false
-    depends_on:
-      - mongodb
-    networks:
-      - irenes-circus-network
-
-volumes:
-  mongodb_data:
-    driver: local
-
-networks:
-  irenes-circus-network:
-    driver: bridge
-
 version: '3.9'
 
 services:
@@ -68,6 +24,7 @@ services:
       - PORT=${PORT:-5000}
       - LOG_LEVEL=${LOG_LEVEL:-info}
       - MONGODB_URI=${MONGODB_URI:-mongodb://mongodb:27017/irenes-circus}
+      - JWT_SECRET=${JWT_SECRET:-irenes-circus-default-jwt-secret}
       - SPOTIFY_CLIENT_ID=${SPOTIFY_CLIENT_ID:-}
       - SPOTIFY_CLIENT_SECRET=${SPOTIFY_CLIENT_SECRET:-}
     depends_on:

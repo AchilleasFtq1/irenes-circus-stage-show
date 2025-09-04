@@ -14,7 +14,7 @@ const AdminLayout = () => {
   if (isLoading) {
     return (
       <div className="flex h-screen w-full items-center justify-center bg-circus-dark">
-        <div className="animate-spin rounded-full h-20 w-20 border-b-2 border-circus-gold"></div>
+        <div className="animate-spin rounded-full h-20 w-20 border-b-2 border-gray-800"></div>
       </div>
     );
   }
@@ -25,7 +25,7 @@ const AdminLayout = () => {
       className="flex items-center gap-3 px-4 py-3 text-circus-cream hover:bg-circus-dark/30 rounded-md transition-colors"
       onClick={() => setIsSidebarOpen(false)}
     >
-      <Icon size={20} className="text-circus-gold" />
+      <Icon size={20} className="text-gray-600" />
       <span>{label}</span>
     </Link>
   );
@@ -34,7 +34,7 @@ const AdminLayout = () => {
     <div className="flex h-screen bg-gradient-to-b from-circus-cream to-white">
       {/* Mobile Sidebar Toggle */}
       <button 
-        className="md:hidden fixed top-4 left-4 z-50 p-2 bg-circus-dark text-circus-gold rounded-md"
+        className="md:hidden fixed top-4 left-4 z-50 p-2 bg-circus-dark text-gray-300 rounded-md"
         onClick={() => setIsSidebarOpen(!isSidebarOpen)}
       >
         {isSidebarOpen ? <X size={24} /> : <Menu size={24} />}
@@ -47,7 +47,7 @@ const AdminLayout = () => {
       `}>
         <div className="flex flex-col h-full">
           <div className="flex items-center justify-center mb-8 pt-2">
-            <h1 className="font-circus text-2xl text-circus-gold">Admin Panel</h1>
+            <h1 className="font-circus text-2xl text-gray-800">Admin Panel</h1>
           </div>
 
           <div className="flex-1 flex flex-col gap-1">
@@ -62,7 +62,7 @@ const AdminLayout = () => {
           <div className="mt-auto pt-4 border-t border-circus-dark/30">
             <div className="px-4 py-2 text-circus-cream">
               <p className="text-sm">Logged in as:</p>
-              <p className="font-bold text-circus-gold">{user?.username}</p>
+              <p className="font-bold text-gray-800">{user?.username}</p>
             </div>
             <button 
               onClick={handleLogout}

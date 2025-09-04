@@ -166,7 +166,7 @@ const AdminDashboard: React.FC = () => {
           title="Messages"
           value={stats.messages}
           icon={<MessageSquare />}
-          bgColor="bg-yellow-500"
+          bgColor="bg-gray-800"
           textColor="text-white"
           link="/admin/messages"
         />
@@ -194,7 +194,7 @@ const AdminDashboard: React.FC = () => {
             <h3 className="text-gray-500 font-medium mb-2">Popularity</h3>
             <div className="flex items-center">
               <div className="text-3xl font-bold">{artistInfo.popularity ?? 'N/A'}/100</div>
-              <div className="ml-4 text-yellow-500">
+              <div className="ml-4 text-gray-800">
                 <PieChart size={24} />
               </div>
             </div>
