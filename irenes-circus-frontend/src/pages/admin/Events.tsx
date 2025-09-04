@@ -366,7 +366,7 @@ const AdminEvents = () => {
                     onClick={() => handleEditEvent(event)}
                     variant="outline"
                     size="sm"
-                    className="flex items-center gap-1"
+                    className="flex items-center gap-1 hover:bg-blue-50 hover:border-blue-300 hover:text-blue-600"
                     title="Edit event"
                   >
                     <Edit size={16} />

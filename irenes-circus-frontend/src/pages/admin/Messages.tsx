@@ -133,7 +133,7 @@ const AdminMessages = () => {
                       onClick={() => handleMarkAsRead(message._id)}
                       variant="outline"
                       size="sm"
-                      className="flex items-center gap-1"
+                      className="flex items-center gap-1 hover:bg-green-50 hover:border-green-300 hover:text-green-600"
                       title="Mark as read"
                     >
                       <Check size={16} />

@@ -192,7 +192,7 @@ function DataTable<T extends { _id: string }>({
                     <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                       <DropdownMenu>
                         <DropdownMenuTrigger asChild>
-                          <Button variant="ghost" size="sm">
+                          <Button variant="ghost" size="sm" className="hover:bg-gray-100">
                             <MoreHorizontal size={16} />
                           </Button>
                         </DropdownMenuTrigger>
@@ -227,17 +227,6 @@ function DataTable<T extends { _id: string }>({
             <div className="text-sm text-gray-700">
               Showing {sortedData.length} of {data.length} entries
             </div>
-            {hasActiveFilters && (
-              <Button
-                variant="ghost"
-                size="sm"
-                onClick={clearAllFilters}
-                className="text-red-500 hover:text-red-700"
-              >
-                <X size={16} className="mr-1" />
-                Clear all filters
-              </Button>
-            )}
           </div>
         </div>
       </div>

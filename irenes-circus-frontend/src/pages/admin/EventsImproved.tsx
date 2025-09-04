@@ -237,6 +237,7 @@ const AdminEventsImproved = () => {
             variant="outline"
             onClick={fetchEvents}
             disabled={isLoading}
+            className="hover:bg-blue-50 hover:border-blue-300 hover:text-blue-600"
           >
             <RefreshCw size={16} className={`mr-2 ${isLoading ? 'animate-spin' : ''}`} />
             Refresh

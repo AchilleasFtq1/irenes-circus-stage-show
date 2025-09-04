@@ -225,4 +225,34 @@
   .bg-grunge-overlay {
     background-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgdmlld0JveD0iMCAwIDEwMCAxMDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxkZWZzPgo8ZmlsdGVyIGlkPSJub2lzZSI+CjxmZVR1cmJ1bGVuY2UgYmFzZUZyZXF1ZW5jeT0iMC45IiBudW1PY3RhdmVzPSI0IiByZXN1bHQ9Im5vaXNlIi8+CjxmZUNvbG9yTWF0cml4IGluPSJub2lzZSIgdHlwZT0ic2F0dXJhdGUiIHZhbHVlcz0iMCIvPgo8L2ZpbHRlcj4KPC9kZWZzPgo8cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWx0ZXI9InVybCgjbm9pc2UpIiBvcGFjaXR5PSIwLjA1Ii8+Cjwvc3ZnPg==');
   }
+
+  /* Admin content area overrides */
+  .admin-content {
+    --background: 255 255 255 !important; /* White background for admin */
+    --foreground: 17 24 39 !important; /* Dark gray text */
+    --muted: 243 244 246 !important; /* Light gray muted */
+    --muted-foreground: 107 114 128 !important; /* Medium gray text */
+    --border: 209 213 219 !important; /* Light gray border */
+    --input: 209 213 219 !important; /* Light gray input border */
+    --accent: 243 244 246 !important; /* Light gray accent - NO YELLOW */
+    --accent-foreground: 17 24 39 !important; /* Dark gray text on accent */
+    --primary: 59 130 246 !important; /* Blue primary instead of rust */
+    --primary-foreground: 255 255 255 !important; /* White text on primary */
+    --ring: 59 130 246 !important; /* Blue ring instead of rust */
+    --secondary: 243 244 246 !important; /* Light gray secondary */
+    --secondary-foreground: 17 24 39 !important; /* Dark text on secondary */
+  }
+
+  /* Force override button hover colors in admin */
+  .admin-content button[data-variant="outline"]:hover,
+  .admin-content button[class*="outline"]:hover {
+    background-color: rgb(243 244 246) !important; /* Light gray */
+    color: rgb(17 24 39) !important; /* Dark text */
+  }
+  
+  .admin-content button[data-variant="ghost"]:hover,
+  .admin-content button[class*="ghost"]:hover {
+    background-color: rgb(243 244 246) !important; /* Light gray */
+    color: rgb(17 24 39) !important; /* Dark text */
+  }
 }

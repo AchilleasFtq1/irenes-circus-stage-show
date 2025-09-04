@@ -76,7 +76,7 @@ const AdminLogin = () => {
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="bg-gray-50 border-gray-300 text-gray-800"
+              className="bg-gray-50 border-gray-300 text-gray-800 focus-visible:ring-blue-500"
               placeholder="admin@irenescircus.com"
               disabled={isSubmitting}
             />
@@ -94,7 +94,7 @@ const AdminLogin = () => {
               type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="bg-gray-50 border-gray-300 text-gray-800"
+              className="bg-gray-50 border-gray-300 text-gray-800 focus-visible:ring-blue-500"
               placeholder="••••••••"
               disabled={isSubmitting}
             />
