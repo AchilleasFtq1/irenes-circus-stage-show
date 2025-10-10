@@ -35,7 +35,7 @@ services:
       - key: PORT
         value: 10000
       - key: MONGODB_URI
-        value: mongodb://admin:${MONGO_INITDB_ROOT_PASSWORD}@irenes-circus-mongodb-y8um:27017/irenes-circus?authSource=admin&tls=false
+        value: mongodb://admin:${MONGO_INITDB_ROOT_PASSWORD}@irenes-circus-mongodb-y8um:27017/irenes-circus?authSource=admin&tls=false&ssl=false&directConnection=true
       - key: MONGO_INITDB_ROOT_PASSWORD
         sync: false
       - key: JWT_SECRET
@@ -73,10 +73,7 @@ services:
         value: noindex
     envVars:
       - key: VITE_API_URL
-        fromService:
-          type: web
-          name: irenes-circus-backend
-          property: host
+        value: https://irenes-circus-backend-y8um.onrender.com
       - key: NODE_ENV
         value: production
 
