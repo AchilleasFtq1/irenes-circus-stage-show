@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { ArrowLeft, Save } from 'lucide-react';
 import { Link, useNavigate, useParams } from 'react-router-dom';
-import { bandMembersAPI } from '@/lib/api';
+import { bandMembersAPI, uploadAPI } from '@/lib/api';
 import { IBandMember } from '@/lib/types';
 
 const MemberEdit: React.FC = () => {
@@ -11,6 +11,7 @@ const MemberEdit: React.FC = () => {
   const [instrument, setInstrument] = useState<string>('');
   const [bio, setBio] = useState<string>('');
   const [image, setImage] = useState<string>('');
+  const [imageFile, setImageFile] = useState<File | null>(null);
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
@@ -63,8 +64,15 @@ const MemberEdit: React.FC = () => {
         throw new Error('Bio is required');
       }
 
-      if (!image.trim()) {
-        throw new Error('Image URL is required');
+      if (!image.trim() && !imageFile) {
+        throw new Error('Image is required');
+      }
+
+      // Upload new file if provided
+      let imageUrl = image;
+      if (imageFile) {
+        const res = await uploadAPI.uploadImage(imageFile);
+        imageUrl = res.url;
       }
 
       // Update the band member
@@ -72,7 +80,7 @@ const MemberEdit: React.FC = () => {
         name,
         instrument,
         bio,
-        image
+        image: imageUrl
       });
 
       navigate('/admin/band-members');
@@ -117,9 +125,9 @@ const MemberEdit: React.FC = () => {
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl">
         <div className="bg-white shadow-md rounded-lg p-4 flex items-center justify-center">
-          {image ? (
+          {image || imageFile ? (
             <img 
-              src={image} 
+              src={imageFile ? URL.createObjectURL(imageFile) : image} 
               alt={name || 'Band member preview'} 
               className="max-w-full max-h-64 object-contain"
             />
@@ -162,18 +170,27 @@ const MemberEdit: React.FC = () => {
           </div>
 
           <div className="mb-4">
-            <label htmlFor="image" className="block text-gray-700 text-sm font-bold mb-2">
-              Image URL *
+            <label className="block text-gray-700 text-sm font-bold mb-2">
+              Image (upload file or paste URL) *
             </label>
-            <input
-              type="text"
-              id="image"
-              value={image}
-              onChange={(e) => setImage(e.target.value)}
-              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-              placeholder="https://example.com/image.jpg"
-              required
-            />
+            <div className="flex gap-4">
+              <input
+                type="file"
+                accept="image/*"
+                onChange={(e) => {
+                  const file = e.target.files?.[0] || null;
+                  setImageFile(file);
+                }}
+                className="block w-1/2 text-sm text-gray-700"
+              />
+              <input
+                type="text"
+                value={image}
+                onChange={(e) => setImage(e.target.value)}
+                placeholder="https://example.com/image.jpg"
+                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              />
+            </div>
           </div>
 
           <div className="mb-6">

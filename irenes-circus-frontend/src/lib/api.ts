@@ -1,7 +1,8 @@
 // API client for connecting to the backend
 import { ITrack, IEvent, IBandMember, IGalleryImage, IContact } from './types';
 
-const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5001/api';
+const RAW_API_BASE = import.meta.env.VITE_API_URL || 'http://localhost:5001';
+const API_URL = RAW_API_BASE.endsWith('/api') ? RAW_API_BASE : `${RAW_API_BASE}/api`;
 
 // Helper function for API requests
 async function fetchAPI<T>(
@@ -120,6 +121,32 @@ export const bandMembersAPI = {
     fetchAPI<{ message: string }>(`/band-members/${id}`, { 
       method: 'DELETE' 
     })
+};
+
+// Upload API (images)
+export const uploadAPI = {
+  uploadImage: async (file: File): Promise<{ url: string; filename: string }> => {
+    const formData = new FormData();
+    formData.append('image', file);
+
+    const token = localStorage.getItem('auth_token');
+    const headers: Record<string, string> = {};
+    if (token) headers['Authorization'] = `Bearer ${token}`;
+
+    const response = await fetch(`${API_URL}/upload`, {
+      method: 'POST',
+      body: formData,
+      headers,
+      credentials: 'include'
+    });
+
+    if (!response.ok) {
+      const message = (await response.json().catch(() => ({}))).message || response.statusText;
+      throw new Error(message);
+    }
+
+    return response.json();
+  }
 };
 
 // Gallery API

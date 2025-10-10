@@ -3,6 +3,7 @@ import cors from 'cors';
 import helmet from 'helmet';
 import dotenv from 'dotenv';
 import routes from './routes';
+import path from 'path';
 import connectDB from './config/database';
 import logger from './config/logger';
 // Rate limiting imports removed
@@ -13,7 +14,9 @@ dotenv.config();
 
 // Initialize Express app
 const app = express();
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 5001;
+// Trust proxy to correctly detect protocol and host behind Render/Reverse proxies
+app.set('trust proxy', 1);
 
 // Environment validation
 const requiredEnvVars = ['MONGODB_URI', 'JWT_SECRET'];
@@ -37,6 +40,7 @@ app.use(helmet({
     },
   },
   crossOriginEmbedderPolicy: false, // Allow Spotify embeds
+  crossOriginResourcePolicy: { policy: 'cross-origin' },
 }));
 
 // CORS configuration
@@ -55,6 +59,11 @@ app.use(cors(corsOptions));
 // Body parsing middleware
 app.use(express.json({ limit: '10mb' }));
 app.use(express.urlencoded({ extended: true, limit: '10mb' }));
+
+// Static serving for uploaded files
+const uploadsPath = path.resolve(process.cwd(), 'uploads');
+app.use('/uploads', express.static(uploadsPath));
+app.use('/api/uploads', express.static(uploadsPath));
 
 // Request logger middleware
 app.use((req, res, next) => {

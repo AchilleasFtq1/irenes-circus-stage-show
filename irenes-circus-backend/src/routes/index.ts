@@ -6,6 +6,7 @@ import galleryRoutes from './galleryRoutes';
 import contactRoutes from './contactRoutes';
 import authRoutes from './authRoutes';
 import spotifyRoutes from './spotifyRoutes';
+import uploadRoutes from './uploadRoutes';
 import logger from '../config/logger';
 
 const router = express.Router();
@@ -39,5 +40,6 @@ router.use('/gallery', galleryRoutes);
 router.use('/contact', contactRoutes);
 router.use('/auth', authRoutes);
 router.use('/spotify', spotifyRoutes);
+router.use('/upload', uploadRoutes);
 
 export default router; 
