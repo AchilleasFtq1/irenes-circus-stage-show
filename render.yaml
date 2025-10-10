@@ -54,7 +54,7 @@ services:
     name: irenes-circus-frontend
     env: static
     autoDeploy: true
-    buildCommand: cd irenes-circus-frontend && npm ci && npm run build
+    buildCommand: cd irenes-circus-frontend && npm ci --include=dev && npm run build
     staticPublishPath: ./irenes-circus-frontend/dist
     pullRequestPreviewsEnabled: true
     buildFilter:
