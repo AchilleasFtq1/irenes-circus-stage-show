@@ -47,10 +47,7 @@ services:
       - key: LOG_TO_CONSOLE
         value: true
       - key: FRONTEND_URL
-        fromService:
-          type: web
-          name: irenes-circus-frontend
-          property: host
+        value: https://irenes-circus-frontend-y8um.onrender.com
 
   # Frontend Static Site
   - type: web

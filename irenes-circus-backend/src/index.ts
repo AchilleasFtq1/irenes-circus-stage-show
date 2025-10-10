@@ -53,7 +53,8 @@ console.log('Environment:', {
   LOG_LEVEL: process.env.LOG_LEVEL,
   LOG_TO_CONSOLE: process.env.LOG_TO_CONSOLE,
   MONGODB_URI: process.env.MONGODB_URI ? 'Set (hidden)' : 'Not set',
-  JWT_SECRET: process.env.JWT_SECRET ? 'Set (hidden)' : 'Not set'
+  JWT_SECRET: process.env.JWT_SECRET ? 'Set (hidden)' : 'Not set',
+  FRONTEND_URL: process.env.FRONTEND_URL || 'Not set'
 });
 logger.info('Environment variables validated');
 
@@ -87,6 +88,9 @@ const corsOptions = {
   credentials: true,
   optionsSuccessStatus: 200
 };
+
+console.log('CORS origin:', process.env.NODE_ENV === 'production' ? getProductionOrigin() : 'localhost origins');
+logger.info('CORS configured for origin:', process.env.NODE_ENV === 'production' ? getProductionOrigin() : 'localhost origins');
 
 app.use(cors(corsOptions));
 
