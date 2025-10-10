@@ -44,9 +44,15 @@ app.use(helmet({
 }));
 
 // CORS configuration
+const getProductionOrigin = (): string => {
+  const raw = process.env.FRONTEND_URL;
+  if (!raw) return 'https://yourdomain.com';
+  return raw.startsWith('http') ? raw : `https://${raw}`;
+};
+
 const corsOptions = {
-  origin: process.env.NODE_ENV === 'production' 
-    ? process.env.FRONTEND_URL || 'https://yourdomain.com'
+  origin: process.env.NODE_ENV === 'production'
+    ? getProductionOrigin()
     : ['http://localhost:3000', 'http://localhost:5173', 'http://localhost:8080', 'http://localhost:8081', 'http://localhost:8082', 'http://127.0.0.1:5173'],
   credentials: true,
   optionsSuccessStatus: 200

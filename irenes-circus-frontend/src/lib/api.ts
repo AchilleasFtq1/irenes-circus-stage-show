@@ -2,7 +2,8 @@
 import { ITrack, IEvent, IBandMember, IGalleryImage, IContact } from './types';
 
 const RAW_API_BASE = import.meta.env.VITE_API_URL || 'http://localhost:5001';
-const API_URL = RAW_API_BASE.endsWith('/api') ? RAW_API_BASE : `${RAW_API_BASE}/api`;
+const WITH_PROTOCOL = RAW_API_BASE.startsWith('http') ? RAW_API_BASE : `https://${RAW_API_BASE}`;
+const API_URL = WITH_PROTOCOL.endsWith('/api') ? WITH_PROTOCOL : `${WITH_PROTOCOL}/api`;
 
 // Helper function for API requests
 async function fetchAPI<T>(

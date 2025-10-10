@@ -4,7 +4,7 @@ services:
     name: irenes-circus-mongodb
     env: docker
     dockerfilePath: ./mongo-dockerfile
-    plan: free
+    plan: starter
     autoDeploy: true
     disk:
       name: mongo-data
@@ -35,6 +35,8 @@ services:
         value: 10000
       - key: MONGODB_URI
         value: mongodb://admin:${MONGO_INITDB_ROOT_PASSWORD}@irenes-circus-mongodb:27017/irenes-circus?authSource=admin
+      - key: MONGO_INITDB_ROOT_PASSWORD
+        sync: false
       - key: JWT_SECRET
         sync: false
       - key: JWT_EXPIRES_IN
@@ -45,7 +47,7 @@ services:
         fromService:
           type: web
           name: irenes-circus-frontend
-          property: url
+          property: host
 
   # Frontend Static Site
   - type: web
@@ -72,7 +74,7 @@ services:
         fromService:
           type: web
           name: irenes-circus-backend
-          property: url
+          property: host
       - key: NODE_ENV
         value: production
 
