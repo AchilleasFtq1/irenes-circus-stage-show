@@ -22,4 +22,11 @@ if (process.env.NODE_ENV !== 'production') {
   }));
 }
 
+// Optionally log to console in production for Render visibility
+if (process.env.NODE_ENV === 'production' && process.env.LOG_TO_CONSOLE === 'true') {
+  logger.add(new winston.transports.Console({
+    format: winston.format.json()
+  }));
+}
+
 export default logger; 

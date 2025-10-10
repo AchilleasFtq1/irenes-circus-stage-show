@@ -34,7 +34,7 @@ services:
       - key: PORT
         value: 10000
       - key: MONGODB_URI
-        value: mongodb://admin:${MONGO_INITDB_ROOT_PASSWORD}@irenes-circus-mongodb:27017/irenes-circus?authSource=admin
+        value: mongodb://admin:${MONGO_INITDB_ROOT_PASSWORD}@irenes-circus-mongodb:27017/irenes-circus?authSource=admin&tls=false
       - key: MONGO_INITDB_ROOT_PASSWORD
         sync: false
       - key: JWT_SECRET
@@ -42,7 +42,9 @@ services:
       - key: JWT_EXPIRES_IN
         value: 7d
       - key: LOG_LEVEL
-        value: info
+        value: debug
+      - key: LOG_TO_CONSOLE
+        value: true
       - key: FRONTEND_URL
         fromService:
           type: web
