@@ -6,6 +6,7 @@ import Footer from "@/components/Footer";
 import MusicPlayer from "@/components/MusicPlayer";
 import EventCard from "@/components/EventCard";
 import { getArtistTopTracks } from "@/lib/spotify";
+import { eventsAPI } from "@/lib/api";
 import { IEvent } from "@/lib/types";
 import type { SpotifyTrack } from "@/lib/spotify";
 
@@ -26,8 +27,7 @@ const Index = () => {
     const fetchData = async () => {
       try {
         // Fetch events from backend
-        const eventsResponse = await fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:5001/api'}/events`);
-        const eventsData = await eventsResponse.json();
+        const eventsData = await eventsAPI.getAll();
         setEvents(eventsData);
 
         // Fetch tracks from Spotify and convert to MusicPlayer format
@@ -115,8 +115,8 @@ const Index = () => {
         <div className="grid md:grid-cols-3 gap-6">
           {upcomingEvents.map(event => (
             <EventCard 
-              key={event.id} 
-              event={{...event, _id: event.id}}
+              key={event._id} 
+              event={event}
               className="text-circus-dark bg-white bg-opacity-80 hover:border-circus-gold"
             />
           ))}

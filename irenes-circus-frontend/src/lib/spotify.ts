@@ -1,4 +1,5 @@
 import SpotifyWebApi from 'spotify-web-api-js';
+import { API_URL } from './api';
 
 const spotifyApi = new SpotifyWebApi();
 
@@ -6,7 +7,7 @@ const spotifyApi = new SpotifyWebApi();
 export const ARTIST_ID = '25XfQgnvMcoCvcfNqU69ZG';
 
 // API BASE URL for our backend
-const API_BASE = import.meta.env.VITE_API_URL || 'http://localhost:5001/api';
+const API_BASE = API_URL;
 
 /**
  * Fetch a fresh access token from our backend

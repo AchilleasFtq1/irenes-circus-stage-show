@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Calendar } from "lucide-react";
+import { eventsAPI } from "@/lib/api";
 
 interface Event {
   _id: string;
@@ -21,9 +22,7 @@ const Tour = () => {
   useEffect(() => {
     const fetchEvents = async () => {
       try {
-        const response = await fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:5001/api'}/events`);
-        if (!response.ok) throw new Error('Failed to fetch events');
-        const data = await response.json();
+        const data = await eventsAPI.getAll();
         setEvents(data);
       } catch (err) {
         setError('Failed to load events. Please try again later.');
