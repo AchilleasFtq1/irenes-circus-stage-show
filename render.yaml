@@ -4,6 +4,7 @@ services:
     name: irenes-circus-mongodb
     env: docker
     dockerfilePath: ./mongo-dockerfile
+    region: oregon
     plan: starter
     autoDeploy: true
     disk:
@@ -34,7 +35,7 @@ services:
       - key: PORT
         value: 10000
       - key: MONGODB_URI
-        value: mongodb://admin:${MONGO_INITDB_ROOT_PASSWORD}@irenes-circus-mongodb:27017/irenes-circus?authSource=admin&tls=false
+        value: mongodb://admin:${MONGO_INITDB_ROOT_PASSWORD}@irenes-circus-mongodb-y8um:27017/irenes-circus?authSource=admin&tls=false
       - key: MONGO_INITDB_ROOT_PASSWORD
         sync: false
       - key: JWT_SECRET
