@@ -2,14 +2,18 @@ import React, { useState } from 'react';
 import { Image as ImageIcon } from 'lucide-react';
 
 interface GalleryImageProps {
-  src: string;
+  src?: string;
+  data?: string; // base64
+  mimetype?: string;
   alt: string;
   className?: string;
   fallbackClassName?: string;
 }
 
 const GalleryImage: React.FC<GalleryImageProps> = ({ 
-  src, 
+  src,
+  data,
+  mimetype,
   alt, 
   className = '',
   fallbackClassName = ''
@@ -27,7 +31,9 @@ const GalleryImage: React.FC<GalleryImageProps> = ({
     setLoading(false);
   };
 
-  if (error) {
+  const computedSrc = data && mimetype ? `data:${mimetype};base64,${data}` : src || '';
+
+  if (error || !computedSrc) {
     return (
       <div className={`flex items-center justify-center bg-gray-100 ${fallbackClassName}`}>
         <div className="text-center p-4">
@@ -46,7 +52,7 @@ const GalleryImage: React.FC<GalleryImageProps> = ({
         </div>
       )}
       <img
-        src={src}
+        src={computedSrc}
         alt={alt}
         className={`${className} ${loading ? 'hidden' : ''}`}
         onError={handleError}

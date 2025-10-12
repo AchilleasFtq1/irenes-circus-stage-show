@@ -8,6 +8,7 @@ const GalleryNew: React.FC = () => {
   const navigate = useNavigate();
   const [imageUrl, setImageUrl] = useState<string>('');
   const [title, setTitle] = useState<string>('');
+  const [embedInDoc, setEmbedInDoc] = useState<boolean>(true);
   const [span, setSpan] = useState<SpanType | ''>('');
   const [eventId, setEventId] = useState<string>('');
   const [events, setEvents] = useState<IEvent[]>([]);
@@ -39,19 +40,31 @@ const GalleryNew: React.FC = () => {
       }
 
       let finalUrl = imageUrl.trim();
+      let embeddedData: string | undefined;
+      let embeddedMimetype: string | undefined;
 
       // If a file is selected, upload it to get a URL
       if (file) {
-        const { url } = await uploadAPI.uploadImage(file);
-        finalUrl = url;
+        if (embedInDoc) {
+          // Read file as base64
+          const fileBuffer = await file.arrayBuffer();
+          const base64 = btoa(String.fromCharCode(...new Uint8Array(fileBuffer)));
+          embeddedData = base64;
+          embeddedMimetype = file.type;
+        } else {
+          const { url } = await uploadAPI.uploadImage(file);
+          finalUrl = url;
+        }
       }
 
-      if (!finalUrl) {
+      if (!finalUrl && !embeddedData) {
         throw new Error('Please select an image file or provide an image URL');
       }
 
       await galleryAPI.create({
-        src: finalUrl,
+        src: finalUrl || undefined,
+        data: embeddedData,
+        mimetype: embeddedMimetype,
         alt: title,
         span: span as SpanType || undefined,
         eventId: eventId || undefined
@@ -104,6 +117,12 @@ const GalleryNew: React.FC = () => {
         </div>
 
         <form onSubmit={handleSubmit} className="bg-white shadow-md rounded-lg p-6">
+          <div className="mb-4">
+            <label className="inline-flex items-center gap-2 text-sm text-gray-700">
+              <input type="checkbox" checked={embedInDoc} onChange={(e) => setEmbedInDoc(e.target.checked)} />
+              Store image inside gallery document (no external URL)
+            </label>
+          </div>
           <div className="mb-4">
             <label htmlFor="eventId" className="block text-gray-700 text-sm font-bold mb-2">
               Performance (optional)

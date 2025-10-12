@@ -163,12 +163,21 @@ export const validateBandMember: ValidationChain[] = [
 
 // Gallery image validation rules
 export const validateGalleryImage: ValidationChain[] = [
+  // Either src (URL) OR data (base64) must be provided
   body('src')
-    .trim()
-    .notEmpty()
-    .withMessage('Image source is required')
+    .optional({ nullable: true })
+    .isString()
+    .bail()
     .isURL({ protocols: ['http', 'https'] })
-    .withMessage('Image source must be a valid URL'),
+    .withMessage('Image source must be a valid URL when provided'),
+  body('data')
+    .optional({ nullable: true })
+    .isString()
+    .withMessage('data must be a base64 string when provided'),
+  body('mimetype')
+    .optional({ nullable: true })
+    .isIn(['image/jpeg', 'image/png', 'image/gif', 'image/webp'])
+    .withMessage('mimetype must be a valid image content type'),
   
   body('alt')
     .trim()

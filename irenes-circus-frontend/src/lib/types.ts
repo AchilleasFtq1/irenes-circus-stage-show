@@ -34,6 +34,8 @@ export interface IGalleryImage {
   alt: string;
   eventId?: string;
   span?: SpanType;
+  data?: string; // base64 image data (optional)
+  mimetype?: 'image/jpeg' | 'image/png' | 'image/gif' | 'image/webp';
 }
 
 export interface IContact {

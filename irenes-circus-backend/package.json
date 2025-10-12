@@ -9,7 +9,6 @@
     "seed": "ts-node src/utils/seedData.ts",
     "seed:production": "node dist/utils/seedProduction.js",
     "migrate:passwords": "ts-node src/utils/migratePasswords.ts",
-    "migrate:images": "ts-node src/utils/migrateImagesToDb.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],

@@ -9,6 +9,9 @@ const GalleryEdit: React.FC = () => {
   const { id } = useParams<{ id: string }>();
   const [imageUrl, setImageUrl] = useState<string>('');
   const [title, setTitle] = useState<string>('');
+  const [embedInDoc, setEmbedInDoc] = useState<boolean>(false);
+  const [data, setData] = useState<string | undefined>(undefined);
+  const [mimetype, setMimetype] = useState<string | undefined>(undefined);
   const [span, setSpan] = useState<SpanType | ''>('');
   const [eventId, setEventId] = useState<string>('');
   const [events, setEvents] = useState<IEvent[]>([]);
@@ -30,6 +33,8 @@ const GalleryEdit: React.FC = () => {
         
         if (image) {
           setImageUrl(image.src);
+          setData(image.data);
+          setMimetype(image.mimetype);
           setTitle(image.alt);
           setSpan(image.span || '');
           setEventId(image.eventId || '');
@@ -61,17 +66,27 @@ const GalleryEdit: React.FC = () => {
       }
 
       let finalUrl = imageUrl.trim();
+      let embeddedData: string | undefined;
+      let embeddedMimetype: string | undefined;
       if (file) {
-        const { url } = await uploadAPI.uploadImage(file);
-        finalUrl = url;
+        if (embedInDoc) {
+          const fileBuffer = await file.arrayBuffer();
+          embeddedData = btoa(String.fromCharCode(...new Uint8Array(fileBuffer)));
+          embeddedMimetype = file.type;
+        } else {
+          const { url } = await uploadAPI.uploadImage(file);
+          finalUrl = url;
+        }
       }
 
-      if (!finalUrl) {
+      if (!finalUrl && !embeddedData) {
         throw new Error('Please select an image file or provide an image URL');
       }
 
       await galleryAPI.update(id, {
-        src: finalUrl,
+        src: finalUrl || undefined,
+        data: embeddedData,
+        mimetype: embeddedMimetype,
         alt: title,
         span: span as SpanType || undefined,
         eventId: eventId || undefined
@@ -139,6 +154,12 @@ const GalleryEdit: React.FC = () => {
         </div>
 
         <form onSubmit={handleSubmit} className="bg-white shadow-md rounded-lg p-6">
+          <div className="mb-4">
+            <label className="inline-flex items-center gap-2 text-sm text-gray-700">
+              <input type="checkbox" checked={embedInDoc} onChange={(e) => setEmbedInDoc(e.target.checked)} />
+              Store image inside gallery document (no external URL)
+            </label>
+          </div>
           <div className="mb-4">
             <label htmlFor="eventId" className="block text-gray-700 text-sm font-bold mb-2">
               Performance (optional)

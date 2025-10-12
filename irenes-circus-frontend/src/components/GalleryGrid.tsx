@@ -15,6 +15,8 @@ const GalleryGrid = ({ images }: { images: IGalleryImage[] }) => {
         >
           <GalleryImage
             src={image.src}
+            data={image.data}
+            mimetype={image.mimetype}
             alt={image.alt}
             className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
             fallbackClassName="w-full h-full min-h-[200px]"
