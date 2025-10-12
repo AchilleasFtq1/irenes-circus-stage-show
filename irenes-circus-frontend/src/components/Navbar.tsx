@@ -11,7 +11,7 @@ const Navbar = () => {
             <img
               src="/images/logo.png"
               alt="Irene's Circus Logo"
-              className="w-16 h-16 rounded-full border-3 border-rock-amber hover:border-rock-rust transition-all duration-300 amp-glow animate-rock-pulse shadow-lg"
+              className="w-16 h-16 rounded-full border-3 border-rock-amber hover:border-rock-rust transition-all duration-300 amp-glow shadow-lg"
               style={{ 
                 background: "linear-gradient(135deg, #F7FAFC 0%, #EDF2F7 100%)",
                 padding: "4px"
