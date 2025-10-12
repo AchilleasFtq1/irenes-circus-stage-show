@@ -134,7 +134,7 @@ export const uploadAPI = {
     const headers: Record<string, string> = {};
     if (token) headers['Authorization'] = `Bearer ${token}`;
 
-    const response = await fetch(`${API_URL}/upload`, {
+    const response = await fetch(`${API_URL}/uploads`, {
       method: 'POST',
       body: formData,
       headers,

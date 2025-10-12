@@ -40,6 +40,7 @@ router.use('/gallery', galleryRoutes);
 router.use('/contact', contactRoutes);
 router.use('/auth', authRoutes);
 router.use('/spotify', spotifyRoutes);
-router.use('/upload', uploadRoutes);
+// Use plural '/uploads' for both POST and GET (/api/uploads and /api/uploads/:filename)
+router.use('/uploads', uploadRoutes);
 
 export default router; 

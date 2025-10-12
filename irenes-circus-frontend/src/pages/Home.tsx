@@ -41,6 +41,7 @@ const Home = () => {
               className="w-full h-auto object-contain mx-auto max-h-[300px] md:max-h-[420px]"
               loading="eager"
               decoding="async"
+              fetchPriority="high"
             />
           </div>
           
