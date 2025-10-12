@@ -21,12 +21,12 @@ const Music = () => {
   const streamingLinks = {
     spotify: `https://open.spotify.com/artist/${ARTIST_ID}`,
     appleMusic: "https://music.apple.com/artist/irenes-circus", // Update with real link
-    youtubeMusic: "https://music.youtube.com/channel/irenes-circus" // Update with real link
+    youtubeMusic: "https://youtube.com/@irenescircustheband?si=kKnlTsH2X3akowr4" // Update with real link
   };
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-gradient-to-b from-circus-cream to-white flex items-center justify-center">
+      <div className="min-h-screen bg-gradient-to-b from-circus-cream to-gray-50 flex items-center justify-center">
         <div className="animate-spin rounded-full h-32 w-32 border-t-2 border-b-2 border-circus-gold"></div>
       </div>
     );
@@ -34,7 +34,7 @@ const Music = () => {
 
   if (error) {
     return (
-      <div className="min-h-screen bg-gradient-to-b from-circus-cream to-white flex items-center justify-center">
+      <div className="min-h-screen bg-gradient-to-b from-circus-cream to-gray-50 flex items-center justify-center">
         <div className="text-center">
           <h2 className="text-2xl font-circus text-circus-gold mb-4">Oops!</h2>
           <p className="text-circus-dark">{error}</p>
@@ -44,16 +44,12 @@ const Music = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-circus-cream to-white text-circus-dark">
+    <div className="min-h-screen bg-gradient-to-b from-circus-cream to-gray-50 text-circus-dark">
       <Navbar />
       
       <main className="container mx-auto px-4 py-12">
         <h1 className="font-circus text-4xl md:text-6xl text-circus-gold mb-4">Music</h1>
-        <p className="font-alt text-lg mb-12 max-w-2xl">
-          Explore our theatrical musical journey through our recordings.
-          Stream our albums and singles.
-          </p>
-
+        
         <section className="mb-16">
           <h2 className="font-circus text-3xl text-circus-gold mb-8">Discography</h2>
           <div className="grid md:grid-cols-2 gap-8">
@@ -62,7 +58,7 @@ const Music = () => {
               {albums.map((album: SpotifyAlbum) => (
                     <div 
                       key={album.id}
-                  className={`bg-white/70 backdrop-blur rounded-lg p-6 border cursor-pointer transition-all
+                  className={`bg-gray-50/70 backdrop-blur rounded-lg p-6 border cursor-pointer transition-all
                     ${selectedAlbum === album.id 
                       ? 'border-circus-gold ring-2 ring-circus-gold/20' 
                       : 'border-circus-dark/20 hover:border-circus-gold/50'}`}
@@ -86,7 +82,7 @@ const Music = () => {
                 </div>
                 
             {/* Fixed-height Spotify Player */}
-            <div className="bg-white/70 backdrop-blur rounded-lg p-6 border border-circus-dark/20 h-[600px] flex items-center justify-center">
+            <div className="bg-gray-50/70 backdrop-blur rounded-lg p-6 border border-circus-dark/20 h-[600px] flex items-center justify-center">
               {selectedAlbum ? (
                       <iframe 
                   src={`https://open.spotify.com/embed/album/${selectedAlbum}?utm_source=generator&theme=0`}

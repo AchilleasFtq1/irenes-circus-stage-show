@@ -6,6 +6,7 @@ export interface IGalleryImage {
   _id?: string;
   src: string;
   alt: string;
+  eventId?: string;
   span?: SpanType;
 }
 
@@ -19,6 +20,11 @@ const galleryImageSchema = new mongoose.Schema<IGalleryImage>({
     type: String,
     required: true,
     trim: true
+  },
+  eventId: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Event',
+    required: false
   },
   span: {
     type: String,

@@ -32,6 +32,7 @@ export interface IGalleryImage {
   _id: string;
   src: string;
   alt: string;
+  eventId?: string;
   span?: SpanType;
 }
 

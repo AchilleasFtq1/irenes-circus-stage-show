@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link, Outlet } from 'react-router-dom';
-import { LayoutDashboard, Music, Calendar, Users, Image, MessageSquare, LogOut, Menu, X } from 'lucide-react';
+import { LayoutDashboard, Music, Calendar, Image, MessageSquare, LogOut, Menu, X } from 'lucide-react';
 import { useAuth } from '@/contexts/AuthContext';
 
 const AdminLayout = () => {
@@ -54,7 +54,7 @@ const AdminLayout = () => {
             <NavItem to="/admin/dashboard" icon={LayoutDashboard} label="Dashboard" />
             <NavItem to="/admin/tracks" icon={Music} label="Music Tracks" />
             <NavItem to="/admin/events" icon={Calendar} label="Events" />
-            <NavItem to="/admin/band-members" icon={Users} label="Band Members" />
+            {/* Band Members removed */}
             <NavItem to="/admin/gallery" icon={Image} label="Gallery" />
             <NavItem to="/admin/messages" icon={MessageSquare} label="Contact Messages" />
           </div>

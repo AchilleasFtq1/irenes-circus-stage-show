@@ -8,6 +8,9 @@ const AdminMessages = () => {
   const [messages, setMessages] = useState<IContact[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [searchQuery, setSearchQuery] = useState('');
+  const [showUnreadOnly, setShowUnreadOnly] = useState(false);
+  const [expanded, setExpanded] = useState<Record<string, boolean>>({});
 
   const fetchMessages = async () => {
     try {
@@ -68,10 +71,34 @@ const AdminMessages = () => {
     });
   };
 
+  const filteredMessages = messages.filter((m) => {
+    if (showUnreadOnly && m.isRead) return false;
+    if (!searchQuery) return true;
+    const q = searchQuery.toLowerCase();
+    return (
+      (m.subject || '').toLowerCase().includes(q) ||
+      (m.name || '').toLowerCase().includes(q) ||
+      (m.email || '').toLowerCase().includes(q) ||
+      (m.message || '').toLowerCase().includes(q)
+    );
+  });
+
+  // Ensure latest messages appear first regardless of backend ordering
+  const sortedMessages = [...filteredMessages].sort((a, b) => {
+    const aTime = a.createdAt ? new Date(a.createdAt).getTime() : 0;
+    const bTime = b.createdAt ? new Date(b.createdAt).getTime() : 0;
+    return bTime - aTime;
+  });
+
+  const unreadCount = messages.filter(m => !m.isRead).length;
+
   return (
     <div>
-      <div className="flex justify-between items-center mb-6">
-        <h1 className="text-3xl font-circus text-circus-dark">Contact Messages</h1>
+      <div className="flex justify-between items-center mb-4">
+        <div>
+          <h1 className="text-3xl font-circus text-circus-dark">Contact Messages</h1>
+          <p className="text-sm text-gray-500 mt-1">Total: {messages.length} • Unread: {unreadCount}</p>
+        </div>
         <Button 
           onClick={fetchMessages}
           variant="outline"
@@ -80,6 +107,27 @@ const AdminMessages = () => {
           <RefreshCw size={16} />
           Refresh
         </Button>
+      </div>
+
+      <div className="bg-white rounded-lg shadow p-4 mb-4">
+        <div className="flex flex-col md:flex-row gap-3 md:items-center">
+          <input
+            type="text"
+            placeholder="Search by subject, name, email, or message..."
+            className="w-full md:flex-1 border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-circus-gold"
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+          />
+          <label className="inline-flex items-center gap-2 text-sm text-gray-700">
+            <input
+              type="checkbox"
+              checked={showUnreadOnly}
+              onChange={(e) => setShowUnreadOnly(e.target.checked)}
+              className="h-4 w-4"
+            />
+            Show unread only
+          </label>
+        </div>
       </div>
       
       {error && (
@@ -99,8 +147,9 @@ const AdminMessages = () => {
           <p className="text-gray-500">There are no contact messages to display.</p>
         </div>
       ) : (
-        <div className="space-y-4">
-          {messages.map((message) => (
+        <div className="bg-white rounded-lg shadow p-2 max-h-[70vh] overflow-y-auto">
+          <div className="space-y-4 pr-2">
+          {sortedMessages.map((message) => (
             <div 
               key={message._id}
               className={`bg-white rounded-lg shadow p-6 border-l-4 ${
@@ -128,6 +177,15 @@ const AdminMessages = () => {
                 </div>
                 
                 <div className="flex gap-2">
+                  <Button
+                    onClick={() => setExpanded(prev => ({ ...prev, [message._id]: !prev[message._id] }))}
+                    variant="outline"
+                    size="sm"
+                    className="flex items-center gap-1"
+                    title={expanded[message._id] ? 'Collapse' : 'Expand'}
+                  >
+                    {expanded[message._id] ? 'Collapse' : 'Expand'}
+                  </Button>
                   {!message.isRead && (
                     <Button
                       onClick={() => handleMarkAsRead(message._id)}
@@ -151,13 +209,14 @@ const AdminMessages = () => {
                 </div>
               </div>
               
-              <p className="mb-4 whitespace-pre-wrap">{message.message}</p>
+              <p className={`mb-4 whitespace-pre-wrap ${expanded[message._id] ? '' : 'max-h-24 overflow-hidden'}`}>{message.message}</p>
               
               <div className="text-xs text-gray-400">
                 Received: {message.createdAt && formatDate(message.createdAt)}
               </div>
             </div>
           ))}
+          </div>
         </div>
       )}
     </div>

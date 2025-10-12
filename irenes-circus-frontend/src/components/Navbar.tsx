@@ -56,14 +56,7 @@ const Navbar = () => {
               <span className="group-hover:animate-feedback">📸 GALLERY</span>
             </Link>
           </li>
-          <li>
-            <Link 
-              to="/about" 
-              className="hover:text-rock-amber transition-colors duration-300 relative group px-2 py-1 border-b-2 border-transparent hover:border-rock-amber"
-            >
-              <span className="group-hover:animate-feedback">🤘 ABOUT</span>
-            </Link>
-          </li>
+          
           <li>
             <Link 
               to="/contact" 

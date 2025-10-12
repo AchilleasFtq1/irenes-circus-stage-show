@@ -182,7 +182,7 @@ const seedProductionDB = async (): Promise<void> => {
     logger.info(`Seeded ${tracks.length} tracks`);
     
     logger.info('Seeding events...');
-    await Event.insertMany(events);
+    const createdEvents = await Event.insertMany(events);
     logger.info(`Seeded ${events.length} events`);
     
     logger.info('Seeding band members...');
@@ -190,7 +190,11 @@ const seedProductionDB = async (): Promise<void> => {
     logger.info(`Seeded ${bandMembers.length} band members`);
     
     logger.info('Seeding gallery images...');
-    await GalleryImage.insertMany(galleryImages);
+    const galleryWithEvents = galleryImages.map((img, idx) => {
+      const ev = createdEvents[idx % createdEvents.length];
+      return { ...img, eventId: ev?._id?.toString() };
+    });
+    await GalleryImage.insertMany(galleryWithEvents);
     logger.info(`Seeded ${galleryImages.length} gallery images`);
     
     // Create default admin user

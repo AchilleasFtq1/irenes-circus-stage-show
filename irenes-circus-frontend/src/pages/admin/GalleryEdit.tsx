@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { ArrowLeft, Save } from 'lucide-react';
 import { Link, useNavigate, useParams } from 'react-router-dom';
-import { galleryAPI } from '@/lib/api';
-import { IGalleryImage, SpanType } from '@/lib/types';
+import { galleryAPI, eventsAPI, uploadAPI } from '@/lib/api';
+import { IGalleryImage, SpanType, IEvent } from '@/lib/types';
 
 const GalleryEdit: React.FC = () => {
   const navigate = useNavigate();
@@ -10,9 +10,12 @@ const GalleryEdit: React.FC = () => {
   const [imageUrl, setImageUrl] = useState<string>('');
   const [title, setTitle] = useState<string>('');
   const [span, setSpan] = useState<SpanType | ''>('');
+  const [eventId, setEventId] = useState<string>('');
+  const [events, setEvents] = useState<IEvent[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
+  const [file, setFile] = useState<File | null>(null);
 
   useEffect(() => {
     const fetchImage = async () => {
@@ -20,12 +23,17 @@ const GalleryEdit: React.FC = () => {
       
       try {
         setIsLoading(true);
-        const image = await galleryAPI.getById(id);
+        const [image, allEvents] = await Promise.all([
+          galleryAPI.getById(id),
+          eventsAPI.getAll()
+        ]);
         
         if (image) {
           setImageUrl(image.src);
           setTitle(image.alt);
           setSpan(image.span || '');
+          setEventId(image.eventId || '');
+          setEvents(allEvents);
         } else {
           setError('Image not found');
         }
@@ -48,20 +56,25 @@ const GalleryEdit: React.FC = () => {
     setError(null);
 
     try {
-      // Validate form
-      if (!imageUrl.trim()) {
-        throw new Error('Image URL is required');
-      }
-      
       if (!title.trim()) {
         throw new Error('Title is required');
       }
 
-      // Update the gallery image
+      let finalUrl = imageUrl.trim();
+      if (file) {
+        const { url } = await uploadAPI.uploadImage(file);
+        finalUrl = url;
+      }
+
+      if (!finalUrl) {
+        throw new Error('Please select an image file or provide an image URL');
+      }
+
       await galleryAPI.update(id, {
-        src: imageUrl,
+        src: finalUrl,
         alt: title,
-        span: span as SpanType || undefined
+        span: span as SpanType || undefined,
+        eventId: eventId || undefined
       });
 
       navigate('/admin/gallery');
@@ -106,7 +119,13 @@ const GalleryEdit: React.FC = () => {
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl">
         <div className="bg-white shadow-md rounded-lg p-4 flex items-center justify-center">
-          {imageUrl ? (
+          {file ? (
+            <img 
+              src={URL.createObjectURL(file)} 
+              alt={title || 'Gallery preview'} 
+              className="max-w-full max-h-64 object-contain"
+            />
+          ) : imageUrl ? (
             <img 
               src={imageUrl} 
               alt={title || 'Gallery preview'} 
@@ -121,9 +140,36 @@ const GalleryEdit: React.FC = () => {
 
         <form onSubmit={handleSubmit} className="bg-white shadow-md rounded-lg p-6">
           <div className="mb-4">
-            <label htmlFor="imageUrl" className="block text-gray-700 text-sm font-bold mb-2">
-              Image URL *
+            <label htmlFor="eventId" className="block text-gray-700 text-sm font-bold mb-2">
+              Performance (optional)
             </label>
+            <select
+              id="eventId"
+              value={eventId}
+              onChange={(e) => setEventId(e.target.value)}
+              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            >
+              <option value="">No performance</option>
+              {events.map((ev) => (
+                <option key={ev._id} value={ev._id}>
+                  {ev.date} — {ev.venue}, {ev.city}
+                </option>
+              ))}
+            </select>
+          </div>
+          <div className="mb-4">
+            <label className="block text-gray-700 text-sm font-bold mb-2">
+              Replace Image (upload) or edit URL
+            </label>
+            <input
+              type="file"
+              accept="image/*"
+              onChange={(e) => {
+                const f = e.target.files?.[0] || null;
+                setFile(f);
+              }}
+              className="mb-2 block w-full text-sm text-gray-700"
+            />
             <input
               type="text"
               id="imageUrl"
@@ -131,8 +177,8 @@ const GalleryEdit: React.FC = () => {
               onChange={(e) => setImageUrl(e.target.value)}
               className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               placeholder="https://example.com/image.jpg"
-              required
             />
+            <p className="text-xs text-gray-500 mt-1">If you upload a new file, it will replace the current image URL.</p>
           </div>
 
           <div className="mb-4">

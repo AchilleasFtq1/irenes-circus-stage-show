@@ -181,6 +181,11 @@ export const validateGalleryImage: ValidationChain[] = [
     .optional()
     .isIn(['col', 'row', 'both'])
     .withMessage('Span must be one of: col, row, both')
+  ,
+  body('eventId')
+    .optional()
+    .isMongoId()
+    .withMessage('eventId must be a valid Mongo ObjectId')
 ];
 
 // Contact form validation rules

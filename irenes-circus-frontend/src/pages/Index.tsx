@@ -65,13 +65,13 @@ const Index = () => {
   const spotifyUrl = "https://open.spotify.com/artist/25XfQgnvMcoCvcfNqU69ZG";
 
   if (loading) {
-    return <div className="min-h-screen bg-gradient-to-b from-circus-cream to-white flex items-center justify-center">
+    return <div className="min-h-screen bg-gradient-to-b from-circus-cream to-gray-50 flex items-center justify-center">
       <div className="animate-spin rounded-full h-32 w-32 border-t-2 border-b-2 border-circus-gold"></div>
     </div>;
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-circus-cream to-white text-circus-dark">
+    <div className="min-h-screen bg-gradient-to-b from-circus-cream to-gray-50 text-circus-dark">
       <Navbar />
       
       {/* Hero Section */}
@@ -85,12 +85,7 @@ const Index = () => {
             <p className="font-alt text-lg mb-8">
               Experience the magic of circus arts through music and performance
             </p>
-            <Link
-              to="/about"
-              className="inline-flex items-center gap-2 bg-circus-gold text-circus-dark px-6 py-3 rounded-full font-circus hover:bg-circus-red hover:text-white transition-colors"
-            >
-              Learn More <ArrowRight size={20} />
-            </Link>
+            
           </div>
           
           {/* Music Player */}
@@ -117,7 +112,7 @@ const Index = () => {
             <EventCard 
               key={event._id} 
               event={event}
-              className="text-circus-dark bg-white bg-opacity-80 hover:border-circus-gold"
+              className="text-circus-dark bg-gray-50 bg-opacity-80 hover:border-circus-gold"
             />
           ))}
         </div>
@@ -144,7 +139,7 @@ const Index = () => {
             <Facebook size={32} />
           </a>
           <a
-            href="https://youtube.com"
+            href="https://youtube.com/@irenescircustheband?si=kKnlTsH2X3akowr4"
             target="_blank"
             rel="noopener noreferrer"
             className="text-circus-dark hover:text-circus-gold transition-colors"

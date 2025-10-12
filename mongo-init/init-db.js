@@ -25,4 +25,8 @@ db.bandmembers.createIndex({ "name": 1 });
 db.contacts.createIndex({ "createdAt": -1 });
 db.contacts.createIndex({ "isRead": 1 });
 
+// Gallery images: filter by performance and order by recency
+db.galleryimages.createIndex({ "eventId": 1 });
+db.galleryimages.createIndex({ "createdAt": -1 });
+
 print('✅ Database initialized successfully for Irenes Circus!');

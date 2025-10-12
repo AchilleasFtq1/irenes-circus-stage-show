@@ -152,7 +152,10 @@ export const uploadAPI = {
 
 // Gallery API
 export const galleryAPI = {
-  getAll: () => fetchAPI<IGalleryImage[]>('/gallery'),
+  getAll: (opts?: { eventId?: string }) => {
+    const query = opts?.eventId ? `?eventId=${encodeURIComponent(opts.eventId)}` : '';
+    return fetchAPI<IGalleryImage[]>(`/gallery${query}`);
+  },
   getById: (id: string) => fetchAPI<IGalleryImage>(`/gallery/${id}`),
   create: (data: Omit<IGalleryImage, '_id'>) => 
     fetchAPI<IGalleryImage>('/gallery', { 

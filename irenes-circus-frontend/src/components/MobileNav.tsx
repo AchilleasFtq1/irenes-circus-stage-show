@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, Home, Music, Calendar, Image, Users, Mail, Settings } from 'lucide-react';
+import { Menu, X, Home, Music, Calendar, Image, Mail, Settings } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 interface NavItem {
@@ -15,7 +15,6 @@ const publicNavItems: NavItem[] = [
   { path: '/music', label: 'Music', icon: <Music size={20} />, emoji: '🎵' },
   { path: '/tour', label: 'Tour', icon: <Calendar size={20} />, emoji: '🎸' },
   { path: '/gallery', label: 'Gallery', icon: <Image size={20} />, emoji: '📸' },
-  { path: '/about', label: 'About', icon: <Users size={20} />, emoji: '🤘' },
   { path: '/contact', label: 'Contact', icon: <Mail size={20} />, emoji: '📧' },
   { path: '/admin', label: 'Admin', icon: <Settings size={20} />, emoji: '⚡' },
 ];
@@ -147,9 +146,6 @@ const MobileNav: React.FC = () => {
         {/* Footer */}
         <div className="p-6 border-t border-rock-steel">
           <div className="text-center space-y-2">
-            <p className="font-hipster text-sm text-rock-smoke">
-              🎪 Raw. Authentic. Uncompromising.
-            </p>
             <div className="flex justify-center gap-4 text-rock-amber">
               <a 
                 href="https://spotify.com" 
@@ -170,7 +166,7 @@ const MobileNav: React.FC = () => {
                 📸
               </a>
               <a 
-                href="https://youtube.com" 
+                href="https://youtube.com/@irenescircustheband?si=kKnlTsH2X3akowr4" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="hover:text-rock-rust transition-colors"

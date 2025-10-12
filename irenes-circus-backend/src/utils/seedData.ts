@@ -153,9 +153,14 @@ const seedDB = async (): Promise<void> => {
     
     // Seed data
     await Track.insertMany(tracks);
-    await Event.insertMany(events);
+    const createdEvents = await Event.insertMany(events);
     await BandMember.insertMany(bandMembers);
-    await GalleryImage.insertMany(galleryImages);
+    // Attach eventId to gallery images, cycling through created events
+    const galleryWithEvents = galleryImages.map((img, idx) => {
+      const ev = createdEvents[idx % createdEvents.length];
+      return { ...img, eventId: ev?._id?.toString() };
+    });
+    await GalleryImage.insertMany(galleryWithEvents);
     
     // Create default admin user with bcrypt hashing
     logger.info('Creating default admin user with new bcrypt password hashing...');

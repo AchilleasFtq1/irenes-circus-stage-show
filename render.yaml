@@ -7,6 +7,12 @@ services:
     region: oregon
     plan: starter
     autoDeploy: true
+    buildFilter:
+      paths:
+        - mongo-dockerfile
+        - mongo-init/**
+        - irenes-circus-backend/src/utils/seedData.ts
+        - irenes-circus-backend/src/utils/seedProduction.ts
     disk:
       name: mongo-data
       mountPath: /data/db

@@ -7,7 +7,6 @@ import { AccessibilityProvider, SkipToContent } from '@/components/Accessibility
 
 // Public pages
 import Home from '@/pages/Home';
-import About from '@/pages/About';
 import Music from '@/pages/Music';
 import Tour from '@/pages/Tour';
 import Gallery from '@/pages/Gallery';
@@ -23,9 +22,7 @@ import AdminGallery from '@/pages/admin/Gallery';
 import GalleryNew from '@/pages/admin/GalleryNew';
 import GalleryEdit from '@/pages/admin/GalleryEdit';
 import AdminTracks from '@/pages/admin/Tracks';
-import AdminMembers from '@/pages/admin/Members';
-import MemberNew from '@/pages/admin/MemberNew';
-import MemberEdit from '@/pages/admin/MemberEdit';
+// Removed band members admin pages
 
 const App = () => {
   return (
@@ -39,7 +36,6 @@ const App = () => {
               <Routes>
           {/* Public Routes */}
           <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
           <Route path="/music" element={<Music />} />
           <Route path="/tour" element={<Tour />} />
           <Route path="/gallery" element={<Gallery />} />
@@ -56,9 +52,7 @@ const App = () => {
             <Route path="dashboard" element={<AdminDashboard />} />
             <Route path="tracks" element={<AdminTracks />} />
             <Route path="events" element={<AdminEvents />} />
-            <Route path="band-members" element={<AdminMembers />} />
-            <Route path="band-members/new" element={<MemberNew />} />
-            <Route path="band-members/edit/:id" element={<MemberEdit />} />
+            {/* Band members admin pages removed */}
             <Route path="messages" element={
               <ProtectedRoute requireAdmin={true}>
                 <AdminMessages />

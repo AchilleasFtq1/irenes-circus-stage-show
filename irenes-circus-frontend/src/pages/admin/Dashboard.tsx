@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { Music, Users, Calendar, Image, MessageSquare, BarChart, PieChart, LineChart } from 'lucide-react';
+import { Music, Calendar, Image, MessageSquare, BarChart, PieChart, LineChart } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { bandMembersAPI, eventsAPI, galleryAPI, contactAPI } from '@/lib/api';
+import { eventsAPI, galleryAPI, contactAPI } from '@/lib/api';
 import { getArtistTopTracks, getArtistInfo, getArtistAlbums, SpotifyTrack, SpotifyArtist, SpotifyAlbum } from "@/lib/spotify";
 
 interface StatsItemProps {
@@ -32,7 +32,6 @@ const StatsItem: React.FC<StatsItemProps> = ({ title, value, icon, bgColor, text
 
 const AdminDashboard: React.FC = () => {
   const [stats, setStats] = useState({
-    members: 0,
     events: 0,
     galleryImages: 0,
     messages: 0
@@ -48,15 +47,13 @@ const AdminDashboard: React.FC = () => {
     const fetchStats = async () => {
       try {
         // Fetch all data to get lengths
-        const [members, events, images, messages] = await Promise.all([
-          bandMembersAPI.getAll(),
+        const [events, images, messages] = await Promise.all([
           eventsAPI.getAll(),
           galleryAPI.getAll(),
           contactAPI.getAll()
         ]);
 
         setStats({
-          members: members.length,
           events: events.length,
           galleryImages: images.length,
           messages: messages.length
@@ -138,14 +135,7 @@ const AdminDashboard: React.FC = () => {
           textColor="text-white"
           link="/admin/tracks"
         />
-        <StatsItem 
-          title="Band Members"
-          value={stats.members}
-          icon={<Users />}
-          bgColor="bg-pink-500"
-          textColor="text-white"
-          link="/admin/members"
-        />
+        {/* Band Members stats removed */}
         <StatsItem 
           title="Events"
           value={stats.events}

@@ -5,7 +5,9 @@ import logger from '../config/logger';
 // Get all gallery images
 export const getGalleryImages = async (req: Request, res: Response): Promise<void> => {
   try {
-    const galleryImages = await GalleryImage.find();
+    const { eventId } = req.query as { eventId?: string };
+    const filter = eventId ? { eventId } : {};
+    const galleryImages = await GalleryImage.find(filter);
     logger.info('All gallery images retrieved successfully');
     res.status(200).json(galleryImages);
   } catch (error) {

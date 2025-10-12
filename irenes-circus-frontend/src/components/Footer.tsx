@@ -1,6 +1,8 @@
 
+import { useState } from "react";
 import { Link } from "react-router-dom";
-import { Instagram, Facebook, Youtube } from "lucide-react";
+import { Instagram, Youtube } from "lucide-react";
+import { contactAPI } from "@/lib/api";
 
 const Footer = () => {
   return (
@@ -17,29 +19,44 @@ const Footer = () => {
               </h4>
             </div>
             <p className="font-hipster text-lg mb-6 text-rock-smoke">
-              Authentic rock music from the heart. 
-              No filters, no compromises, just pure sonic rebellion.
+              We make noice sometimes is music
             </p>
-            <div className="flex space-x-6">
+            <div className="flex gap-4">
+              <a 
+                href="https://linktr.ee/IrenesCircusTheBand?fbclid=PAb21jcANYyXlleHRuA2FlbQIxMQABp8PQoaKJ30X8zW8aUI8Vc24l42yy04Vj5x8Krb_NIJbI9aiB3AKZMDixJSJu_aem_Nt2nlTQvpXvtcidvvTtVKA" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-rock-cream"
+                aria-label="Linktree"
+                title="Linktree"
+              >
+                <div className="h-12 w-12 rounded-full border-2 border-rock-amber/50 bg-rock-charcoal flex items-center justify-center hover:bg-rock-amber hover:text-rock-black transition-colors duration-300">
+                  <span className="text-xl">🌳</span>
+                </div>
+              </a>
               <a 
                 href="https://www.instagram.com/irenescircustheband/" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="text-rock-cream hover:text-rock-amber transition-all duration-300 transform hover:scale-110 amp-glow"
+                className="text-rock-cream"
+                aria-label="Instagram"
+                title="Instagram"
               >
-                <Instagram size={32} />
+                <div className="h-12 w-12 rounded-full border-2 border-rock-amber/50 bg-rock-charcoal flex items-center justify-center hover:bg-rock-amber hover:text-rock-black transition-colors duration-300">
+                  <Instagram size={22} />
+                </div>
               </a>
               <a 
-                href="#" 
-                className="text-rock-cream hover:text-rock-amber transition-all duration-300 transform hover:scale-110 amp-glow"
+                href="https://youtube.com/@irenescircustheband?si=kKnlTsH2X3akowr4" 
+                className="text-rock-cream"
+                aria-label="YouTube"
+                title="YouTube"
+                target="_blank"
+                rel="noopener noreferrer"
               >
-                <Facebook size={32} />
-              </a>
-              <a 
-                href="#" 
-                className="text-rock-cream hover:text-rock-amber transition-all duration-300 transform hover:scale-110 amp-glow"
-              >
-                <Youtube size={32} />
+                <div className="h-12 w-12 rounded-full border-2 border-rock-amber/50 bg-rock-charcoal flex items-center justify-center hover:bg-rock-amber hover:text-rock-black transition-colors duration-300">
+                  <Youtube size={22} />
+                </div>
               </a>
             </div>
           </div>
@@ -81,14 +98,7 @@ const Footer = () => {
                   <span className="group-hover:animate-feedback">📸 GALLERY</span>
                 </Link>
               </li>
-              <li>
-                <Link 
-                  to="/about" 
-                  className="hover:text-rock-amber transition-colors duration-300 relative group"
-                >
-                  <span className="group-hover:animate-feedback">🤘 ABOUT US</span>
-                </Link>
-              </li>
+              
             </ul>
           </div>
           
@@ -97,22 +107,10 @@ const Footer = () => {
               CONTACT
             </h3>
             <div className="font-hipster text-lg mb-6 text-rock-smoke">
-              <p className="mb-2">📧 Email: info@irenescircus.com</p>
-              <p className="mb-4">🎤 Booking: booking@irenescircus.com</p>
+              <p className="mb-2">📧 Email: irenescircustheband@gmail.com</p>
+              <p className="mb-4">🎤 Booking: irenescircustheband@gmail.com</p>
             </div>
-            <form className="space-y-4">
-              <input 
-                type="email" 
-                placeholder="Join the rock revolution..." 
-                className="w-full p-3 rounded-none bg-rock-charcoal border-2 border-rock-steel text-rock-cream placeholder-rock-smoke focus:border-rock-amber transition-colors duration-300 font-hipster"
-              />
-              <button 
-                type="submit" 
-                className="bg-rust-gradient text-rock-cream px-6 py-3 rounded-none font-rock font-bold border-2 border-rock-amber hover:border-rock-rust transition-all duration-300 amp-glow animate-rock-pulse"
-              >
-                🤘 SUBSCRIBE
-              </button>
-            </form>
+            <FooterSubscribeForm />
           </div>
         </div>
         
@@ -136,3 +134,62 @@ const Footer = () => {
 };
 
 export default Footer;
+
+// Inline component for subscription to keep file organized
+const FooterSubscribeForm = () => {
+  const [emailAddress, setEmailAddress] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitMessage, setSubmitMessage] = useState<string | null>(null);
+  const [submitError, setSubmitError] = useState<string | null>(null);
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!emailAddress) return;
+    setIsSubmitting(true);
+    setSubmitMessage(null);
+    setSubmitError(null);
+    try {
+      await contactAPI.submitForm({
+        name: "Newsletter Subscriber",
+        email: emailAddress,
+        subject: "Newsletter Subscription",
+        message: "Please subscribe me to the newsletter."
+      });
+      setSubmitMessage("Subscribed!");
+      setEmailAddress("");
+    } catch (err: any) {
+      setSubmitError(err?.message || "Failed to subscribe. Please try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+  return (
+    <form className="space-y-4" onSubmit={handleSubmit}>
+      <input 
+        type="email" 
+        placeholder="Join the rock revolution..." 
+        className="w-full p-3 rounded-none bg-rock-charcoal border-2 border-rock-steel text-rock-cream placeholder-rock-smoke focus:border-rock-amber transition-colors duration-300 font-hipster"
+        value={emailAddress}
+        onChange={(e) => setEmailAddress(e.target.value)}
+        required
+        aria-label="Email address"
+      />
+      <button 
+        type="submit" 
+        disabled={isSubmitting}
+        className={`bg-rust-gradient text-rock-cream px-6 py-3 rounded-none font-rock font-bold border-2 border-rock-amber hover:border-rock-rust transition-all duration-300 ${isSubmitting ? 'opacity-60 cursor-not-allowed' : ''}`}
+        aria-label="Subscribe to newsletter"
+      >
+        {/* Circus icon added, removed blinking animation */}
+        🎪 {isSubmitting ? 'SUBSCRIBING...' : 'SUBSCRIBE'}
+      </button>
+      {submitMessage && (
+        <p className="text-rock-amber text-sm">{submitMessage}</p>
+      )}
+      {submitError && (
+        <p className="text-red-400 text-sm">{submitError}</p>
+      )}
+    </form>
+  );
+};

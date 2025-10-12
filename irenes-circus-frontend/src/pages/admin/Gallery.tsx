@@ -1,19 +1,25 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Plus, Edit, Trash2, AlertCircle, Image as ImageIcon } from 'lucide-react';
-import { galleryAPI } from '@/lib/api';
-import { IGalleryImage } from '@/lib/types';
+import { galleryAPI, eventsAPI } from '@/lib/api';
+import { IGalleryImage, IEvent } from '@/lib/types';
 
 const AdminGallery: React.FC = () => {
   const [galleryImages, setGalleryImages] = useState<IGalleryImage[]>([]);
+  const [events, setEvents] = useState<IEvent[]>([]);
+  const [selectedEventId, setSelectedEventId] = useState<string>('');
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
 
-  const fetchGalleryImages = async () => {
+  const fetchGalleryImages = async (eventId?: string) => {
     try {
       setIsLoading(true);
-      const images = await galleryAPI.getAll();
+      const [images, allEvents] = await Promise.all([
+        galleryAPI.getAll(eventId ? { eventId } : undefined),
+        eventsAPI.getAll()
+      ]);
       setGalleryImages(images);
+      setEvents(allEvents);
       setError(null);
     } catch (err) {
       console.error('Error fetching gallery images:', err);
@@ -24,8 +30,8 @@ const AdminGallery: React.FC = () => {
   };
 
   useEffect(() => {
-    fetchGalleryImages();
-  }, []);
+    fetchGalleryImages(selectedEventId || undefined);
+  }, [selectedEventId]);
 
   const handleDelete = async (id: string) => {
     if (!confirm('Are you sure you want to delete this image?')) {
@@ -71,6 +77,22 @@ const AdminGallery: React.FC = () => {
           <span>{error}</span>
         </div>
       )}
+
+      <div className="mb-4">
+        <label className="block text-sm font-medium text-gray-700 mb-2">Filter by Performance</label>
+        <select
+          value={selectedEventId}
+          onChange={(e) => setSelectedEventId(e.target.value)}
+          className="shadow appearance-none border rounded w-full max-w-md py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+        >
+          <option value="">All performances</option>
+          {events.map((ev) => (
+            <option key={ev._id} value={ev._id}>
+              {ev.date} — {ev.venue}, {ev.city}
+            </option>
+          ))}
+        </select>
+      </div>
 
       {galleryImages.length === 0 && !isLoading ? (
         <div className="text-center p-12 bg-gray-50 rounded-lg border border-gray-200">

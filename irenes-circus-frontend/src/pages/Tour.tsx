@@ -51,24 +51,23 @@ const Tour = () => {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-gradient-to-b from-circus-cream to-white flex items-center justify-center">
+      <div className="min-h-screen bg-gradient-to-b from-circus-cream to-gray-50 flex items-center justify-center">
         <div className="animate-spin rounded-full h-32 w-32 border-t-2 border-b-2 border-circus-gold"></div>
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-circus-cream to-white">
+    <div className="min-h-screen bg-gradient-to-b from-circus-cream to-gray-50">
       <Navbar />
       
       {/* Hero Section */}
-      <section className="relative bg-white/70 backdrop-blur text-circus-dark py-20">
+      <section className="relative bg-gray-50/70 backdrop-blur text-circus-dark py-20">
         <div className="container mx-auto px-4">
           <h1 className="font-circus text-4xl md:text-5xl font-bold mb-4 text-circus-gold animate-spotlight">
             Tour Dates
           </h1>
           <p className="font-alt text-xl max-w-2xl mb-6">
-            Join us for an unforgettable evening of theatrical music and circus arts.
             Check our upcoming shows and secure your tickets.
           </p>
         </div>
@@ -92,7 +91,7 @@ const Tour = () => {
                 return (
                   <div 
                     key={event._id}
-                    className="flex flex-col sm:flex-row items-start sm:items-center gap-4 bg-white rounded-lg p-6 shadow-md hover:shadow-lg transition-shadow"
+                    className="flex flex-col sm:flex-row items-start sm:items-center gap-4 bg-gray-50 rounded-lg p-6 shadow-md hover:shadow-lg transition-shadow"
                   >
                     {/* Date Box */}
                     <div className="bg-circus-dark text-circus-cream p-4 rounded-lg text-center min-w-[100px]">
@@ -134,7 +133,7 @@ const Tour = () => {
                 );
               })
             ) : (
-              <div className="text-center py-12 bg-white rounded-lg">
+              <div className="text-center py-12 bg-gray-50 rounded-lg">
                 <h3 className="font-circus text-xl text-circus-dark mb-2">No Upcoming Shows</h3>
                 <p className="text-circus-dark/60">Check back soon for new tour dates!</p>
               </div>
@@ -152,7 +151,7 @@ const Tour = () => {
                 return (
                   <div 
                     key={event._id}
-                    className="bg-white/50 backdrop-blur rounded-lg p-6"
+                    className="bg-gray-50/50 backdrop-blur rounded-lg p-6"
                   >
                     <div className="flex items-center gap-4 mb-4">
                       <div className="bg-circus-dark/10 text-circus-dark p-3 rounded-lg text-center min-w-[80px]">
@@ -171,7 +170,7 @@ const Tour = () => {
               })}
             </div>
           ) : (
-            <div className="text-center py-12 bg-white/50 backdrop-blur rounded-lg">
+            <div className="text-center py-12 bg-gray-50/50 backdrop-blur rounded-lg">
               <h3 className="font-circus text-xl text-circus-dark mb-2">No Past Shows</h3>
               <p className="text-circus-dark/60">Check back later for our performance history!</p>
             </div>
