@@ -36,7 +36,7 @@ const Home = () => {
           {/* Hero static image replacing tent and text */}
           <div className="mx-auto max-w-4xl">
             <img
-              src="/images/hero-irenes-circus.png"
+              src="/images/hero-irenes-circus.png?v=1"
               alt="Irene's Circus hero banner"
               className="w-full h-auto object-contain mx-auto max-h-[300px] md:max-h-[420px]"
               loading="eager"

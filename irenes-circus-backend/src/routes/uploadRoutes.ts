@@ -52,8 +52,10 @@ router.post(
 
     const relativePath = `/uploads/${req.file.filename}`;
     const isProduction = process.env.NODE_ENV === 'production';
-    const baseUrl = `${req.protocol}://${req.get('host')}`;
-    const url = isProduction ? `${baseUrl}${relativePath}` : relativePath;
+    // Prefer explicit public backend URL in production (avoids mixed content or proxy host issues)
+    const publicBase = process.env.BACKEND_PUBLIC_URL;
+    const baseUrl = isProduction && publicBase ? publicBase : `${req.protocol}://${req.get('host')}`;
+    const url = `${baseUrl}${relativePath}`;
     res.status(201).json({ url, filename: req.file.filename });
   }
 );

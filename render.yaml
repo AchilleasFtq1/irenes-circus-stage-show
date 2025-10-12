@@ -35,6 +35,10 @@ services:
     buildCommand: cd irenes-circus-backend && npm ci --include=dev && npm run build
     startCommand: cd irenes-circus-backend && npm start
     healthCheckPath: /api/health
+    disk:
+      name: uploads-data
+      mountPath: /opt/render/project/src/irenes-circus-backend/uploads
+      sizeGB: 10
     envVars:
       - key: NODE_ENV
         value: production
@@ -54,6 +58,8 @@ services:
         value: true
       - key: FRONTEND_URL
         value: https://irenes-circus-frontend-y8um.onrender.com
+      - key: BACKEND_PUBLIC_URL
+        value: https://irenes-circus-backend-y8um.onrender.com
 
   # Frontend Static Site
   - type: web
