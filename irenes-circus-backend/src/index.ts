@@ -3,7 +3,6 @@ import cors from 'cors';
 import helmet from 'helmet';
 import dotenv from 'dotenv';
 import routes from './routes';
-import path from 'path';
 import connectDB from './config/database';
 import logger from './config/logger';
 // Rate limiting imports removed
@@ -100,10 +99,8 @@ app.use(cors(corsOptions));
 app.use(express.json({ limit: '10mb' }));
 app.use(express.urlencoded({ extended: true, limit: '10mb' }));
 
-// Static serving for uploaded files
-const uploadsPath = path.resolve(process.cwd(), 'uploads');
-app.use('/uploads', express.static(uploadsPath));
-app.use('/api/uploads', express.static(uploadsPath));
+// Uploads are now served from MongoDB via /api/uploads/:filename route
+// No static file serving needed
 
 // Request logger middleware
 app.use((req, res, next) => {
