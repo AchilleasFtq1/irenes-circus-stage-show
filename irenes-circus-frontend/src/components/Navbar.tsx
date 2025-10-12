@@ -65,14 +65,7 @@ const Navbar = () => {
               <span className="group-hover:animate-feedback">📧 CONTACT</span>
             </Link>
           </li>
-          <li>
-            <Link 
-              to="/admin" 
-              className="bg-rock-rust text-rock-cream px-4 py-2 rounded-none border-2 border-rock-amber hover:bg-rock-amber hover:text-rock-black transition-all duration-300 amp-glow font-bold"
-            >
-              ⚡ ADMIN
-            </Link>
-          </li>
+          {/* Admin link removed for public navbar */}
         </ul>
 
         {/* Mobile Navigation */}
