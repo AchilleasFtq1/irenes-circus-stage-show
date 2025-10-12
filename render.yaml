@@ -35,10 +35,6 @@ services:
     buildCommand: cd irenes-circus-backend && npm ci --include=dev && npm run build
     startCommand: cd irenes-circus-backend && npm start
     healthCheckPath: /api/health
-    disk:
-      name: uploads-data
-      mountPath: /opt/render/project/src/irenes-circus-backend/uploads
-      sizeGB: 10
     envVars:
       - key: NODE_ENV
         value: production
