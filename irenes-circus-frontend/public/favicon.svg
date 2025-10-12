@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Irene's Circus">
+  <title>Irene's Circus</title>
+  <defs>
+    <radialGradient id="shine" cx="30%" cy="30%" r="70%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <circle cx="32" cy="32" r="30" fill="#111111" stroke="#D4AF37" stroke-width="2"/>
+  <circle cx="32" cy="32" r="30" fill="url(#shine)"/>
+  <g>
+    <text x="32" y="41" text-anchor="middle" font-family="serif" font-weight="900" font-size="28" fill="#D4AF37">IC</text>
+  </g>
+</svg>
+
