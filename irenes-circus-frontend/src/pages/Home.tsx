@@ -33,16 +33,20 @@ const Home = () => {
         <div className="absolute top-0 right-1/4 w-32 h-32 bg-circus-gold rounded-full blur-3xl opacity-20 animate-pulse" style={{animationDelay: '2s'}}></div>
         
         <div className="container mx-auto px-4 relative z-10 text-center py-20">
-          <h1 className="font-circus text-7xl md:text-9xl font-black mb-6 text-circus-gold">
-            IRENE'S
-          </h1>
-          <h2 className="font-circus text-5xl md:text-7xl font-bold mb-8 text-circus-gold">
-            CIRCUS
-          </h2>
+          {/* Hero static image replacing tent and text */}
+          <div className="mx-auto max-w-4xl">
+            <img
+              src="/images/hero-irenes-circus.png"
+              alt="Irene's Circus hero banner"
+              className="w-full h-auto object-contain mx-auto max-h-[300px] md:max-h-[420px]"
+              loading="eager"
+              decoding="async"
+            />
+          </div>
           
           
           
-          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
+          <div className="mt-10 flex flex-col sm:flex-row gap-6 justify-center items-center">
             <Button asChild className="bg-circus-gold text-circus-dark font-circus font-bold text-xl px-10 py-8 rounded-lg border-2 border-circus-gold hover:bg-circus-red hover:text-white transition-all duration-300">
               <Link to="/tour">🎸 TOUR DATES</Link>
             </Button>
@@ -209,10 +213,6 @@ const Home = () => {
           <h2 className="font-circus text-4xl font-black mb-6 text-circus-gold animate-spotlight">
             JOIN THE CIRCUS
           </h2>
-          <p className="font-alt text-xl max-w-3xl mx-auto mb-8 text-circus-dark">
-            Ready to experience real rock music? Get in touch for bookings, collaborations, 
-            or just to share your passion for authentic sound.
-          </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button asChild className="bg-circus-gold text-circus-dark font-circus font-bold text-lg px-8 py-4 rounded-lg border-2 border-circus-gold hover:bg-circus-red hover:text-white transition-all duration-300">
