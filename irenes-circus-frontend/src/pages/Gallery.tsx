@@ -147,25 +147,25 @@ const Gallery = () => {
       <Navbar />
       
       {/* Hero Section */}
-      <section className="relative bg-gray-50/70 backdrop-blur text-circus-dark py-20">
+      <section className="relative bg-gray-50/70 backdrop-blur text-circus-dark pt-10 pb-8">
         <div className="container mx-auto px-4">
-          <h1 className="font-circus text-4xl md:text-5xl font-bold mb-4 text-circus-gold animate-spotlight">
+          <h1 className="font-circus text-4xl md:text-5xl font-bold mb-2 text-circus-gold animate-spotlight">
             Gallery
           </h1>
-          <p className="font-alt text-xl max-w-2xl mb-6">
+          <p className="font-alt text-xl max-w-2xl mb-4">
             Explore photos from our performances, behind the scenes, and more. Experience the visual side of Irene's Circus.
           </p>
         </div>
       </section>
       
       {/* Gallery Section */}
-      <section className="py-16">
+      <section className="py-10">
         <div className="container mx-auto px-4">
-          <h2 className="font-circus text-3xl font-bold mb-8 text-circus-dark">
+          <h2 className="font-circus text-3xl font-bold mb-4 text-circus-dark">
             Performance Highlights
           </h2>
           {/* Performance Filter - user-friendly chips */}
-          <div className="mb-6">
+          <div className="mb-4">
             <div className="flex items-center gap-2 overflow-x-auto pb-2">
               <button
                 type="button"
@@ -230,7 +230,7 @@ const Gallery = () => {
             </div>
           ) : (
             groupedEventsByYear.map(([year, evs]) => (
-              <div key={year} className="mb-10">
+              <div key={year} className="mb-6">
                 <h3 className="font-circus text-2xl font-bold mb-4 text-circus-dark">{year}</h3>
                 {evs.map((ev) => (
                   <LazyEventGallery
@@ -246,9 +246,9 @@ const Gallery = () => {
       </section>
       
       {/* Behind the Scenes */}
-      <section className="py-16 bg-gray-50/70 backdrop-blur text-circus-dark">
+      <section className="py-10 bg-gray-50/70 backdrop-blur text-circus-dark">
         <div className="container mx-auto px-4 text-center">
-          <p className="font-alt text-xl max-w-2xl mx-auto mb-8">
+          <p className="font-alt text-xl max-w-2xl mx-auto mb-4">
             For more behind-the-scenes content, follow us on Instagram.
           </p>
           
