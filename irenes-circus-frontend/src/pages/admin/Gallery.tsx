@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { Plus, Edit, Trash2, AlertCircle, Image as ImageIcon } from 'lucide-react';
 import { galleryAPI, eventsAPI } from '@/lib/api';
 import { IGalleryImage, IEvent } from '@/lib/types';
+import GalleryImage from '@/components/GalleryImage';
 
 const AdminGallery: React.FC = () => {
   const [galleryImages, setGalleryImages] = useState<IGalleryImage[]>([]);
@@ -116,10 +117,11 @@ const AdminGallery: React.FC = () => {
                   <div className="min-w-0 flex-1 flex items-center">
                     <div className="flex-shrink-0 h-16 w-16 bg-gray-100 rounded-md overflow-hidden">
                       {image.src ? (
-                        <img
+                        <GalleryImage
                           src={image.src}
                           alt={image.alt}
                           className="h-full w-full object-cover"
+                          fallbackClassName="h-full w-full"
                         />
                       ) : (
                         <div className="flex items-center justify-center h-full w-full bg-gray-200">
@@ -131,8 +133,16 @@ const AdminGallery: React.FC = () => {
                       <div className="text-sm font-medium text-gray-900">
                         {image.alt || 'No title'}
                       </div>
-                      <div className="text-sm text-gray-500 truncate">
-                        {image.span && `Span: ${image.span}`}
+                      <div className="text-sm text-gray-500">
+                        {image.span && <span className="mr-3">Span: {image.span}</span>}
+                        {image.eventId && (() => {
+                          const event = events.find(e => e._id === image.eventId);
+                          return event ? (
+                            <span className="text-xs">
+                              📍 {event.venue}, {event.city}
+                            </span>
+                          ) : null;
+                        })()}
                       </div>
                     </div>
                   </div>

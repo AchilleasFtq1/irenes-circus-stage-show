@@ -1,4 +1,5 @@
 import { IGalleryImage } from "@/lib/types";
+import GalleryImage from "./GalleryImage";
 
 const GalleryGrid = ({ images }: { images: IGalleryImage[] }) => {
   return (
@@ -12,10 +13,11 @@ const GalleryGrid = ({ images }: { images: IGalleryImage[] }) => {
             image.span === 'both' ? 'md:col-span-2 row-span-2' : ''
           }`}
         >
-          <img 
-            src={image.src} 
-            alt={image.alt} 
-            className="w-full h-full object-cover transition-transform duration-500 hover:scale-105" 
+          <GalleryImage
+            src={image.src}
+            alt={image.alt}
+            className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+            fallbackClassName="w-full h-full min-h-[200px]"
           />
         </div>
       ))}
