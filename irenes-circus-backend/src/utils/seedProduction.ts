@@ -5,10 +5,59 @@ import Event from '../models/Event';
 import BandMember from '../models/BandMember';
 import GalleryImage from '../models/GalleryImage';
 import User from '../models/User';
+import Upload from '../models/Upload';
 import logger from '../config/logger';
+import https from 'https';
+import http from 'http';
 
 // Load environment variables
 dotenv.config();
+
+// Helper function to create upload from URL
+const createUploadFromUrl = async (url: string, altText: string): Promise<string> => {
+  try {
+    // Check if already exists
+    const existing = await Upload.findOne({ originalName: url });
+    if (existing) {
+      const baseUrl = process.env.BACKEND_PUBLIC_URL || 'http://localhost:5001';
+      return `${baseUrl}/api/uploads/${existing.filename}`;
+    }
+
+    // Download image
+    return new Promise((resolve) => {
+      const client = url.startsWith('https') ? https : http;
+      client.get(url, (response) => {
+        const chunks: Buffer[] = [];
+        response.on('data', (chunk) => chunks.push(chunk));
+        response.on('end', async () => {
+          try {
+            const buffer = Buffer.concat(chunks);
+            const base64 = buffer.toString('base64');
+            const filename = `seed-${Date.now()}-${Math.round(Math.random() * 1e9)}.jpg`;
+            
+            const upload = await Upload.create({
+              filename,
+              originalName: url,
+              mimetype: 'image/jpeg',
+              data: base64,
+              size: buffer.length
+            });
+            
+            const baseUrl = process.env.BACKEND_PUBLIC_URL || 'http://localhost:5001';
+            resolve(`${baseUrl}/api/uploads/${upload.filename}`);
+          } catch (err) {
+            logger.warn(`Failed to store image ${url}, using original URL`);
+            resolve(url);
+          }
+        });
+        response.on('error', () => resolve(url));
+      }).on('error', () => resolve(url));
+    });
+  } catch (error) {
+    logger.warn(`Failed to process image ${url}, using original URL`);
+    return url;
+  }
+};
 
 // Sample data for production
 const tracks = [
@@ -190,11 +239,19 @@ const seedProductionDB = async (): Promise<void> => {
     logger.info(`Seeded ${bandMembers.length} band members`);
     
     logger.info('Seeding gallery images...');
-    const galleryWithEvents = galleryImages.map((img, idx) => {
-      const ev = createdEvents[idx % createdEvents.length];
-      return { ...img, eventId: ev?._id?.toString() };
-    });
-    await GalleryImage.insertMany(galleryWithEvents);
+    // Convert image URLs to MongoDB storage
+    const processedImages = await Promise.all(
+      galleryImages.map(async (img, idx) => {
+        const newSrc = await createUploadFromUrl(img.src, img.alt);
+        const ev = createdEvents[idx % createdEvents.length];
+        return { 
+          ...img, 
+          src: newSrc,
+          eventId: ev?._id?.toString() 
+        };
+      })
+    );
+    await GalleryImage.insertMany(processedImages);
     logger.info(`Seeded ${galleryImages.length} gallery images`);
     
     // Create default admin user
