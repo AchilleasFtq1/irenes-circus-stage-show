@@ -1,9 +1,7 @@
-import { useState } from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { useCart } from '@/contexts/CartContext';
 import { Button } from '@/components/ui/button';
-import { CreditCard, Loader2 } from 'lucide-react';
 import { checkoutAPI } from '@/lib/api';
 
 const fmt = (cents: number, cur: string) => new Intl.NumberFormat(undefined, { style: 'currency', currency: cur }).format(cents / 100);
@@ -12,10 +10,7 @@ const Checkout = () => {
   const { items, totalCents, clear, updateQuantity, remove } = useCart();
   const currency = items[0]?.product.currency || 'EUR';
 
-  const [loading, setLoading] = useState<'stripe' | 'paypal' | null>(null);
-
   const stripeCheckout = async () => {
-    setLoading('stripe');
     const { url } = await checkoutAPI.stripeCreateSession({
       items: items.map(i => ({ productId: i.product._id, quantity: i.quantity })),
       currency,
@@ -27,7 +22,6 @@ const Checkout = () => {
   };
 
   const paypalCheckout = async () => {
-    setLoading('paypal');
     const { url } = await checkoutAPI.paypalCreateOrder({
       items: items.map(i => ({ productId: i.product._id, quantity: i.quantity })),
       currency,
@@ -86,14 +80,8 @@ const Checkout = () => {
               </div>
               <div className="text-sm text-gray-500 mb-4">Taxes and shipping calculated at checkout.</div>
               <div className="flex flex-col gap-2">
-                <Button onClick={stripeCheckout} variant="stripe" size="lg" aria-label="Pay with Stripe" disabled={loading !== null}>
-                  {loading === 'stripe' ? <Loader2 className="animate-spin" /> : <CreditCard />}
-                  {loading === 'stripe' ? 'Redirecting…' : 'Pay with Stripe'}
-                </Button>
-                <Button onClick={paypalCheckout} variant="paypal" size="lg" aria-label="Pay with PayPal" disabled={loading !== null}>
-                  {loading === 'paypal' ? <Loader2 className="animate-spin" /> : null}
-                  {loading === 'paypal' ? 'Redirecting…' : 'Pay with PayPal'}
-                </Button>
+                <Button onClick={stripeCheckout}>Pay with Stripe</Button>
+                <Button onClick={paypalCheckout} variant="outline">Pay with PayPal</Button>
                 <Button onClick={clear} variant="ghost">Clear Cart</Button>
               </div>
             </div>

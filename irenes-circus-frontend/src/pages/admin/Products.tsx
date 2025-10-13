@@ -1,8 +1,8 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { productsAPI, uploadAPI } from '@/lib/api';
 import { IProduct } from '@/lib/types';
 import { Button } from '@/components/ui/button';
-import { Plus, Edit, Trash2 } from 'lucide-react';
+import { Plus, Edit, Trash2, ImagePlus, X } from 'lucide-react';
 
 const AdminProducts = () => {
   const [products, setProducts] = useState<IProduct[]>([]);
@@ -21,8 +21,10 @@ const AdminProducts = () => {
     active: true,
     images: [] as Array<{ url: string; alt?: string }>
   });
-  const [imageFile, setImageFile] = useState<File | null>(null);
+  const [imageFiles, setImageFiles] = useState<File[]>([]);
   const [uploading, setUploading] = useState(false);
+  const [autoSlug, setAutoSlug] = useState(true);
+  const [query, setQuery] = useState('');
 
   const fetchProducts = async () => {
     setLoading(true);
@@ -42,21 +44,33 @@ const AdminProducts = () => {
     return title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
   };
 
+  const filteredProducts = useMemo(() => {
+    if (!query.trim()) return products;
+    const q = query.toLowerCase();
+    return products.filter(p =>
+      p.title.toLowerCase().includes(q) ||
+      (p.sku || '').toLowerCase().includes(q) ||
+      (p.description || '').toLowerCase().includes(q)
+    );
+  }, [products, query]);
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
-      // Upload image if selected
-      let imageUrl = '';
-      if (imageFile) {
+      // Upload images if selected
+      let uploadedImages: Array<{ url: string; alt?: string }> = [];
+      if (imageFiles.length > 0) {
         setUploading(true);
-        const { url } = await uploadAPI.uploadImage(imageFile);
-        imageUrl = url;
+        for (const f of imageFiles) {
+          const { url } = await uploadAPI.uploadImage(f);
+          uploadedImages.push({ url, alt: formData.title });
+        }
         setUploading(false);
       }
 
       const data = {
         ...formData,
-        images: imageUrl ? [{ url: imageUrl, alt: formData.title }] : formData.images
+        images: uploadedImages.length > 0 ? uploadedImages : formData.images
       };
 
       if (editingProduct) {
@@ -84,9 +98,10 @@ const AdminProducts = () => {
       active: true,
       images: []
     });
-    setImageFile(null);
+    setImageFiles([]);
     setEditingProduct(null);
     setShowForm(false);
+    setAutoSlug(true);
   };
 
   const handleEdit = (product: IProduct) => {
@@ -116,10 +131,20 @@ const AdminProducts = () => {
     <div className="p-6">
       <div className="flex justify-between items-center mb-6">
         <h1 className="font-circus text-3xl">Products</h1>
-        <Button onClick={() => setShowForm(true)}>
+        <Button onClick={() => { resetForm(); setShowForm(true); }}>
           <Plus className="mr-2" size={20} />
           Add Product
         </Button>
+      </div>
+
+      <div className="mb-4 flex items-center gap-2">
+        <input
+          type="text"
+          placeholder="Search by title, SKU, or description..."
+          value={query}
+          onChange={(e) => setQuery(e.target.value)}
+          className="w-full p-2 border rounded"
+        />
       </div>
 
       {error && <div className="text-red-600 mb-4">{error}</div>}
@@ -129,81 +154,134 @@ const AdminProducts = () => {
           <h2 className="font-edgy text-xl mb-4">{editingProduct ? 'Edit' : 'New'} Product</h2>
           
           <div className="grid md:grid-cols-2 gap-4">
-            <input
-              type="text"
-              placeholder="Title"
-              value={formData.title}
-              onChange={(e) => {
-                const title = e.target.value;
-                setFormData({ ...formData, title, slug: generateSlug(title) });
-              }}
-              className="p-2 border rounded"
-              required
-            />
+            <div>
+              <label className="block text-sm font-semibold mb-1">Title</label>
+              <input
+                type="text"
+                placeholder="e.g. Poster"
+                value={formData.title}
+                onChange={(e) => {
+                  const title = e.target.value;
+                  setFormData({ ...formData, title, slug: autoSlug ? generateSlug(title) : formData.slug });
+                }}
+                className="p-2 border rounded w-full"
+                required
+              />
+            </div>
             
-            <input
-              type="text"
-              placeholder="Slug"
-              value={formData.slug}
-              onChange={(e) => setFormData({ ...formData, slug: e.target.value })}
-              className="p-2 border rounded"
-              required
-            />
-            
-            <textarea
-              placeholder="Description"
-              value={formData.description}
-              onChange={(e) => setFormData({ ...formData, description: e.target.value })}
-              className="p-2 border rounded md:col-span-2"
-              rows={3}
-            />
-            
-            <input
-              type="number"
-              placeholder="Price (cents)"
-              value={formData.priceCents}
-              onChange={(e) => setFormData({ ...formData, priceCents: parseInt(e.target.value) || 0 })}
-              className="p-2 border rounded"
-              required
-            />
-            
-            <select
-              value={formData.currency}
-              onChange={(e) => setFormData({ ...formData, currency: e.target.value })}
-              className="p-2 border rounded"
-            >
-              <option value="EUR">EUR</option>
-              <option value="USD">USD</option>
-              <option value="GBP">GBP</option>
-            </select>
-            
-            <input
-              type="text"
-              placeholder="SKU"
-              value={formData.sku}
-              onChange={(e) => setFormData({ ...formData, sku: e.target.value })}
-              className="p-2 border rounded"
-            />
-            
-            <input
-              type="number"
-              placeholder="Inventory"
-              value={formData.inventoryCount}
-              onChange={(e) => setFormData({ ...formData, inventoryCount: parseInt(e.target.value) || 0 })}
-              className="p-2 border rounded"
-              required
-            />
+            <div>
+              <label className="block text-sm font-semibold mb-1">Slug</label>
+              <div className="flex gap-2">
+                <input
+                  type="text"
+                  placeholder="poster"
+                  value={formData.slug}
+                  onChange={(e) => setFormData({ ...formData, slug: e.target.value })}
+                  className="p-2 border rounded w-full"
+                  disabled={autoSlug}
+                  required
+                />
+                <label className="flex items-center gap-2 text-sm whitespace-nowrap">
+                  <input type="checkbox" checked={autoSlug} onChange={(e) => setAutoSlug(e.target.checked)} />
+                  Auto
+                </label>
+              </div>
+            </div>
             
             <div className="md:col-span-2">
-              <label className="block mb-2">Product Image</label>
+              <label className="block text-sm font-semibold mb-1">Description</label>
+              <textarea
+                placeholder="Short description that appears on the product page"
+                value={formData.description}
+                onChange={(e) => setFormData({ ...formData, description: e.target.value })}
+                className="p-2 border rounded w-full"
+                rows={3}
+              />
+            </div>
+            
+            <div>
+              <label className="block text-sm font-semibold mb-1">Price</label>
+              <div className="flex gap-2">
+                <select
+                  value={formData.currency}
+                  onChange={(e) => setFormData({ ...formData, currency: e.target.value })}
+                  className="p-2 border rounded"
+                >
+                  <option value="EUR">EUR</option>
+                  <option value="USD">USD</option>
+                  <option value="GBP">GBP</option>
+                </select>
+                <input
+                  type="number"
+                  placeholder="Price in cents"
+                  value={formData.priceCents}
+                  onChange={(e) => setFormData({ ...formData, priceCents: parseInt(e.target.value) || 0 })}
+                  className="p-2 border rounded w-full"
+                  required
+                />
+              </div>
+              <p className="text-xs text-gray-500 mt-1">Enter price in cents (e.g. €9.99 = 999)</p>
+            </div>
+            
+            <div>
+              <label className="block text-sm font-semibold mb-1">SKU</label>
               <input
-                type="file"
-                accept="image/*"
-                onChange={(e) => setImageFile(e.target.files?.[0] || null)}
+                type="text"
+                placeholder="Optional"
+                value={formData.sku}
+                onChange={(e) => setFormData({ ...formData, sku: e.target.value })}
                 className="p-2 border rounded w-full"
               />
-              {formData.images[0] && (
-                <img src={formData.images[0].url} alt="Current" className="mt-2 h-20 object-cover" />
+            </div>
+            
+            <div>
+              <label className="block text-sm font-semibold mb-1">Inventory</label>
+              <input
+                type="number"
+                placeholder="0"
+                value={formData.inventoryCount}
+                onChange={(e) => setFormData({ ...formData, inventoryCount: parseInt(e.target.value) || 0 })}
+                className="p-2 border rounded w-full"
+                required
+              />
+            </div>
+            
+            <div className="md:col-span-2">
+              <label className="block mb-2 font-semibold">Product Images</label>
+              <div className="flex items-center gap-2 mb-2">
+                <label className="inline-flex items-center gap-2 px-3 py-2 border rounded cursor-pointer bg-gray-50 hover:bg-gray-100">
+                  <ImagePlus size={16} /> Upload Images
+                  <input
+                    type="file"
+                    accept="image/*"
+                    multiple
+                    className="hidden"
+                    onChange={(e) => setImageFiles(Array.from(e.target.files || []))}
+                  />
+                </label>
+                {imageFiles.length > 0 && (
+                  <span className="text-sm text-gray-600">{imageFiles.length} file(s) selected</span>
+                )}
+              </div>
+              {(formData.images.length > 0 || imageFiles.length > 0) && (
+                <div className="flex flex-wrap gap-2">
+                  {formData.images.map((img, idx) => (
+                    <div key={`existing-${idx}`} className="relative">
+                      <img src={img.url} alt="Existing" className="h-20 w-20 object-cover rounded" />
+                      <button
+                        type="button"
+                        onClick={() => setFormData({ ...formData, images: formData.images.filter((_, i) => i !== idx) })}
+                        className="absolute -top-2 -right-2 bg-black/70 text-white rounded-full p-1"
+                        aria-label="Remove image"
+                      >
+                        <X size={12} />
+                      </button>
+                    </div>
+                  ))}
+                  {imageFiles.map((f, idx) => (
+                    <img key={`new-${idx}`} src={URL.createObjectURL(f)} alt={f.name} className="h-20 w-20 object-cover rounded" />
+                  ))}
+                </div>
               )}
             </div>
             
@@ -242,7 +320,7 @@ const AdminProducts = () => {
               </tr>
             </thead>
             <tbody>
-              {products.map((product) => (
+              {filteredProducts.map((product) => (
                 <tr key={product._id} className="border-t">
                   <td className="p-2">
                     <img 

@@ -18,6 +18,9 @@ const buttonVariants = cva(
           "bg-secondary text-secondary-foreground hover:bg-secondary/80",
         ghost: "hover:bg-accent hover:text-accent-foreground",
         link: "text-primary underline-offset-4 hover:underline",
+        // Brand variants for checkout buttons
+        stripe: "bg-[#635BFF] text-white hover:bg-[#4b45d6]", // Stripe indigo
+        paypal: "bg-[#FFC439] text-black hover:bg-[#ffb020]", // PayPal gold
       },
       size: {
         default: "h-10 px-4 py-2",

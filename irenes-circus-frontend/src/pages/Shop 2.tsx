@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
-import { CreditCard, Loader2 } from 'lucide-react';
 import { productsAPI, checkoutAPI } from '@/lib/api';
 import { IProduct } from '@/lib/types';
 import { useCart } from '@/contexts/CartContext';
@@ -18,8 +17,6 @@ const Shop = () => {
     productsAPI.getAll({ active: true }).then(setProducts).catch(e => setError(e.message)).finally(() => setLoading(false));
   }, []);
 
-  const [loadingId, setLoadingId] = useState<string | null>(null);
-
   const handleBuyStripe = async (product: IProduct) => {
     const params = {
       items: [{ productId: product._id, quantity: 1 }],
@@ -28,13 +25,8 @@ const Shop = () => {
       cancelUrl: `${window.location.origin}/shop/cancel`,
       collectShipping: true
     };
-    setLoadingId(product._id);
-    try {
-      const { url } = await checkoutAPI.stripeCreateSession(params);
-      window.location.href = url;
-    } finally {
-      setLoadingId(null);
-    }
+    const { url } = await checkoutAPI.stripeCreateSession(params);
+    window.location.href = url;
   };
 
   const handleBuyPayPal = async (product: IProduct) => {
@@ -45,13 +37,8 @@ const Shop = () => {
       cancelUrl: `${window.location.origin}/shop/cancel`,
       collectShipping: true
     };
-    setLoadingId(product._id + ':pp');
-    try {
-      const { url } = await checkoutAPI.paypalCreateOrder(params);
-      window.location.href = url;
-    } finally {
-      setLoadingId(null);
-    }
+    const { url } = await checkoutAPI.paypalCreateOrder(params);
+    window.location.href = url;
   };
 
   return (
@@ -70,15 +57,9 @@ const Shop = () => {
               <h3 className="font-edgy text-xl"><a href={`/shop/${p.slug}`}>{p.title}</a></h3>
               <p className="font-alt text-gray-700 mb-2">{p.description}</p>
               <div className="font-bold mb-3">{currency(p.priceCents, p.currency)}</div>
-              <div className="mt-auto flex flex-col sm:flex-row gap-2">
-                <Button onClick={() => handleBuyStripe(p)} variant="stripe" size="lg" aria-label={`Buy ${p.title} with Stripe`} className="flex-1" disabled={loadingId === p._id}>
-                  {loadingId === p._id ? <Loader2 className="animate-spin" /> : <CreditCard />}
-                  {loadingId === p._id ? 'Redirecting…' : 'Buy with Stripe'}
-                </Button>
-                <Button onClick={() => handleBuyPayPal(p)} variant="paypal" size="lg" aria-label={`Buy ${p.title} with PayPal`} className="flex-1" disabled={loadingId === p._id + ':pp'}>
-                  {loadingId === p._id + ':pp' ? <Loader2 className="animate-spin" /> : null}
-                  {loadingId === p._id + ':pp' ? 'Redirecting…' : 'Pay with PayPal'}
-                </Button>
+              <div className="mt-auto flex gap-2">
+                <Button onClick={() => handleBuyStripe(p)} className="flex-1">Buy with Stripe</Button>
+                <Button onClick={() => handleBuyPayPal(p)} variant="outline" className="flex-1">PayPal</Button>
               </div>
             </div>
           ))}
