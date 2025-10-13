@@ -1,5 +1,5 @@
 // API client for connecting to the backend
-import { ITrack, IEvent, IBandMember, IGalleryImage, IContact } from './types';
+import { ITrack, IEvent, IBandMember, IGalleryImage, IContact, IProduct, IOrder } from './types';
 
 const RAW_API_BASE = import.meta.env.VITE_API_URL || 'http://localhost:5001';
 const WITH_PROTOCOL = RAW_API_BASE.startsWith('http') ? RAW_API_BASE : `https://${RAW_API_BASE}`;
@@ -217,3 +217,34 @@ export const authAPI = {
     }),
   getCurrentUser: () => fetchAPI<{ user: IAuthResponse['user'] }>('/auth/me')
 }; 
+
+// Products API
+export const productsAPI = {
+  getAll: (opts?: { active?: boolean }) => {
+    const q = opts?.active !== undefined ? `?active=${opts.active}` : '';
+    return fetchAPI<IProduct[]>(`/products${q}`);
+  },
+  getById: (id: string) => fetchAPI<IProduct>(`/products/${id}`),
+  getBySlug: (slug: string) => fetchAPI<IProduct>(`/products/slug/${slug}`),
+  create: (data: Partial<IProduct>) => fetchAPI<IProduct>('/products', { method: 'POST', body: JSON.stringify(data) }),
+  update: (id: string, data: Partial<IProduct>) => fetchAPI<IProduct>(`/products/${id}`, { method: 'PUT', body: JSON.stringify(data) }),
+  delete: (id: string) => fetchAPI<{ message: string }>(`/products/${id}`, { method: 'DELETE' })
+};
+
+// Orders API (admin + public draft)
+export const ordersAPI = {
+  list: () => fetchAPI<IOrder[]>('/orders'),
+  getById: (id: string) => fetchAPI<IOrder>(`/orders/track/${id}`), // Public tracking endpoint
+  fulfill: (id: string) => fetchAPI<IOrder>(`/orders/${id}/fulfill`, { method: 'PUT' }),
+  createDraft: (items: Array<{ productId: string; quantity: number }>, currency?: string) =>
+    fetchAPI<IOrder>('/orders/draft', { method: 'POST', body: JSON.stringify({ items, currency }) })
+};
+
+// Checkout APIs
+export const checkoutAPI = {
+  stripeCreateSession: (params: { items: Array<{ productId: string; quantity: number }>; currency?: string; successUrl: string; cancelUrl: string; collectShipping?: boolean }) =>
+    fetchAPI<{ url: string; id: string }>(`/payments/checkout/session`, { method: 'POST', body: JSON.stringify(params) }),
+  paypalCreateOrder: (params: { items: Array<{ productId: string; quantity: number }>; currency?: string; returnUrl: string; cancelUrl: string; collectShipping?: boolean }) =>
+    fetchAPI<{ url: string; id: string }>(`/paypal/order`, { method: 'POST', body: JSON.stringify(params) }),
+  paypalCaptureOrder: (paypalOrderId: string) => fetchAPI<{ status: string }>(`/paypal/order/${paypalOrderId}/capture`, { method: 'POST' })
+};

@@ -1,7 +1,12 @@
 import { Link } from "react-router-dom";
 import MobileNav from "@/components/MobileNav";
+import { useCart } from "@/contexts/CartContext";
+import { ShoppingCart } from "lucide-react";
 
 const Navbar = () => {
+  const { items } = useCart();
+  const itemCount = items.reduce((sum, item) => sum + item.quantity, 0);
+  
   return (
     <nav className="bg-rock-black text-rock-cream py-3 shadow-2xl border-b-4 border-rock-rust sticky top-0 z-50 bg-grunge-overlay">
       <div className="container mx-auto flex justify-between items-center px-4">
@@ -56,6 +61,14 @@ const Navbar = () => {
               <span className="group-hover:animate-feedback">📸 GALLERY</span>
             </Link>
           </li>
+          <li>
+            <Link 
+              to="/shop" 
+              className="hover:text-rock-amber transition-colors duration-300 relative group px-2 py-1 border-b-2 border-transparent hover:border-rock-amber"
+            >
+              <span className="group-hover:animate-feedback">🛍️ SHOP</span>
+            </Link>
+          </li>
           
           <li>
             <Link 
@@ -67,6 +80,16 @@ const Navbar = () => {
           </li>
           {/* Admin link removed for public navbar */}
         </ul>
+
+        {/* Cart Icon */}
+        <Link to="/checkout" className="relative hover:text-rock-amber transition-colors">
+          <ShoppingCart size={24} />
+          {itemCount > 0 && (
+            <span className="absolute -top-2 -right-2 bg-rock-amber text-rock-black text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center">
+              {itemCount}
+            </span>
+          )}
+        </Link>
 
         {/* Mobile Navigation */}
         <MobileNav />

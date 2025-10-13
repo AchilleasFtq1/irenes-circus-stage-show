@@ -7,6 +7,10 @@ import contactRoutes from './contactRoutes';
 import authRoutes from './authRoutes';
 import spotifyRoutes from './spotifyRoutes';
 import uploadRoutes from './uploadRoutes';
+import productRoutes from './productRoutes';
+import orderRoutes from './orderRoutes';
+import paymentRoutes from './paymentRoutes';
+import paypalRoutes from './paypalRoutes';
 import logger from '../config/logger';
 
 const router = express.Router();
@@ -42,5 +46,9 @@ router.use('/auth', authRoutes);
 router.use('/spotify', spotifyRoutes);
 // Use plural '/uploads' for both POST and GET (/api/uploads and /api/uploads/:filename)
 router.use('/uploads', uploadRoutes);
+router.use('/products', productRoutes);
+router.use('/orders', orderRoutes);
+router.use('/payments', paymentRoutes);
+router.use('/paypal', paypalRoutes);
 
 export default router; 

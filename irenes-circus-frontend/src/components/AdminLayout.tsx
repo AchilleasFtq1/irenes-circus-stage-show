@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link, Outlet } from 'react-router-dom';
-import { LayoutDashboard, Music, Calendar, Image, MessageSquare, LogOut, Menu, X } from 'lucide-react';
+import { LayoutDashboard, Music, Calendar, Image, MessageSquare, LogOut, Menu, X, ShoppingCart, Package } from 'lucide-react';
 import { useAuth } from '@/contexts/AuthContext';
 
 const AdminLayout = () => {
@@ -57,6 +57,8 @@ const AdminLayout = () => {
             {/* Band Members removed */}
             <NavItem to="/admin/gallery" icon={Image} label="Gallery" />
             <NavItem to="/admin/messages" icon={MessageSquare} label="Contact Messages" />
+            <NavItem to="/admin/products" icon={Package} label="Products" />
+            <NavItem to="/admin/orders" icon={ShoppingCart} label="Orders" />
           </div>
 
           <div className="mt-auto pt-4 border-t border-circus-dark/30">

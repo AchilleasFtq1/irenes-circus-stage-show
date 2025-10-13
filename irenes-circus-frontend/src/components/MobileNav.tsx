@@ -16,6 +16,7 @@ const publicNavItems: NavItem[] = [
   { path: '/tour', label: 'Tour', icon: <Calendar size={20} />, emoji: '🎸' },
   { path: '/gallery', label: 'Gallery', icon: <Image size={20} />, emoji: '📸' },
   { path: '/contact', label: 'Contact', icon: <Mail size={20} />, emoji: '📧' },
+  { path: '/shop', label: 'Shop', icon: <Settings size={20} />, emoji: '🛍️' },
 ];
 
 const MobileNav: React.FC = () => {

@@ -64,6 +64,19 @@ The script will:
 
 ## Environment Variables
 
+### Payment Configuration
+
+#### Stripe Setup
+1. Create a [Stripe](https://stripe.com) account
+2. Get your API keys from the Stripe dashboard
+3. Set up webhook endpoint: `https://your-backend-url/api/webhooks/stripe`
+4. Configure webhook to listen for `checkout.session.completed` events
+
+#### PayPal Setup  
+1. Create a [PayPal Developer](https://developer.paypal.com) account
+2. Create an app to get Client ID and Secret
+3. Use sandbox for testing, switch to live for production
+
 ### Backend Service
 
 | Variable | Description | Example |

@@ -59,3 +59,63 @@ export interface ApiError {
   message: string;
   error?: string | Record<string, unknown>;
 } 
+
+// Merch
+export interface IProductImage {
+  url: string;
+  alt?: string;
+}
+
+export interface IProductVariant {
+  name: string;
+  value: string;
+}
+
+export interface IProduct {
+  _id: string;
+  title: string;
+  description?: string;
+  priceCents: number;
+  currency: string;
+  images: IProductImage[];
+  sku?: string;
+  slug: string;
+  inventoryCount: number;
+  active: boolean;
+  variants?: IProductVariant[];
+}
+
+export interface IOrderItem {
+  productId: string;
+  title: string;
+  priceCents: number;
+  quantity: number;
+  sku?: string;
+  variant?: string;
+}
+
+export type OrderStatus = 'pending' | 'paid' | 'fulfilled' | 'cancelled' | 'refunded';
+
+export interface IShippingAddress {
+  name: string;
+  line1: string;
+  line2?: string;
+  city: string;
+  state?: string;
+  postalCode: string;
+  country: string;
+  email: string;
+}
+
+export interface IOrder {
+  _id: string;
+  items: IOrderItem[];
+  currency: string;
+  subtotalCents: number;
+  taxCents?: number;
+  shippingCents?: number;
+  totalCents: number;
+  status: OrderStatus;
+  shippingAddress?: IShippingAddress;
+  createdAt?: string;
+}

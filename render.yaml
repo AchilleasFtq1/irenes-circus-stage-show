@@ -33,6 +33,7 @@ services:
     plan: free
     autoDeploy: true
     buildCommand: cd irenes-circus-backend && npm ci --include=dev && npm run build
+    postDeployCommand: cd irenes-circus-backend && node dist/utils/migrate.js
     startCommand: cd irenes-circus-backend && npm start
     healthCheckPath: /api/health
     envVars:

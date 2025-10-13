@@ -3,10 +3,12 @@ import cors from 'cors';
 import helmet from 'helmet';
 import dotenv from 'dotenv';
 import routes from './routes';
+import { handleStripeWebhook } from './controllers/paymentController';
 import connectDB from './config/database';
 import logger from './config/logger';
 // Rate limiting imports removed
 import seedProductionDB from './utils/seedProduction';
+import { runMigrations } from './utils/migrate';
 
 // Load environment variables
 dotenv.config();
@@ -65,8 +67,8 @@ app.use(helmet({
       styleSrc: ["'self'", "'unsafe-inline'", "https://fonts.googleapis.com"],
       fontSrc: ["'self'", "https://fonts.gstatic.com"],
       imgSrc: ["'self'", "data:", "https:", "http:"],
-      scriptSrc: ["'self'"],
-      connectSrc: ["'self'", "https://api.spotify.com"],
+      scriptSrc: ["'self'", "https://js.stripe.com", "https://www.paypal.com"],
+      connectSrc: ["'self'", "https://api.spotify.com", "https://api.stripe.com", "https://api-m.paypal.com", "https://api-m.sandbox.paypal.com"],
     },
   },
   crossOriginEmbedderPolicy: false, // Allow Spotify embeds
@@ -96,6 +98,12 @@ app.use(cors(corsOptions));
 // Rate limiting removed
 
 // Body parsing middleware
+// Stripe webhook requires raw body to validate signatures; mount this before JSON parser
+app.post('/api/webhooks/stripe', express.raw({ type: 'application/json' }), (req, res, next) => {
+  (req as any).rawBody = req.body;
+  next();
+}, handleStripeWebhook as unknown as express.RequestHandler);
+
 app.use(express.json({ limit: '10mb' }));
 app.use(express.urlencoded({ extended: true, limit: '10mb' }));
 
@@ -132,8 +140,17 @@ const startServer = async (): Promise<void> => {
     // Connect to MongoDB
     await connectDB();
     
-    console.log('MongoDB connected, starting Express server...');
-    logger.info('MongoDB connected, starting Express server...');
+    console.log('MongoDB connected, running migrations...');
+    logger.info('MongoDB connected, running migrations...');
+    
+    // Run migrations
+    try {
+      await runMigrations();
+      logger.info('Database migrations completed');
+    } catch (migrationError) {
+      logger.error('Migration failed:', migrationError);
+      throw migrationError;
+    }
     
     // Auto-seed database in production if empty
     if (process.env.NODE_ENV === 'production') {
