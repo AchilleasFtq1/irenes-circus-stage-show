@@ -45,8 +45,7 @@ const uploadSchema = new mongoose.Schema<IUpload>({
   timestamps: true
 });
 
-// Index for faster queries
-uploadSchema.index({ filename: 1 });
+// Index for faster queries (removed filename index as it's already created by unique: true)
 uploadSchema.index({ createdAt: -1 });
 
 export default mongoose.model<IUpload>('Upload', uploadSchema);

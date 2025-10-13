@@ -143,13 +143,13 @@ const startServer = async (): Promise<void> => {
     console.log('MongoDB connected, running migrations...');
     logger.info('MongoDB connected, running migrations...');
     
-    // Run migrations
+    // Run migrations (non-blocking, just log errors)
     try {
       await runMigrations();
       logger.info('Database migrations completed');
     } catch (migrationError) {
-      logger.error('Migration failed:', migrationError);
-      throw migrationError;
+      logger.error('Migration failed, but continuing server startup:', migrationError);
+      console.error('Migration failed, but continuing server startup:', migrationError);
     }
     
     // Auto-seed database in production if empty

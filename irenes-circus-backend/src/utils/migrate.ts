@@ -49,18 +49,69 @@ const migrations: Migration[] = [
       
       // Create indexes for products
       const productsCollection = db.collection('products');
-      await productsCollection.createIndex({ slug: 1 }, { unique: true });
-      await productsCollection.createIndex({ sku: 1 });
-      await productsCollection.createIndex({ active: 1 });
-      await productsCollection.createIndex({ title: 'text', description: 'text' });
-      console.log('Created product indexes');
+      
+      // Create indexes one by one, ignoring if they already exist
+      try {
+        await productsCollection.createIndex({ slug: 1 }, { unique: true });
+        console.log('Created slug index');
+      } catch (err: any) {
+        if (err.code !== 85) throw err; // 85 = IndexOptionsConflict
+        console.log('Slug index already exists');
+      }
+      
+      try {
+        await productsCollection.createIndex({ sku: 1 });
+        console.log('Created sku index');
+      } catch (err: any) {
+        if (err.code !== 85) throw err;
+        console.log('SKU index already exists');
+      }
+      
+      try {
+        await productsCollection.createIndex({ active: 1 });
+        console.log('Created active index');
+      } catch (err: any) {
+        if (err.code !== 85) throw err;
+        console.log('Active index already exists');
+      }
+      
+      // For text indexes, we need to check if any text index exists first
+      const indexes = await productsCollection.indexes();
+      const hasTextIndex = indexes.some(idx => idx.key && idx.key._fts === 'text');
+      
+      if (!hasTextIndex) {
+        await productsCollection.createIndex({ title: 'text', description: 'text', sku: 'text' });
+        console.log('Created text index');
+      } else {
+        console.log('Text index already exists');
+      }
       
       // Create indexes for orders
       const ordersCollection = db.collection('orders');
-      await ordersCollection.createIndex({ status: 1, createdAt: -1 });
-      await ordersCollection.createIndex({ stripePaymentIntentId: 1 });
-      await ordersCollection.createIndex({ stripeCheckoutSessionId: 1 });
-      console.log('Created order indexes');
+      
+      try {
+        await ordersCollection.createIndex({ status: 1, createdAt: -1 });
+        console.log('Created status-date index');
+      } catch (err: any) {
+        if (err.code !== 85) throw err;
+        console.log('Status-date index already exists');
+      }
+      
+      try {
+        await ordersCollection.createIndex({ stripePaymentIntentId: 1 });
+        console.log('Created stripe payment intent index');
+      } catch (err: any) {
+        if (err.code !== 85) throw err;
+        console.log('Stripe payment intent index already exists');
+      }
+      
+      try {
+        await ordersCollection.createIndex({ stripeCheckoutSessionId: 1 });
+        console.log('Created stripe checkout session index');
+      } catch (err: any) {
+        if (err.code !== 85) throw err;
+        console.log('Stripe checkout session index already exists');
+      }
     }
   },
   {
@@ -77,9 +128,22 @@ const migrations: Migration[] = [
       
       // Create indexes
       const uploadsCollection = db.collection('uploads');
-      await uploadsCollection.createIndex({ filename: 1 }, { unique: true });
-      await uploadsCollection.createIndex({ uploadDate: -1 });
-      console.log('Created upload indexes');
+      
+      try {
+        await uploadsCollection.createIndex({ filename: 1 }, { unique: true });
+        console.log('Created filename index');
+      } catch (err: any) {
+        if (err.code !== 85) throw err;
+        console.log('Filename index already exists');
+      }
+      
+      try {
+        await uploadsCollection.createIndex({ createdAt: -1 });
+        console.log('Created createdAt index');
+      } catch (err: any) {
+        if (err.code !== 85) throw err;
+        console.log('CreatedAt index already exists');
+      }
     }
   },
   {
@@ -90,9 +154,21 @@ const migrations: Migration[] = [
       const usersCollection = db.collection('users');
       
       // Create unique indexes
-      await usersCollection.createIndex({ email: 1 }, { unique: true });
-      await usersCollection.createIndex({ username: 1 }, { unique: true });
-      console.log('Created user indexes');
+      try {
+        await usersCollection.createIndex({ email: 1 }, { unique: true });
+        console.log('Created email index');
+      } catch (err: any) {
+        if (err.code !== 85) throw err;
+        console.log('Email index already exists');
+      }
+      
+      try {
+        await usersCollection.createIndex({ username: 1 }, { unique: true });
+        console.log('Created username index');
+      } catch (err: any) {
+        if (err.code !== 85) throw err;
+        console.log('Username index already exists');
+      }
     }
   },
   {
@@ -103,9 +179,21 @@ const migrations: Migration[] = [
       const eventsCollection = db.collection('events');
       
       // Create indexes for common queries
-      await eventsCollection.createIndex({ date: 1 });
-      await eventsCollection.createIndex({ isSoldOut: 1 });
-      console.log('Created event indexes');
+      try {
+        await eventsCollection.createIndex({ date: 1 });
+        console.log('Created date index');
+      } catch (err: any) {
+        if (err.code !== 85) throw err;
+        console.log('Date index already exists');
+      }
+      
+      try {
+        await eventsCollection.createIndex({ isSoldOut: 1 });
+        console.log('Created isSoldOut index');
+      } catch (err: any) {
+        if (err.code !== 85) throw err;
+        console.log('IsSoldOut index already exists');
+      }
     }
   }
 ];
