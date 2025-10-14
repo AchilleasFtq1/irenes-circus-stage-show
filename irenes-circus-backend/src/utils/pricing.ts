@@ -56,6 +56,35 @@ export function computeShippingCents(country: string | undefined, subtotalCents:
   return 1500;
 }
 
+export type ShippingOption = {
+  id: 'standard' | 'express';
+  name: string;
+  description: string;
+  priceCents: number;
+};
+
+// Configurable shipping options derived centrally here (not hardcoded in UI)
+export function getShippingOptions(country: string | undefined, subtotalCents: number): ShippingOption[] {
+  const baseStandard = computeShippingCents(country, subtotalCents);
+  // Express is a premium over standard, capped reasonably
+  const expressPremium = 1000; // €10 premium
+  const express = Math.max(baseStandard + expressPremium, baseStandard === 0 ? 1000 : baseStandard + expressPremium);
+  return [
+    {
+      id: 'standard',
+      name: 'Standard Shipping',
+      description: '5-7 business days',
+      priceCents: baseStandard
+    },
+    {
+      id: 'express',
+      name: 'Express Shipping',
+      description: '2-3 business days',
+      priceCents: express
+    }
+  ];
+}
+
 export function computeTotals(items: OrderItemInput[], country?: string, discountCents: number = 0): {
   subtotalCents: number;
   taxCents: number;
@@ -66,6 +95,21 @@ export function computeTotals(items: OrderItemInput[], country?: string, discoun
   const discountApplied = Math.min(Math.max(0, discountCents), rawSubtotal);
   const subtotalCents = rawSubtotal - discountApplied;
   const shippingCents = computeShippingCents(country, subtotalCents);
+  const vatRate = getVatRate(country);
+  const taxCents = Math.round((subtotalCents * vatRate) / 100);
+  const totalCents = subtotalCents + shippingCents + taxCents;
+  return { subtotalCents, taxCents, shippingCents, totalCents };
+}
+
+export function computeTotalsWithShipping(items: OrderItemInput[], country: string | undefined, discountCents: number, shippingCents: number): {
+  subtotalCents: number;
+  taxCents: number;
+  shippingCents: number;
+  totalCents: number;
+} {
+  const rawSubtotal = items.reduce((s, it) => s + it.priceCents * it.quantity, 0);
+  const discountApplied = Math.min(Math.max(0, discountCents), rawSubtotal);
+  const subtotalCents = rawSubtotal - discountApplied;
   const vatRate = getVatRate(country);
   const taxCents = Math.round((subtotalCents * vatRate) / 100);
   const totalCents = subtotalCents + shippingCents + taxCents;

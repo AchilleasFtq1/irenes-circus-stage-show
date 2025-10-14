@@ -243,11 +243,20 @@ export const ordersAPI = {
 
 // Checkout APIs
 export const checkoutAPI = {
-  stripeCreateSession: (params: { items: Array<{ productId: string; quantity: number; variantIndex?: number | null }>; currency?: string; successUrl: string; cancelUrl: string; collectShipping?: boolean; shippingCountry?: string; promoCode?: string; giftCardCode?: string; contact?: { email?: string; name?: string; phone?: string; address?: { line1: string; line2?: string; city: string; state?: string; postal_code: string; country: string } } }) =>
+  stripeCreateSession: (params: { items: Array<{ productId: string; quantity: number; variantIndex?: number | null }>; currency?: string; successUrl: string; cancelUrl: string; collectShipping?: boolean; shippingCountry?: string; shippingMethodId?: string; promoCode?: string; giftCardCode?: string; contact?: { email?: string; name?: string; phone?: string; address?: { line1: string; line2?: string; city: string; state?: string; postal_code: string; country: string } } }) =>
     fetchAPI<{ url: string; id: string }>(`/payments/checkout/session`, { method: 'POST', body: JSON.stringify(params) }),
   paypalCreateOrder: (params: { items: Array<{ productId: string; quantity: number; variantIndex?: number | null }>; currency?: string; returnUrl: string; cancelUrl: string; collectShipping?: boolean; shippingCountry?: string; promoCode?: string; giftCardCode?: string; contact?: { email?: string; name?: string; phone?: string; address?: { line1: string; line2?: string; city: string; state?: string; postal_code: string; country: string } } }) =>
     fetchAPI<{ url: string; id: string }>(`/paypal/order`, { method: 'POST', body: JSON.stringify(params) }),
   paypalCaptureOrder: (paypalOrderId: string) => fetchAPI<{ status: string }>(`/paypal/order/${paypalOrderId}/capture`, { method: 'POST' })
+};
+
+// Shipping API
+export const shippingAPI = {
+  publicGetOptions: (country: string) => fetchAPI<Array<{ id: string; name: string; description?: string; priceCents: number }>>(`/shipping/${encodeURIComponent(country)}`),
+  listConfigs: () => fetchAPI<any[]>(`/shipping`),
+  upsertConfig: (country: string, options: Array<{ id: string; name: string; description?: string; priceCents: number; active?: boolean }>) =>
+    fetchAPI<any>(`/shipping`, { method: 'POST', body: JSON.stringify({ country, options }) }),
+  deleteConfig: (country: string) => fetchAPI<{ message: string }>(`/shipping/${encodeURIComponent(country)}`, { method: 'DELETE' })
 };
 
 // Promotions API

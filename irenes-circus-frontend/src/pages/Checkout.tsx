@@ -1,10 +1,10 @@
-import { useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { useCart } from '@/contexts/CartContext';
 import { Button } from '@/components/ui/button';
 import { CreditCard, Loader2, ChevronRight, Check, ShoppingBag, Truck, CreditCard as PaymentIcon, FileText } from 'lucide-react';
-import { checkoutAPI } from '@/lib/api';
+import { checkoutAPI, shippingAPI } from '@/lib/api';
 
 const fmt = (cents: number, cur: string) => new Intl.NumberFormat(undefined, { style: 'currency', currency: cur }).format(cents / 100);
 
@@ -35,13 +35,30 @@ const Checkout = () => {
   ];
 
   const [loading, setLoading] = useState<'stripe' | 'paypal' | null>(null);
+  const [shippingOptions, setShippingOptions] = useState<Array<{ id: string; name: string; description?: string; priceCents: number }>>([]);
+  const [selectedShippingId, setSelectedShippingId] = useState<string | null>(null);
+
+  useEffect(() => {
+    if (!country) return;
+    shippingAPI.publicGetOptions(country).then(opts => {
+      setShippingOptions(opts);
+      // Auto-select the cheapest option by default
+      const cheapest = opts.slice().sort((a, b) => a.priceCents - b.priceCents)[0];
+      setSelectedShippingId(cheapest?.id ?? null);
+    }).catch(() => setShippingOptions([]));
+  }, [country]);
+
+  const shippingCents = useMemo(() => {
+    const opt = shippingOptions.find(o => o.id === selectedShippingId);
+    return opt?.priceCents ?? 0;
+  }, [shippingOptions, selectedShippingId]);
 
   const validateStep1 = () => {
     return contactEmail && contactName && phone && addressLine1 && city && postalCode && country;
   };
 
   const validateStep2 = () => {
-    return true; // Shipping method selection could go here
+    return Boolean(selectedShippingId);
   };
 
   const nextStep = () => {
@@ -74,6 +91,7 @@ const Checkout = () => {
       cancelUrl: `${window.location.origin}/shop/cancel`,
       collectShipping: false, // We're collecting it ourselves
       shippingCountry: country,
+      shippingMethodId: selectedShippingId ?? undefined,
       promoCode: promoCode || undefined,
       giftCardCode: giftCardCode || undefined,
       contact: { 
@@ -104,6 +122,7 @@ const Checkout = () => {
       cancelUrl: `${window.location.origin}/shop/cancel`,
       collectShipping: false, // We're collecting it ourselves
       shippingCountry: country,
+      // TODO: add shipping to PayPal flow if/when needed
       promoCode: promoCode || undefined,
       giftCardCode: giftCardCode || undefined,
       contact: { 
@@ -315,25 +334,24 @@ const Checkout = () => {
                     <h2 className="text-2xl font-semibold text-gray-900 mb-6">Shipping Method</h2>
                     
                     <div className="space-y-3">
-                      <div className="border rounded-lg p-4 cursor-pointer hover:border-circus-gold transition-colors">
-                        <div className="flex items-center justify-between">
-                          <div>
-                            <h4 className="font-medium text-gray-900">Standard Shipping</h4>
-                            <p className="text-sm text-gray-600">5-7 business days</p>
+                      {shippingOptions.map(opt => (
+                        <button key={opt.id}
+                          type="button"
+                          onClick={() => setSelectedShippingId(opt.id)}
+                          className={`w-full text-left border rounded-lg p-4 transition-colors ${selectedShippingId === opt.id ? 'border-circus-gold bg-circus-gold/5' : 'hover:border-circus-gold'}`}
+                        >
+                          <div className="flex items-center justify-between">
+                            <div>
+                              <h4 className="font-medium text-gray-900">{opt.name}</h4>
+                              {opt.description && <p className="text-sm text-gray-600">{opt.description}</p>}
+                            </div>
+                            <span className="font-medium text-gray-900">{fmt(opt.priceCents, currency)}</span>
                           </div>
-                          <span className="font-medium text-gray-900">€5.00</span>
-                        </div>
-                      </div>
-                      
-                      <div className="border rounded-lg p-4 cursor-pointer hover:border-circus-gold transition-colors">
-                        <div className="flex items-center justify-between">
-                          <div>
-                            <h4 className="font-medium text-gray-900">Express Shipping</h4>
-                            <p className="text-sm text-gray-600">2-3 business days</p>
-                          </div>
-                          <span className="font-medium text-gray-900">€15.00</span>
-                        </div>
-                      </div>
+                        </button>
+                      ))}
+                      {shippingOptions.length === 0 && (
+                        <div className="text-sm text-gray-600">No shipping options for {country}. Please go back and change country.</div>
+                      )}
                     </div>
                     
                     <div className="mt-8 flex justify-between">
@@ -471,7 +489,7 @@ const Checkout = () => {
                   </div>
                   <div className="flex justify-between text-sm text-gray-700">
                     <span>Shipping</span>
-                    <span>Calculated at next step</span>
+                    <span>{fmt(shippingCents, currency)}</span>
                   </div>
                   <div className="flex justify-between text-sm text-gray-700">
                     <span>Tax</span>
@@ -534,8 +552,8 @@ const Checkout = () => {
                 <div className="border-t pt-4 mt-4">
                   <div className="flex justify-between font-semibold text-gray-900">
                     <span>Total</span>
-                    <span>{fmt(totalCents, currency)}</span>
-            </div>
+                    <span>{fmt(totalCents + shippingCents, currency)}</span>
+                  </div>
               </div>
               </div>
             </div>

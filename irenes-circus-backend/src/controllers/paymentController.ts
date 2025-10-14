@@ -2,7 +2,7 @@ import express, { Request, Response } from 'express';
 import Stripe from 'stripe';
 import Order from '../models/Order';
 import Product from '../models/Product';
-import { computeTotals } from '../utils/pricing';
+import { computeTotals, computeTotalsWithShipping, getShippingOptions } from '../utils/pricing';
 import Promotion from '../models/Promotion';
 import GiftCard from '../models/GiftCard';
 import { sendOrderPaidEmail } from '../utils/mailer';
@@ -14,7 +14,7 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY || '', {
 
 export const createCheckoutSession = async (req: Request, res: Response): Promise<void> => {
   try {
-    const { items, currency, successUrl, cancelUrl, collectShipping, shippingCountry, promoCode, giftCardCode, contact } = req.body as {
+    const { items, currency, successUrl, cancelUrl, collectShipping, shippingCountry, promoCode, giftCardCode, contact, shippingMethodId } = req.body as {
       items: Array<{ productId: string; quantity: number; variantIndex?: number | null }>;
       currency?: string;
       successUrl: string;
@@ -23,6 +23,7 @@ export const createCheckoutSession = async (req: Request, res: Response): Promis
       shippingCountry?: string;
       promoCode?: string;
       giftCardCode?: string;
+      shippingMethodId?: string;
       contact?: { 
         email?: string; 
         name?: string; 
@@ -90,7 +91,16 @@ export const createCheckoutSession = async (req: Request, res: Response): Promis
       }
     }
 
-    const totals = computeTotals(orderItems.map(i => ({ priceCents: i.priceCents, quantity: i.quantity })), shippingCountry, discountCents + giftCardAppliedCents);
+    // Determine shipping based on selected method if provided, else default policy
+    let shippingCents: number | undefined;
+    if (shippingMethodId) {
+      const opts = getShippingOptions(shippingCountry, orderItems.reduce((s, it) => s + it.priceCents * it.quantity, 0));
+      const chosen = opts.find(o => o.id === shippingMethodId);
+      shippingCents = chosen ? chosen.priceCents : undefined;
+    }
+    const totals = (shippingCents !== undefined)
+      ? computeTotalsWithShipping(orderItems.map(i => ({ priceCents: i.priceCents, quantity: i.quantity })), shippingCountry, discountCents + giftCardAppliedCents, shippingCents)
+      : computeTotals(orderItems.map(i => ({ priceCents: i.priceCents, quantity: i.quantity })), shippingCountry, discountCents + giftCardAppliedCents);
     const order = await Order.create({
       items: orderItems,
       currency: currency || 'EUR',
@@ -132,7 +142,7 @@ export const createCheckoutSession = async (req: Request, res: Response): Promis
       success_url: successUrl + `?orderId=${order._id}`,
       cancel_url: cancelUrl + `?orderId=${order._id}`,
       shipping_address_collection: collectShipping ? { allowed_countries: ['DE', 'FR', 'IT', 'ES', 'IE', 'NL', 'BE', 'SE', 'NO', 'DK', 'FI', 'AT', 'CH', 'LU', 'PT', 'GR', 'PL', 'CZ', 'HR', 'GB'] } : undefined,
-      // Add shipping and tax as separate line items for transparency
+      // Allow promotion codes; shipping is baked into total and reflected in our order records
       invoice_creation: { enabled: false },
       allow_promotion_codes: true,
       metadata: { orderId: order._id.toString() }

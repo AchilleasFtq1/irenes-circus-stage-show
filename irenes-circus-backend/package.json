@@ -11,7 +11,8 @@
     "migrate": "ts-node src/utils/migrate.ts",
     "migrate:production": "node dist/utils/migrate.js",
     "migrate:passwords": "ts-node src/utils/migratePasswords.ts",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "seed:shipping-vat": "ts-node src/scripts/seedShippingAndVat.ts"
   },
   "keywords": [],
   "author": "",
@@ -34,7 +35,6 @@
     "nodemailer": "^6.9.14",
     "react-hook-form": "^7.65.0",
     "stripe": "^14.25.0",
-    "ts-node": "^10.9.2",
     "typescript": "^5.9.3",
     "winston": "^3.18.3"
   },
@@ -44,6 +44,7 @@
     "@types/jsonwebtoken": "^9.0.10",
     "@types/multer": "^2.0.0",
     "@types/node": "^24.7.2",
-    "@types/nodemailer": "^7.0.2"
+    "@types/nodemailer": "^7.0.2",
+    "ts-node": "^10.9.2"
   }
 }

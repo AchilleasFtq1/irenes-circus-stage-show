@@ -12,6 +12,7 @@ import orderRoutes from './orderRoutes';
 import paymentRoutes from './paymentRoutes';
 import paypalRoutes from './paypalRoutes';
 import promotionRoutes from './promotionRoutes';
+import shippingRoutes from './shippingRoutes';
 import giftCardRoutes from './giftCardRoutes';
 import logger from '../config/logger';
 
@@ -54,5 +55,6 @@ router.use('/payments', paymentRoutes);
 router.use('/paypal', paypalRoutes);
 router.use('/promotions', promotionRoutes);
 router.use('/gift-cards', giftCardRoutes);
+router.use('/shipping', shippingRoutes);
 
 export default router; 
