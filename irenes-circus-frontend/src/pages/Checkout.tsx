@@ -414,25 +414,50 @@ const Checkout = () => {
                 {/* Cart Items */}
                 <div className="space-y-3 mb-4">
                   {items.map(i => (
-                    <div key={i.product._id} className="flex items-center gap-3">
+                    <div key={`${i.product._id}-${(i as any).variantIndex ?? 'default'}`} className="flex items-center gap-3 p-2 hover:bg-gray-50 rounded-lg transition-colors">
                       <img 
                         src={i.product.images[0]?.url || '/images/placeholder.png'} 
                         alt={i.product.title} 
                         className="w-12 h-12 object-cover rounded" 
                       />
-                      <div className="flex-1">
-                        <p className="text-sm font-medium text-gray-900">{i.product.title}</p>
-                        <div className="flex items-center gap-2 mt-1">
-                          <p className="text-xs text-gray-600">Qty: {i.quantity}</p>
+                      <div className="flex-1 min-w-0">
+                        <p className="text-sm font-medium text-gray-900 truncate">{i.product.title}</p>
+                        {(i as any).variantIndex !== undefined && i.product.variants && (
+                          <p className="text-xs text-gray-500">{i.product.variants[(i as any).variantIndex].name}</p>
+                        )}
+                        <div className="flex items-center gap-3 mt-1">
+                          <div className="flex items-center gap-1">
+                            <button 
+                              onClick={() => updateQuantity(i.product._id, i.quantity - 1, (i as any).variantIndex ?? null)}
+                              className="text-gray-400 hover:text-gray-600 p-1 rounded hover:bg-gray-100"
+                              aria-label="Decrease quantity"
+                            >
+                              <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20 12H4" />
+                              </svg>
+                            </button>
+                            <span className="text-xs text-gray-600 px-2 min-w-[2rem] text-center">{i.quantity}</span>
+                            <button 
+                              onClick={() => updateQuantity(i.product._id, i.quantity + 1, (i as any).variantIndex ?? null)}
+                              className="text-gray-400 hover:text-gray-600 p-1 rounded hover:bg-gray-100"
+                              aria-label="Increase quantity"
+                            >
+                              <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
+                              </svg>
+                            </button>
+                          </div>
+                          <span className="text-gray-300">|</span>
                           <button 
-                            onClick={() => remove(i.product._id)}
-                            className="text-xs text-red-600 hover:text-red-800 underline"
-                      >
-                        Remove
-                      </button>
+                            onClick={() => remove(i.product._id, (i as any).variantIndex ?? null)}
+                            className="text-xs text-red-600 hover:text-red-800 font-medium transition-colors"
+                            type="button"
+                          >
+                            Remove
+                          </button>
                         </div>
                       </div>
-                      <span className="text-sm font-medium text-gray-900">
+                      <span className="text-sm font-medium text-gray-900 whitespace-nowrap">
                         {fmt(i.product.priceCents * i.quantity, i.product.currency)}
                       </span>
                     </div>

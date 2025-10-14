@@ -226,6 +226,7 @@ export const productsAPI = {
   },
   getById: (id: string) => fetchAPI<IProduct>(`/products/${id}`),
   getBySlug: (slug: string) => fetchAPI<IProduct>(`/products/slug/${slug}`),
+  getCategories: () => fetchAPI<string[]>('/products/categories'),
   create: (data: Partial<IProduct>) => fetchAPI<IProduct>('/products', { method: 'POST', body: JSON.stringify(data) }),
   update: (id: string, data: Partial<IProduct>) => fetchAPI<IProduct>(`/products/${id}`, { method: 'PUT', body: JSON.stringify(data) }),
   delete: (id: string) => fetchAPI<{ message: string }>(`/products/${id}`, { method: 'DELETE' })

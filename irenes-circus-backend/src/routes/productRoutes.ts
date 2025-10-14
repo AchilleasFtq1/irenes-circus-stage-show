@@ -1,12 +1,13 @@
 import express from 'express';
 import { body } from 'express-validator';
 import { authenticateToken, requireAdmin } from '../middleware/auth';
-import { getProducts, getProductById, getProductBySlug, createProduct, updateProduct, deleteProduct } from '../controllers/productController';
+import { getProducts, getProductById, getProductBySlug, createProduct, updateProduct, deleteProduct, getCategories } from '../controllers/productController';
 
 const router = express.Router();
 
 // Public
 router.get('/', getProducts);
+router.get('/categories', getCategories);
 router.get('/:id', getProductById);
 router.get('/slug/:slug', getProductBySlug);
 
