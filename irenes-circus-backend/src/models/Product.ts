@@ -8,6 +8,10 @@ export interface IProductImage {
 export interface IProductVariant {
   name: string; // e.g. Size, Color
   value: string; // e.g. M, Red
+  priceCents?: number; // optional variant override price
+  sku?: string; // optional variant-specific SKU
+  inventoryCount?: number; // optional variant-specific stock
+  imageUrl?: string; // optional variant image
 }
 
 export interface IProduct {
@@ -22,6 +26,7 @@ export interface IProduct {
   inventoryCount: number;
   active: boolean;
   variants?: IProductVariant[];
+  category?: string;
   stripeProductId?: string;
   stripePriceId?: string;
   createdAt?: Date;
@@ -35,7 +40,11 @@ const productImageSchema = new mongoose.Schema<IProductImage>({
 
 const productVariantSchema = new mongoose.Schema<IProductVariant>({
   name: { type: String, required: true, trim: true },
-  value: { type: String, required: true, trim: true }
+  value: { type: String, required: true, trim: true },
+  priceCents: { type: Number, min: 0 },
+  sku: { type: String, trim: true },
+  inventoryCount: { type: Number, min: 0 },
+  imageUrl: { type: String, trim: true }
 }, { _id: false });
 
 const productSchema = new mongoose.Schema<IProduct>({
@@ -49,11 +58,13 @@ const productSchema = new mongoose.Schema<IProduct>({
   inventoryCount: { type: Number, required: true, min: 0, default: 0 },
   active: { type: Boolean, default: true },
   variants: { type: [productVariantSchema], default: [] },
+  category: { type: String, trim: true },
   stripeProductId: { type: String, trim: true },
   stripePriceId: { type: String, trim: true }
 }, { timestamps: true });
 
 productSchema.index({ title: 'text', description: 'text', sku: 'text' });
+productSchema.index({ category: 1 });
 
 export default mongoose.model<IProduct>('Product', productSchema);
 

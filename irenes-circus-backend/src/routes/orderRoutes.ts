@@ -11,6 +11,7 @@ router.get('/track/:id', getOrderById);
 // Admin views
 router.get('/', authenticateToken, requireAdmin, listOrders);
 router.get('/:id', authenticateToken, requireAdmin, getOrderById);
+router.put('/:id/fulfill', authenticateToken, requireAdmin, markFulfilled);
 router.put('/:id/fulfill', authenticateToken, requireAdmin, param('id').isString(), markFulfilled);
 
 // Public create draft order (prior to payment)

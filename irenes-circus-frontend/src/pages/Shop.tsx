@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
-import { CreditCard, Loader2 } from 'lucide-react';
 import { productsAPI, checkoutAPI } from '@/lib/api';
 import { IProduct } from '@/lib/types';
 import { useCart } from '@/contexts/CartContext';
@@ -13,10 +12,23 @@ const Shop = () => {
   const [products, setProducts] = useState<IProduct[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [category, setCategory] = useState('');
+  const [sort, setSort] = useState('newest');
+  const [q, setQ] = useState('');
 
   useEffect(() => {
-    productsAPI.getAll({ active: true }).then(setProducts).catch(e => setError(e.message)).finally(() => setLoading(false));
-  }, []);
+    setLoading(true);
+    const params: Record<string, string> = { active: 'true' };
+    if (category) params.category = category;
+    if (sort) params.sort = sort;
+    if (q) params.q = q;
+    const query = '?' + new URLSearchParams(params).toString();
+    fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:5001'}/api/products${query}`)
+      .then(r => r.json())
+      .then(setProducts)
+      .catch(e => setError(e.message))
+      .finally(() => setLoading(false));
+  }, [category, sort, q]);
 
   const [loadingId, setLoadingId] = useState<string | null>(null);
 
@@ -59,6 +71,15 @@ const Shop = () => {
       <Navbar />
       <section className="container mx-auto px-4 py-12">
         <h1 className="font-circus text-4xl mb-6">Shop</h1>
+        <div className="flex flex-col md:flex-row gap-2 mb-6">
+          <input value={q} onChange={e => setQ(e.target.value)} placeholder="Search" className="border rounded p-2 w-full md:w-1/3" />
+          <input value={category} onChange={e => setCategory(e.target.value)} placeholder="Category" className="border rounded p-2 w-full md:w-1/4" />
+          <select value={sort} onChange={e => setSort(e.target.value)} className="border rounded p-2 w-full md:w-1/4">
+            <option value="newest">Newest</option>
+            <option value="priceAsc">Price: Low to High</option>
+            <option value="priceDesc">Price: High to Low</option>
+          </select>
+        </div>
         {loading && <div>Loading...</div>}
         {error && <div className="text-red-600">{error}</div>}
         <div className="grid md:grid-cols-3 gap-6">
@@ -69,16 +90,11 @@ const Shop = () => {
               </a>
               <h3 className="font-edgy text-xl"><a href={`/shop/${p.slug}`}>{p.title}</a></h3>
               <p className="font-alt text-gray-700 mb-2">{p.description}</p>
+              <div className="text-sm text-gray-500 mb-1">{p.category || 'Uncategorized'}</div>
               <div className="font-bold mb-3">{currency(p.priceCents, p.currency)}</div>
               <div className="mt-auto flex flex-col sm:flex-row gap-2">
-                <Button onClick={() => handleBuyStripe(p)} variant="stripe" size="lg" aria-label={`Buy ${p.title} with Stripe`} className="flex-1" disabled={loadingId === p._id}>
-                  {loadingId === p._id ? <Loader2 className="animate-spin" /> : <CreditCard />}
-                  {loadingId === p._id ? 'Redirecting…' : 'Buy with Stripe'}
-                </Button>
-                <Button onClick={() => handleBuyPayPal(p)} variant="paypal" size="lg" aria-label={`Buy ${p.title} with PayPal`} className="flex-1" disabled={loadingId === p._id + ':pp'}>
-                  {loadingId === p._id + ':pp' ? <Loader2 className="animate-spin" /> : null}
-                  {loadingId === p._id + ':pp' ? 'Redirecting…' : 'Pay with PayPal'}
-                </Button>
+                <Button onClick={() => handleBuyStripe(p)} variant="stripe" className="flex-1" disabled={loadingId === p._id}>{loadingId === p._id ? 'Redirecting…' : 'Buy with Stripe'}</Button>
+                <Button onClick={() => handleBuyPayPal(p)} variant="paypal" className="flex-1" disabled={loadingId === p._id + ':pp'}>{loadingId === p._id + ':pp' ? 'Redirecting…' : 'Pay with PayPal'}</Button>
               </div>
             </div>
           ))}

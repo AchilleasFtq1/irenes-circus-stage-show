@@ -1,13 +1,13 @@
 import { createContext, useContext, useEffect, useMemo, useState } from 'react';
 import { IProduct } from '@/lib/types';
 
-type CartItem = { product: IProduct; quantity: number };
+type CartItem = { product: IProduct; quantity: number; variantIndex?: number };
 
 interface CartContextValue {
   items: CartItem[];
-  add: (product: IProduct, quantity?: number) => void;
-  remove: (productId: string) => void;
-  updateQuantity: (productId: string, quantity: number) => void;
+  add: (product: IProduct, quantity?: number, variantIndex?: number | null) => void;
+  remove: (productId: string, variantIndex?: number | null) => void;
+  updateQuantity: (productId: string, quantity: number, variantIndex?: number | null) => void;
   clear: () => void;
   totalCents: number;
 }
@@ -28,25 +28,25 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children
     localStorage.setItem('cart_items', JSON.stringify(items));
   }, [items]);
 
-  const add = (product: IProduct, quantity = 1) => {
+  const add = (product: IProduct, quantity = 1, variantIndex?: number | null) => {
     setItems(prev => {
-      const existing = prev.find(i => i.product._id === product._id);
+      const existing = prev.find(i => i.product._id === product._id && (i.variantIndex ?? null) === (variantIndex ?? null));
       if (existing) {
-        return prev.map(i => i.product._id === product._id ? { ...i, quantity: i.quantity + quantity } : i);
+        return prev.map(i => i.product._id === product._id && (i.variantIndex ?? null) === (variantIndex ?? null) ? { ...i, quantity: i.quantity + quantity } : i);
       }
-      return [...prev, { product, quantity }];
+      return [...prev, { product, quantity, variantIndex: variantIndex ?? undefined }];
     });
   };
 
-  const remove = (productId: string) => {
-    setItems(prev => prev.filter(i => i.product._id !== productId));
+  const remove = (productId: string, variantIndex?: number | null) => {
+    setItems(prev => prev.filter(i => !(i.product._id === productId && (i.variantIndex ?? null) === (variantIndex ?? null))));
   };
 
-  const updateQuantity = (productId: string, quantity: number) => {
+  const updateQuantity = (productId: string, quantity: number, variantIndex?: number | null) => {
     if (quantity <= 0) {
-      remove(productId);
+      remove(productId, variantIndex);
     } else {
-      setItems(prev => prev.map(i => i.product._id === productId ? { ...i, quantity } : i));
+      setItems(prev => prev.map(i => i.product._id === productId && (i.variantIndex ?? null) === (variantIndex ?? null) ? { ...i, quantity } : i));
     }
   };
 

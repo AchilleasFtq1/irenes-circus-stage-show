@@ -35,6 +35,11 @@ export interface IOrder {
   stripePaymentIntentId?: string;
   stripeCheckoutSessionId?: string;
   notes?: string;
+  giftCardCode?: string;
+  giftCardAppliedCents?: number;
+  trackingNumber?: string;
+  contactEmail?: string;
+  contactName?: string;
   createdAt?: Date;
   updatedAt?: Date;
 }
@@ -70,7 +75,12 @@ const orderSchema = new mongoose.Schema<IOrder>({
   shippingAddress: { type: shippingAddressSchema },
   stripePaymentIntentId: { type: String, trim: true },
   stripeCheckoutSessionId: { type: String, trim: true },
-  notes: { type: String, trim: true }
+  notes: { type: String, trim: true },
+  giftCardCode: { type: String, trim: true },
+  giftCardAppliedCents: { type: Number, min: 0 },
+  trackingNumber: { type: String, trim: true },
+  contactEmail: { type: String, trim: true },
+  contactName: { type: String, trim: true }
 }, { timestamps: true });
 
 orderSchema.index({ status: 1, createdAt: -1 });

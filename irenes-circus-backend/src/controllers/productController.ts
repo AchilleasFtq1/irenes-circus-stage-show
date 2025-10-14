@@ -5,10 +5,17 @@ import logger from '../config/logger';
 
 export const getProducts = async (req: Request, res: Response): Promise<void> => {
   try {
-    const active = req.query.active;
+    const { active, category, q, sort } = req.query as any;
     const filter: any = {};
     if (active !== undefined) filter.active = active === 'true';
-    const products = await Product.find(filter).sort({ createdAt: -1 });
+    if (category) filter.category = category;
+    if (q) filter.$text = { $search: String(q) };
+    let query = Product.find(filter);
+    // Sorting: priceAsc, priceDesc, newest
+    if (sort === 'priceAsc') query = query.sort({ priceCents: 1 });
+    else if (sort === 'priceDesc') query = query.sort({ priceCents: -1 });
+    else query = query.sort({ createdAt: -1 });
+    const products = await query.exec();
     res.json(products);
   } catch (error: any) {
     logger.error('Error fetching products:', error);

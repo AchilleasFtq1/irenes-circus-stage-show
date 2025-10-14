@@ -31,6 +31,8 @@ import GalleryEdit from '@/pages/admin/GalleryEdit';
 import AdminTracks from '@/pages/admin/Tracks';
 import AdminOrders from '@/pages/admin/Orders';
 import AdminProducts from '@/pages/admin/Products';
+import AdminPromotions from '@/pages/admin/Promotions';
+import AdminGiftCards from '@/pages/admin/GiftCards';
 // Removed band members admin pages
 
 const App = () => {
@@ -80,6 +82,16 @@ const App = () => {
             <Route path="products" element={
               <ProtectedRoute requireAdmin={true}>
                 <AdminProducts />
+              </ProtectedRoute>
+            } />
+            <Route path="promotions" element={
+              <ProtectedRoute requireAdmin={true}>
+                <AdminPromotions />
+              </ProtectedRoute>
+            } />
+            <Route path="gift-cards" element={
+              <ProtectedRoute requireAdmin={true}>
+                <AdminGiftCards />
               </ProtectedRoute>
             } />
             <Route path="orders" element={

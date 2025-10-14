@@ -19,7 +19,8 @@ const AdminProducts = () => {
     slug: '',
     inventoryCount: 0,
     active: true,
-    images: [] as Array<{ url: string; alt?: string }>
+    images: [] as Array<{ url: string; alt?: string }>,
+    category: ''
   });
   const [imageFiles, setImageFiles] = useState<File[]>([]);
   const [uploading, setUploading] = useState(false);
@@ -96,7 +97,8 @@ const AdminProducts = () => {
       slug: '',
       inventoryCount: 0,
       active: true,
-      images: []
+      images: [],
+      category: ''
     });
     setImageFiles([]);
     setEditingProduct(null);
@@ -114,7 +116,8 @@ const AdminProducts = () => {
       slug: product.slug,
       inventoryCount: product.inventoryCount,
       active: product.active,
-      images: product.images
+      images: product.images,
+      category: product.category || ''
     });
     setEditingProduct(product);
     setShowForm(true);
@@ -208,8 +211,7 @@ const AdminProducts = () => {
                   className="p-2 border rounded"
                 >
                   <option value="EUR">EUR</option>
-                  <option value="USD">USD</option>
-                  <option value="GBP">GBP</option>
+
                 </select>
                 <input
                   type="number"
@@ -243,6 +245,17 @@ const AdminProducts = () => {
                 onChange={(e) => setFormData({ ...formData, inventoryCount: parseInt(e.target.value) || 0 })}
                 className="p-2 border rounded w-full"
                 required
+              />
+            </div>
+            
+            <div>
+              <label className="block text-sm font-semibold mb-1">Category</label>
+              <input
+                type="text"
+                placeholder="e.g. Posters"
+                value={formData.category}
+                onChange={(e) => setFormData({ ...formData, category: e.target.value })}
+                className="p-2 border rounded w-full"
               />
             </div>
             
@@ -316,6 +329,7 @@ const AdminProducts = () => {
                 <th className="text-left p-2">Price</th>
                 <th className="text-left p-2">Inventory</th>
                 <th className="text-left p-2">Status</th>
+                <th className="text-left p-2">Category</th>
                 <th className="text-left p-2">Actions</th>
               </tr>
             </thead>
@@ -340,6 +354,7 @@ const AdminProducts = () => {
                       {product.active ? 'Active' : 'Inactive'}
                     </span>
                   </td>
+                  <td className="p-2">{product.category || '-'}</td>
                   <td className="p-2">
                     <div className="flex gap-2">
                       <Button size="sm" variant="ghost" onClick={() => handleEdit(product)}>

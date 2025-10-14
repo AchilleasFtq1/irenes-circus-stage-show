@@ -3,6 +3,7 @@ import { validationResult } from 'express-validator';
 import Order from '../models/Order';
 import Product from '../models/Product';
 import logger from '../config/logger';
+import { sendOrderFulfilledEmail } from '../utils/mailer';
 
 export const listOrders = async (req: Request, res: Response): Promise<void> => {
   try {
@@ -30,12 +31,11 @@ export const getOrderById = async (req: Request, res: Response): Promise<void> =
 
 export const markFulfilled = async (req: Request, res: Response): Promise<void> => {
   try {
-    const order = await Order.findByIdAndUpdate(
-      req.params.id,
-      { status: 'fulfilled' },
-      { new: true }
-    );
+    const updates: any = { status: 'fulfilled' };
+    if (req.body.trackingNumber) updates.trackingNumber = req.body.trackingNumber;
+    const order = await Order.findByIdAndUpdate(req.params.id, updates, { new: true });
     if (!order) { res.status(404).json({ message: 'Order not found' }); return; }
+  try { await sendOrderFulfilledEmail(order); } catch {}
     res.json(order);
   } catch (error: any) {
     logger.error('Error marking order fulfilled:', error);

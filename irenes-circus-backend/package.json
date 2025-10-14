@@ -31,6 +31,7 @@
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.19.1",
     "multer": "^2.0.2",
+    "nodemailer": "^6.9.14",
     "react-hook-form": "^7.65.0",
     "stripe": "^14.25.0",
     "ts-node": "^10.9.2",
@@ -42,6 +43,7 @@
     "@types/express": "^5.0.3",
     "@types/jsonwebtoken": "^9.0.10",
     "@types/multer": "^2.0.0",
-    "@types/node": "^24.7.2"
+    "@types/node": "^24.7.2",
+    "@types/nodemailer": "^7.0.2"
   }
 }

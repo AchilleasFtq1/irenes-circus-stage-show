@@ -195,6 +195,43 @@ const migrations: Migration[] = [
         console.log('IsSoldOut index already exists');
       }
     }
+  },
+  {
+    name: '006_add_category_and_indexes',
+    up: async () => {
+      const db = mongoose.connection.db;
+      if (!db) throw new Error('Database connection not established');
+      const products = db.collection('products');
+      try { await products.updateMany({ category: { $exists: false } }, { $set: { category: '' } }); } catch {}
+      try { await products.createIndex({ category: 1 }); console.log('Created category index'); }
+      catch (err: any) { if (err.code !== 85) throw err; console.log('Category index already exists'); }
+    }
+  },
+  {
+    name: '007_create_promotions_and_giftcards',
+    up: async () => {
+      const db = mongoose.connection.db;
+      if (!db) throw new Error('Database connection not established');
+      for (const name of ['promotions','giftcards']) {
+        const exists = await db.listCollections({ name }).hasNext();
+        if (!exists) { await db.createCollection(name); console.log(`Created collection: ${name}`); }
+      }
+      const gift = db.collection('giftcards');
+      try { await gift.createIndex({ code: 1 }, { unique: true }); } catch (e: any) { if (e.code !== 85) throw e; }
+    }
+  },
+  {
+    name: '008_update_orders_tracking_and_giftcard_fields',
+    up: async () => {
+      const db = mongoose.connection.db;
+      if (!db) throw new Error('Database connection not established');
+      const orders = db.collection('orders');
+      await orders.updateMany({ trackingNumber: { $exists: false } }, { $set: { trackingNumber: '' } });
+      await orders.updateMany({ giftCardCode: { $exists: false } }, { $set: { giftCardCode: '' } });
+      await orders.updateMany({ giftCardAppliedCents: { $exists: false } }, { $set: { giftCardAppliedCents: 0 } });
+      await orders.updateMany({ contactEmail: { $exists: false } }, { $set: { contactEmail: '' } });
+      await orders.updateMany({ contactName: { $exists: false } }, { $set: { contactName: '' } });
+    }
   }
 ];
 

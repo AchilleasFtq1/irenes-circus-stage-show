@@ -11,6 +11,8 @@ import productRoutes from './productRoutes';
 import orderRoutes from './orderRoutes';
 import paymentRoutes from './paymentRoutes';
 import paypalRoutes from './paypalRoutes';
+import promotionRoutes from './promotionRoutes';
+import giftCardRoutes from './giftCardRoutes';
 import logger from '../config/logger';
 
 const router = express.Router();
@@ -50,5 +52,7 @@ router.use('/products', productRoutes);
 router.use('/orders', orderRoutes);
 router.use('/payments', paymentRoutes);
 router.use('/paypal', paypalRoutes);
+router.use('/promotions', promotionRoutes);
+router.use('/gift-cards', giftCardRoutes);
 
 export default router; 

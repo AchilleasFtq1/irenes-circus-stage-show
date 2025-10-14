@@ -242,9 +242,27 @@ export const ordersAPI = {
 
 // Checkout APIs
 export const checkoutAPI = {
-  stripeCreateSession: (params: { items: Array<{ productId: string; quantity: number }>; currency?: string; successUrl: string; cancelUrl: string; collectShipping?: boolean }) =>
+  stripeCreateSession: (params: { items: Array<{ productId: string; quantity: number; variantIndex?: number | null }>; currency?: string; successUrl: string; cancelUrl: string; collectShipping?: boolean; shippingCountry?: string; promoCode?: string; giftCardCode?: string; contact?: { email?: string; name?: string } }) =>
     fetchAPI<{ url: string; id: string }>(`/payments/checkout/session`, { method: 'POST', body: JSON.stringify(params) }),
-  paypalCreateOrder: (params: { items: Array<{ productId: string; quantity: number }>; currency?: string; returnUrl: string; cancelUrl: string; collectShipping?: boolean }) =>
+  paypalCreateOrder: (params: { items: Array<{ productId: string; quantity: number; variantIndex?: number | null }>; currency?: string; returnUrl: string; cancelUrl: string; collectShipping?: boolean; shippingCountry?: string; promoCode?: string; giftCardCode?: string; contact?: { email?: string; name?: string } }) =>
     fetchAPI<{ url: string; id: string }>(`/paypal/order`, { method: 'POST', body: JSON.stringify(params) }),
   paypalCaptureOrder: (paypalOrderId: string) => fetchAPI<{ status: string }>(`/paypal/order/${paypalOrderId}/capture`, { method: 'POST' })
+};
+
+// Promotions API
+export const promotionsAPI = {
+  list: () => fetchAPI<any[]>('/promotions'),
+  create: (data: any) => fetchAPI<any>('/promotions', { method: 'POST', body: JSON.stringify(data) }),
+  update: (id: string, data: any) => fetchAPI<any>(`/promotions/${id}`, { method: 'PUT', body: JSON.stringify(data) }),
+  delete: (id: string) => fetchAPI<{ message: string }>(`/promotions/${id}`, { method: 'DELETE' }),
+  validate: (code: string) => fetchAPI<{ valid: boolean; promotion?: any; message?: string }>(`/promotions/validate`, { method: 'POST', body: JSON.stringify({ code }) })
+};
+
+// Gift Cards API
+export const giftCardsAPI = {
+  list: () => fetchAPI<any[]>('/gift-cards'),
+  create: (amountCents: number, expiresAt?: string) => fetchAPI<any>('/gift-cards', { method: 'POST', body: JSON.stringify({ amountCents, expiresAt }) }),
+  update: (id: string, data: any) => fetchAPI<any>(`/gift-cards/${id}`, { method: 'PUT', body: JSON.stringify(data) }),
+  delete: (id: string) => fetchAPI<{ message: string }>(`/gift-cards/${id}`, { method: 'DELETE' }),
+  validate: (code: string) => fetchAPI<{ valid: boolean; balanceCents?: number; message?: string }>(`/gift-cards/validate`, { method: 'POST', body: JSON.stringify({ code }) })
 };

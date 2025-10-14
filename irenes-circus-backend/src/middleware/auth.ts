@@ -116,3 +116,23 @@ export const requireEditor = async (req: Request, res: Response, next: NextFunct
     res.status(500).json({ message: 'Internal server error' });
   }
 };
+
+// Optional auth: attaches user if token present and valid; never errors
+export const optionalAuthenticateToken = async (req: Request, _res: Response, next: NextFunction): Promise<void> => {
+  try {
+    const authHeader = req.headers.authorization;
+    const token = authHeader && authHeader.split(' ')[1];
+    if (!token) { next(); return; }
+    const secret = process.env.JWT_SECRET || 'your-super-secret-jwt-key-change-in-production';
+    const payload: any = jwt.verify(token, secret);
+    const user = await User.findById(payload.userId);
+    if (user) {
+      req.userId = user._id.toString();
+      req.user = user;
+    }
+  } catch (e) {
+    // ignore
+  } finally {
+    next();
+  }
+};

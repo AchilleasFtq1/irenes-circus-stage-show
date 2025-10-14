@@ -58,6 +58,8 @@ const AdminLayout = () => {
             <NavItem to="/admin/gallery" icon={Image} label="Gallery" />
             <NavItem to="/admin/messages" icon={MessageSquare} label="Contact Messages" />
             <NavItem to="/admin/products" icon={Package} label="Products" />
+            <NavItem to="/admin/promotions" icon={Package} label="Promotions" />
+            <NavItem to="/admin/gift-cards" icon={Package} label="Gift Cards" />
             <NavItem to="/admin/orders" icon={ShoppingCart} label="Orders" />
           </div>
 

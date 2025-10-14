@@ -11,17 +11,27 @@ const fmt = (cents: number, cur: string) => new Intl.NumberFormat(undefined, { s
 const Checkout = () => {
   const { items, totalCents, clear, updateQuantity, remove } = useCart();
   const currency = items[0]?.product.currency || 'EUR';
+  const [country, setCountry] = useState('GR');
+  const [promoCode, setPromoCode] = useState('');
+  const [giftCardCode, setGiftCardCode] = useState('');
+  const [contactName, setContactName] = useState('');
+  const [contactEmail, setContactEmail] = useState('');
+  const [step, setStep] = useState<'contact' | 'shipping' | 'payment' | 'review'>('contact');
 
   const [loading, setLoading] = useState<'stripe' | 'paypal' | null>(null);
 
   const stripeCheckout = async () => {
     setLoading('stripe');
     const { url } = await checkoutAPI.stripeCreateSession({
-      items: items.map(i => ({ productId: i.product._id, quantity: i.quantity })),
+      items: items.map(i => ({ productId: i.product._id, quantity: i.quantity, variantIndex: (i as any).variantIndex ?? null })),
       currency,
       successUrl: `${window.location.origin}/shop/success`,
       cancelUrl: `${window.location.origin}/shop/cancel`,
-      collectShipping: true
+      collectShipping: true,
+      shippingCountry: country,
+      promoCode: promoCode || undefined,
+      giftCardCode: giftCardCode || undefined,
+      contact: { name: contactName || undefined, email: contactEmail || undefined }
     });
     window.location.href = url;
   };
@@ -29,11 +39,15 @@ const Checkout = () => {
   const paypalCheckout = async () => {
     setLoading('paypal');
     const { url } = await checkoutAPI.paypalCreateOrder({
-      items: items.map(i => ({ productId: i.product._id, quantity: i.quantity })),
+      items: items.map(i => ({ productId: i.product._id, quantity: i.quantity, variantIndex: (i as any).variantIndex ?? null })),
       currency,
       returnUrl: `${window.location.origin}/shop/success`,
       cancelUrl: `${window.location.origin}/shop/cancel`,
-      collectShipping: true
+      collectShipping: true,
+      shippingCountry: country,
+      promoCode: promoCode || undefined,
+      giftCardCode: giftCardCode || undefined,
+      contact: { name: contactName || undefined, email: contactEmail || undefined }
     });
     window.location.href = url;
   };
@@ -48,6 +62,42 @@ const Checkout = () => {
         ) : (
           <div className="grid md:grid-cols-3 gap-6">
             <div className="md:col-span-2 bg-white/80 p-4 rounded shadow">
+              <div className="mb-4 flex gap-2">
+                {(['contact','shipping','payment','review'] as const).map(s => (
+                  <button key={s} className={`px-3 py-1 rounded ${step===s?'bg-circus-gold text-black':'bg-gray-100 text-gray-700'}`} onClick={() => setStep(s)}>{s}</button>
+                ))}
+              </div>
+
+              {step === 'contact' && (
+                <div className="grid md:grid-cols-2 gap-4 mb-4">
+                  <div>
+                    <label className="block text-sm mb-1">Name</label>
+                    <input value={contactName} onChange={e => setContactName(e.target.value)} className="border rounded p-2 w-full text-black" />
+                  </div>
+                  <div>
+                    <label className="block text-sm mb-1">Email</label>
+                    <input type="email" value={contactEmail} onChange={e => setContactEmail(e.target.value)} className="border rounded p-2 w-full text-black" />
+                  </div>
+                </div>
+              )}
+
+              {step === 'shipping' && (
+                <div className="mb-4">
+                  <label className="block text-sm mb-1">Shipping Country</label>
+                  <select value={country} onChange={e => setCountry(e.target.value)} className="w-full border rounded p-2 text-black">
+                    {['GR','DE','FR','IT','ES','IE','NL','BE','SE','NO','DK','FI','AT','CH','LU','PT','GB','PL','CZ','HR','US'].map(c => (
+                      <option key={c} value={c}>{c}</option>
+                    ))}
+                  </select>
+                </div>
+              )}
+
+              {step === 'review' && (
+                <div className="mb-4 text-sm text-gray-700">
+                  <div>Contact: {contactName || '-'} / {contactEmail || '-'}</div>
+                  <div>Shipping: {country}</div>
+                </div>
+              )}
               {items.map(i => (
                 <div key={i.product._id} className="flex items-center gap-4 py-3 border-b">
                   <img src={i.product.images[0]?.url || '/images/placeholder.png'} alt={i.product.title} className="w-16 h-16 object-cover rounded" />
@@ -84,7 +134,23 @@ const Checkout = () => {
                 <span className="font-alt">Subtotal</span>
                 <span className="font-bold">{fmt(totalCents, currency)}</span>
               </div>
-              <div className="text-sm text-gray-500 mb-4">Taxes and shipping calculated at checkout.</div>
+              <div className="text-sm text-gray-500 mb-4">Taxes and shipping calculated based on your country.</div>
+              {step !== 'payment' && (
+                <div className="mb-2">
+                  <label className="block text-sm mb-1">Discount code</label>
+                  <input value={promoCode} onChange={e => setPromoCode(e.target.value)} placeholder="Enter code" className="w-full border rounded p-2 text-black" />
+                </div>
+              )}
+              {step !== 'payment' && (
+                <div className="mb-4">
+                  <label className="block text-sm mb-1">Gift card</label>
+                  <input value={giftCardCode} onChange={e => setGiftCardCode(e.target.value)} placeholder="Enter gift card code" className="w-full border rounded p-2 text-black" />
+                </div>
+              )}
+              <div className="mb-4">
+                <label className="block text-sm mb-1">Discount code</label>
+                <input value={promoCode} onChange={e => setPromoCode(e.target.value)} placeholder="Enter code" className="w-full border rounded p-2 text-black" />
+              </div>
               <div className="flex flex-col gap-2">
                 <Button onClick={stripeCheckout} variant="stripe" size="lg" aria-label="Pay with Stripe" disabled={loading !== null}>
                   {loading === 'stripe' ? <Loader2 className="animate-spin" /> : <CreditCard />}

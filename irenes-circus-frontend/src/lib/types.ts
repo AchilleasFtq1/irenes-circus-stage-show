@@ -69,6 +69,10 @@ export interface IProductImage {
 export interface IProductVariant {
   name: string;
   value: string;
+  priceCents?: number;
+  sku?: string;
+  inventoryCount?: number;
+  imageUrl?: string;
 }
 
 export interface IProduct {
@@ -83,6 +87,7 @@ export interface IProduct {
   inventoryCount: number;
   active: boolean;
   variants?: IProductVariant[];
+  category?: string;
 }
 
 export interface IOrderItem {
@@ -118,4 +123,5 @@ export interface IOrder {
   status: OrderStatus;
   shippingAddress?: IShippingAddress;
   createdAt?: string;
+  trackingNumber?: string;
 }
