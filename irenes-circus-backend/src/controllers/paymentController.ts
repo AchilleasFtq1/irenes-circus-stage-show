@@ -23,7 +23,19 @@ export const createCheckoutSession = async (req: Request, res: Response): Promis
       shippingCountry?: string;
       promoCode?: string;
       giftCardCode?: string;
-      contact?: { email?: string; name?: string };
+      contact?: { 
+        email?: string; 
+        name?: string; 
+        phone?: string; 
+        address?: { 
+          line1: string; 
+          line2?: string; 
+          city: string; 
+          state?: string; 
+          postal_code: string; 
+          country: string; 
+        };
+      };
     };
 
     if (!process.env.STRIPE_SECRET_KEY) { res.status(500).json({ message: 'Stripe is not configured' }); return; }
@@ -90,7 +102,18 @@ export const createCheckoutSession = async (req: Request, res: Response): Promis
       giftCardCode: giftCardCode ? String(giftCardCode).toUpperCase() : undefined,
       giftCardAppliedCents: giftCardAppliedCents,
       contactEmail: contact?.email,
-      contactName: contact?.name
+      contactName: contact?.name,
+      shippingAddress: contact?.address ? {
+        name: contact.name || '',
+        email: contact.email || '',
+        phone: contact.phone,
+        line1: contact.address.line1,
+        line2: contact.address.line2,
+        city: contact.address.city,
+        state: contact.address.state,
+        postalCode: contact.address.postal_code,
+        country: contact.address.country
+      } : undefined
     });
 
     // Build Stripe line items

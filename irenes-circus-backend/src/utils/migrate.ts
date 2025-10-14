@@ -232,6 +232,27 @@ const migrations: Migration[] = [
       await orders.updateMany({ contactEmail: { $exists: false } }, { $set: { contactEmail: '' } });
       await orders.updateMany({ contactName: { $exists: false } }, { $set: { contactName: '' } });
     }
+  },
+  {
+    name: '009_add_phone_to_shipping_address',
+    up: async () => {
+      const db = mongoose.connection.db;
+      if (!db) throw new Error('Database connection not established');
+      const orders = db.collection('orders');
+      
+      // Update all orders that have shippingAddress but no phone
+      const result = await orders.updateMany(
+        { 
+          shippingAddress: { $exists: true },
+          'shippingAddress.phone': { $exists: false }
+        },
+        { 
+          $set: { 'shippingAddress.phone': null }
+        }
+      );
+      
+      console.log(`Updated ${result.modifiedCount} orders with phone field in shippingAddress`);
+    }
   }
 ];
 

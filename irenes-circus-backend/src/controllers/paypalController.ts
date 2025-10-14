@@ -32,7 +32,19 @@ export const createPayPalOrder = async (req: Request, res: Response): Promise<vo
       shippingCountry?: string;
       promoCode?: string;
       giftCardCode?: string;
-      contact?: { email?: string; name?: string };
+      contact?: { 
+        email?: string; 
+        name?: string; 
+        phone?: string; 
+        address?: { 
+          line1: string; 
+          line2?: string; 
+          city: string; 
+          state?: string; 
+          postal_code: string; 
+          country: string; 
+        };
+      };
     };
 
     if (!process.env.PAYPAL_CLIENT_ID || !process.env.PAYPAL_CLIENT_SECRET) {
@@ -98,7 +110,18 @@ export const createPayPalOrder = async (req: Request, res: Response): Promise<vo
       giftCardCode: giftCardCode ? String(giftCardCode).toUpperCase() : undefined,
       giftCardAppliedCents: giftCardAppliedCents,
       contactEmail: contact?.email,
-      contactName: contact?.name
+      contactName: contact?.name,
+      shippingAddress: contact?.address ? {
+        name: contact.name || '',
+        email: contact.email || '',
+        phone: contact.phone,
+        line1: contact.address.line1,
+        line2: contact.address.line2,
+        city: contact.address.city,
+        state: contact.address.state,
+        postalCode: contact.address.postal_code,
+        country: contact.address.country
+      } : undefined
     });
 
     const client = getPayPalClient();

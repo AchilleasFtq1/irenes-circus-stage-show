@@ -502,8 +502,8 @@ const Checkout = () => {
                   <div className="flex justify-between font-semibold">
                     <span>Total</span>
                     <span>{fmt(totalCents, currency)}</span>
-                  </div>
-                </div>
+            </div>
+              </div>
               </div>
             </div>
           </div>

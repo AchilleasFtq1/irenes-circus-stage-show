@@ -20,6 +20,7 @@ export interface IShippingAddress {
   postalCode: string;
   country: string; // ISO country code
   email: string;
+  phone?: string;
 }
 
 export interface IOrder {
@@ -64,7 +65,8 @@ const shippingAddressSchema = new mongoose.Schema<IShippingAddress>({
   state: { type: String, trim: true },
   postalCode: { type: String, required: true, trim: true },
   country: { type: String, required: true, trim: true },
-  email: { type: String, required: true, trim: true }
+  email: { type: String, required: true, trim: true },
+  phone: { type: String, trim: true }
 }, { _id: false });
 
 const orderSchema = new mongoose.Schema<IOrder>({
