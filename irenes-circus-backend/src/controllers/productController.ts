@@ -83,7 +83,7 @@ export const deleteProduct = async (req: Request, res: Response): Promise<void> 
 
 export const getCategories = async (req: Request, res: Response): Promise<void> => {
   try {
-    const categories = await Product.distinct('category', { active: true, category: { $ne: null, $ne: '' } });
+    const categories = await Product.distinct('category', { active: true, category: { $ne: null, $nin: ['', null] } });
     res.json(categories.sort());
   } catch (error: any) {
     logger.error('Error fetching categories:', error);
