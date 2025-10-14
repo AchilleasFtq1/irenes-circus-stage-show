@@ -40,6 +40,9 @@ export interface IOrder {
   trackingNumber?: string;
   contactEmail?: string;
   contactName?: string;
+  // Accounting
+  exportedAt?: Date;
+  exportBatchId?: string;
   createdAt?: Date;
   updatedAt?: Date;
 }
@@ -80,7 +83,9 @@ const orderSchema = new mongoose.Schema<IOrder>({
   giftCardAppliedCents: { type: Number, min: 0 },
   trackingNumber: { type: String, trim: true },
   contactEmail: { type: String, trim: true },
-  contactName: { type: String, trim: true }
+  contactName: { type: String, trim: true },
+  exportedAt: { type: Date },
+  exportBatchId: { type: String, trim: true }
 }, { timestamps: true });
 
 orderSchema.index({ status: 1, createdAt: -1 });

@@ -2,6 +2,7 @@ import express from 'express';
 import { body, param } from 'express-validator';
 import { authenticateToken, requireAdmin } from '../middleware/auth';
 import { listOrders, getOrderById, markFulfilled, createDraftOrder } from '../controllers/orderController';
+import { exportOrdersCsv, markExported } from '../controllers/orderExportController';
 
 const router = express.Router();
 
@@ -12,6 +13,8 @@ router.get('/track/:id', getOrderById);
 router.get('/', authenticateToken, requireAdmin, listOrders);
 router.get('/:id', authenticateToken, requireAdmin, getOrderById);
 router.put('/:id/fulfill', authenticateToken, requireAdmin, markFulfilled);
+router.get('/export/csv', authenticateToken, requireAdmin, exportOrdersCsv);
+router.post('/export/mark', authenticateToken, requireAdmin, markExported);
 router.put('/:id/fulfill', authenticateToken, requireAdmin, param('id').isString(), markFulfilled);
 
 // Public create draft order (prior to payment)

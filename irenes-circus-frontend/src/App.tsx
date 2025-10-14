@@ -33,6 +33,7 @@ import AdminOrders from '@/pages/admin/Orders';
 import AdminProducts from '@/pages/admin/Products';
 import AdminPromotions from '@/pages/admin/Promotions';
 import AdminGiftCards from '@/pages/admin/GiftCards';
+import AdminAccounting from '@/pages/admin/Accounting';
 // Removed band members admin pages
 
 const App = () => {
@@ -92,6 +93,11 @@ const App = () => {
             <Route path="gift-cards" element={
               <ProtectedRoute requireAdmin={true}>
                 <AdminGiftCards />
+              </ProtectedRoute>
+            } />
+            <Route path="accounting" element={
+              <ProtectedRoute requireAdmin={true}>
+                <AdminAccounting />
               </ProtectedRoute>
             } />
             <Route path="orders" element={

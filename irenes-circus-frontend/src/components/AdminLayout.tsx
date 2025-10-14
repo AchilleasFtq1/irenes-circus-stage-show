@@ -60,6 +60,7 @@ const AdminLayout = () => {
             <NavItem to="/admin/products" icon={Package} label="Products" />
             <NavItem to="/admin/promotions" icon={Package} label="Promotions" />
             <NavItem to="/admin/gift-cards" icon={Package} label="Gift Cards" />
+            <NavItem to="/admin/accounting" icon={Package} label="Accounting" />
             <NavItem to="/admin/orders" icon={ShoppingCart} label="Orders" />
           </div>
 
