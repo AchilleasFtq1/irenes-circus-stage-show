@@ -242,9 +242,9 @@ export const ordersAPI = {
 
 // Checkout APIs
 export const checkoutAPI = {
-  stripeCreateSession: (params: { items: Array<{ productId: string; quantity: number; variantIndex?: number | null }>; currency?: string; successUrl: string; cancelUrl: string; collectShipping?: boolean; shippingCountry?: string; promoCode?: string; giftCardCode?: string; contact?: { email?: string; name?: string } }) =>
+  stripeCreateSession: (params: { items: Array<{ productId: string; quantity: number; variantIndex?: number | null }>; currency?: string; successUrl: string; cancelUrl: string; collectShipping?: boolean; shippingCountry?: string; promoCode?: string; giftCardCode?: string; contact?: { email?: string; name?: string; phone?: string; address?: { line1: string; line2?: string; city: string; state?: string; postal_code: string; country: string } } }) =>
     fetchAPI<{ url: string; id: string }>(`/payments/checkout/session`, { method: 'POST', body: JSON.stringify(params) }),
-  paypalCreateOrder: (params: { items: Array<{ productId: string; quantity: number; variantIndex?: number | null }>; currency?: string; returnUrl: string; cancelUrl: string; collectShipping?: boolean; shippingCountry?: string; promoCode?: string; giftCardCode?: string; contact?: { email?: string; name?: string } }) =>
+  paypalCreateOrder: (params: { items: Array<{ productId: string; quantity: number; variantIndex?: number | null }>; currency?: string; returnUrl: string; cancelUrl: string; collectShipping?: boolean; shippingCountry?: string; promoCode?: string; giftCardCode?: string; contact?: { email?: string; name?: string; phone?: string; address?: { line1: string; line2?: string; city: string; state?: string; postal_code: string; country: string } } }) =>
     fetchAPI<{ url: string; id: string }>(`/paypal/order`, { method: 'POST', body: JSON.stringify(params) }),
   paypalCaptureOrder: (paypalOrderId: string) => fetchAPI<{ status: string }>(`/paypal/order/${paypalOrderId}/capture`, { method: 'POST' })
 };
