@@ -155,7 +155,7 @@ const Checkout = () => {
         {items.length === 0 ? (
           <div className="text-center py-12">
             <ShoppingBag className="w-16 h-16 mx-auto text-gray-400 mb-4" />
-            <h2 className="text-2xl font-semibold mb-2">Your cart is empty</h2>
+            <h2 className="text-2xl font-semibold text-gray-900 mb-2">Your cart is empty</h2>
             <p className="text-gray-600 mb-4">Add some items to get started</p>
             <Button onClick={() => window.location.href = '/shop'} className="bg-circus-gold text-black hover:bg-circus-gold/90">
               Continue Shopping
@@ -169,7 +169,7 @@ const Checkout = () => {
                 {/* Step 1: Information */}
                 {step === 1 && (
                   <>
-                    <h2 className="text-2xl font-semibold mb-6">Contact Information</h2>
+                    <h2 className="text-2xl font-semibold text-gray-900 mb-6">Contact Information</h2>
                     
                     <div className="space-y-4">
                       <div className="grid md:grid-cols-2 gap-4">
@@ -206,7 +206,7 @@ const Checkout = () => {
                         />
                       </div>
 
-                      <h3 className="text-lg font-semibold mt-6 mb-4">Shipping Address</h3>
+                      <h3 className="text-lg font-semibold text-gray-900 mt-6 mb-4">Shipping Address</h3>
                       
                       <div>
                         <label className="block text-sm font-medium text-gray-700 mb-2">Address Line 1 *</label>
@@ -312,26 +312,26 @@ const Checkout = () => {
                 {/* Step 2: Shipping */}
                 {step === 2 && (
                   <>
-                    <h2 className="text-2xl font-semibold mb-6">Shipping Method</h2>
+                    <h2 className="text-2xl font-semibold text-gray-900 mb-6">Shipping Method</h2>
                     
                     <div className="space-y-3">
                       <div className="border rounded-lg p-4 cursor-pointer hover:border-circus-gold transition-colors">
                         <div className="flex items-center justify-between">
                           <div>
-                            <h4 className="font-medium">Standard Shipping</h4>
+                            <h4 className="font-medium text-gray-900">Standard Shipping</h4>
                             <p className="text-sm text-gray-600">5-7 business days</p>
                           </div>
-                          <span className="font-medium">€5.00</span>
+                          <span className="font-medium text-gray-900">€5.00</span>
                         </div>
                       </div>
                       
                       <div className="border rounded-lg p-4 cursor-pointer hover:border-circus-gold transition-colors">
                         <div className="flex items-center justify-between">
                           <div>
-                            <h4 className="font-medium">Express Shipping</h4>
+                            <h4 className="font-medium text-gray-900">Express Shipping</h4>
                             <p className="text-sm text-gray-600">2-3 business days</p>
                           </div>
-                          <span className="font-medium">€15.00</span>
+                          <span className="font-medium text-gray-900">€15.00</span>
                         </div>
                       </div>
                     </div>
@@ -354,12 +354,12 @@ const Checkout = () => {
                 {/* Step 3: Payment */}
                 {step === 3 && (
                   <>
-                    <h2 className="text-2xl font-semibold mb-6">Payment</h2>
+                    <h2 className="text-2xl font-semibold text-gray-900 mb-6">Payment</h2>
                     
                     <div className="bg-gray-50 p-4 rounded-lg mb-6">
-                      <h3 className="font-medium mb-3">Billing Address</h3>
+                      <h3 className="font-medium text-gray-900 mb-3">Billing Address</h3>
                       <p className="text-sm text-gray-600">Same as shipping address</p>
-                      <div className="mt-2 text-sm">
+                      <div className="mt-2 text-sm text-gray-700">
                         <p>{contactName}</p>
                         <p>{addressLine1} {addressLine2}</p>
                         <p>{city}, {state} {postalCode}</p>
@@ -422,7 +422,15 @@ const Checkout = () => {
                       />
                       <div className="flex-1">
                         <p className="text-sm font-medium text-gray-900">{i.product.title}</p>
-                        <p className="text-xs text-gray-600">Qty: {i.quantity}</p>
+                        <div className="flex items-center gap-2 mt-1">
+                          <p className="text-xs text-gray-600">Qty: {i.quantity}</p>
+                          <button 
+                            onClick={() => remove(i.product._id)}
+                            className="text-xs text-red-600 hover:text-red-800 underline"
+                      >
+                        Remove
+                      </button>
+                        </div>
                       </div>
                       <span className="text-sm font-medium text-gray-900">
                         {fmt(i.product.priceCents * i.quantity, i.product.currency)}
@@ -502,8 +510,8 @@ const Checkout = () => {
                   <div className="flex justify-between font-semibold text-gray-900">
                     <span>Total</span>
                     <span>{fmt(totalCents, currency)}</span>
-                  </div>
-                </div>
+            </div>
+              </div>
               </div>
             </div>
           </div>
