@@ -174,34 +174,34 @@ const Checkout = () => {
                     <div className="space-y-4">
                       <div className="grid md:grid-cols-2 gap-4">
                         <div>
-                          <label className="block text-sm font-medium mb-2">Full Name *</label>
+                          <label className="block text-sm font-medium text-gray-700 mb-2">Full Name *</label>
                           <input 
                             type="text"
                             value={contactName} 
                             onChange={e => setContactName(e.target.value)} 
-                            className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-circus-gold focus:border-transparent" 
+                            className="w-full border border-gray-300 rounded-md px-3 py-2 text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-circus-gold focus:border-transparent" 
                             placeholder="John Doe"
                           />
                         </div>
                         <div>
-                          <label className="block text-sm font-medium mb-2">Email Address *</label>
+                          <label className="block text-sm font-medium text-gray-700 mb-2">Email Address *</label>
                           <input 
                             type="email" 
                             value={contactEmail} 
                             onChange={e => setContactEmail(e.target.value)} 
-                            className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-circus-gold focus:border-transparent" 
+                            className="w-full border border-gray-300 rounded-md px-3 py-2 text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-circus-gold focus:border-transparent" 
                             placeholder="john@example.com"
                           />
                         </div>
                       </div>
                       
                       <div>
-                        <label className="block text-sm font-medium mb-2">Phone Number *</label>
+                        <label className="block text-sm font-medium text-gray-700 mb-2">Phone Number *</label>
                         <input 
                           type="tel"
                           value={phone} 
                           onChange={e => setPhone(e.target.value)} 
-                          className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-circus-gold focus:border-transparent" 
+                          className="w-full border border-gray-300 rounded-md px-3 py-2 text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-circus-gold focus:border-transparent" 
                           placeholder="+30 123 456 7890"
                         />
                       </div>
@@ -209,45 +209,45 @@ const Checkout = () => {
                       <h3 className="text-lg font-semibold mt-6 mb-4">Shipping Address</h3>
                       
                       <div>
-                        <label className="block text-sm font-medium mb-2">Address Line 1 *</label>
+                        <label className="block text-sm font-medium text-gray-700 mb-2">Address Line 1 *</label>
                         <input 
                           type="text"
                           value={addressLine1} 
                           onChange={e => setAddressLine1(e.target.value)} 
-                          className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-circus-gold focus:border-transparent" 
+                          className="w-full border border-gray-300 rounded-md px-3 py-2 text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-circus-gold focus:border-transparent" 
                           placeholder="123 Main Street"
                         />
                       </div>
                       
                       <div>
-                        <label className="block text-sm font-medium mb-2">Address Line 2</label>
+                        <label className="block text-sm font-medium text-gray-700 mb-2">Address Line 2</label>
                         <input 
                           type="text"
                           value={addressLine2} 
                           onChange={e => setAddressLine2(e.target.value)} 
-                          className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-circus-gold focus:border-transparent" 
+                          className="w-full border border-gray-300 rounded-md px-3 py-2 text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-circus-gold focus:border-transparent" 
                           placeholder="Apartment, suite, etc. (optional)"
                         />
                       </div>
                       
                       <div className="grid md:grid-cols-2 gap-4">
                         <div>
-                          <label className="block text-sm font-medium mb-2">City *</label>
+                          <label className="block text-sm font-medium text-gray-700 mb-2">City *</label>
                           <input 
                             type="text"
                             value={city} 
                             onChange={e => setCity(e.target.value)} 
-                            className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-circus-gold focus:border-transparent" 
+                            className="w-full border border-gray-300 rounded-md px-3 py-2 text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-circus-gold focus:border-transparent" 
                             placeholder="Athens"
                           />
                         </div>
                         <div>
-                          <label className="block text-sm font-medium mb-2">State/Province</label>
+                          <label className="block text-sm font-medium text-gray-700 mb-2">State/Province</label>
                           <input 
                             type="text"
                             value={state} 
                             onChange={e => setState(e.target.value)} 
-                            className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-circus-gold focus:border-transparent" 
+                            className="w-full border border-gray-300 rounded-md px-3 py-2 text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-circus-gold focus:border-transparent" 
                             placeholder="Attica"
                           />
                         </div>
@@ -255,21 +255,21 @@ const Checkout = () => {
                       
                       <div className="grid md:grid-cols-2 gap-4">
                         <div>
-                          <label className="block text-sm font-medium mb-2">Postal Code *</label>
+                          <label className="block text-sm font-medium text-gray-700 mb-2">Postal Code *</label>
                           <input 
                             type="text"
                             value={postalCode} 
                             onChange={e => setPostalCode(e.target.value)} 
-                            className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-circus-gold focus:border-transparent" 
+                            className="w-full border border-gray-300 rounded-md px-3 py-2 text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-circus-gold focus:border-transparent" 
                             placeholder="10234"
                           />
                         </div>
                         <div>
-                          <label className="block text-sm font-medium mb-2">Country *</label>
+                          <label className="block text-sm font-medium text-gray-700 mb-2">Country *</label>
                           <select 
                             value={country} 
                             onChange={e => setCountry(e.target.value)} 
-                            className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-circus-gold focus:border-transparent"
+                            className="w-full border border-gray-300 rounded-md px-3 py-2 text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-circus-gold focus:border-transparent"
                           >
                             <option value="GR">Greece</option>
                             <option value="DE">Germany</option>
@@ -451,27 +451,27 @@ const Checkout = () => {
                   <div className="border-t pt-4 mt-4">
                     <div className="space-y-3">
                       <div>
-                        <label className="block text-sm font-medium mb-1">Discount code</label>
+                        <label className="block text-sm font-medium text-gray-700 mb-1">Discount code</label>
                         <div className="flex gap-2">
                           <input 
                             type="text"
                             value={promoCode} 
                             onChange={e => setPromoCode(e.target.value)} 
                             placeholder="Enter code" 
-                            className="flex-1 border border-gray-300 rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-circus-gold focus:border-transparent" 
+                            className="flex-1 border border-gray-300 rounded-md px-3 py-2 text-sm text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-circus-gold focus:border-transparent" 
                           />
                           <Button variant="outline" size="sm">Apply</Button>
                         </div>
                       </div>
                       <div>
-                        <label className="block text-sm font-medium mb-1">Gift card</label>
+                        <label className="block text-sm font-medium text-gray-700 mb-1">Gift card</label>
                         <div className="flex gap-2">
                           <input 
                             type="text"
                             value={giftCardCode} 
                             onChange={e => setGiftCardCode(e.target.value)} 
                             placeholder="Enter gift card code" 
-                            className="flex-1 border border-gray-300 rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-circus-gold focus:border-transparent" 
+                            className="flex-1 border border-gray-300 rounded-md px-3 py-2 text-sm text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-circus-gold focus:border-transparent" 
                           />
                           <Button variant="outline" size="sm">Apply</Button>
                         </div>
