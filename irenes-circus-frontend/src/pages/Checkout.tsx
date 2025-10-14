@@ -406,8 +406,8 @@ const Checkout = () => {
             {/* Order Summary Sidebar */}
             <div className="lg:col-span-1">
               <div className="bg-white rounded-lg shadow-sm p-6 sticky top-4">
-                <h3 className="text-lg font-semibold mb-4 flex items-center">
-                  <ShoppingBag className="w-5 h-5 mr-2" />
+                <h3 className="text-lg font-semibold text-gray-900 mb-4 flex items-center">
+                  <ShoppingBag className="w-5 h-5 mr-2 text-gray-700" />
                   Order Summary
                 </h3>
                 
@@ -421,10 +421,10 @@ const Checkout = () => {
                         className="w-12 h-12 object-cover rounded" 
                       />
                       <div className="flex-1">
-                        <p className="text-sm font-medium">{i.product.title}</p>
+                        <p className="text-sm font-medium text-gray-900">{i.product.title}</p>
                         <p className="text-xs text-gray-600">Qty: {i.quantity}</p>
                       </div>
-                      <span className="text-sm font-medium">
+                      <span className="text-sm font-medium text-gray-900">
                         {fmt(i.product.priceCents * i.quantity, i.product.currency)}
                       </span>
                     </div>
@@ -432,15 +432,15 @@ const Checkout = () => {
                 </div>
                 
                 <div className="border-t pt-4 space-y-2">
-                  <div className="flex justify-between text-sm">
+                  <div className="flex justify-between text-sm text-gray-700">
                     <span>Subtotal</span>
                     <span>{fmt(totalCents, currency)}</span>
                   </div>
-                  <div className="flex justify-between text-sm">
+                  <div className="flex justify-between text-sm text-gray-700">
                     <span>Shipping</span>
                     <span>Calculated at next step</span>
                   </div>
-                  <div className="flex justify-between text-sm">
+                  <div className="flex justify-between text-sm text-gray-700">
                     <span>Tax</span>
                     <span>Calculated at payment</span>
                   </div>
@@ -499,11 +499,11 @@ const Checkout = () => {
                 )}
                 
                 <div className="border-t pt-4 mt-4">
-                  <div className="flex justify-between font-semibold">
+                  <div className="flex justify-between font-semibold text-gray-900">
                     <span>Total</span>
                     <span>{fmt(totalCents, currency)}</span>
-            </div>
-              </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
