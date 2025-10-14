@@ -32,7 +32,7 @@ services:
     region: oregon
     plan: free
     autoDeploy: true
-    buildCommand: cd irenes-circus-backend && npm install --include=dev && npm run build
+    buildCommand: cd irenes-circus-backend && npm ci --include=dev && npm run build
     startCommand: cd irenes-circus-backend && npm start
     healthCheckPath: /api/health
     envVars:
